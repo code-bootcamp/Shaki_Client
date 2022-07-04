@@ -10,7 +10,7 @@ export default function AdminWriteUI() {
           </Ad.LogoWrapper>
           <Ad.OptionWrapper>
             <Ad.OptionNew>가맹점 등록하기</Ad.OptionNew>
-            <Ad.OptionQuestion>문의 답변보내기</Ad.OptionQuestion>
+            <Ad.OptionQuestion>문의 답변 보내기</Ad.OptionQuestion>
           </Ad.OptionWrapper>
         </Ad.HeadWrapper>
 
