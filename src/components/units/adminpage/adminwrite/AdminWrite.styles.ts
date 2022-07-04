@@ -9,26 +9,16 @@ export const WrapperRoot = styled.div`
 export const Wrapper = styled.div`
   width: 50em;
   margin: auto;
-  padding: 50px;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
   background-color: #ffffff;
 `;
-export const HeadWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-export const HeadLogo = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: #999999;
-`;
-export const AdminWrapper = styled.div`
-  width: 100%;
-  margin-left: 20px;
-`;
-export const AdminName = styled.div`
-  font-size: 30px;
+export const HeadWrapper = styled.div``;
+export const LogoWrapper = styled.div``;
+export const Logo = styled.img`
+  width: 150px;
 `;
 export const OptionWrapper = styled.div`
   width: 100%;
@@ -54,25 +44,20 @@ export const OptionQuestion = styled.div`
 `;
 export const BodyWrapper = styled.div`
   width: 100%;
-  /* padding-left: 50px; */
 `;
 export const TitleWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  text-align: center;
   margin-bottom: 20px;
 `;
-export const Label = styled.div`
-  margin-right: 10px;
+export const TitleLabel = styled.div`
+  width: 10%;
+  margin-right: 20px;
   font-size: 20px;
   font-weight: bold;
 `;
 export const Title = styled.input`
-  height: 40px;
-  margin-right: 40px;
-`;
-export const Remark = styled.input`
   width: 100%;
   height: 40px;
 `;
@@ -82,6 +67,12 @@ export const TagsWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+`;
+export const TagsLabel = styled.div`
+  width: 10%;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
 `;
 export const Tags = styled.input`
   width: 60%;
@@ -102,6 +93,12 @@ export const Person = styled.option``;
 export const ContentsWrapper = styled.div`
   width: 100%;
   margin-bottom: 20px;
+`;
+export const ContentsLabel = styled.div`
+  width: 100%;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
 `;
 export const Contents = styled.textarea`
   width: 100%;
@@ -127,6 +124,12 @@ export const AddressDetailWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;
+`;
+export const AddressLabel = styled.div`
+  width: 100%;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
 `;
 export const AddressTitle = styled.div``;
 export const AddressSearchWrapper = styled.div`
