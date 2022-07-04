@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 export const FooterWrapper = styled.div`
-  background-color: #f2f2f2;
+  background-color: white;
+  /* color:white; */
   width: 100%;
   height: 373px;
   display: flex;
@@ -16,12 +17,25 @@ export const FooterInfoWrapper = styled.div`
   width: 40%;
   height: 100%;
 `;
-// 로그이미지div media
-export const LogoDiv = styled.div`
-  width: 10%;
+// 아이콘
+export const TitleIcon = styled.img`
+  width: 90px;
+  height: 90px;
+`;
+
+export const FacebookIcon = styled.img`
+  width: 40px;
   height: 40px;
-  background-color: black;
-  color: white;
+`;
+
+export const InstagramIcon = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+
+export const TwitterIcon = styled.img`
+  width: 40px;
+  height: 40px;
 `;
 
 export const FooterAddressWrapper = styled.div`
@@ -41,17 +55,17 @@ export const FooterInfoLink = styled.div`
 `;
 
 export const InfoLinkTitle = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 800;
+  margin-bottom: 8px;
 `;
 // Business Number
 
 export const ImgDiv = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 40%;
-  background-color: yellow;
+  justify-content: space-between;
+  width:35%;
 `;
 
 export const AddressTitle = styled.div`
