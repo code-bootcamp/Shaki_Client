@@ -22,5 +22,5 @@ export default function ApolloSetting(props: IProps) {
     connectToDevTools: true,
   });
 
-  return <ApolloProvider client={client}>{}</ApolloProvider>;
+  return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }
