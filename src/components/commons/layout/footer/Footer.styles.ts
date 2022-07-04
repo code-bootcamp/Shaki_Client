@@ -59,7 +59,6 @@ export const InfoLinkTitle = styled.div`
   font-weight: 800;
   margin-bottom: 8px;
 `;
-// Business Number
 
 export const ImgDiv = styled.div`
   display: flex;
