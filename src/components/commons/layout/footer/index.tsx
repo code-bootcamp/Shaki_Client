@@ -16,23 +16,23 @@ export default function FooterPage() {
         <Ft.FooterInfoTitle>
           <Ft.TitleIcon src="./logo.png" onClick={onClickLogo} />
           <Ft.InfoLinkTitle>(주)Sixman | 대표자: 이승훈</Ft.InfoLinkTitle>
-          <div>사업자등록번호 : 717-87-02373</div>
+          <Ft.InfoSub>사업자등록번호 : 717-87-02373</Ft.InfoSub>
         </Ft.FooterInfoTitle>
         {/* FooterInfo */}
         <Ft.FooterInfoLink>
           <Ft.InfoLinkTitle>Follows Up</Ft.InfoLinkTitle>
           <Ft.ImgDiv>
-            <Ft.FacebookIcon
+            <Ft.SNSIcon
               src="./icon/Facebook.png"
               onClick={onClickSNS}
               id="facebook"
             />
-            <Ft.FacebookIcon
+            <Ft.SNSIcon
               src="./icon/Instagram.png"
               id="Instagram"
               onClick={onClickSNS}
             />
-            <Ft.TwitterIcon
+            <Ft.SNSIcon
               src="./icon/Twitter.png"
               id="twitter"
               onClick={onClickSNS}
