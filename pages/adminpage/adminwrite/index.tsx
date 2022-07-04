@@ -5,7 +5,8 @@ import AdminWriteUI from "../../../src/components/units/adminpage/adminwrite/Adm
 
 const SideBar = styled.div`
   display: flex;
-  width: 75%;
+  width: 100%;
+  height: 100%;
 `;
 
 export default function AdminWritePage() {

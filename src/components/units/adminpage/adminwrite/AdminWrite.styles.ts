@@ -69,7 +69,7 @@ export const TagsWrapper = styled.div`
   margin-bottom: 40px;
 `;
 export const TagsLabel = styled.div`
-  width: 10%;
+  width: 12%;
   margin-right: 10px;
   font-size: 20px;
   font-weight: bold;

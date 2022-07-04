@@ -1,25 +1,37 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 100px;
+  top: 0;
   padding-top: 20px;
-  background-color: #999999;
+  background-color: #ffffff;
+`;
+export const ImageWrapper = styled.div``;
+export const Image = styled.img`
+  width: 100px;
+  height: 100px;
 `;
 export const HeadWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+`;
+export const HeadTitleWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
 `;
-export const Head = styled.div`
+export const HeadTitle = styled.div`
   font-size: 28px;
-  cursor: pointer;
+  font-weight: bold;
 `;
+
 export const Meuns = styled.div`
   display: flex;
   flex-direction: column;
