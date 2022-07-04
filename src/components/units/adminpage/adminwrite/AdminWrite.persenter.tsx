@@ -4,20 +4,23 @@ export default function AdminWriteUI() {
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
-        <Ad.OptionWrapper>
-          <Ad.OptionNew>가맹점 등록하기</Ad.OptionNew>
-          <Ad.OptionQuestion>문의 답변보내기</Ad.OptionQuestion>
-        </Ad.OptionWrapper>
+        <Ad.HeadWrapper>
+          <Ad.LogoWrapper>
+            <Ad.Logo src="/logo.png" />
+          </Ad.LogoWrapper>
+          <Ad.OptionWrapper>
+            <Ad.OptionNew>가맹점 등록하기</Ad.OptionNew>
+            <Ad.OptionQuestion>문의 답변보내기</Ad.OptionQuestion>
+          </Ad.OptionWrapper>
+        </Ad.HeadWrapper>
 
         <Ad.BodyWrapper>
           <Ad.TitleWrapper>
-            <Ad.Label>Title</Ad.Label>
+            <Ad.TitleLabel>지점명:</Ad.TitleLabel>
             <Ad.Title />
-            <Ad.Label>Remark</Ad.Label>
-            <Ad.Remark />
           </Ad.TitleWrapper>
           <Ad.TagsWrapper>
-            <Ad.Label>Tags</Ad.Label>
+            <Ad.TagsLabel>태그: </Ad.TagsLabel>
             <Ad.Tags />
             <Ad.PersonLabel>인원 수</Ad.PersonLabel>
             <Ad.PersonSelect name="person">
@@ -37,7 +40,7 @@ export default function AdminWriteUI() {
           </Ad.TagsWrapper>
 
           <Ad.ContentsWrapper>
-            <Ad.Label>Contents</Ad.Label>
+            <Ad.ContentsLabel>지점 소개 내용</Ad.ContentsLabel>
             <Ad.Contents />
           </Ad.ContentsWrapper>
 
@@ -46,7 +49,7 @@ export default function AdminWriteUI() {
               <Ad.Map></Ad.Map>
             </Ad.MapWrapper>
             <Ad.AddressDetailWrapper>
-              <Ad.Label>주소 등록</Ad.Label>
+              <Ad.AddressLabel>주소 등록</Ad.AddressLabel>
               <Ad.AddressSearchWrapper>
                 <Ad.AddressCode placeholder="12345" />
                 <Ad.AddressSearchButton>우편번호 검색</Ad.AddressSearchButton>
