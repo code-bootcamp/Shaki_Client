@@ -3,6 +3,7 @@ import * as Su from "./SignUpStyle";
 export default function SignUpPresenter(props: any) {
   return (
     <Su.Wrapper onSubmit={props.handleSubmit()}>
+      <Su.Head>회원가입</Su.Head>
       <Su.Body>
         닉네임
         <Su.BodyInput type="text" {...props.register("name")} />
