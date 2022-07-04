@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -8,6 +9,13 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding-top: 50px;
   padding-bottom: 50px;
+
+  @media ${breakPoints.tablet} {
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const MiddleWrapper = styled.div`
@@ -19,6 +27,9 @@ export const MiddleWrapper = styled.div`
   border: 1px solid black;
   box-shadow: 0 0 10px skyblue;
   padding: 30px 0;
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Head = styled.div`
@@ -53,6 +64,10 @@ export const ImgWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-top: 20px;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const ImgBox = styled.div`
@@ -85,5 +100,13 @@ export const Footer = styled.div`
   margin-top: 20px;
   :hover {
     border-bottom: 1px solid black;
+  }
+`;
+
+export const MobileBox = styled.div`
+  display: none;
+
+  @media ${breakPoints.mobile} {
+    display: block;
   }
 `;
