@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 
 export const WrapperRoot = styled.div`
   width: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
 `;
 
 export const Wrapper = styled.div`
@@ -10,8 +12,8 @@ export const Wrapper = styled.div`
   width: 50em;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
   margin: auto;
+  background-color: white;
 `;
 
 export const TitleWrapper = styled.div`
@@ -39,8 +41,9 @@ export const UserName = styled.label`
 `;
 
 export const RightButton = styled(Button)`
-  width: 50px;
+  width: 80px;
   height: 30px;
+  margin-top: 10px;
 `;
 
 export const List = styled.div`
