@@ -1,13 +1,16 @@
 import styled from "@emotion/styled";
+import Button from "@mui/material/Button";
 
 export const WrapperRoot = styled.div`
   width: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
 `;
 export const Wrapper = styled.div`
   width: 50em;
   margin: auto;
   padding: 50px;
-  border: 1px solid #999999;
+  background-color: #ffffff;
 `;
 export const HeadWrapper = styled.div`
   width: 100%;
@@ -34,6 +37,7 @@ export const OptionWrapper = styled.div`
 `;
 export const OptionNew = styled.div`
   font-size: 24px;
+  font-weight: 700;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -50,11 +54,13 @@ export const OptionQuestion = styled.div`
 `;
 export const BodyWrapper = styled.div`
   width: 100%;
-  padding-left: 50px;
+  /* padding-left: 50px; */
 `;
 export const TitleWrapper = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
+  text-align: center;
   margin-bottom: 20px;
 `;
 export const Label = styled.div`
@@ -74,15 +80,25 @@ export const TagsWrapper = styled.div`
   width: 100%;
   height: 40px;
   display: flex;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-bottom: 40px;
 `;
 export const Tags = styled.input`
-  width: 100%;
+  width: 60%;
   height: 40px;
   margin-right: 20px;
 `;
-export const PersonLabel = styled.div``;
-export const Person = styled.input``;
+export const PersonLabel = styled.div`
+  width: 10%;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+`;
+export const PersonSelect = styled.select`
+  width: 30%;
+  height: 40px;
+`;
+export const Person = styled.option``;
 export const ContentsWrapper = styled.div`
   width: 100%;
   margin-bottom: 20px;
@@ -90,11 +106,12 @@ export const ContentsWrapper = styled.div`
 export const Contents = styled.textarea`
   width: 100%;
   height: 300px;
+  margin-top: 10px;
 `;
 export const AddressWrapper = styled.div`
   width: 100%;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 export const MapWrapper = styled.div`
   width: 60%;
@@ -120,7 +137,9 @@ export const AddressCode = styled.input`
   height: 50px;
   margin-right: 10px;
 `;
-export const AddressSearchButton = styled.button``;
+export const AddressSearchButton = styled.button`
+  cursor: pointer;
+`;
 export const Address = styled.input`
   height: 50px;
 `;
@@ -130,15 +149,16 @@ export const AddressDetail = styled.input`
 export const ImageWrapper = styled.div`
   width: 100%;
   display: flex;
+  margin-bottom: 100px;
 `;
 export const MainWrapper = styled.div`
   width: 50%;
 `;
-export const Main = styled.div`
+export const Main = styled.img`
   width: 300px;
   height: 300px;
-  background-color: red;
   margin-right: 20px;
+  cursor: pointer;
 `;
 export const SubImageWrapper = styled.div`
   width: 50%;
@@ -150,30 +170,31 @@ export const SubImageOne = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-export const SubImage = styled.div`
-  width: 100px;
-  height: 100px;
-  border: 1px solid #000000;
-  background-color: skyblue;
+export const SubImage = styled.img`
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
 `;
 export const SubImageWrappertwo = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-export const SubImagetwo = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
+export const SubImagetwo = styled.img`
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
 `;
-export const Button = styled.div`
+export const Buttons = styled.div`
   width: 100%;
-  margin-top: 40px;
   display: flex;
   justify-content: center;
 `;
-export const SubmitButton = styled.button`
+export const SubmitButton = styled(Button)`
   width: 300px;
   height: 80px;
-  border-radius: 20px;
-  font-size: 30px;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  font-size: 20px;
+  font-family: snas-serif;
+  color: black;
 `;

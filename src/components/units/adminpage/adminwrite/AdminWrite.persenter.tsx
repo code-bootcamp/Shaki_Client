@@ -4,13 +4,6 @@ export default function AdminWriteUI() {
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
-        <Ad.HeadWrapper>
-          <Ad.HeadLogo />
-          <Ad.AdminWrapper>
-            <Ad.AdminName>관리자 이름</Ad.AdminName>
-          </Ad.AdminWrapper>
-        </Ad.HeadWrapper>
-
         <Ad.OptionWrapper>
           <Ad.OptionNew>가맹점 등록하기</Ad.OptionNew>
           <Ad.OptionQuestion>문의 답변보내기</Ad.OptionQuestion>
@@ -26,8 +19,21 @@ export default function AdminWriteUI() {
           <Ad.TagsWrapper>
             <Ad.Label>Tags</Ad.Label>
             <Ad.Tags />
-            <Ad.PersonLabel>가능인원</Ad.PersonLabel>
-            <Ad.Person type="number" min={0} />
+            <Ad.PersonLabel>인원 수</Ad.PersonLabel>
+            <Ad.PersonSelect name="person">
+              <Ad.Person value="" selected>
+                인원을 선택해주세요.
+              </Ad.Person>
+              <Ad.Person value="0">0</Ad.Person>
+              <Ad.Person value="1">1</Ad.Person>
+              <Ad.Person value="2">2</Ad.Person>
+              <Ad.Person value="3">3</Ad.Person>
+              <Ad.Person value="4">4</Ad.Person>
+              <Ad.Person value="5">5</Ad.Person>
+              <Ad.Person value="6">6</Ad.Person>
+              <Ad.Person value="7">7</Ad.Person>
+              <Ad.Person value="8">8</Ad.Person>
+            </Ad.PersonSelect>
           </Ad.TagsWrapper>
 
           <Ad.ContentsWrapper>
@@ -52,24 +58,24 @@ export default function AdminWriteUI() {
 
           <Ad.ImageWrapper>
             <Ad.MainWrapper>
-              <Ad.Main></Ad.Main>
+              <Ad.Main src="/noimage/noimage.png" />
             </Ad.MainWrapper>
             <Ad.SubImageWrapper>
               <Ad.SubImageOne>
-                <Ad.SubImage></Ad.SubImage>
-                <Ad.SubImage></Ad.SubImage>
+                <Ad.SubImage src="/noimage/noimage.png" />
+                <Ad.SubImage src="/noimage/noimage.png" />
               </Ad.SubImageOne>
               <Ad.SubImageWrappertwo>
-                <Ad.SubImagetwo></Ad.SubImagetwo>
-                <Ad.SubImagetwo></Ad.SubImagetwo>
+                <Ad.SubImagetwo src="/noimage/noimage.png" />
+                <Ad.SubImagetwo src="/noimage/noimage.png" />
               </Ad.SubImageWrappertwo>
             </Ad.SubImageWrapper>
           </Ad.ImageWrapper>
         </Ad.BodyWrapper>
 
-        <Ad.Button>
-          <Ad.SubmitButton>등록하기</Ad.SubmitButton>
-        </Ad.Button>
+        <Ad.Buttons>
+          <Ad.SubmitButton variant="outlined">등록하기</Ad.SubmitButton>
+        </Ad.Buttons>
       </Ad.Wrapper>
     </Ad.WrapperRoot>
   );
