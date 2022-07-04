@@ -1,7 +1,13 @@
+import * as Ad from "./AdminHeader.styles";
+
 export default function AdminHeaderPage() {
   return (
-    <div>
-      <div>헤더페이지 입니다.</div>
-    </div>
+    <Ad.Wrapper>
+      <Ad.Body>
+        <Ad.IconWrapper>
+          <Ad.UserName> 💻 Administration</Ad.UserName>
+        </Ad.IconWrapper>
+      </Ad.Body>
+    </Ad.Wrapper>
   );
 }
