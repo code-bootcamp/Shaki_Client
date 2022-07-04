@@ -44,7 +44,7 @@
     lodash "^4.17.21"
     resize-observer-polyfill "^1.5.1"
 
-"@apollo/client@^3.6.9":
+"@apollo/client@^3.6.6", "@apollo/client@^3.6.9":
   version "3.6.9"
   resolved "https://registry.npmjs.org/@apollo/client/-/client-3.6.9.tgz"
   integrity sha512-Y1yu8qa2YeaCUBVuw08x8NHenFi0sw2I3KCu7Kw9mDSu86HmmtHJkCAifKVrN2iPgDTW/BbP3EpSV8/EQCcxZA==
@@ -1042,6 +1042,15 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@types/apollo-upload-client@^17.0.1":
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/@types/apollo-upload-client/-/apollo-upload-client-17.0.1.tgz#7aca38e160097162024d7b427d66168c3874ab1d"
+  integrity sha512-8+JEhQdfDcauKnRhpedDAhlJoSD9hv+AJwYF3GvG7SusoGzHuoWlOsJbQXK1p1n+WJYHD4BNAZ+HtpGeIVMrpw==
+  dependencies:
+    "@apollo/client" "^3.6.6"
+    "@types/extract-files" "*"
+    graphql "14 - 16"
+
 "@types/babel__core@^7.1.14":
   version "7.1.19"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.19.tgz#7b497495b7d1b4812bdb9d02804d0576f43ee460"
@@ -1074,6 +1083,11 @@
   integrity sha512-kVzjari1s2YVi77D3w1yuvohV2idweYXMCDzqBiVNN63TcDWrIlTVOYpqVrvbbyOE/IyzBoTKF0fdnLPEORFxA==
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/extract-files@*":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@types/extract-files/-/extract-files-8.1.1.tgz#11b67e795ad2c8b483431e8d4f190db2fd22944b"
+  integrity sha512-dMJJqBqyhsfJKuK7p7HyyNmki7qj1AlwhUKWx6KrU7i1K2T2SPsUsSUTWFmr/sEM1q8rfR8j5IyUmYrDbrhfjQ==
 
 "@types/graceful-fs@^4.1.3":
   version "4.1.5"
@@ -2652,7 +2666,7 @@ graphql-tag@^2.12.6:
   dependencies:
     tslib "^2.1.0"
 
-graphql@^16.5.0:
+"graphql@14 - 16", graphql@^16.5.0:
   version "16.5.0"
   resolved "https://registry.npmjs.org/graphql/-/graphql-16.5.0.tgz"
   integrity sha512-qbHgh8Ix+j/qY+a/ZcJnFQ+j8ezakqPiHwPiZhV/3PgGlgf96QMBB5/f2rkiC9sgLoy/xvT6TSiaf2nTHJh5iA==
