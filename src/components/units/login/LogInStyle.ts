@@ -6,16 +6,19 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
 `;
 
 export const MiddleWrapper = styled.div`
-  width: 50em;
+  width: 45em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
-  padding-bottom: 30px;
+  border: 1px solid black;
+  box-shadow: 0 0 10px skyblue;
+  padding: 30px 0;
 `;
 
 export const Head = styled.div`
@@ -40,17 +43,33 @@ export const Password = styled.input`
 `;
 
 export const LowerBody = styled.div`
-  width: 20em;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 0 20px 30px 20px;
 `;
 
-export const Social = styled.img`
-  width: 50px;
-  height: 50px;
+export const ImgWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
 `;
+
+export const ImgBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Social = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+`;
+
+export const SocialTitle = styled.div``;
 
 export const LogIn = styled.button`
   border: none;
