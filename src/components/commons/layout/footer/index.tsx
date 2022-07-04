@@ -6,17 +6,17 @@ export default function FooterPage() {
       <Ft.FooterInfoWrapper>
         {/* FooterTitle */}
         <Ft.FooterInfoTitle>
-          <Ft.LogoDiv>Logo</Ft.LogoDiv>
-          <Ft.InfoLinkTitle>주식회사 Sixman | 대표자: 이승훈</Ft.InfoLinkTitle>
+          <Ft.TitleIcon src="./logo.png" />
+          <Ft.InfoLinkTitle>(주)Sixman  |  대표자: 이승훈</Ft.InfoLinkTitle>
           <div>사업자등록번호 : 717-87-02373</div>
         </Ft.FooterInfoTitle>
         {/* FooterInfo */}
         <Ft.FooterInfoLink>
           <Ft.InfoLinkTitle>Follows Up</Ft.InfoLinkTitle>
           <Ft.ImgDiv>
-            <div>인스타</div>
-            <div>페이스북</div>
-            <div>유튜브</div>
+            <Ft.FacebookIcon src="./icon/Facebook.png" />
+            <Ft.FacebookIcon src="./icon/Instragam.png" />
+            <Ft.TwitterIcon src="./icon/Twitter.png" />
           </Ft.ImgDiv>
         </Ft.FooterInfoLink>
       </Ft.FooterInfoWrapper>
