@@ -2,6 +2,7 @@ import * as He from "./Header.styles";
 
 export default function HeaderPage() {
   return (
+    // 헤더작업하기
     <He.HeaderWrapper>
       <He.MenuWrapper>
         <He.TitleIcon src="./logo.png" />
