@@ -44,7 +44,7 @@ export default function AdminMainUI() {
             <Ad.TitleIcon src="./logo.png"></Ad.TitleIcon>
             <Ad.UserName>관리자</Ad.UserName>
           </Ad.IconWrapper>
-          <Ad.RightButton>버튼</Ad.RightButton>
+          <Ad.RightButton>지점 등록</Ad.RightButton>
         </Ad.TitleWrapper>
         <Ad.Label>예약내역</Ad.Label>
         <div style={{ height: 400, width: "100%", padding: "10px" }}>
