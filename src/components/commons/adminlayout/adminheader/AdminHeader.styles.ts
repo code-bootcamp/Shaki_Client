@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 100%;
   position: sticky;
+  top: 0;
   z-index: 1;
 `;
 
@@ -15,6 +16,7 @@ export const Body = styled.div`
 export const IconWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const UserName = styled.label`
