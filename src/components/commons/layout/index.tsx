@@ -20,7 +20,7 @@ function EditBoolean(element: any) {
   const a = element.split("/");
   for (let i = 0; i < a.length; i++) {
     // 관리자 페이지 예외처리 : #
-    if (a[i].includes("#")) {
+    if (a[i].includes("adminpage")) {
       HIDDEN_LAYOUT.push(element);
     }
   }
