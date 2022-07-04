@@ -9,7 +9,7 @@ export const WrapperRoot = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  width: 50em;
+  width: 70em;
   flex-direction: column;
   align-items: center;
   margin: auto;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-  width: 43em;
+  width: 45em;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -25,8 +25,8 @@ export const TitleWrapper = styled.div`
 `;
 
 export const TitleIcon = styled.img`
-  width: 70px;
-  height: 60px;
+  width: 100px;
+  height: 80px;
 `;
 
 export const IconWrapper = styled.div`
@@ -36,8 +36,9 @@ export const IconWrapper = styled.div`
 
 export const UserName = styled.label`
   padding-top: 15px;
-  font-size: 25px;
+  font-size: 50px;
   font-weight: 700;
+  margin-bottom: 30px;
 `;
 
 export const RightButton = styled(Button)`

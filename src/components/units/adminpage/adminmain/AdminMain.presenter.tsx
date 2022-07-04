@@ -40,10 +40,6 @@ export default function AdminMainUI() {
     <Ad.WrapperRoot>
       <Ad.Wrapper>
         <Ad.TitleWrapper>
-          <Ad.IconWrapper>
-            <Ad.TitleIcon src="./logo.png"></Ad.TitleIcon>
-            <Ad.UserName>관리자</Ad.UserName>
-          </Ad.IconWrapper>
           <Ad.RightButton>지점 등록</Ad.RightButton>
         </Ad.TitleWrapper>
         <Ad.Label>예약내역</Ad.Label>
