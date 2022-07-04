@@ -9,8 +9,18 @@ import AllInboxIcon from "@mui/icons-material/AllInbox";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import CommentIcon from "@mui/icons-material/Comment";
 import React from "react";
+import { useRouter } from "next/router";
 
 export default function AdminSideBarUI() {
+  const router = useRouter();
+
+  const onClickMoveHome = () => {
+    router.push(`/adminpage`);
+  };
+
+  const onClickMoveWrite = () => {
+    router.push(`/adminpage/adminwrite`);
+  };
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleListItemClick = (
@@ -38,7 +48,7 @@ export default function AdminSideBarUI() {
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText primary="관리자 페이지" />
+          <ListItemText primary="관리자 페이지" onClick={onClickMoveHome} />
         </ListItemButton>
 
         <ListItemButton
@@ -57,7 +67,7 @@ export default function AdminSideBarUI() {
           <ListItemIcon>
             <ControlPointIcon />
           </ListItemIcon>
-          <ListItemText primary="가맹점 등록하기" />
+          <ListItemText primary="가맹점 등록하기" onClick={onClickMoveWrite} />
         </ListItemButton>
 
         <ListItemButton
