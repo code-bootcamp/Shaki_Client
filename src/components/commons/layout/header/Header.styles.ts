@@ -6,6 +6,8 @@ export const HeaderWrapper = styled.div`
   background-color: gray;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const MenuWrapper = styled.div`
