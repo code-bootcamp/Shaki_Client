@@ -36,10 +36,10 @@ function LinkTab2(props: LinkTabProps) {
 }
 
 export default function NavTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState("");
   const router = useRouter();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
