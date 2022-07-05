@@ -62,6 +62,8 @@ export const AdminHomeBack = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #f9f9f9;
 `;
 
@@ -70,6 +72,8 @@ export const AdminHomeBackFalse = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 export const HomeIconImg = styled(HomeIcon)`
   width: 30px;
@@ -93,6 +97,8 @@ export const AdminQuestionBack = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #f9f9f9;
 `;
 export const AdminQuestionBackFalse = styled.div`
@@ -100,6 +106,8 @@ export const AdminQuestionBackFalse = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 export const AllInboxIconImg = styled(AllInboxIcon)`
   width: 30px;
@@ -119,6 +127,8 @@ export const AdminNewBack = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #f9f9f9;
 `;
 export const AdminNewBackFalse = styled.div`
@@ -126,6 +136,8 @@ export const AdminNewBackFalse = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 export const ControlPointIconImg = styled(ControlPointIcon)`
   width: 30px;
@@ -146,6 +158,8 @@ export const AdminAnswerBack = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #f9f9f9;
 `;
 export const AdminAnswerBackFalse = styled.div`
@@ -153,6 +167,8 @@ export const AdminAnswerBackFalse = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 export const CommentIconImg = styled(CommentIcon)`
   width: 30px;
