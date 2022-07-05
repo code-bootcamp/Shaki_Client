@@ -1,86 +1,134 @@
 import * as AD from "./AdminSideBar.styles";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-import HomeIcon from "@mui/icons-material/Home";
-import AllInboxIcon from "@mui/icons-material/AllInbox";
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import CommentIcon from "@mui/icons-material/Comment";
-import React from "react";
+
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function AdminSideBarUI() {
   const router = useRouter();
+  const [active, setActive] = useState({
+    admin: false,
+    question: false,
+    makeNew: false,
+    answer: false,
+  });
 
   const onClickMoveHome = () => {
-    router.push(`/adminpage`);
+    setActive({
+      ...active,
+      admin: true,
+      question: false,
+      makeNew: false,
+      answer: false,
+    });
+    router.push("/adminpage");
   };
-
-  const onClickMoveWrite = () => {
-    router.push(`/adminpage/adminwrite`);
+  const onClickMoveQuestion = () => {
+    setActive({
+      ...active,
+      admin: false,
+      question: true,
+      makeNew: false,
+      answer: false,
+    });
+    router.push("/adminpage/adminwrite");
   };
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
-
-  const handleListItemClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    index: number
-  ) => {
-    setSelectedIndex(index);
+  const onClickMoveMakeNew = () => {
+    setActive({
+      ...active,
+      admin: false,
+      question: false,
+      makeNew: true,
+      answer: false,
+    });
+    router.push("/adminpage/adminwrite");
+  };
+  const onClickMoveAnswer = () => {
+    setActive({
+      ...active,
+      admin: false,
+      question: false,
+      makeNew: false,
+      answer: true,
+    });
+    router.push("/adminpage/adminwrite");
   };
 
   return (
     <AD.Wrapper>
-      <AD.HeadWrapper>
-        <AD.ImageWrapper>
-          <AD.Image src="/admin.png" />
-        </AD.ImageWrapper>
-        <AD.HeadTitleWrapper>
-          <AD.HeadTitle>MASTER</AD.HeadTitle>
-        </AD.HeadTitleWrapper>
-      </AD.HeadWrapper>
-      <List>
-        <ListItemButton
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 0)}
-        >
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="관리자 페이지" onClick={onClickMoveHome} />
-        </ListItemButton>
+      <AD.WrapperWrapper>
+        {/* 사이드바 메뉴 헤더부분 */}
+        <AD.HeadWrapper>
+          <AD.ImageWrapper>
+            <AD.Image src="/admin.png" />
+          </AD.ImageWrapper>
+          <AD.HeadTitleWrapper>
+            <AD.HeadTitle>MASTER</AD.HeadTitle>
+          </AD.HeadTitleWrapper>
+        </AD.HeadWrapper>
 
-        <ListItemButton
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-          <ListItemIcon>
-            <AllInboxIcon />
-          </ListItemIcon>
-          <ListItemText primary="예약/문의 내역" />
-        </ListItemButton>
-        <ListItemButton
-          selected={selectedIndex === 2}
-          onClick={(event) => handleListItemClick(event, 2)}
-        >
-          <ListItemIcon>
-            <ControlPointIcon />
-          </ListItemIcon>
-          <ListItemText primary="가맹점 등록하기" onClick={onClickMoveWrite} />
-        </ListItemButton>
+        {/* 사이드바 메뉴 */}
+        <AD.Meuns>
+          <AD.HomeWraaper onClick={onClickMoveHome}>
+            {active.admin === true ? (
+              <div style={{ backgroundColor: "#e9e9e9" }}>
+                <AD.HomeIconImg />
+                <AD.HomeIconDetail>관리자 홈</AD.HomeIconDetail>
+              </div>
+            ) : (
+              <div>
+                <AD.HomeIconImg />
+                <AD.HomeIconDetail>관리자 홈</AD.HomeIconDetail>
+              </div>
+            )}
+          </AD.HomeWraaper>
 
-        <ListItemButton
-          selected={selectedIndex === 3}
-          onClick={(event) => handleListItemClick(event, 3)}
-        >
-          <ListItemIcon>
-            <CommentIcon />
-          </ListItemIcon>
-          <ListItemText primary="문의 답변 보내기" />
-        </ListItemButton>
-      </List>
-      <Divider />
+          <AD.AdminLabelReservationWrapper onClick={onClickMoveQuestion}>
+            {active.question === true ? (
+              <div style={{ backgroundColor: "#e9e9e9" }}>
+                <AD.AllInboxIconImg />
+                <AD.AdminLabelReservation>
+                  예약/문의 내역
+                </AD.AdminLabelReservation>
+              </div>
+            ) : (
+              <div>
+                <AD.AllInboxIconImg />
+                <AD.AdminLabelReservation>
+                  예약/문의 내역
+                </AD.AdminLabelReservation>
+              </div>
+            )}
+          </AD.AdminLabelReservationWrapper>
+          <AD.AdminNewWrapper onClick={onClickMoveMakeNew}>
+            {active.makeNew === true ? (
+              <div style={{ backgroundColor: "#e9e9e9" }}>
+                <AD.ControlPointIconImg />
+                <AD.AdminNew>가맹점 등록</AD.AdminNew>
+              </div>
+            ) : (
+              <div>
+                <AD.ControlPointIconImg />
+                <AD.AdminNew>가맹점 등록</AD.AdminNew>
+              </div>
+            )}
+          </AD.AdminNewWrapper>
+          <AD.AdminAnswerWrapper onClick={onClickMoveAnswer}>
+            {active.answer === true ? (
+              <div style={{ backgroundColor: "#e9e9e9" }}>
+                <AD.CommentIconImg />
+                <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
+              </div>
+            ) : (
+              <div>
+                <AD.CommentIconImg />
+                <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
+              </div>
+            )}
+          </AD.AdminAnswerWrapper>
+        </AD.Meuns>
+        <Divider />
+      </AD.WrapperWrapper>
     </AD.Wrapper>
   );
 }
