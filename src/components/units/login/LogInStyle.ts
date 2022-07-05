@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.tablet} {
   }
-
   @media ${breakPoints.mobile} {
     width: 100%;
   }

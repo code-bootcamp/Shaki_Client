@@ -1,4 +1,23 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+
+const flip = keyframes`
+    from {
+      transform: rotateY(0deg) translateZ(20px);
+    }
+    to {
+      transform: rotateY(180deg);
+    }
+`;
+
+const unFlip = keyframes`
+from {
+  transform: rotateY(180deg);
+}
+to {
+  transform: rotateY(0deg);
+}
+`;
 
 export const Wrapper = styled.form`
   width: 100%;
@@ -7,6 +26,51 @@ export const Wrapper = styled.form`
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  perspective: 700px;
+  transform-style: preserve-3d;
+  animation: ${(props) => (props.fliped ? flip : unFlip)} 1s ease-out forwards;
+`;
+
+export const SecondWrapper = styled.div`
+  width: 25em;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 20px);
+  transform-style: preserve-3d;
+  /* animation: ${(props) =>
+    props.fliped ? flip : unFlip} 1s ease-out forwards; */
+`;
+
+export const panel = styled.div`
+  background-color: antiquewhite;
+  width: 25em;
+  height: 611px;
+  position: absolute;
+  transform-style: preserve-3d;
+  min-height: 500px;
+  /* animation: ${(props) =>
+    props.fliped ? flip : unFlip} 1s ease-out forwards; */
+`;
+
+export const BackFace = styled.div`
+  background-color: aqua;
+  width: 25em;
+  height: 611px;
+  opacity: 0.1;
+  position: absolute;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  /* animation: ${(props) =>
+    props.fliped ? unFlip : flip} 1s ease-out forwards; */
 `;
 
 export const Head = styled.div`
