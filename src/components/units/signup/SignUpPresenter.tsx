@@ -1,31 +1,32 @@
-import { EventHandler, useState } from "react";
 import * as Su from "./SignUpStyle";
 
 export default function SignUpPresenter(props: any) {
-  const [fliped, setFliped] = useState<boolean>();
-  const onClickFliped = (event: React.MouseEvent<HTMLDivElement>) => {
-    setFliped((prev) => !prev);
-    console.log(fliped);
-  };
   return (
-    <Su.Wrapper fliped={fliped} onSubmit={props.handleSubmit()}>
-      <Su.SecondWrapper fliped={fliped}>
-        <Su.Head>회원가입</Su.Head>
+    <Su.Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
+      <Su.Head>회원가입</Su.Head>
+      <Su.Line />
+      <Su.SecondWrapper fliped={props.fliped}>
         <Su.Body>
-          닉네임
+          이름
           <Su.BodyInput type="text" {...props.register("name")} />
+          <Su.Error>{props.formState.errors.name?.message}</Su.Error>
+          ID
+          <Su.BodyInput type="text" {...props.register("id")} />
+          <Su.Error>{props.formState.errors.id?.message}</Su.Error>
           이메일
-          <Su.BodyInput type="password" {...props.register("password")} />
+          <Su.BodyInput type="text" {...props.register("email")} />
+          <Su.Error>{props.formState.errors.email?.message}</Su.Error>
           비밀번호
-          <Su.BodyInput type="password" />
+          <Su.BodyInput type="password" {...props.register("pwd")} />
+          <Su.Error>{props.formState.errors.pwd?.message}</Su.Error>
           비밀번호확인
-          <Su.BodyInput type="text" {...props.register("phoneNumber")} />
+          <Su.BodyInput type="text" />
           휴대폰 인증
           <Su.Phone>
             <Su.BodyInput
               style={{ marginRight: "10px" }}
               type="text"
-              {...props.register("authentication")}
+              {...props.register("phone_num")}
             />
             <Su.BodyButton>인증번호 받기</Su.BodyButton>
           </Su.Phone>
@@ -34,16 +35,25 @@ export default function SignUpPresenter(props: any) {
             <Su.BodyButton>인증</Su.BodyButton>
           </Su.Phone>
         </Su.Body>
-        <Su.Footer>
-          <div onClick={onClickFliped}>click</div>
-          <Su.FooterButton>Button 1</Su.FooterButton>
-          <Su.FooterButton>Button 2</Su.FooterButton>
-        </Su.Footer>
       </Su.SecondWrapper>
-      {/* <Su.panel></Su.panel> */}
-      <Su.BackFace fliped={fliped}>
-        회원가입이완료되었습니다.
-        <div onClick={onClickFliped}>click</div>
+      <Su.BottomLine fliped={props.fliped} />
+      <Su.Footer fliped={props.fliped}>
+        <Su.CancelButton onClick={props.onClickMoveToLanding}>
+          뒤로가기
+        </Su.CancelButton>
+        <Su.ConfirmButton onClick={props.onClickFliped}>입력</Su.ConfirmButton>
+      </Su.Footer>
+      <Su.BackFace fliped={props.fliped}>
+        기입하신 정보로 회원가입이 진행됩니다.
+        <Su.ButtonBox flip={props.flip}>
+          <Su.BackFaceCancelButton
+            fliped={props.fliped}
+            onClick={props.onClickFliped}
+          >
+            정보수정
+          </Su.BackFaceCancelButton>
+          <Su.Submit fliped={props.fliped}>회원가입</Su.Submit>
+        </Su.ButtonBox>
       </Su.BackFace>
     </Su.Wrapper>
   );
