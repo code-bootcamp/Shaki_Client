@@ -24,9 +24,7 @@ export default function AdminWriteUI() {
             <Ad.Tags />
             <Ad.PersonLabel>인원 수</Ad.PersonLabel>
             <Ad.PersonSelect name="person">
-              <Ad.Person value="" selected>
-                인원을 선택해주세요.
-              </Ad.Person>
+              <Ad.Person value="">인원을 선택해주세요.</Ad.Person>
               <Ad.Person value="0">0</Ad.Person>
               <Ad.Person value="1">1</Ad.Person>
               <Ad.Person value="2">2</Ad.Person>
