@@ -23,6 +23,7 @@ export default function AdminSideBarUI() {
     });
     router.push("/adminpage");
   };
+
   const onClickMoveQuestion = () => {
     setActive({
       ...active,
@@ -33,6 +34,7 @@ export default function AdminSideBarUI() {
     });
     router.push("/adminpage/adminwrite");
   };
+
   const onClickMoveMakeNew = () => {
     setActive({
       ...active,
