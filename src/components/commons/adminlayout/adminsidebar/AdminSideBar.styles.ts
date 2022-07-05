@@ -1,16 +1,27 @@
 import styled from "@emotion/styled";
+import HomeIcon from "@mui/icons-material/Home";
+import AllInboxIcon from "@mui/icons-material/AllInbox";
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import CommentIcon from "@mui/icons-material/Comment";
 
 export const Wrapper = styled.div`
   width: 250px;
-  height: 800px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
+  align-items: center;
   padding-top: 20px;
   background-color: #ffffff;
 `;
-export const ImageWrapper = styled.div``;
+export const WrapperWrapper = styled.div`
+  width: 200px;
+  position: fixed;
+`;
+export const ImageWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 export const Image = styled.img`
   width: 100px;
   height: 100px;
@@ -33,33 +44,75 @@ export const HeadTitle = styled.div`
 `;
 
 export const Meuns = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+`;
+export const HomeWraaper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ebeff5;
+    transition-duration: 1s;
+  }
+`;
+export const HomeIconImg = styled(HomeIcon)`
+  width: 30px;
+  height: 30px;
+`;
+export const HomeIconDetail = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+`;
+export const AdminLabelReservationWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+`;
+export const AllInboxIconImg = styled(AllInboxIcon)`
+  width: 30px;
+  height: 30px;
 `;
 export const AdminLabelReservation = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+`;
+export const AdminNewWrapper = styled.div`
   width: 100%;
-  margin-bottom: 20px;
-  font-size: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
   cursor: pointer;
 `;
-export const AdminLabelQuestion = styled.div`
+export const ControlPointIconImg = styled(ControlPointIcon)`
+  width: 30px;
+  height: 30px;
+`;
+export const AdminNew = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+`;
+export const AdminAnswerWrapper = styled.div`
   width: 100%;
-  margin-bottom: 20px;
-  font-size: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
   cursor: pointer;
 `;
-export const AdminLabelNew = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
-  font-size: 28px;
-  cursor: pointer;
+export const CommentIconImg = styled(CommentIcon)`
+  width: 30px;
+  height: 30px;
 `;
-export const AdminLabelAnser = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
-  font-size: 28px;
-  cursor: pointer;
+export const AdminAnswer = styled.div`
+  font-size: 20px;
+  font-weight: 500;
 `;

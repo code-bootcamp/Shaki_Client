@@ -2,22 +2,23 @@ import styled from "@emotion/styled";
 import Button from "@mui/material/Button";
 
 export const WrapperRoot = styled.div`
-  width: 100%;
+  width: calc(100% - 200px);
   background-color: #f9f9f9;
   padding: 20px;
+  /* margin-left: 200px; */
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  width: 70em;
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  /* margin: auto; */
   background-color: white;
 `;
 
 export const TitleWrapper = styled.div`
-  width: 45em;
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -56,7 +57,7 @@ export const List = styled.div`
 `;
 
 export const Label = styled.label`
-  width: 28em;
+  width: 100%;
   font-size: 25px;
   font-weight: 500;
   padding: 20px;

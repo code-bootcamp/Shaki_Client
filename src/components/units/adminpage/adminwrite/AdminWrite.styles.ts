@@ -2,13 +2,12 @@ import styled from "@emotion/styled";
 import Button from "@mui/material/Button";
 
 export const WrapperRoot = styled.div`
-  width: 100%;
+  width: calc(100% - 250px);
   background-color: #f9f9f9;
   padding: 20px;
 `;
 export const Wrapper = styled.div`
-  width: 50em;
-  margin: auto;
+  width: 100%;
   padding-top: 10px;
   padding-left: 40px;
   padding-right: 40px;
