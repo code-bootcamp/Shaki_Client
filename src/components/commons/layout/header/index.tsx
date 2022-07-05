@@ -1,18 +1,77 @@
-import * as He from "./Header.styles";
+import * as React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { useRouter } from "next/router";
+import * as HS from "./Header.styles";
 
-export default function HeaderPage() {
+interface LinkTabProps {
+  label?: string;
+  href?: string;
+  value: string;
+}
+
+function LinkTab(props: LinkTabProps) {
   return (
-    <He.HeaderWrapper>
-      <He.MenuWrapper>
-        <div>Logo</div>
-        <div>지점소개</div>
-        <div>지점안내</div>
-        <div>문의사항</div>
-      </He.MenuWrapper>
-      <He.BtnWrapper>
-        <button>로그인</button>
-        <button>회원가입</button>
-      </He.BtnWrapper>
-    </He.HeaderWrapper>
+    <Tab
+      component="a"
+      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+      }}
+      {...props}
+    />
+  );
+}
+
+function LinkTab2(props: LinkTabProps) {
+  return (
+    <Tab
+      component="b"
+      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+      }}
+      {...props}
+    />
+  );
+}
+
+export default function NavTabs() {
+  const [value, setValue] = React.useState(0);
+  const router = useRouter();
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  const onClickMoveLogin = () => {
+    router.push("/login");
+  };
+
+  const onClickMoveSignup = () => {
+    router.push("/signup");
+  };
+  const onClickHome = () => {
+    router.push("/");
+  };
+
+  return (
+    <HS.HeaderWrapper>
+      <HS.LogoMenuWrapper>
+        <HS.TitleIcon src="./logo.png" onClick={onClickHome} />
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="nav tabs example"
+        >
+          <LinkTab2 value="one" label="지점소개" />
+          <LinkTab2 value="two" label="지점안내" />
+          <LinkTab2 value="three" label="문의사항" />
+        </Tabs>
+      </HS.LogoMenuWrapper>
+
+      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
+        <LinkTab value="four" label="로그인" onClick={onClickMoveLogin} />
+        <LinkTab value="five" label="회원가입" onClick={onClickMoveSignup} />
+      </Tabs>
+    </HS.HeaderWrapper>
   );
 }
