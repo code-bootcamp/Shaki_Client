@@ -4,6 +4,7 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import ApolloSetting from "../src/components/commons/apollo";
 import LayoutPage from "../src/components/commons/layout";
 import "../styles/globals.css";
+import "semantic-ui-css/semantic.min.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
