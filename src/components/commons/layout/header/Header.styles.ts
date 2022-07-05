@@ -8,9 +8,14 @@ export const HeaderWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* border-bottom: 1px solid black; */
+  border-bottom: 1px solid lightgray;
+  padding: 0px 60px;
+  @media ${breakPoints.tablet} {
+    padding: 0px;
+  }
   @media ${breakPoints.mobile} {
     height: 80px;
+    padding: 0px;
   }
 `;
 
