@@ -7,7 +7,8 @@ import * as HS from "./Header.styles";
 interface LinkTabProps {
   label?: string;
   href?: string;
-  value: string;
+  value?: string;
+  onClick?: () => void;
 }
 
 function LinkTab(props: LinkTabProps) {
@@ -49,6 +50,7 @@ export default function NavTabs() {
   const onClickMoveSignup = () => {
     router.push("/signup");
   };
+
   const onClickHome = () => {
     router.push("/");
   };
@@ -62,15 +64,15 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab2 value="one" label="지점소개" />
-          <LinkTab2 value="two" label="지점안내" />
-          <LinkTab2 value="three" label="문의사항" />
+          <LinkTab2 value="1" label="지점소개" />
+          <LinkTab2 value="2" label="지점안내" />
+          <LinkTab2 value="3" label="문의사항" />
         </Tabs>
       </HS.LogoMenuWrapper>
 
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab value="four" label="로그인" onClick={onClickMoveLogin} />
-        <LinkTab value="five" label="회원가입" onClick={onClickMoveSignup} />
+        <LinkTab value="4" label="로그인" onClick={onClickMoveLogin} />
+        <LinkTab value="5" label="회원가입" onClick={onClickMoveSignup} />
       </Tabs>
     </HS.HeaderWrapper>
   );
