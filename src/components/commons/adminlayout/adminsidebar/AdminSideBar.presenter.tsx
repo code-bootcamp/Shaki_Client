@@ -2,58 +2,32 @@ import * as AD from "./AdminSideBar.styles";
 import Divider from "@mui/material/Divider";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
+
+const ADMIN_HOME = [`/adminpage/adminhome`];
+const ADMIN_QUESTION = [`/adminpage`];
+const ADMIN_WRITE = [`/adminpage/adminwrite`];
+const ADMIN_ANSWER = [`/adminpage`];
 
 export default function AdminSideBarUI() {
   const router = useRouter();
-  const [active, setActive] = useState({
-    admin: false,
-    question: false,
-    makeNew: false,
-    answer: false,
-  });
+
+  const adminHome = ADMIN_HOME.includes(router.asPath);
+  const adminWrite = ADMIN_WRITE.includes(router.asPath);
+  const adminQuestion = ADMIN_QUESTION.includes(router.asPath);
+  const adminAnswer = ADMIN_ANSWER.includes(router.asPath);
 
   const onClickMoveHome = () => {
-    setActive({
-      ...active,
-      admin: true,
-      question: false,
-      makeNew: false,
-      answer: false,
-    });
-    router.push("/adminpage");
+    router.push("/adminpage/adminhome");
   };
 
   const onClickMoveQuestion = () => {
-    setActive({
-      ...active,
-      admin: false,
-      question: true,
-      makeNew: false,
-      answer: false,
-    });
-    router.push("/adminpage/adminwrite");
+    router.push("/adminpage");
   };
-
   const onClickMoveMakeNew = () => {
-    setActive({
-      ...active,
-      admin: false,
-      question: false,
-      makeNew: true,
-      answer: false,
-    });
     router.push("/adminpage/adminwrite");
   };
   const onClickMoveAnswer = () => {
-    setActive({
-      ...active,
-      admin: false,
-      question: false,
-      makeNew: false,
-      answer: true,
-    });
-    router.push("/adminpage/adminwrite");
+    router.push("/adminpage");
   };
 
   return (
@@ -72,60 +46,60 @@ export default function AdminSideBarUI() {
         {/* 사이드바 메뉴 */}
         <AD.Meuns>
           <AD.HomeWraaper onClick={onClickMoveHome}>
-            {active.admin === true ? (
-              <div style={{ backgroundColor: "#e9e9e9" }}>
+            {adminHome ? (
+              <AD.AdminHomeBack>
                 <AD.HomeIconImg />
                 <AD.HomeIconDetail>관리자 홈</AD.HomeIconDetail>
-              </div>
+              </AD.AdminHomeBack>
             ) : (
-              <div>
+              <AD.AdminHomeBackFalse>
                 <AD.HomeIconImg />
                 <AD.HomeIconDetail>관리자 홈</AD.HomeIconDetail>
-              </div>
+              </AD.AdminHomeBackFalse>
             )}
           </AD.HomeWraaper>
 
           <AD.AdminLabelReservationWrapper onClick={onClickMoveQuestion}>
-            {active.question === true ? (
-              <div style={{ backgroundColor: "#e9e9e9" }}>
+            {adminQuestion ? (
+              <AD.AdminQuestionBack>
                 <AD.AllInboxIconImg />
                 <AD.AdminLabelReservation>
                   예약/문의 내역
                 </AD.AdminLabelReservation>
-              </div>
+              </AD.AdminQuestionBack>
             ) : (
-              <div>
+              <AD.AdminQuestionBackFalse>
                 <AD.AllInboxIconImg />
                 <AD.AdminLabelReservation>
                   예약/문의 내역
                 </AD.AdminLabelReservation>
-              </div>
+              </AD.AdminQuestionBackFalse>
             )}
           </AD.AdminLabelReservationWrapper>
           <AD.AdminNewWrapper onClick={onClickMoveMakeNew}>
-            {active.makeNew === true ? (
-              <div style={{ backgroundColor: "#e9e9e9" }}>
+            {adminWrite ? (
+              <AD.AdminNewBack>
                 <AD.ControlPointIconImg />
                 <AD.AdminNew>가맹점 등록</AD.AdminNew>
-              </div>
+              </AD.AdminNewBack>
             ) : (
-              <div>
+              <AD.AdminNewBackFalse>
                 <AD.ControlPointIconImg />
                 <AD.AdminNew>가맹점 등록</AD.AdminNew>
-              </div>
+              </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
           <AD.AdminAnswerWrapper onClick={onClickMoveAnswer}>
-            {active.answer === true ? (
-              <div style={{ backgroundColor: "#e9e9e9" }}>
+            {adminAnswer ? (
+              <AD.AdminAnswerBack>
                 <AD.CommentIconImg />
                 <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
-              </div>
+              </AD.AdminAnswerBack>
             ) : (
-              <div>
+              <AD.AdminAnswerBackFalse>
                 <AD.CommentIconImg />
                 <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
-              </div>
+              </AD.AdminAnswerBackFalse>
             )}
           </AD.AdminAnswerWrapper>
         </AD.Meuns>

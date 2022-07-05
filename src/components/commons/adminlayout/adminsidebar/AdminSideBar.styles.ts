@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   background-color: #ffffff;
 `;
 export const WrapperWrapper = styled.div`
-  width: 200px;
+  width: 250px;
   position: fixed;
 `;
 export const ImageWrapper = styled.div`
@@ -50,15 +50,26 @@ export const Meuns = styled.div`
 `;
 export const HomeWraaper = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 15px;
   cursor: pointer;
   &:hover {
     background-color: #ebeff5;
     transition-duration: 1s;
   }
+`;
+export const AdminHomeBack = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+`;
+
+export const AdminHomeBackFalse = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const HomeIconImg = styled(HomeIcon)`
   width: 30px;
@@ -70,11 +81,25 @@ export const HomeIconDetail = styled.div`
 `;
 export const AdminLabelReservationWrapper = styled.div`
   width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ebeff5;
+    transition-duration: 1s;
+  }
+`;
+export const AdminQuestionBack = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  cursor: pointer;
+  background-color: #f9f9f9;
+`;
+export const AdminQuestionBackFalse = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const AllInboxIconImg = styled(AllInboxIcon)`
   width: 30px;
@@ -86,11 +111,21 @@ export const AdminLabelReservation = styled.div`
 `;
 export const AdminNewWrapper = styled.div`
   width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
+`;
+export const AdminNewBack = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  cursor: pointer;
+  background-color: #f9f9f9;
+`;
+export const AdminNewBackFalse = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const ControlPointIconImg = styled(ControlPointIcon)`
   width: 30px;
@@ -102,11 +137,22 @@ export const AdminNew = styled.div`
 `;
 export const AdminAnswerWrapper = styled.div`
   width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
+`;
+
+export const AdminAnswerBack = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  cursor: pointer;
+  background-color: #f9f9f9;
+`;
+export const AdminAnswerBackFalse = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const CommentIconImg = styled(CommentIcon)`
   width: 30px;
