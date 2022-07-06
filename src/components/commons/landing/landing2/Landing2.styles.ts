@@ -62,7 +62,7 @@ export const MapWrapper = styled.div`
   left: 0px;
   top: 2200px;
   background-color: #ffffff;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const MapBody = styled.div`
@@ -82,4 +82,22 @@ export const Footer = styled.div`
   left: 320px;
   top: 1500px;
   background-image: url("/landing/5.png");
+`;
+
+export const Box = styled.div`
+  position: absolute;
+  top: 3300px;
+  width: 100%;
+  height: 500px;
+  background-color: black;
+  z-index: 3;
+  transform: skewY(-10deg);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BoxImage = styled.img`
+  transform: skewY(10deg);
 `;
