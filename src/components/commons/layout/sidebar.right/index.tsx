@@ -1,12 +1,18 @@
 import styled from "@emotion/styled";
 
 const ImgWrapper = styled.div`
-  margin-right: 80px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 3;
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
 `;
 
 const Img = styled.img`
   position: sticky;
-  top: 800px;
+  top: 1000px;
 `;
 
 export default function SideRightPage() {
