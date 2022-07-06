@@ -1,3 +1,4 @@
+import Landing2UI from "../landing2/Landing2.presenter";
 import * as Ld from "./Landing1.styles";
 
 export default function Landing1UI() {
