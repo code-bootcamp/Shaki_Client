@@ -89,7 +89,7 @@ export default function AdminSideBarUI() {
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
-          <AD.AdminAnswerWrapper onClick={onClickMoveAnswer}>
+          {/* <AD.AdminAnswerWrapper onClick={onClickMoveAnswer}>
             {adminAnswer ? (
               <AD.AdminAnswerBack>
                 <AD.CommentIconImg />
@@ -101,7 +101,7 @@ export default function AdminSideBarUI() {
                 <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
               </AD.AdminAnswerBackFalse>
             )}
-          </AD.AdminAnswerWrapper>
+          </AD.AdminAnswerWrapper> */}
         </AD.Meuns>
         <Divider />
       </AD.WrapperWrapper>
