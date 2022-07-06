@@ -2,7 +2,7 @@ import * as Ld from "./Landing2.styles";
 
 export default function Landing2UI() {
   return (
-    <>
+    <Ld.WrapperRoot>
       <Ld.Wrapper>
         <Ld.Rectangle></Ld.Rectangle>
         <Ld.Header></Ld.Header>
@@ -15,6 +15,6 @@ export default function Landing2UI() {
           <Ld.BoxImage src="/landing/landingMent.svg" />
         </Ld.Box>
       </Ld.Wrapper>
-    </>
+    </Ld.WrapperRoot>
   );
 }

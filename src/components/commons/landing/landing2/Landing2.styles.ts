@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+export const WrapperRoot = styled.div`
+  width: 100%;
+`;
+
 export const Wrapper = styled.div`
   position: absolute;
   width: 1920px;
@@ -13,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Rectangle = styled.div`
-  position: absolute;
+  position: relative;
   width: 10px;
   height: 40px;
   left: 370px;
@@ -23,28 +27,28 @@ export const Rectangle = styled.div`
 `;
 
 export const Header = styled.div`
-  position: absolute;
+  position: relative;
   width: 455px;
   height: 160px;
-  left: 360px;
-  top: 800px;
+  left: 350px;
+  top: 750px;
   background-image: url("/landing/landing2header.png");
   background-repeat: no-repeat;
 `;
 
 export const Contents = styled.div`
-  position: absolute;
+  position: relative;
   width: 437px;
   height: 84px;
-  left: 360px;
-  top: 970px;
+  left: 350px;
+  top: 750px;
   background-repeat: no-repeat;
 
   background-image: url("/landing/landing2text.png");
 `;
 
 export const MapWrapper = styled.div`
-  position: absolute;
+  position: relative;
   width: 1920px;
   height: 2500px;
   left: 0px;
@@ -54,7 +58,7 @@ export const MapWrapper = styled.div`
 `;
 
 export const MapBody = styled.div`
-  position: absolute;
+  position: relative;
   width: 1920px;
   height: 1080px;
   left: -60px;
@@ -64,17 +68,17 @@ export const MapBody = styled.div`
 `;
 
 export const Footer = styled.div`
-  position: absolute;
+  position: relative;
   width: 1168px;
   height: 848px;
   left: 320px;
-  top: 1500px;
+  top: 700px;
   background-image: url("/landing/5.png");
 `;
 
 export const Box = styled.div`
-  position: absolute;
-  top: 3300px;
+  position: relative;
+  top: 870px;
   width: 100%;
   height: 500px;
   background-color: black;

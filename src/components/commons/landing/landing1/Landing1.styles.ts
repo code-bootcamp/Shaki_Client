@@ -25,7 +25,7 @@ export const Icon = styled.img`
   position: relative;
   width: 47px;
   height: 51px;
-  right: -600px;
+  right: -550px;
   bottom: 1050px;
   z-index: 2;
 `;
@@ -38,7 +38,7 @@ export const TitleHead = styled.p`
   color: #f9f9f9;
   font-weight: 900;
   font-size: 60px;
-  left: -500px;
+  left: -400px;
   bottom: 500px;
   z-index: 2;
 `;
@@ -51,7 +51,7 @@ export const Title = styled(Typical)`
   color: #f9f9f9;
   font-weight: 900;
   font-size: 50px;
-  left: -400px;
+  left: -300px;
 
   bottom: 600px;
 
