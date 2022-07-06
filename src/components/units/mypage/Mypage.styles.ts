@@ -198,6 +198,10 @@ export const ListCardImg = styled.img`
   width: 300px;
   height: 250px;
 `;
-export const ListCardDetailWrapper = styled.div``;
+export const ListCardDetailWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 export const ListCardName = styled.div``;
 export const ListCardContents = styled.div``;
