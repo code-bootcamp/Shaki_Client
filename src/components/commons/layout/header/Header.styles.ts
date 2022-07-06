@@ -3,15 +3,16 @@ import { breakPoints } from "../../../../commons/styles/media";
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  height: 120px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid lightgray;
-  padding: 0px 60px;
+  padding: 0px 200px;
   @media ${breakPoints.tablet} {
-    padding: 0px;
+    padding: 0px 0px;
+    width: 100%;
   }
   @media ${breakPoints.mobile} {
     height: 80px;
