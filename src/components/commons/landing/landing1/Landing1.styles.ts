@@ -11,13 +11,14 @@ export const WrapperRoot = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  z-index: 1;
   width: 140em;
-  height: 1080px;
+  height: 1120px;
   background-image: url("/landing/BackEdit.gif");
   background-size: cover;
   background-position: center;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
+  /* filter: blur(1px); */
+  /* -webkit-filter: blur(1px); */
   @media ${breakPoints.tablet} {
     width: 100%;
     height: 600px;
@@ -37,6 +38,7 @@ export const Icon = styled.img`
   height: 51px;
   right: 80px;
   top: 60px;
+  z-index: 2;
 `;
 
 export const TitleHead = styled.p`
@@ -49,6 +51,7 @@ export const TitleHead = styled.p`
   font-size: 60px;
   left: 45px;
   bottom: 70px;
+  z-index: 2;
 `;
 
 export const Title = styled(Typical)`
@@ -61,4 +64,5 @@ export const Title = styled(Typical)`
   font-size: 50px;
   left: 45px;
   bottom: 50px;
+  z-index: 2;
 `;
