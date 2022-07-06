@@ -8,7 +8,8 @@ interface LinkTabProps {
   label?: string;
   href?: string;
   value?: string;
-  onClick?: () => void;
+  id?: string;
+  onClick?: (e: any) => void;
 }
 
 function LinkTab(props: LinkTabProps) {
@@ -55,6 +56,10 @@ export default function NavTabs() {
     router.push("/");
   };
 
+  const onClickMovePage = (e: any) => {
+    router.push(`/${e.target.id}`);
+  };
+
   return (
     <HS.HeaderWrapper>
       <HS.LogoMenuWrapper>
@@ -64,15 +69,30 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab2 value="1" label="지점소개" />
-          <LinkTab2 value="2" label="지점안내" />
-          <LinkTab2 value="3" label="문의사항" />
+          <LinkTab2
+            label="지점소개"
+            value="1"
+            id="mainpage"
+            onClick={onClickMovePage}
+          />
+          <LinkTab2
+            label="지점안내"
+            value="2"
+            id="detailpage"
+            onClick={onClickMovePage}
+          />
+          <LinkTab2
+            label="문의사항"
+            value="3"
+            id="mypage"
+            onClick={onClickMovePage}
+          />
         </Tabs>
       </HS.LogoMenuWrapper>
 
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab value="4" label="로그인" onClick={onClickMoveLogin} />
-        <LinkTab value="5" label="회원가입" onClick={onClickMoveSignup} />
+        <LinkTab label="로그인" value="4" onClick={onClickMoveLogin} />
+        <LinkTab label="회원가입" value="5" onClick={onClickMoveSignup} />
       </Tabs>
     </HS.HeaderWrapper>
   );
