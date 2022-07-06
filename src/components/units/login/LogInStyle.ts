@@ -23,7 +23,7 @@ export const MiddleWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 3px solid #4e75ff;
   box-shadow: 0 0 10px skyblue;
   padding: 30px 0;
   @media ${breakPoints.mobile} {
@@ -33,23 +33,30 @@ export const MiddleWrapper = styled.div`
 
 export const Head = styled.div`
   font-size: 40px;
+  margin-bottom: 1em;
 `;
 
 export const UpperBody = styled.div`
   display: flex;
   width: 20em;
   flex-direction: column;
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid #4e75ff;
   padding: 0 20px 30px 20px;
   margin-bottom: 30px;
 `;
 
 export const Email = styled.input`
   height: 40px;
+  border: none;
+  background-color: #4e75ff;
+  opacity: 0.2;
 `;
 
 export const Password = styled.input`
   height: 40px;
+  border: none;
+  background-color: #4e75ff;
+  opacity: 0.2;
 `;
 
 export const LowerBody = styled.div`
@@ -87,18 +94,20 @@ export const SocialTitle = styled.div``;
 
 export const LogIn = styled.button`
   border: none;
-  width: 8em;
+  width: 6em;
   height: 3em;
+  cursor: pointer;
 `;
 
 export const Footer = styled.div`
-  width: 8em;
+  width: 7em;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  cursor: pointer;
   :hover {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #4e75ff;
   }
 `;
 
