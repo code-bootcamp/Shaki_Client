@@ -23,7 +23,6 @@ const DetailBodyWrapper = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  /* 헤더 잡고 body 잡기 */
   @media ${breakPoints.mobile} {
     width: 90%;
     flex-direction: column;

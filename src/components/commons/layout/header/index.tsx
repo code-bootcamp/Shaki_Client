@@ -64,7 +64,7 @@ export default function NavTabs() {
           <LinkTab2
             label="지점소개"
             value="1"
-            id="mainpage"
+            id="main"
             onClick={onClickMovePage}
           />
           <LinkTab2

@@ -5,7 +5,7 @@ const ImgWrapper = styled.div`
   top: 104px;
   left: 20px;
   z-index: 3;
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 1630px) {
     display: none;
   }
 `;
