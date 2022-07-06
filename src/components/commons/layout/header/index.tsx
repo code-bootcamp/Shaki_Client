@@ -44,14 +44,6 @@ export default function NavTabs() {
     setValue(newValue);
   };
 
-  const onClickMoveLogin = () => {
-    router.push("/login");
-  };
-
-  const onClickMoveSignup = () => {
-    router.push("/signup");
-  };
-
   const onClickHome = () => {
     router.push("/");
   };
@@ -91,8 +83,18 @@ export default function NavTabs() {
       </HS.LogoMenuWrapper>
 
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab label="로그인" value="4" onClick={onClickMoveLogin} />
-        <LinkTab label="회원가입" value="5" onClick={onClickMoveSignup} />
+        <LinkTab
+          label="로그인"
+          value="4"
+          id="login"
+          onClick={onClickMovePage}
+        />
+        <LinkTab
+          label="회원가입"
+          value="5"
+          id="signup"
+          onClick={onClickMovePage}
+        />
       </Tabs>
     </HS.HeaderWrapper>
   );
