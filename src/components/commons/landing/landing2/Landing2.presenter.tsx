@@ -11,6 +11,9 @@ export default function Landing2UI() {
           <Ld.MapBody></Ld.MapBody>
           <Ld.Footer></Ld.Footer>
         </Ld.MapWrapper>
+        <Ld.Box>
+          <Ld.BoxImage src="/landing/landingMent.svg" />
+        </Ld.Box>
       </Ld.Wrapper>
     </>
   );
