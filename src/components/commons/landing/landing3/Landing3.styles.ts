@@ -1,9 +1,15 @@
 import styled from "@emotion/styled";
-import { breakPoints } from "../../../../commons/styles/media";
 
-export const MapWrapper = styled.div`
-  width: 1920px;
-  height: 1389.5px;
-  z-index: 3;
-  background-color: white;
+export const HTML = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const MapWrapper3 = styled.div`
+  width: 100%;
+  height: 500px;
+  background-color: pink;
+  transform: skewY(-10deg);
 `;
