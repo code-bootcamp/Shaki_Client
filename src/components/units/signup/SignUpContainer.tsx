@@ -10,7 +10,7 @@ import { Modal } from "antd";
 
 const schema = yup.object({
   name: yup.string().required("이름은 필수 입력요소 입니다."),
-  id: yup
+  nickname: yup
     .string()
     .required("아이디를 입력해주세요")
     .min(8, "아이디는 최소 8자리입니다."),
@@ -50,12 +50,13 @@ export default function SignUpContainer() {
   };
 
   const onClickSubmit = async (data: any) => {
+    console.log(data);
     try {
       await createUser({
         variables: {
           createUserInput: {
             name: data.name,
-            id: data.id,
+            nickname: data.nickname,
             email: data.email,
             pwd: data.pwd,
             phone_num: data.phone_num,
@@ -63,6 +64,7 @@ export default function SignUpContainer() {
         },
       });
       alert("회원가입이 완료되었습니다. 로그인 해주세요");
+      router.push("/login");
     } catch (error: any) {
       Modal.error({ content: error.message });
     }
