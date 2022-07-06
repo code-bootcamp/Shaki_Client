@@ -74,3 +74,12 @@ export const MapBody = styled.div`
 
   background-image: url("/landing/3.png");
 `;
+
+export const Footer = styled.div`
+  position: absolute;
+  width: 1168px;
+  height: 848px;
+  left: 320px;
+  top: 1500px;
+  background-image: url("/landing/5.png");
+`;

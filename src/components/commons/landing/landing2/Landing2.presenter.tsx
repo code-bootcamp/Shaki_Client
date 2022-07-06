@@ -9,6 +9,7 @@ export default function Landing2UI() {
         <Ld.Contents></Ld.Contents>
         <Ld.MapWrapper>
           <Ld.MapBody></Ld.MapBody>
+          <Ld.Footer></Ld.Footer>
         </Ld.MapWrapper>
       </Ld.Wrapper>
     </>
