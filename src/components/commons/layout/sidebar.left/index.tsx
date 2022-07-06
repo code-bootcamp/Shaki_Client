@@ -1,8 +1,13 @@
 import styled from "@emotion/styled";
 
 const ImgWrapper = styled.div`
-  margin-top: 20px;
-  margin-left: 80px;
+  position: fixed;
+  top: 104px;
+  left: 20px;
+  z-index: 3;
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
 `;
 
 const Img = styled.img`
