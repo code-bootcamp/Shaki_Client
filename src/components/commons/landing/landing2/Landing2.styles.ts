@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -11,17 +10,6 @@ export const Wrapper = styled.div`
   background-size: cover;
   /* filter: blur(1px); */
   /* -webkit-filter: blur(1px); */
-  @media ${breakPoints.tablet} {
-    width: 100%;
-    height: 600px;
-    background-size: cover;
-  }
-  @media ${breakPoints.mobile} {
-    height: 430px;
-  }
-  @media (max-width: 470px) {
-    height: 330px;
-  }
 `;
 
 export const Rectangle = styled.div`
