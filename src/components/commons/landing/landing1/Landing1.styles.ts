@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Typical from "react-typical";
 
 export const WrapperRoot = styled.div`
-  position: absolute;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
