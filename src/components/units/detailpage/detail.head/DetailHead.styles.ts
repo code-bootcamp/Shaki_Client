@@ -61,7 +61,6 @@ export const ExImgTitle = styled.div`
   width: 540px;
   height: 466px;
   background-color: lightgray;
-  margin-right: 24px;
   border-radius: 5px;
   @media ${breakPoints.tablet} {
     width: 306px;
@@ -81,10 +80,10 @@ export const ExImgWrapper = styled.div`
 `;
 
 export const ExImg = styled.div`
-  width: 306px;
+  width: 310px;
   height: 220px;
   background-color: lightgray;
-  margin-right: 24px;
+  margin-left: 24px;
   border-radius: 5px;
   @media ${breakPoints.tablet} {
     width: 206px;

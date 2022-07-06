@@ -39,9 +39,9 @@ export default function LayoutPage(props: LayoutProps) {
     <div>
       {!isHiddenLayout && <HeaderPage />}
       <PageWrapper>
-        <SideLeftPage />
+        {!isHiddenLayout && <SideLeftPage />}
         <Body>{props.children}</Body>
-        <SideRightPage />
+        {!isHiddenLayout && <SideRightPage />}
       </PageWrapper>
       {!isHiddenLayout && <FooterPage />}
     </div>
