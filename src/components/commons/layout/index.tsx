@@ -21,12 +21,13 @@ interface LayoutProps {
 }
 
 const HIDDEN_LAYOUT = ["/"];
-
+const HIDDEN_SIDEBAR: Array<string> = [];
 function EditBoolean(element: any) {
   const a = element.split("/");
   for (let i = 0; i < a.length; i++) {
     if (a[i].includes("adminpage")) {
       HIDDEN_LAYOUT.push(element);
+      HIDDEN_SIDEBAR.push(element);
     }
   }
 }
@@ -34,14 +35,15 @@ export default function LayoutPage(props: LayoutProps) {
   const router = useRouter();
   EditBoolean(router.asPath);
   const isHiddenLayout = HIDDEN_LAYOUT.includes(router.asPath);
+  const isHiddenSidebar = HIDDEN_SIDEBAR.includes(router.asPath);
 
   return (
     <div>
       {!isHiddenLayout && <HeaderPage />}
       <PageWrapper>
-        {!isHiddenLayout && <SideLeftPage />}
+        {!isHiddenSidebar && <SideLeftPage />}
         <Body>{props.children}</Body>
-        {!isHiddenLayout && <SideRightPage />}
+        {!isHiddenSidebar && <SideRightPage />}
       </PageWrapper>
       {!isHiddenLayout && <FooterPage />}
     </div>
