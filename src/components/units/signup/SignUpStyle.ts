@@ -39,7 +39,7 @@ const appeared = keyframes`
   from {
     opacity: 0;
   } to {
-    opacity: 0.15;
+    opacity: 1;
   }
 `;
 
@@ -160,11 +160,13 @@ export const BodyInput = styled.input`
 `;
 
 export const AuthInput = styled.input`
-  width: 13.5em;
+  width: 10em;
+  align-items: center;
   opacity: 0;
   height: 40px;
   border: none;
-  background-color: #4e75ff;
+  border-bottom: 1px solid black;
+  /* background-color: #4e75ff; */
   margin: 10px 0;
   color: black;
   animation: ${(props: { sendAuth: boolean }) => props.sendAuth && appeared} 1s
@@ -184,7 +186,7 @@ export const AuthBox = styled.div`
 `;
 
 export const BodyButton = styled.div`
-  width: 17em;
+  width: 40%;
   height: 40px;
   margin: 10px 0;
   display: flex;
