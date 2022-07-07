@@ -35,7 +35,6 @@ export default function DetailPage() {
   return (
     <DetailBox>
       <DetailHeadContainer />
-      {/* 바디와 사이드봐 impory */}
       <DetailBodyWrapper>
         <DetailBodyContainer />
         <DetailSidebarContainer />
