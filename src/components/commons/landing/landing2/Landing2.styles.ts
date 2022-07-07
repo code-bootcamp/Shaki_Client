@@ -1,5 +1,12 @@
 import styled from "@emotion/styled";
 
+export const HTML = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const WrapperRoot = styled.div`
   width: 100vw;
   position: relative;
@@ -94,3 +101,15 @@ export const Footer = styled.div`
   top: 1800px;
   background-image: url("/landing/5.png");
 `;
+
+export const SocialLoginBox = styled.div`
+  position: relative;
+  width: 30vw;
+  flex-direction: column;
+  justify-content: center;
+  top: 1900px;
+  left: 600px;
+  margin-bottom: 100px;
+`;
+
+export const SocialLogInButton = styled.img``;
