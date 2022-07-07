@@ -8,9 +8,9 @@ export default function DetailBodyUI() {
       <DB.Divedline />
 
       <DB.Title>구로점 쉐이키 1</DB.Title>
-
+      {/* <DB.TagWrapper> */}
       <TagPage />
-
+      {/* </DB.TagWrapper> */}
       <DB.Divedline2 />
 
       <DB.ReservationText>

@@ -60,14 +60,17 @@ export const CalendarWrapper = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
   padding: 0px 20px;
+  @media ${breakPoints.tablet} {
+    width: 50%;
+  }
 `;
 
 export const Calendar = styled.img`
   width: 340px;
   height: 290px;
-  background: lightgreen;
+
   @media ${breakPoints.tablet} {
-    width: 814px;
+    width: 340px;
     height: 290px;
   }
 `;

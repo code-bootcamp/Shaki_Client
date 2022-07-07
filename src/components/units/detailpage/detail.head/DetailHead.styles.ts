@@ -88,10 +88,12 @@ export const ExImg = styled.img`
   @media ${breakPoints.tablet} {
     width: 206px;
     height: 160px;
+    margin-left: 14px;
   }
   @media ${breakPoints.mobile} {
     width: 95%;
     height: 160px;
     margin-bottom: 5px;
+    margin-left: 5px;
   }
 `;
