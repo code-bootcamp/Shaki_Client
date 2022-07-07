@@ -3,8 +3,8 @@ import { breakPoints } from "../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 200px;
+  padding-right: 200px;
   padding-top: 100px;
 
   @media ${breakPoints.tablet} {
@@ -78,10 +78,10 @@ export const TopBreakPoint = styled.div`
   justify-content: space-around;
 
   @media ${breakPoints.mobile} {
-    width: 100%;
+    width: calc(100% - 300px);
   }
   @media ${breakPoints.tablet} {
-    width: 100%;
+    width: calc(100% - 300px);
   }
 `;
 export const PointWrapper = styled.div`
