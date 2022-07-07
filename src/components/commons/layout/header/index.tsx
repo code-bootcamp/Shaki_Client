@@ -1,101 +1,40 @@
-import * as React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import { useRouter } from "next/router";
-import * as HS from "./Header.styles";
+import * as React from "react";
+import * as THS from "./Header.styles";
 
-interface LinkTabProps {
-  label?: string;
-  href?: string;
-  value?: string;
-  id?: string;
-  onClick?: (e: any) => void;
-}
-
-function LinkTab(props: LinkTabProps) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
-
-function LinkTab2(props: LinkTabProps) {
-  return (
-    <Tab
-      component="b"
-      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
-
-export default function NavTabs() {
-  const [value, setValue] = React.useState("");
+export default function TestNavTabs() {
   const router = useRouter();
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
-
-  const onClickHome = () => {
-    router.push("/");
-  };
 
   const onClickMovePage = (e: any) => {
     router.push(`/${e.target.id}`);
   };
-
   return (
-    <HS.HeaderWrapper>
-      <HS.LogoMenuWrapper>
-        <HS.TitleIcon src="./logo.png" onClick={onClickHome} />
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-        >
-          <LinkTab2
-            label="쉐이키 소개"
-            value="1"
-            id="/"
-            onClick={onClickMovePage}
-          />
-          <LinkTab2
-            label="지점안내"
-            value="2"
-            id="main"
-            onClick={onClickMovePage}
-          />
-          <LinkTab2
-            label="마이페이지"
-            value="3"
-            id="mypage"
-            onClick={onClickMovePage}
-          />
-        </Tabs>
-      </HS.LogoMenuWrapper>
-
-      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab
-          label="로그인"
-          value="4"
-          id="login"
-          onClick={onClickMovePage}
-        />
-        <LinkTab
-          label="회원가입"
-          value="5"
-          id="signup"
-          onClick={onClickMovePage}
-        />
-      </Tabs>
-    </HS.HeaderWrapper>
+    <THS.Wrapper>
+      {/* 로고이미지 */}
+      <THS.LeftHeadWrapper>
+        <THS.LogoImg src="./logo.png" />
+        {/* 네비 메뉴 */}
+        <THS.NavMenu>
+          <THS.NavTest id="/" onClick={onClickMovePage}>
+            쉐이키 소개
+          </THS.NavTest>
+          <THS.NavTest id="main" onClick={onClickMovePage}>
+            지점안내
+          </THS.NavTest>
+          <THS.NavTest id="mypage" onClick={onClickMovePage}>
+            마이페이지
+          </THS.NavTest>
+        </THS.NavMenu>
+      </THS.LeftHeadWrapper>
+      {/* 회원가입 / 로그인  */}
+      <THS.BtnWrapper>
+        <THS.Button id="login" onClick={onClickMovePage}>
+          로그인
+        </THS.Button>
+        <THS.Button id="signup" onClick={onClickMovePage}>
+          회원가입
+        </THS.Button>
+      </THS.BtnWrapper>
+    </THS.Wrapper>
   );
 }

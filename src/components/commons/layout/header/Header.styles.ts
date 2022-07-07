@@ -1,37 +1,100 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
-export const HeaderWrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: 1px solid lightgray;
-  padding: 0px 200px;
-  @media ${breakPoints.tablet} {
-    padding: 0px 0px;
-    width: 100%;
-  }
-  @media ${breakPoints.mobile} {
-    height: 80px;
-    padding: 0px;
-  }
 `;
 
-export const LogoMenuWrapper = styled.div`
+export const LeftHeadWrapper = styled.nav`
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  width: 30%;
+  @media ${breakPoints.tablet} {
+    width: 50%;
+  }
+  @media ${breakPoints.mobile} {
+    width: 70%;
+  }
 `;
 
-// 아이콘
-export const TitleIcon = styled.img`
+export const LogoImg = styled.img`
   width: 100px;
   height: auto;
   @media ${breakPoints.mobile} {
-    display: none;
+    /* display: none; */
+    width: 80px;
+  }
+`;
+
+export const NavMenu = styled.nav`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const NavTest = styled.a`
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    color: #4167ee;
+    border-bottom: 3px solid #4167ee;
+  }
+  &:active {
+    font-size: 18.5px;
+  }
+  @media ${breakPoints.tablet} {
+    font-size: 13px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
+`;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  @media ${breakPoints.tablet} {
+    width: 27%;
+  }
+  @media ${breakPoints.mobile} {
+    width: 30%;
+  }
+`;
+
+export const Button = styled.button`
+  width: 91px;
+  height: 34px;
+  border: none;
+  background: #4167ee;
+  color: white;
+  border-radius: 5px;
+  margin: 0px 10px;
+  :hover {
+    background-color: white;
+    border: 1px solid #4167ee;
+    color: #4167ee;
+  }
+  @media ${breakPoints.tablet} {
+    width: 70px;
+    height: 28px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 60px;
+    height: 20px;
+    font-size: 10px;
+    margin: 0px 5px;
   }
 `;

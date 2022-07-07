@@ -1,9 +1,9 @@
-import DetailFooterUI from "./DetailHead.presenter";
+import DetailHeaderUI from "./DetailHead.presenter";
 
 export default function DetailHeadContainer() {
   return (
     <>
-      <DetailFooterUI />
+      <DetailHeaderUI />
     </>
   );
 }

@@ -25,7 +25,7 @@ function LinkTab(props: LinkTabProps) {
   );
 }
 
-export default function DetailFooterUI() {
+export default function DetailHeaderUI() {
   const [value, setValue] = useState("");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -52,7 +52,7 @@ export default function DetailFooterUI() {
           />
           <LinkTab
             label="구로점 쉐이키 3"
-            value="3"
+            value="6"
             style={{ fontWeight: "700", fontSize: "22" }}
           />
         </Tabs>
