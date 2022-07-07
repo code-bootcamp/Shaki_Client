@@ -46,7 +46,7 @@ export default function LayoutPage(props: LayoutProps) {
         <Body>{props.children}</Body>
         {!isHiddenSidebar && <SideRightPage />}
       </PageWrapper>
-      {!isHiddenLayout && <FooterPage />}
+      <div style={{ zIndex: 4 }}>{!isHiddenLayout && <FooterPage />}</div>
     </div>
   );
 }

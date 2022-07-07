@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
   }
 `;
 
@@ -16,7 +17,7 @@ export const Divedline = styled.div`
   margin-bottom: 40px;
   border-bottom: 1px solid #4167ee;
   @media ${breakPoints.mobile} {
-    width: 90%;
+    width: 100%;
   }
 `;
 
@@ -24,13 +25,26 @@ export const Title = styled.div`
   font-weight: 500;
   font-size: 20px;
   margin-bottom: 10px;
+  word-wrap: break-word;
+`;
+
+export const TagWrapper = styled.div`
+  background-color: red;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 export const SubTitle = styled.div`
+  width: 100%;
   font-weight: 400;
   font-size: 16px;
   color: #9ca0ac;
   margin-bottom: 20px;
+  @media ${breakPoints.mobile} {
+    width: 50%;
+  }
 `;
 
 export const Divedline2 = styled.div`
@@ -39,7 +53,7 @@ export const Divedline2 = styled.div`
   margin-bottom: 40px;
   border-bottom: 1px solid #d9dbe3;
   @media ${breakPoints.mobile} {
-    width: 90%;
+    width: 100%;
   }
 `;
 
@@ -70,7 +84,8 @@ export const CommentWrapper = styled.div`
   border-radius: 10px;
   padding: 40px;
   @media ${breakPoints.mobile} {
-    width: 500px;
+    width: 80%;
+    padding: 10px;
   }
 `;
 // 카카오맵
@@ -78,7 +93,7 @@ export const KakaoMapWrapper = styled.div`
   width: 814px;
   height: 450px;
   @media ${breakPoints.mobile} {
-    width: 500px;
+    width: 80%;
   }
 `;
 // 알아두어야할사항

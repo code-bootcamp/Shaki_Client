@@ -10,6 +10,7 @@ interface LinkTabProps {
   value?: string;
   id?: string;
   onClick?: (e: any) => void;
+  style: { fontWeight: string; fontSize: string };
 }
 
 function LinkTab(props: LinkTabProps) {
