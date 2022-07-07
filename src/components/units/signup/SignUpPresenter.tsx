@@ -27,7 +27,7 @@ export default function SignUpPresenter(props: any) {
             >
               {props.sendAuth ? "인증" : "인증번호 발송"}
             </Su.BodyButton>
-            <Su.AuthInput sendAuth={props.sendAuth} />
+            <Su.AuthInput placeholder="인증번호" sendAuth={props.sendAuth} />
           </Su.AuthBox>
           <Su.Error>{props.formState.errors.email?.message}</Su.Error>
           비밀번호

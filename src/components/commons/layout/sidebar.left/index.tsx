@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const ImgWrapper = styled.div`
   position: fixed;
-  top: 104px;
+  top: 200px;
   left: 20px;
   z-index: 3;
   @media screen and (max-width: 1500px) {

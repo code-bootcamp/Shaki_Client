@@ -12,8 +12,14 @@ const Body = styled.div`
 `;
 // 사이드
 const PageWrapper = styled.div`
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
+  position: sticky;
+`;
+
+const FooterWrapper = styled.div`
+  display: flex;
+  position: sticky;
 `;
 
 interface LayoutProps {
@@ -46,7 +52,7 @@ export default function LayoutPage(props: LayoutProps) {
         <Body>{props.children}</Body>
         {!isHiddenSidebar && <SideRightPage />}
       </PageWrapper>
-      <div style={{ zIndex: 4 }}>{!isHiddenLayout && <FooterPage />}</div>
+      <FooterWrapper>{!isHiddenLayout && <FooterPage />}</FooterWrapper>
     </div>
   );
 }

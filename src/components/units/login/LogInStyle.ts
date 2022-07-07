@@ -17,6 +17,15 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const panel = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const LogInImg = styled.img`
+  width: 30em;
+`;
+
 export const MiddleWrapper = styled.div`
   width: 25em;
   display: flex;
@@ -115,6 +124,7 @@ export const SignUp = styled.div`
   font-weight: 600;
   color: #4e75ff;
   border-bottom: 1px solid #4e75ff;
+  cursor: pointer;
 `;
 
 export const Footer = styled.div`

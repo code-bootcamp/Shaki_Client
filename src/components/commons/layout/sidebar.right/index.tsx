@@ -11,7 +11,6 @@ const ImgWrapper = styled.div`
 `;
 
 const Img = styled.img`
-  position: sticky;
   /* top: 1000px; */
   @media screen and (max-width: 1630px) {
     width: 76px;

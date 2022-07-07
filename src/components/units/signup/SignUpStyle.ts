@@ -39,7 +39,7 @@ const appeared = keyframes`
   from {
     opacity: 0;
   } to {
-    opacity: 0.15;
+    opacity: 1;
   }
 `;
 
@@ -117,6 +117,7 @@ export const Submit = styled.button`
 
 export const Head = styled.div`
   font-size: 40px;
+  font-weight: 600;
   margin: 30px;
   backface-visibility: hidden;
 `;
@@ -142,6 +143,7 @@ export const Body = styled.div`
   flex-direction: column;
   padding-bottom: 20px;
   font-size: 15px;
+  font-weight: 550;
 `;
 
 export const InputBox = styled.div``;
@@ -149,17 +151,22 @@ export const InputBox = styled.div``;
 export const BodyInput = styled.input`
   height: 40px;
   border: none;
-  background-color: #4e75ff;
-  opacity: 0.15;
+  /* background-color: #4e75ff; */
+  border-bottom: 1px solid black;
+  /* opacity: 0.15; */
   margin: 10px 0;
   color: black;
+  outline: none;
 `;
 
 export const AuthInput = styled.input`
+  width: 10em;
+  align-items: center;
   opacity: 0;
   height: 40px;
   border: none;
-  background-color: #4e75ff;
+  border-bottom: 1px solid black;
+  /* background-color: #4e75ff; */
   margin: 10px 0;
   color: black;
   animation: ${(props: { sendAuth: boolean }) => props.sendAuth && appeared} 1s
@@ -172,6 +179,7 @@ export const Error = styled.div`
 `;
 
 export const AuthBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -185,7 +193,7 @@ export const BodyButton = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   border: 1px solid #4e75ff;
   color: #4e75ff;

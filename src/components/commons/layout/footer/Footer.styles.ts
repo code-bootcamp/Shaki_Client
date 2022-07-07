@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
 export const FooterWrapper = styled.div`
+  position: sticky;
   background-color: white;
   width: 100%;
   height: 300px;
