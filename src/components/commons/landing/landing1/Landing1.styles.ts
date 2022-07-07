@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 
 export const Icon = styled.img`
   position: relative;
-  width: 100px;
+  width: 60px;
   height: 51px;
   right: -600px;
   bottom: 750px;
