@@ -22,6 +22,7 @@ interface LayoutProps {
 
 const HIDDEN_LAYOUT = ["/"];
 const HIDDEN_SIDEBAR: Array<string> = [];
+// 예외처리 함수
 function EditBoolean(element: any) {
   const a = element.split("/");
   for (let i = 0; i < a.length; i++) {

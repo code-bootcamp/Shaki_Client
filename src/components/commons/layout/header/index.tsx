@@ -62,19 +62,19 @@ export default function NavTabs() {
           aria-label="nav tabs example"
         >
           <LinkTab2
-            label="지점소개"
+            label="쉐이키 소개"
             value="1"
-            id="main"
+            id="/"
             onClick={onClickMovePage}
           />
           <LinkTab2
             label="지점안내"
             value="2"
-            id="detailpage"
+            id="main"
             onClick={onClickMovePage}
           />
           <LinkTab2
-            label="문의사항"
+            label="마이페이지"
             value="3"
             id="mypage"
             onClick={onClickMovePage}

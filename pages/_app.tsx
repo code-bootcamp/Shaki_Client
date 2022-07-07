@@ -5,7 +5,7 @@ import ApolloSetting from "../src/components/commons/apollo";
 import LayoutPage from "../src/components/commons/layout";
 import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
-
+import "antd/dist/antd.css";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloSetting>

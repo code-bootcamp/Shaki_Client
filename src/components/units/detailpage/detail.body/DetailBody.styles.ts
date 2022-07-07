@@ -30,6 +30,7 @@ export const SubTitle = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: #9ca0ac;
+  margin-bottom: 20px;
 `;
 
 export const Divedline2 = styled.div`
@@ -95,6 +96,8 @@ export const ExampleWrapper = styled.div`
   background-color: lightgray;
   width: 260px;
   height: auto;
+  border-radius: 15px;
+  padding: 5px;
   @media ${breakPoints.mobile} {
     margin-bottom: 20px;
   }
