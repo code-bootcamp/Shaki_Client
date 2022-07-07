@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 import Button from "@mui/material/Button";
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperRoot = styled.div`
   width: calc(100% - 250px);
@@ -14,8 +18,12 @@ export const Wrapper = styled.div`
   padding-bottom: 50px;
   background-color: #ffffff;
 `;
-export const HeadWrapper = styled.div``;
-export const LogoWrapper = styled.div``;
+export const HeadWrapper = styled.div`
+  width: 100%;
+`;
+export const LogoWrapper = styled.div`
+  width: 100%;
+`;
 export const Logo = styled.img`
   width: 150px;
 `;
@@ -33,14 +41,7 @@ export const OptionNew = styled.div`
   border-bottom: 1px solid #999999;
   cursor: pointer;
 `;
-export const OptionQuestion = styled.div`
-  font-size: 24px;
-  margin-left: 10px;
-  padding-left: 20px;
-  padding-right: 10px;
-  border-bottom: 1px solid #999999;
-  cursor: pointer;
-`;
+
 export const BodyWrapper = styled.div`
   width: 100%;
 `;
@@ -51,28 +52,45 @@ export const TitleWrapper = styled.div`
   margin-bottom: 20px;
 `;
 export const TitleLabel = styled.div`
-  width: 80px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
   font-size: 20px;
   font-weight: bold;
 `;
 export const Title = styled.input`
+  width: 1000px;
+  height: 40px;
+`;
+export const RemarksWrapper = styled.div`
   width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+export const RemarksLabel = styled.div`
+  width: 100px;
+  font-size: 20px;
+  font-weight: bold;
+`;
+export const Remarks = styled.input`
+  width: 1000px;
   height: 40px;
 `;
 export const TagsWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 `;
 export const TagsLabel = styled.div`
   width: 100px;
-  margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
 `;
 export const Tags = styled.input`
-  width: 100%;
+  width: 580px;
   height: 40px;
   margin-right: 20px;
 `;
@@ -87,6 +105,9 @@ export const PersonSelect = styled.select`
   height: 40px;
 `;
 export const Person = styled.option``;
+export const PersonSelected = styled.input`
+  width: 100px;
+`;
 export const ContentsWrapper = styled.div`
   width: 100%;
   margin-bottom: 20px;
@@ -97,9 +118,13 @@ export const ContentsLabel = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
-export const Contents = styled.textarea`
+export const ReactQuillWrapper = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
+`;
+export const Contents = styled(ReactQuill)`
+  width: 100%;
+  height: 100px;
   margin-top: 10px;
 `;
 export const AddressWrapper = styled.div`

@@ -2,25 +2,21 @@ import styled from "@emotion/styled";
 
 export const WrapperRoot = styled.div`
   width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 0px;
+  position: relative;
 `;
 
 export const Wrapper = styled.div`
   position: relative;
   width: 100vw;
-
+  height: 1500px;
   background-image: url("/landing/header 1.png");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* filter: blur(1px); */
-  /* -webkit-filter: blur(1px); */
 `;
 
 export const Rectangle = styled.div`
-  position: relative;
+  position: absolute;
   width: 10px;
   height: 40px;
   left: 370px;
@@ -30,41 +26,38 @@ export const Rectangle = styled.div`
 `;
 
 export const Header = styled.div`
-  position: relative;
+  position: absolute;
   width: 455px;
   height: 160px;
-  left: 350px;
-  top: 1000px;
+  top: 150px;
+  left: 400px;
   background-image: url("/landing/landing2header.png");
   background-repeat: no-repeat;
 `;
 
 export const Contents = styled.div`
-  position: relative;
+  position: absolute;
   width: 437px;
   height: 84px;
-  left: 350px;
-  top: 1000px;
+  top: 300px;
+  left: 400px;
   background-repeat: no-repeat;
-
   background-image: url("/landing/landing2text.png");
 `;
 
 export const MapWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 2500px;
   left: 0px;
-  top: 2200px;
+  top: 1500px;
   background-color: #ffffff;
   z-index: 3;
 `;
 
 export const MapBody = styled.div`
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 1080px;
-
   background-image: url("/landing/3.png");
   background-size: contain;
   background-position: center;
@@ -72,17 +65,17 @@ export const MapBody = styled.div`
 `;
 
 export const Footer = styled.div`
-  position: relative;
+  position: absolute;
   width: 1168px;
   height: 848px;
   left: 320px;
-  top: 700px;
+  top: 1500px;
   background-image: url("/landing/5.png");
 `;
 
 export const Box = styled.div`
-  position: relative;
-  top: 700px;
+  position: absolute;
+  top: 2500px;
   width: 100%;
   height: 500px;
   background-color: black;

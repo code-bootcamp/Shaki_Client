@@ -6,13 +6,13 @@ export const WrapperRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: relative;
 `;
 
 export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: absolute;
   display: flex;
   z-index: 1;
   background-image: url("/landing/BackEdit.gif");
@@ -23,38 +23,43 @@ export const Wrapper = styled.div`
 `;
 
 export const Icon = styled.img`
-  position: relative;
-  width: 60px;
-  height: 51px;
-  right: -600px;
-  bottom: 750px;
-  z-index: 2;
+  width: 70px;
+  height: 60px;
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
 `;
 
-export const TitleHead = styled.p`
+export const TitleWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   position: relative;
+`;
+export const TitleHead = styled.div`
+  width: 500px;
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
   font-family: Arial;
-  width: 568px;
-  height: 123px;
   color: #f9f9f9;
   font-weight: 900;
   font-size: 60px;
-  left: -400px;
-  bottom: 300px;
   z-index: 2;
 `;
 
 export const Title = styled(Typical)`
-  position: relative;
+  width: 800px;
+  position: absolute;
+  left: 140px;
   font-family: Arial;
-  width: 568px;
-  height: 123px;
   color: #f9f9f9;
   font-weight: 900;
-  font-size: 50px;
-  left: -400px;
-
-  bottom: 400px;
-
+  font-size: 60px;
   z-index: 2;
 `;
