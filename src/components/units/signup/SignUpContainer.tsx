@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import SignUpPresenter from "./SignUpPresenter";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "./SignUpMutation";
@@ -34,6 +34,10 @@ const schema = yup.object({
 export default function SignUpContainer() {
   const router = useRouter();
   const [createUser] = useMutation(CREATE_USER);
+  const [email, setEmail] = useState("");
+  const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
 
   const { handleSubmit, formState, register } = useForm({
     mode: "onChange",
@@ -43,6 +47,16 @@ export default function SignUpContainer() {
   const [fliped, setFliped] = useState<boolean>();
   const onClickFliped = (event: React.MouseEvent<HTMLDivElement>) => {
     setFliped((prev) => !prev);
+  };
+
+  const [sendAuth, setSendAuth] = useState<boolean>(false);
+  const onClickSendAuth = (event: React.MouseEvent<HTMLDivElement>) => {
+    alert("인증번호가 발송되었습니다.");
+    setSendAuth(true);
+  };
+
+  const onClickAuthed = (event: React.MouseEvent<HTMLDListElement>) => {
+    alert("이메일 인증이 완료되었습니다.");
   };
 
   const onClickMoveToLanding = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -78,6 +92,10 @@ export default function SignUpContainer() {
       onClickFliped={onClickFliped}
       onClickMoveToLanding={onClickMoveToLanding}
       onClickSubmit={onClickSubmit}
+      sendAuth={sendAuth}
+      onClickSendAuth={onClickSendAuth}
+      onClickAuthed={onClickAuthed}
+      onChangeEmail={onChangeEmail}
     />
   );
 }

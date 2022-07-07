@@ -18,22 +18,24 @@ export const Wrapper = styled.div`
 `;
 
 export const MiddleWrapper = styled.div`
-  width: 45em;
+  width: 25em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 3px solid #4e75ff;
-  box-shadow: 0 0 10px skyblue;
+  box-shadow: 0 0 10px #4e75ff;
+  border-radius: 20px;
   padding: 30px 0;
+  font-weight: 500;
   @media ${breakPoints.mobile} {
-    width: 100%;
+    width: 60vw;
   }
 `;
 
 export const Head = styled.div`
   font-size: 40px;
   margin-bottom: 1em;
+  font-weight: 500;
 `;
 
 export const UpperBody = styled.div`
@@ -50,6 +52,7 @@ export const Email = styled.input`
   border: none;
   background-color: #4e75ff;
   opacity: 0.2;
+  margin-bottom: 10px;
 `;
 
 export const Password = styled.input`
@@ -62,10 +65,13 @@ export const Password = styled.input`
 export const LowerBody = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  font-weight: 600;
   padding: 0 20px 30px 20px;
 `;
 
 export const ImgWrapper = styled.div`
+  width: 15em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -94,9 +100,21 @@ export const SocialTitle = styled.div``;
 
 export const LogIn = styled.button`
   border: none;
-  width: 6em;
+  width: 7em;
   height: 3em;
+  background-color: #4e75ff;
+  border-radius: 10px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 10px;
   cursor: pointer;
+`;
+
+export const SignUp = styled.div`
+  margin-top: 10px;
+  font-weight: 600;
+  color: #4e75ff;
+  border-bottom: 1px solid #4e75ff;
 `;
 
 export const Footer = styled.div`
@@ -105,6 +123,8 @@ export const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  color: #4e75ff;
+  font-weight: 600;
   cursor: pointer;
   :hover {
     border-bottom: 2px solid #4e75ff;
@@ -116,5 +136,6 @@ export const MobileBox = styled.div`
 
   @media ${breakPoints.mobile} {
     display: block;
+    margin-top: 1em;
   }
 `;
