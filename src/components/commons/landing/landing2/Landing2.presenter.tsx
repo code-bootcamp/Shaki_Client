@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import useScrollFadeIn from "../../../../hooks/useScrollFadeIn";
 import * as Ld from "./Landing2.styles";
 
@@ -9,9 +10,22 @@ export default function Landing2UI() {
     3: useScrollFadeIn("up", 1, 0.4),
   };
 
+  const downRef = useRef();
+  // const upRef = useRef();
+
+  const onClickMoveToDown = () => {
+    downRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // const onClickMoveToUp = () => {
+  //   upRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
   return (
     <Ld.WrapperRoot>
       <Ld.Wrapper>
+        <Ld.ScrollButtonB onClick={onClickMoveToDown}></Ld.ScrollButtonB>
+
         <Ld.Rectangle></Ld.Rectangle>
         <Ld.Header {...animatedItem[0]}></Ld.Header>
         <Ld.Contents {...animatedItem[1]}></Ld.Contents>
@@ -30,6 +44,7 @@ export default function Landing2UI() {
           style={{ width: "366px", height: "90px", marginTop: "10px" }}
         />
         <Ld.SocialLogInButton
+          ref={downRef}
           style={{
             marginTop: "5px",
             marginLeft: "-5px",

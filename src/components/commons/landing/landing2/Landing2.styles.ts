@@ -113,3 +113,22 @@ export const SocialLoginBox = styled.div`
 `;
 
 export const SocialLogInButton = styled.img``;
+
+export const ScrollButtonB = styled.div`
+  background-image: url("/landing/button.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  /* background-color: red; */
+  background-color: white;
+  bottom: 100px;
+  height: 40px;
+  left: 1400px;
+  z-index: 4;
+`;
+
+export const ScrollButtonT = styled.button`
+  background-image: url("/landing/button2.jepg");
+`;
