@@ -51,8 +51,7 @@ export const TitleWrapper = styled.div`
   margin-bottom: 20px;
 `;
 export const TitleLabel = styled.div`
-  width: 10%;
-  margin-right: 20px;
+  width: 80px;
   font-size: 20px;
   font-weight: bold;
 `;
@@ -62,30 +61,29 @@ export const Title = styled.input`
 `;
 export const TagsWrapper = styled.div`
   width: 100%;
-  height: 40px;
   display: flex;
   align-items: center;
   margin-bottom: 40px;
 `;
 export const TagsLabel = styled.div`
-  width: 12%;
+  width: 100px;
   margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
 `;
 export const Tags = styled.input`
-  width: 60%;
+  width: 100%;
   height: 40px;
   margin-right: 20px;
 `;
 export const PersonLabel = styled.div`
-  width: 10%;
+  width: 100px;
   margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
 `;
 export const PersonSelect = styled.select`
-  width: 30%;
+  width: 300px;
   height: 40px;
 `;
 export const Person = styled.option``;
@@ -110,7 +108,7 @@ export const AddressWrapper = styled.div`
   margin-bottom: 50px;
 `;
 export const MapWrapper = styled.div`
-  width: 60%;
+  width: 100%;
 `;
 export const Map = styled.div`
   width: 400px;
@@ -118,7 +116,7 @@ export const Map = styled.div`
   background-color: #999999;
 `;
 export const AddressDetailWrapper = styled.div`
-  width: 40%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -140,6 +138,8 @@ export const AddressCode = styled.input`
   margin-right: 10px;
 `;
 export const AddressSearchButton = styled.button`
+  width: 100px;
+  height: 50px;
   cursor: pointer;
 `;
 export const Address = styled.input`
@@ -154,7 +154,7 @@ export const ImageWrapper = styled.div`
   margin-bottom: 100px;
 `;
 export const MainWrapper = styled.div`
-  width: 50%;
+  width: 100%;
 `;
 export const Main = styled.img`
   width: 300px;
@@ -163,7 +163,7 @@ export const Main = styled.img`
   cursor: pointer;
 `;
 export const SubImageWrapper = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
