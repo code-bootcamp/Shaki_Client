@@ -77,6 +77,13 @@ export const PrecautionsMenu = styled.div`
 `;
 
 // 댓글
+export const CommentBox = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
+`;
+
 export const CommentWrapper = styled.div`
   width: 814px;
   height: 440px;
@@ -87,6 +94,12 @@ export const CommentWrapper = styled.div`
     width: 80%;
     padding: 10px;
   }
+`;
+
+export const Comment = styled.div`
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 15px;
 `;
 // 카카오맵
 export const KakaoMapWrapper = styled.div`
@@ -108,12 +121,19 @@ export const PrecautionsWrapper = styled.div`
 `;
 
 export const ExampleWrapper = styled.div`
-  background-color: lightgray;
   width: 260px;
   height: auto;
   border-radius: 15px;
   padding: 5px;
+  border: 1px solid lightgray;
   @media ${breakPoints.mobile} {
     margin-bottom: 20px;
   }
+`;
+
+export const Example = styled.div`
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 14px;
+  color: #9ca0ac;
 `;

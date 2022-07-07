@@ -4,7 +4,8 @@ import * as Ft from "./Footer.styles";
 export default function FooterPage() {
   const router = useRouter();
   const onClickLogo = () => {
-    router.push("/");
+    // 나중에 삭제할 이벤트
+    router.push("/detailpage");
   };
   const onClickSNS = (e: any) => {
     window.location.href = `https://www.${e.target.id}.com`;
