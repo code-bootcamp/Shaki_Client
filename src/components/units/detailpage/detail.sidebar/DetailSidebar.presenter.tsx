@@ -7,7 +7,7 @@ export default function DetailSidebarUI() {
         <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
         <DS.CalendarWrapper>
           <DS.Label>날짜 선택</DS.Label>
-          <DS.Calendar>달력</DS.Calendar>
+          <DS.Calendar src="./detailpage/c.png" />
         </DS.CalendarWrapper>
 
         <DS.CheckWrapper>

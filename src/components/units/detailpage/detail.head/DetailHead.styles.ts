@@ -57,7 +57,7 @@ export const ExImgBox = styled.div`
     justify-content: center;
   }
 `;
-export const ExImgTitle = styled.div`
+export const ExImgTitle = styled.img`
   width: 540px;
   height: 466px;
   background-color: lightgray;
@@ -79,7 +79,7 @@ export const ExImgWrapper = styled.div`
   grid-template-rows: 1fr;
 `;
 
-export const ExImg = styled.div`
+export const ExImg = styled.img`
   width: 310px;
   height: 220px;
   background-color: lightgray;

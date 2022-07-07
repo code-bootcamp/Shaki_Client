@@ -61,17 +61,16 @@ export default function DetailFooterUI() {
         <DH.HeadInfo>
           <Rating size="large" />
           4.0/ 5.0
-          <>태그</>4
         </DH.HeadInfo>
         <DH.QuestionBtn>문의하기</DH.QuestionBtn>
       </DH.HeadInfoWrapper>
       <DH.ExImgBox>
-        <DH.ExImgTitle>대표이미지</DH.ExImgTitle>
+        <DH.ExImgTitle src="./logo.png" />
         <DH.ExImgWrapper>
-          <DH.ExImg>이미지1</DH.ExImg>
-          <DH.ExImg>이미지2</DH.ExImg>
-          <DH.ExImg>이미지3</DH.ExImg>
-          <DH.ExImg>이미지4</DH.ExImg>
+          <DH.ExImg src="./logo.png" />
+          <DH.ExImg src="./logo.png" />
+          <DH.ExImg src="./logo.png" />
+          <DH.ExImg src="./logo.png" />
         </DH.ExImgWrapper>
       </DH.ExImgBox>
     </DH.Wrapper>

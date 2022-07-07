@@ -62,7 +62,7 @@ export const CalendarWrapper = styled.div`
   padding: 0px 20px;
 `;
 
-export const Calendar = styled.div`
+export const Calendar = styled.img`
   width: 340px;
   height: 290px;
   background: lightgreen;
