@@ -25,20 +25,8 @@ export default function AdminWriteUI() {
           <Ad.TagsWrapper>
             <Ad.TagsLabel>태그: </Ad.TagsLabel>
             <Ad.Tags />
-            <Ad.PersonLabel>인원 수</Ad.PersonLabel>
-            {/* <Ad.PersonSelect name="person">
-              <Ad.Person value="">인원을 선택해주세요.</Ad.Person>
-              <Ad.Person value="0">0</Ad.Person>
-              <Ad.Person value="1">1</Ad.Person>
-              <Ad.Person value="2">2</Ad.Person>
-              <Ad.Person value="3">3</Ad.Person>
-              <Ad.Person value="4">4</Ad.Person>
-              <Ad.Person value="5">5</Ad.Person>
-              <Ad.Person value="6">6</Ad.Person>
-              <Ad.Person value="7">7</Ad.Person>
-              <Ad.Person value="8">8</Ad.Person>
-            </Ad.PersonSelect> */}
-            <Ad.PersonSelected type="number" min={0} max={8} />
+            <Ad.PersonLabel>인원 수: </Ad.PersonLabel>
+            <Ad.PersonSelect type="number" min={0} max={8} />
           </Ad.TagsWrapper>
 
           <Ad.ContentsWrapper>

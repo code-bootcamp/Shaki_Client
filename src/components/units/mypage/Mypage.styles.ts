@@ -126,7 +126,10 @@ export const PickedLabel = styled.div`
 `;
 export const PickedNumberWrapper = styled.div``;
 export const PickedNumber = styled.div`
+  margin-top: 10px;
   font-size: 30px;
+  font-weight: bold;
+  color: #4167ee;
 `;
 
 export const ReservationWrapper = styled.div`
@@ -148,7 +151,10 @@ export const ReservationLabel = styled.div`
 `;
 export const ReservationNumberWrapper = styled.div``;
 export const ReservationNumber = styled.div`
+  margin-top: 10px;
   font-size: 30px;
+  font-weight: bold;
+  color: #4167ee;
 `;
 
 // 예약정보
@@ -287,6 +293,7 @@ export const Name = styled.div`
   height: 20px;
   font-size: 40px;
   font-weight: 700;
+  margin-bottom: 30px;
 
   @media ${breakPoints.mobile} {
     font-size: 30px;

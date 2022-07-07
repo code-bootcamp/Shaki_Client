@@ -11,7 +11,7 @@ export const WrapperRoot = styled.div`
   padding: 20px;
 `;
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 1200px;
   padding-top: 10px;
   padding-left: 40px;
   padding-right: 40px;
@@ -90,7 +90,7 @@ export const TagsLabel = styled.div`
   font-weight: bold;
 `;
 export const Tags = styled.input`
-  width: 580px;
+  width: 750px;
   height: 40px;
   margin-right: 20px;
 `;
@@ -100,8 +100,8 @@ export const PersonLabel = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
-export const PersonSelect = styled.select`
-  width: 300px;
+export const PersonSelect = styled.input`
+  width: 120px;
   height: 40px;
 `;
 export const Person = styled.option``;
@@ -110,6 +110,7 @@ export const PersonSelected = styled.input`
 `;
 export const ContentsWrapper = styled.div`
   width: 100%;
+  height: 300px;
   margin-bottom: 20px;
 `;
 export const ContentsLabel = styled.div`
@@ -124,7 +125,7 @@ export const ReactQuillWrapper = styled.div`
 `;
 export const Contents = styled(ReactQuill)`
   width: 100%;
-  height: 100px;
+  height: 200px;
   margin-top: 10px;
 `;
 export const AddressWrapper = styled.div`
