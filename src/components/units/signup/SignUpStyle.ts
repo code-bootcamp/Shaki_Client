@@ -35,6 +35,14 @@ const pullDown = keyframes`
   }
 `;
 
+const appeared = keyframes`
+  from {
+    opacity: 0;
+  } to {
+    opacity: 0.15;
+  }
+`;
+
 export const Wrapper = styled.form`
   width: 100%;
   display: flex;
@@ -81,7 +89,7 @@ export const BackFace = styled.div`
   transform: rotateY(180deg);
   backface-visibility: hidden;
   animation: ${(props: { fliped: boolean }) => (props.fliped ? unFlip : flip)}
-    1s ease-out forwards;
+    0.5s ease-out forwards;
 `;
 
 export const ButtonBox = styled.div`
@@ -144,6 +152,18 @@ export const BodyInput = styled.input`
   background-color: #4e75ff;
   opacity: 0.15;
   margin: 10px 0;
+  color: black;
+`;
+
+export const AuthInput = styled.input`
+  opacity: 0;
+  height: 40px;
+  border: none;
+  background-color: #4e75ff;
+  margin: 10px 0;
+  color: black;
+  animation: ${(props: { sendAuth: boolean }) => props.sendAuth && appeared} 1s
+    ease-out forwards;
 `;
 
 export const Error = styled.div`
@@ -151,7 +171,14 @@ export const Error = styled.div`
   margin-bottom: 10px;
 `;
 
+export const AuthBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const BodyButton = styled.div`
+  width: 40%;
   height: 40px;
   margin: 10px 0;
   display: flex;
@@ -160,12 +187,8 @@ export const BodyButton = styled.div`
   align-items: center;
   font-size: 16px;
   font-weight: 500;
-`;
-
-export const Phone = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
+  border: 1px solid #4e75ff;
+  color: #4e75ff;
 `;
 
 export const Footer = styled.div`
@@ -186,6 +209,7 @@ export const CancelButton = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
   cursor: pointer;
   :hover {
     color: #4e75ff;
@@ -199,6 +223,7 @@ export const ConfirmButton = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
   cursor: pointer;
   :hover {
     color: #4e75ff;

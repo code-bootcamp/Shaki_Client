@@ -14,26 +14,29 @@ export default function SignUpPresenter(props: any) {
           <Su.BodyInput type="text" {...props.register("nickname")} />
           <Su.Error>{props.formState.errors.id?.message}</Su.Error>
           이메일
-          <Su.BodyInput type="text" {...props.register("email")} />
+          <Su.BodyInput
+            type="text"
+            onChange={props.onChangeEmail}
+            {...props.register("email")}
+          />
+          <Su.AuthBox>
+            <Su.BodyButton
+              onClick={
+                props.sendAuth ? props.onClickAuthed : props.onClickSendAuth
+              }
+            >
+              {props.sendAuth ? "인증" : "인증번호 발송"}
+            </Su.BodyButton>
+            <Su.AuthInput sendAuth={props.sendAuth} />
+          </Su.AuthBox>
           <Su.Error>{props.formState.errors.email?.message}</Su.Error>
           비밀번호
           <Su.BodyInput type="password" {...props.register("pwd")} />
           <Su.Error>{props.formState.errors.pwd?.message}</Su.Error>
           비밀번호확인
           <Su.BodyInput type="text" />
-          휴대폰 인증
-          <Su.Phone>
-            <Su.BodyInput
-              style={{ marginRight: "10px" }}
-              type="text"
-              {...props.register("phone_num")}
-            />
-            <Su.BodyButton>인증번호 받기</Su.BodyButton>
-          </Su.Phone>
-          <Su.Phone>
-            <Su.BodyInput style={{ marginRight: "10px" }} />
-            <Su.BodyButton>인증</Su.BodyButton>
-          </Su.Phone>
+          휴대폰
+          <Su.BodyInput type="text" {...props.register("phone_num")} />
         </Su.Body>
       </Su.SecondWrapper>
       <Su.BottomLine fliped={props.fliped} />
