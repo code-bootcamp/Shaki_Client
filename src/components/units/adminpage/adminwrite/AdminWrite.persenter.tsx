@@ -18,11 +18,15 @@ export default function AdminWriteUI() {
             <Ad.TitleLabel>지점명:</Ad.TitleLabel>
             <Ad.Title />
           </Ad.TitleWrapper>
+          <Ad.RemarksWrapper>
+            <Ad.RemarksLabel>한 줄 소개: </Ad.RemarksLabel>
+            <Ad.Remarks />
+          </Ad.RemarksWrapper>
           <Ad.TagsWrapper>
             <Ad.TagsLabel>태그: </Ad.TagsLabel>
             <Ad.Tags />
             <Ad.PersonLabel>인원 수</Ad.PersonLabel>
-            <Ad.PersonSelect name="person">
+            {/* <Ad.PersonSelect name="person">
               <Ad.Person value="">인원을 선택해주세요.</Ad.Person>
               <Ad.Person value="0">0</Ad.Person>
               <Ad.Person value="1">1</Ad.Person>
@@ -33,12 +37,15 @@ export default function AdminWriteUI() {
               <Ad.Person value="6">6</Ad.Person>
               <Ad.Person value="7">7</Ad.Person>
               <Ad.Person value="8">8</Ad.Person>
-            </Ad.PersonSelect>
+            </Ad.PersonSelect> */}
+            <Ad.PersonSelected type="number" min={0} max={8} />
           </Ad.TagsWrapper>
 
           <Ad.ContentsWrapper>
-            <Ad.ContentsLabel>지점 소개 내용</Ad.ContentsLabel>
-            <Ad.Contents />
+            <Ad.ContentsLabel>Contents</Ad.ContentsLabel>
+            <Ad.ReactQuillWrapper>
+              <Ad.Contents />
+            </Ad.ReactQuillWrapper>
           </Ad.ContentsWrapper>
 
           <Ad.AddressWrapper>
