@@ -1,9 +1,9 @@
 import { useRef, useEffect, useCallback } from "react";
 
 const useScrollFadeIn = (direction = "up", duration = 1, delay = 0) => {
-  const element = useRef();
+  const element = useRef<any>();
 
-  const handleDirection = (name) => {
+  const handleDirection = (name: any) => {
     switch (name) {
       case "up":
         return "translate3d(0, 50%, 0)";
@@ -34,7 +34,7 @@ const useScrollFadeIn = (direction = "up", duration = 1, delay = 0) => {
   );
 
   useEffect(() => {
-    let observer;
+    let observer: IntersectionObserver;
 
     if (element.current) {
       observer = new IntersectionObserver(onScroll, { threshold: 0.7 });

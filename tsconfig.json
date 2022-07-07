@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "typeRoots": ["./types"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,6 +16,11 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/hooks/useScrollFadeIn.jsx"
+  ],
   "exclude": ["node_modules"]
 }
