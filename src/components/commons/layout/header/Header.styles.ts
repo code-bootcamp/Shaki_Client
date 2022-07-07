@@ -45,14 +45,16 @@ export const NavTest = styled.a`
   font-size: 14px;
   cursor: pointer;
   transition: 0.2s;
-
+  /* 마우스를 올렸을때 */
   &:hover {
     color: #4167ee;
     border-bottom: 3px solid #4167ee;
   }
+  /* 마우스로 클릭할때 */
   &:active {
-    font-size: 18.5px;
+    font-size: 18px;
   }
+
   @media ${breakPoints.tablet} {
     font-size: 13px;
   }

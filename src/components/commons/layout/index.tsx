@@ -38,6 +38,7 @@ function EditBoolean(element: any) {
     }
   }
 }
+
 export default function LayoutPage(props: LayoutProps) {
   const router = useRouter();
   EditBoolean(router.asPath);
