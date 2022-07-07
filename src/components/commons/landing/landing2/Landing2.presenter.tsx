@@ -37,24 +37,6 @@ export default function Landing2UI() {
         </Ld.Box>
       </Ld.Wrapper>
       <Ld.Footer {...animatedItem[3]}></Ld.Footer>
-      <Ld.SocialLoginBox>
-        <Ld.SocialLogInButton src="/landing/BigKakaoLogIn2.png" />
-        <Ld.SocialLogInButton
-          src="/landing/BigNaverLogIn.png"
-          style={{ width: "366px", height: "90px", marginTop: "10px" }}
-        />
-        <Ld.SocialLogInButton
-          ref={downRef}
-          style={{
-            marginTop: "5px",
-            marginLeft: "-5px",
-            borderRadius: "25px",
-            width: "378px",
-            height: "95px",
-          }}
-          src="/landing/BigGoogleLogIn2.png"
-        />
-      </Ld.SocialLoginBox>
     </Ld.WrapperRoot>
   );
 }
