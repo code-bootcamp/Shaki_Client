@@ -46,6 +46,8 @@ export const Contents = styled.div`
 `;
 
 export const MapWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
   left: 0px;
@@ -57,6 +59,7 @@ export const MapWrapper = styled.div`
 export const MapBody = styled.div`
   position: absolute;
   width: 100%;
+  max-width: 1600px;
   height: 1080px;
   background-image: url("/landing/3.png");
   background-size: contain;
@@ -64,18 +67,9 @@ export const MapBody = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const Footer = styled.div`
-  position: absolute;
-  width: 1168px;
-  height: 848px;
-  left: 320px;
-  top: 1500px;
-  background-image: url("/landing/5.png");
-`;
-
 export const Box = styled.div`
-  position: absolute;
-  top: 2500px;
+  position: relative;
+  top: 2600px;
   width: 100%;
   height: 500px;
   background-color: black;
@@ -88,5 +82,15 @@ export const Box = styled.div`
 `;
 
 export const BoxImage = styled.img`
+  position: absolute;
   transform: skewY(10deg);
+`;
+
+export const Footer = styled.div`
+  position: relative;
+  width: 1168px;
+  height: 848px;
+  left: 320px;
+  top: 1800px;
+  background-image: url("/landing/5.png");
 `;
