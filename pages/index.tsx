@@ -3,9 +3,9 @@ import Landing2UI from "../src/components/commons/landing/landing2/Landing2.pres
 
 export default function LandingPage() {
   return (
-    <>
+    <div style={{ width: "100vw", height: "100vh" }}>
       <Landing1UI />
       <Landing2UI />
-    </>
+    </div>
   );
 }

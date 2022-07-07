@@ -2,18 +2,19 @@ import styled from "@emotion/styled";
 import Typical from "react-typical";
 
 export const WrapperRoot = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
 `;
 
 export const Wrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
   position: relative;
   display: flex;
   z-index: 1;
-  width: 140em;
-  height: 1120px;
   background-image: url("/landing/BackEdit.gif");
   background-size: cover;
   background-position: center;
@@ -23,10 +24,10 @@ export const Wrapper = styled.div`
 
 export const Icon = styled.img`
   position: relative;
-  width: 47px;
+  width: 100px;
   height: 51px;
-  right: -550px;
-  bottom: 1050px;
+  right: -600px;
+  bottom: 750px;
   z-index: 2;
 `;
 
@@ -39,7 +40,7 @@ export const TitleHead = styled.p`
   font-weight: 900;
   font-size: 60px;
   left: -400px;
-  bottom: 500px;
+  bottom: 300px;
   z-index: 2;
 `;
 
@@ -51,9 +52,9 @@ export const Title = styled(Typical)`
   color: #f9f9f9;
   font-weight: 900;
   font-size: 50px;
-  left: -300px;
+  left: -400px;
 
-  bottom: 600px;
+  bottom: 400px;
 
   z-index: 2;
 `;
