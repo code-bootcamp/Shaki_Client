@@ -60,7 +60,21 @@ export const TitleLabel = styled.div`
   font-weight: bold;
 `;
 export const Title = styled.input`
-  width: 1000px;
+  width: 400px;
+  height: 40px;
+`;
+
+export const RoomNumberLabel = styled.div`
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+`;
+export const RoomNumber = styled.input`
+  width: 480px;
   height: 40px;
 `;
 export const RemarksWrapper = styled.div`
