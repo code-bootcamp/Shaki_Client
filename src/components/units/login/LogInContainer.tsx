@@ -20,12 +20,16 @@ export default function LogInContainer() {
   const onClickMoveToSignUp = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push("/signup");
   };
+  const onClickMoveToMain = () => {
+    router.push("/main");
+  };
   return (
     <LogInPresenter
       handleSubmit={handleSubmit}
       formState={formState}
       register={register}
       onClickMoveToSignUp={onClickMoveToSignUp}
+      onClickMoveToMain={onClickMoveToMain}
     />
   );
 }

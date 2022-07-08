@@ -2,6 +2,7 @@ import Landing1UI from "./landing1/Landing1.presenter";
 import Landing2UI from "./landing2/Landing2.presenter";
 import styled from "@emotion/styled";
 import { useRef } from "react";
+import LogInContainer from "../../units/login/LogInContainer";
 
 const DownButton = styled.div`
   position: absolute;
@@ -22,7 +23,7 @@ const UpButton = styled.div`
   width: 55px;
   height: 55px;
   bottom: -4500px;
-  left: 1250px;
+  left: 1270px;
   z-index: 5;
   /* background-color: white; */
   background-image: url("/landing/scrollArrow.png");
@@ -33,11 +34,9 @@ const UpButton = styled.div`
 
 const SocialLoginBox = styled.div`
   position: relative;
-  width: 30vw;
-  flex-direction: column;
-  justify-content: center;
+  width: 70vw;
   top: 2000px;
-  left: 700px;
+  left: 90px;
   margin-bottom: 100px;
 `;
 
@@ -62,8 +61,8 @@ export default function LandingPage() {
       <DownButton onClick={onClickMoveToDown} />
       <Landing2UI />
       <UpButton onClick={onClickMoveToUp} />
-      <SocialLoginBox>
-        <SocialLogInButton src="/landing/BigKakaoLogIn2.png" />
+      <SocialLoginBox ref={downRef}>
+        {/* <SocialLogInButton src="/landing/BigKakaoLogIn2.png" />
         <SocialLogInButton
           src="/landing/BigNaverLogIn.png"
           style={{ width: "366px", height: "90px", marginTop: "10px" }}
@@ -78,7 +77,8 @@ export default function LandingPage() {
             height: "95px",
           }}
           src="/landing/BigGoogleLogIn2.png"
-        />
+        /> */}
+        <LogInContainer />
       </SocialLoginBox>
       {/* <div ref={downRef}></div> */}
     </div>
