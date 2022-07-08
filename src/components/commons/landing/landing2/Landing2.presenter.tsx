@@ -22,7 +22,9 @@ export default function Landing2UI() {
           <Ld.BoxImage {...animatedItem[2]} src="/landing/landingMent.svg" />
         </Ld.Box>
       </Ld.Wrapper>
-      <Ld.Footer {...animatedItem[3]}></Ld.Footer>
+      <div {...animatedItem[3]}>
+        <Ld.Footer></Ld.Footer>
+      </div>
     </Ld.WrapperRoot>
   );
 }
