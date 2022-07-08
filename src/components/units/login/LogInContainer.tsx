@@ -9,7 +9,7 @@ import { LOG_IN } from "./LogInMutation";
 
 const schema = yup.object({
   email: yup.string().required(),
-  password: yup.string().required(),
+  pwd: yup.string().required(),
 });
 
 export default function LogInContainer() {
@@ -36,6 +36,10 @@ export default function LogInContainer() {
     }
   };
 
+  const onClickKakaoLogIn = () => {
+    router.push("https://shakiback.shop/login/kakao");
+  };
+
   const router = useRouter();
   const onClickMoveToSignUp = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push("/signup");
@@ -51,6 +55,7 @@ export default function LogInContainer() {
       onClickMoveToSignUp={onClickMoveToSignUp}
       onClickMoveToMain={onClickMoveToMain}
       onClickLogIn={onClickLogIn}
+      onClickKakaoLogIn={onClickKakaoLogIn}
     />
   );
 }
