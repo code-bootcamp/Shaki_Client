@@ -21,7 +21,7 @@ const UpButton = styled.div`
   position: absolute;
   width: 75px;
   height: 75px;
-  bottom: -4100px;
+  bottom: -4500px;
   left: 1250px;
   z-index: 5;
   /* background-color: white; */
@@ -30,6 +30,18 @@ const UpButton = styled.div`
   background-size: cover;
   cursor: pointer;
 `;
+
+const SocialLoginBox = styled.div`
+  position: relative;
+  width: 30vw;
+  flex-direction: column;
+  justify-content: center;
+  top: 2000px;
+  left: 700px;
+  margin-bottom: 100px;
+`;
+
+const SocialLogInButton = styled.img``;
 
 export default function LandingPage() {
   const downRef = useRef<any>();
@@ -50,7 +62,25 @@ export default function LandingPage() {
       <DownButton onClick={onClickMoveToDown} />
       <Landing2UI />
       <UpButton onClick={onClickMoveToUp} />
-      <div ref={downRef}></div>
+      <SocialLoginBox>
+        <SocialLogInButton src="/landing/BigKakaoLogIn2.png" />
+        <SocialLogInButton
+          src="/landing/BigNaverLogIn.png"
+          style={{ width: "366px", height: "90px", marginTop: "10px" }}
+        />
+        <SocialLogInButton
+          ref={downRef}
+          style={{
+            marginTop: "5px",
+            marginLeft: "-5px",
+            borderRadius: "25px",
+            width: "378px",
+            height: "95px",
+          }}
+          src="/landing/BigGoogleLogIn2.png"
+        />
+      </SocialLoginBox>
+      {/* <div ref={downRef}></div> */}
     </div>
   );
 }

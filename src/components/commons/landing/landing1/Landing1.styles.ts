@@ -63,14 +63,3 @@ export const Title = styled(Typical)`
   font-size: 60px;
   z-index: 2;
 `;
-
-export const SocialLoginBox = styled.div`
-  position: relative;
-  width: 30vw;
-  flex-direction: column;
-  justify-content: center;
-  top: 4600px;
-  margin-bottom: 100px;
-`;
-
-export const SocialLogInButton = styled.img``;
