@@ -14,7 +14,7 @@ export const HeadWrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  width: 30%;
+  width: 10%;
   height: 50px;
   display: flex;
   flex-direction: row;

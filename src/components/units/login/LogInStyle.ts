@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
 
-export const WrapperRoot = styled.div`
+export const WrapperRoot = styled.form`
   width: 100%;
   display: flex;
   flex-direction: row;

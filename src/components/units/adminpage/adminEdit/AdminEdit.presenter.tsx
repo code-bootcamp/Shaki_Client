@@ -11,7 +11,7 @@ export default function AdminEditPresenter() {
   const [editId, setEditId] = useState("");
 
   const onClickOpenEdit = (event: React.MouseEvent<HTMLDivElement>) => {
-    setEditId(event.target.id);
+    setEditId(event.currentTarget.id);
     console.log(editId);
   };
   return (
