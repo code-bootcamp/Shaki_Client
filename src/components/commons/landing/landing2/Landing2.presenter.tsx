@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import useScrollFadeIn from "../../../../hooks/useScrollFadeIn";
 import * as Ld from "./Landing2.styles";
 
@@ -9,17 +8,6 @@ export default function Landing2UI() {
     2: useScrollFadeIn("up", 1, 0.3),
     3: useScrollFadeIn("up", 1, 0.4),
   };
-
-  const downRef = useRef<any>();
-  // const upRef = useRef();
-
-  const onClickMoveToDown = () => {
-    downRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
-  // const onClickMoveToUp = () => {
-  //   upRef.current.scrollIntoView({ behavior: "smooth" });
-  // };
 
   return (
     <Ld.WrapperRoot>
