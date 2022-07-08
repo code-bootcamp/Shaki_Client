@@ -1,12 +1,24 @@
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import * as React from "react";
 import * as THS from "./Header.styles";
+import { LOG_OUT } from "./mutation";
 
 export default function TestNavTabs() {
   const router = useRouter();
 
+  const [logOutUser] = useMutation(LOG_OUT);
+
   const onClickMovePage = (e: any) => {
     router.push(`/${e.target.id}`);
+  };
+
+  const onClickLogOut = (event: React.MouseEvent<HTMLButtonElement>) => {
+    try {
+      logOutUser();
+    } catch (error: any) {
+      alert(error.message);
+    }
   };
   return (
     <THS.Wrapper>
@@ -34,6 +46,9 @@ export default function TestNavTabs() {
         <THS.Button id="signup" onClick={onClickMovePage}>
           회원가입
         </THS.Button>
+        {/* <THS.Button id="logOut" onClick={onClickLogOut}>
+          로그아웃
+        </THS.Button> */}
       </THS.BtnWrapper>
     </THS.Wrapper>
   );

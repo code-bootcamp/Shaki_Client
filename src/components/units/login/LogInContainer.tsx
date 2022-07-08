@@ -9,7 +9,7 @@ import { LOG_IN } from "./LogInMutation";
 
 const schema = yup.object({
   email: yup.string().required(),
-  password: yup.string().required(),
+  pwd: yup.string().required(),
 });
 
 export default function LogInContainer() {
