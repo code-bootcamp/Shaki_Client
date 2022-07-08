@@ -53,11 +53,13 @@ export const UserWrapper = styled.div`
     flex-direction: column;
   }
 `;
+
 export const UserPictureWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+
 export const UserPicture = styled.img`
   width: 100px;
   height: 100px;
@@ -66,6 +68,7 @@ export const UserPicture = styled.img`
     margin-bottom: 20px;
   }
 `;
+
 export const UserNameWrapper = styled.div`
   margin-left: 20px;
 `;
@@ -86,19 +89,28 @@ export const TopBreakPoint = styled.div`
 `;
 export const PointWrapper = styled.div`
   width: 200px;
-  height: 100px;
+  height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 `;
-export const PointImgWrapper = styled.div``;
-export const PointImg = styled.img``;
-export const PointNumberWrapper = styled.div`
+export const PointImgWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  height: 60px;
 `;
+export const PointImg = styled.img`
+  width: 40px;
+`;
+export const PointLabel = styled.div`
+  padding-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
+`;
+export const PointNumberWrapper = styled.div``;
 export const PointNumber = styled.div`
   margin-right: 10px;
   font-size: 30px;
@@ -109,20 +121,27 @@ export const PointName = styled.div``;
 
 export const PickedWrapper = styled.div`
   width: 200px;
-  height: 100px;
+  height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 `;
 export const PickedImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 60px;
 `;
-export const PickedImg = styled.img``;
+export const PickedImg = styled.img`
+  width: 40px;
+  height: 38px;
+`;
 export const PickedLabel = styled.div`
-  margin-top: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
 `;
 export const PickedNumberWrapper = styled.div``;
 export const PickedNumber = styled.div`
@@ -134,20 +153,27 @@ export const PickedNumber = styled.div`
 
 export const ReservationWrapper = styled.div`
   width: 200px;
-  height: 100px;
+  height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 `;
 export const ReservationImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 60px;
 `;
-export const ReservationImg = styled.img``;
+export const ReservationImg = styled.img`
+  width: 40px;
+  height: 38px;
+`;
 export const ReservationLabel = styled.div`
-  margin-top: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
 `;
 export const ReservationNumberWrapper = styled.div``;
 export const ReservationNumber = styled.div`
@@ -454,6 +480,7 @@ export const PickTitleImg = styled.img`
     height: 30px;
   }
 `;
+
 export const PickTitle = styled.div`
   color: #4167ee;
   font-size: 30px;
@@ -463,9 +490,14 @@ export const PickTitle = styled.div`
     font-size: 20px;
   }
 `;
+
+// 찜한 정보 무한 스크롤
+export const InfiniteScroll = styled.div``;
+
 export const PickListWrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -488,6 +520,7 @@ export const PickListCardWrapper = styled.div`
   border-radius: 10px;
   background-color: #d9dbe3;
   margin-right: 20px;
+  margin-bottom: 20px;
 
   @media ${breakPoints.mobile} {
     width: 200px;
@@ -496,11 +529,11 @@ export const PickListCardWrapper = styled.div`
   }
 `;
 export const ListCardImg = styled.img`
-  width: 300px;
+  width: 100%;
   height: 250px;
 
   @media ${breakPoints.mobile} {
-    width: 200px;
+    width: 100%;
     height: 150px;
   }
 `;
