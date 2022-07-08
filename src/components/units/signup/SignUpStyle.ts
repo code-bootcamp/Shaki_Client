@@ -77,8 +77,7 @@ export const panel = styled.div`
 
 export const BackFace = styled.div`
   width: 25em;
-  /* height: 611px; */
-  opacity: 0.5;
+  font-weight: 600;
   position: absolute;
   transform-style: preserve-3d;
   display: flex;
@@ -103,6 +102,10 @@ export const ButtonBox = styled.div`
 
 export const BackFaceCancelButton = styled.div`
   transform: rotateY(180deg);
+  cursor: pointer;
+  :hover {
+    color: #4e75ff;
+  }
   animation: ${(props: { fliped: boolean }) => (props.fliped ? unFlip : flip)}
     1s ease-out forwards;
 `;
@@ -111,6 +114,11 @@ export const Submit = styled.button`
   transform: rotateY(180deg);
   border: none;
   background-color: white;
+  font-weight: 600;
+  cursor: pointer;
+  :hover {
+    color: #4e75ff;
+  }
   animation: ${(props: { fliped: boolean }) => (props.fliped ? unFlip : flip)}
     1s ease-out forwards;
 `;
@@ -168,7 +176,9 @@ export const AuthInput = styled.input`
   border-bottom: 1px solid black;
   /* background-color: #4e75ff; */
   margin: 10px 0;
+  outline: none;
   color: black;
+  padding-left: 10px;
   animation: ${(props: { sendAuth: boolean }) => props.sendAuth && appeared} 1s
     ease-out forwards;
 `;

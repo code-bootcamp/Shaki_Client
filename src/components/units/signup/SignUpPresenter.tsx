@@ -10,9 +10,6 @@ export default function SignUpPresenter(props: any) {
           이름
           <Su.BodyInput type="text" {...props.register("name")} />
           <Su.Error>{props.formState.errors.name?.message}</Su.Error>
-          NickName
-          <Su.BodyInput type="text" {...props.register("nickname")} />
-          <Su.Error>{props.formState.errors.id?.message}</Su.Error>
           이메일
           <Su.BodyInput
             type="text"

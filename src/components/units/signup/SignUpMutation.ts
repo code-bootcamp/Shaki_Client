@@ -8,7 +8,6 @@ export const CREATE_USER = gql`
       email
       pwd
       phone_num
-      nickname
     }
   }
 `;

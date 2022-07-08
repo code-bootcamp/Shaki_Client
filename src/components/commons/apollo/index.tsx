@@ -20,6 +20,7 @@ export default function ApolloSetting(props: IProps) {
     link: ApolloLink.from([uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache(),
     connectToDevTools: true,
+    credentials: "include",
   });
 
   return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
