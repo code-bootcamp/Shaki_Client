@@ -27,18 +27,21 @@ export const LogoImg = styled.img`
   width: 100px;
   height: auto;
   @media ${breakPoints.mobile} {
-    /* display: none; */
     width: 80px;
   }
 `;
-
+// 메뉴선택 & 메뉴 드롭다운 구현
 export const NavMenu = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-around;
 `;
 
-export const NavTest = styled.a`
+export const NavSubMenu = styled.div`
+  display: none;
+`;
+
+export const NavText = styled.div`
   text-decoration: none;
   color: black;
   font-weight: 500;
@@ -49,12 +52,11 @@ export const NavTest = styled.a`
   &:hover {
     color: #4167ee;
     border-bottom: 3px solid #4167ee;
-  }
-  /* 마우스로 클릭할때 */
-  &:active {
     font-size: 18px;
   }
-
+  :focus {
+    font-size: 18px;
+  }
   @media ${breakPoints.tablet} {
     font-size: 13px;
   }
@@ -63,6 +65,86 @@ export const NavTest = styled.a`
   }
 `;
 
+export const MenuText = styled.div`
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  /* 마우스를 올렸을때 */
+  &:hover {
+    color: #4167ee;
+    border-bottom: 2px solid #4167ee;
+  }
+  @media ${breakPoints.tablet} {
+    font-size: 13px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
+`;
+
+export const Dropdown = styled.div`
+  position: relative;
+  display: inline-block;
+  &:hover .dropdown-content {
+    display: block;
+  }
+`;
+
+export const DropdownContent = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+`;
+
+export const DropdownMenuWrapper = styled.div`
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DropdownTwo = styled.div`
+  position: relative;
+  display: block;
+  &:hover .dropdown-content2 {
+    display: block;
+  }
+`;
+
+export const Menu2Text = styled.div`
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+  background-color: lightgray;
+  padding: 5px;
+  margin-top: 1px;
+  /* 마우스를 올렸을때 */
+  &:hover {
+    color: #4167ee;
+    border-bottom: 2px solid #4167ee;
+  }
+  @media ${breakPoints.tablet} {
+    font-size: 13px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
+`;
+
+export const DropdownContentTwo = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 1;
+`;
+
+// 회원가입 / 로그인 Wrapper
 export const BtnWrapper = styled.div`
   display: flex;
   flex-direction: row;
