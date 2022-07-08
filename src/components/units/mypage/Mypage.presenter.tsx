@@ -22,7 +22,7 @@ export default function MypageUI() {
               <MY.PointImg src="/mypage/point.png" />
             </MY.PointImgWrapper>
             <MY.PointNumberWrapper>
-              <MY.PointNumber>0</MY.PointNumber>
+              <MY.PointNumber>0 </MY.PointNumber>
               <MY.PointName>point</MY.PointName>
             </MY.PointNumberWrapper>
           </MY.PointWrapper>
