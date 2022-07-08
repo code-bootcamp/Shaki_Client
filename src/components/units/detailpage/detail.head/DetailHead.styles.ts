@@ -24,20 +24,25 @@ export const HeadInfoWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
 `;
+export const PickWrapper = styled.div``;
+
+export const PickImg = styled.img``;
 
 export const QuestionBtn = styled.button`
   width: 112px;
   height: 42px;
-  background: #4167ee;
+  background-color: #ffffff;
   border-radius: 5px;
+  margin-left: 20px;
   font-weight: 500;
   font-size: 15px;
-  color: white;
-  border: none;
+  color: black;
+  transition-duration: 2s;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
-    color: black;
+    background-color: #4e75ff;
+    color: white;
+    transition-duration: 2s;
   }
 `;
 
