@@ -1,11 +1,5 @@
-import Landing1UI from "../src/components/commons/landing/landing1/Landing1.presenter";
-import Landing2UI from "../src/components/commons/landing/landing2/Landing2.presenter";
+import LandingPage from "../src/components/commons/landing/landing";
 
-export default function LandingPage() {
-  return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <Landing1UI />
-      <Landing2UI />
-    </div>
-  );
+export default function Landing() {
+  return <LandingPage />;
 }

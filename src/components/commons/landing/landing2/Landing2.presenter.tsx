@@ -10,7 +10,7 @@ export default function Landing2UI() {
     3: useScrollFadeIn("up", 1, 0.4),
   };
 
-  const downRef = useRef();
+  const downRef = useRef<any>();
   // const upRef = useRef();
 
   const onClickMoveToDown = () => {
@@ -24,8 +24,6 @@ export default function Landing2UI() {
   return (
     <Ld.WrapperRoot>
       <Ld.Wrapper>
-        <Ld.ScrollButtonB onClick={onClickMoveToDown}></Ld.ScrollButtonB>
-
         <Ld.Rectangle></Ld.Rectangle>
         <Ld.Header {...animatedItem[0]}></Ld.Header>
         <Ld.Contents {...animatedItem[1]}></Ld.Contents>
