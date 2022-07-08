@@ -25,7 +25,11 @@ function LinkTab(props: LinkTabProps) {
   );
 }
 
-export default function DetailHeaderUI() {
+interface IDetailHeaderUI {
+  onClickPick: () => void;
+}
+
+export default function DetailHeaderUI(props: IDetailHeaderUI) {
   const [value, setValue] = useState("");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -63,7 +67,10 @@ export default function DetailHeaderUI() {
           <Rating size="large" />
           4.0/ 5.0
         </DH.HeadInfo>
-        <DH.QuestionBtn>문의하기</DH.QuestionBtn>
+        <DH.PickWrapper>
+          <DH.PickImg src="/mypage/pick_detail.png" />
+          <DH.QuestionBtn onClick={props.onClickPick}>찜하기</DH.QuestionBtn>
+        </DH.PickWrapper>
       </DH.HeadInfoWrapper>
       <DH.ExImgBox>
         <DH.ExImgTitle src="./logo.png" />

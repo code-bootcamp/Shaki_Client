@@ -1,155 +1,216 @@
 import KakaoMap from "../../../commons/kakaomap";
-import * as MY from "./Mypage.styles";
+import * as My from "./Mypage.styles";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function MypageUI() {
   return (
-    <MY.Wrapper>
-      <MY.TopWrapper>
+    <My.Wrapper>
+      <My.TopWrapper>
         {/* 프로필 사진, 이름 */}
-        <MY.UserWrapper>
-          <MY.UserPictureWrapper>
-            <MY.UserPicture src="/mypage/profile.png" />
-          </MY.UserPictureWrapper>
-          <MY.UserNameWrapper>
-            <MY.UserName>홍길동 님</MY.UserName>
-          </MY.UserNameWrapper>
-        </MY.UserWrapper>
+        <My.UserWrapper>
+          <My.UserPictureWrapper>
+            <My.UserPicture src="/mypage/profile.png" />
+          </My.UserPictureWrapper>
+          <My.UserNameWrapper>
+            <My.UserName>홍길동 님</My.UserName>
+          </My.UserNameWrapper>
+        </My.UserWrapper>
 
         {/* 포인트 */}
-        <MY.TopBreakPoint>
-          <MY.PointWrapper>
-            <MY.PointImgWrapper>
-              <MY.PointImg src="/mypage/point.png" />
-            </MY.PointImgWrapper>
-            <MY.PointNumberWrapper>
-              <MY.PointNumber>0 </MY.PointNumber>
-              <MY.PointName>point</MY.PointName>
-            </MY.PointNumberWrapper>
-          </MY.PointWrapper>
+        <My.TopBreakPoint>
+          <My.PointWrapper>
+            <My.PointImgWrapper>
+              <My.PointImg src="/mypage/point.png" />
+              <My.PointLabel>적립금</My.PointLabel>
+            </My.PointImgWrapper>
+            <My.PointNumberWrapper>
+              <My.PointNumber>0</My.PointNumber>
+            </My.PointNumberWrapper>
+          </My.PointWrapper>
 
           {/* 찜한 갯수 */}
-          <MY.PickedWrapper>
-            <MY.PickedImgWrapper>
-              <MY.PickedImg src="/mypage/pick.png" />
-              <MY.PickedLabel>찜한 갯수</MY.PickedLabel>
-            </MY.PickedImgWrapper>
-            <MY.PickedNumberWrapper>
-              <MY.PickedNumber>0</MY.PickedNumber>
-            </MY.PickedNumberWrapper>
-          </MY.PickedWrapper>
+          <My.PickedWrapper>
+            <My.PickedImgWrapper>
+              <My.PickedImg src="/mypage/pick.png" />
+              <My.PickedLabel>찜한 갯수</My.PickedLabel>
+            </My.PickedImgWrapper>
+            <My.PickedNumberWrapper>
+              <My.PickedNumber>0</My.PickedNumber>
+            </My.PickedNumberWrapper>
+          </My.PickedWrapper>
 
           {/* 예약 갯수 */}
-          <MY.ReservationWrapper>
-            <MY.ReservationImgWrapper>
-              <MY.ReservationImg src="/mypage/calendar.png" />
-              <MY.ReservationLabel>예약 갯수</MY.ReservationLabel>
-            </MY.ReservationImgWrapper>
-            <MY.ReservationNumberWrapper>
-              <MY.ReservationNumber>0</MY.ReservationNumber>
-            </MY.ReservationNumberWrapper>
-          </MY.ReservationWrapper>
-        </MY.TopBreakPoint>
-      </MY.TopWrapper>
+          <My.ReservationWrapper>
+            <My.ReservationImgWrapper>
+              <My.ReservationImg src="/mypage/calendar.png" />
+              <My.ReservationLabel>예약 갯수</My.ReservationLabel>
+            </My.ReservationImgWrapper>
+            <My.ReservationNumberWrapper>
+              <My.ReservationNumber>0</My.ReservationNumber>
+            </My.ReservationNumberWrapper>
+          </My.ReservationWrapper>
+        </My.TopBreakPoint>
+      </My.TopWrapper>
 
-      <MY.BodyWrapper>
-        <MY.BodyTitleWrapper>
-          <MY.BodyTitleImg src="/mypage/calendar_title.png" />
-          <MY.BodyTitle>예약정보</MY.BodyTitle>
-        </MY.BodyTitleWrapper>
+      <My.BodyWrapper>
+        <My.BodyTitleWrapper>
+          <My.BodyTitleImg src="/mypage/calendar_title.png" />
+          <My.BodyTitle>예약정보</My.BodyTitle>
+        </My.BodyTitleWrapper>
 
-        <MY.ReservationInfoWrapper>
-          <MY.InfoWrapper>
-            <MY.Image src="/mypage/example.png" />
+        <My.ReservationInfoWrapper>
+          <My.InfoWrapper>
+            <My.Image src="/mypage/example.png" />
 
-            <MY.Info>
-              <MY.InfoDetailWrite>
-                <MY.NameWrapper>
-                  <MY.Name>구로점 쉐이키 1</MY.Name>
-                </MY.NameWrapper>
-                <MY.ContentsWrapper>
-                  <MY.Contents>
+            <My.Info>
+              <My.InfoDetailWrite>
+                <My.NameWrapper>
+                  <My.Name>구로점 쉐이키 1</My.Name>
+                </My.NameWrapper>
+                <My.ContentsWrapper>
+                  <My.Contents>
                     깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은 분들을
                     위한 룸입니다.
-                  </MY.Contents>
-                </MY.ContentsWrapper>
-                <MY.PriceWrapper>
-                  <MY.Price>결제 금액: 200,000원</MY.Price>
-                </MY.PriceWrapper>
-              </MY.InfoDetailWrite>
+                  </My.Contents>
+                </My.ContentsWrapper>
+                <My.PriceWrapper>
+                  <My.Price>결제 금액: 200,000원</My.Price>
+                </My.PriceWrapper>
+              </My.InfoDetailWrite>
 
-              <MY.InfoDay>
-                <MY.DateWrapper>
-                  <MY.DateImg src="/mypage/calendar_detail.png" />
-                  <MY.Date>예약 날짜: 2022.07.12</MY.Date>
-                </MY.DateWrapper>
-                <MY.TimeWrapper>
-                  <MY.TimeImg src="/mypage/clock.png" />
-                  <MY.Time>예약 시간: 12:00</MY.Time>
-                </MY.TimeWrapper>
-                <MY.MapWrapper>
-                  <MY.MapImg src="/mypage/map.png" />
-                  <MY.Map>
+              <My.InfoDay>
+                <My.DateWrapper>
+                  <My.DateImg src="/mypage/calendar_detail.png" />
+                  <My.Date>예약 날짜: 2022.07.12</My.Date>
+                </My.DateWrapper>
+                <My.TimeWrapper>
+                  <My.TimeImg src="/mypage/clock.png" />
+                  <My.Time>예약 시간: 12:00</My.Time>
+                </My.TimeWrapper>
+                <My.MapWrapper>
+                  <My.MapImg src="/mypage/map.png" />
+                  <My.Map>
                     서울특별시 구로구 디지털로 300 패스트파이브 구로점
-                  </MY.Map>
-                </MY.MapWrapper>
-              </MY.InfoDay>
-            </MY.Info>
-          </MY.InfoWrapper>
+                  </My.Map>
+                </My.MapWrapper>
+              </My.InfoDay>
+            </My.Info>
+          </My.InfoWrapper>
 
-          <MY.KakaoMapWrapper>
+          <My.KakaoMapWrapper>
             <KakaoMap />
-          </MY.KakaoMapWrapper>
-        </MY.ReservationInfoWrapper>
+          </My.KakaoMapWrapper>
+        </My.ReservationInfoWrapper>
 
         {/* 찜한 정보 */}
-        <MY.PickDetailWrapper>
-          <MY.PickTitleWrapper>
-            <MY.PickTitleImg src="/mypage/pick_detail.png" />
-            <MY.PickTitle>찜한정보</MY.PickTitle>
-          </MY.PickTitleWrapper>
+        <My.PickDetailWrapper>
+          <My.PickTitleWrapper>
+            <My.PickTitleImg src="/mypage/pick_detail.png" />
+            <My.PickTitle>찜한정보</My.PickTitle>
+          </My.PickTitleWrapper>
 
-          <MY.PickListWrapper>
-            <MY.PickListCardWrapper>
-              <MY.ListCardImg src="/mypage/example.png" />
-              <MY.ListCardDetailWrapper>
-                <MY.ListCardName>구로점 쉐이키 1</MY.ListCardName>
-                <MY.ListCardContents>
+          {/* <InfiniteScroll pageStart={0} hasMore={true} useWindow={false}> */}
+          {/* <My.InfiniteScroll> */}
+          <My.PickListWrapper>
+            <My.PickListCardWrapper>
+              <My.ListCardImg src="/mypage/example.png" />
+              <My.ListCardDetailWrapper>
+                <My.ListCardName>구로점 쉐이키 1</My.ListCardName>
+                <My.ListCardContents>
                   깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은 분들을 위한
                   룸 입니다.
-                </MY.ListCardContents>
-              </MY.ListCardDetailWrapper>
-            </MY.PickListCardWrapper>
+                </My.ListCardContents>
+              </My.ListCardDetailWrapper>
+            </My.PickListCardWrapper>
 
-            <MY.PickListCardWrapper>
-              <MY.PickListCardWrapper>
-                <MY.NoPcickListWrapper>
-                  <MY.NoPickListCardImg src="/mypage/pick.png" />
-                  <MY.NoPickListCardContents>
+            <My.PickListCardWrapper>
+              <My.PickListCardWrapper>
+                <My.NoPcickListWrapper>
+                  <My.NoPickListCardImg src="/mypage/pick.png" />
+                  <My.NoPickListCardContents>
                     찜한 내용이 없습니다.
-                  </MY.NoPickListCardContents>
-                  <MY.NoPickListCardContents>
+                  </My.NoPickListCardContents>
+                  <My.NoPickListCardContents>
                     마음에 드시면 하트를 눌러주세요!!
-                  </MY.NoPickListCardContents>
-                </MY.NoPcickListWrapper>
-              </MY.PickListCardWrapper>
-            </MY.PickListCardWrapper>
+                  </My.NoPickListCardContents>
+                </My.NoPcickListWrapper>
+              </My.PickListCardWrapper>
+            </My.PickListCardWrapper>
 
-            <MY.PickListCardWrapper>
-              <MY.PickListCardWrapper>
-                <MY.NoPcickListWrapper>
-                  <MY.NoPickListCardImg src="/mypage/pick.png" />
-                  <MY.NoPickListCardContents>
+            <My.PickListCardWrapper>
+              <My.PickListCardWrapper>
+                <My.NoPcickListWrapper>
+                  <My.NoPickListCardImg src="/mypage/pick.png" />
+                  <My.NoPickListCardContents>
                     찜한 내용이 없습니다.
-                  </MY.NoPickListCardContents>
-                  <MY.NoPickListCardContents>
+                  </My.NoPickListCardContents>
+                  <My.NoPickListCardContents>
                     마음에 드시면 하트를 눌러주세요!!
-                  </MY.NoPickListCardContents>
-                </MY.NoPcickListWrapper>
-              </MY.PickListCardWrapper>
-            </MY.PickListCardWrapper>
-          </MY.PickListWrapper>
-        </MY.PickDetailWrapper>
-      </MY.BodyWrapper>
-    </MY.Wrapper>
+                  </My.NoPickListCardContents>
+                </My.NoPcickListWrapper>
+              </My.PickListCardWrapper>
+            </My.PickListCardWrapper>
+
+            <My.PickListCardWrapper>
+              <My.PickListCardWrapper>
+                <My.NoPcickListWrapper>
+                  <My.NoPickListCardImg src="/mypage/pick.png" />
+                  <My.NoPickListCardContents>
+                    찜한 내용이 없습니다.
+                  </My.NoPickListCardContents>
+                  <My.NoPickListCardContents>
+                    마음에 드시면 하트를 눌러주세요!!
+                  </My.NoPickListCardContents>
+                </My.NoPcickListWrapper>
+              </My.PickListCardWrapper>
+            </My.PickListCardWrapper>
+
+            <My.PickListCardWrapper>
+              <My.PickListCardWrapper>
+                <My.NoPcickListWrapper>
+                  <My.NoPickListCardImg src="/mypage/pick.png" />
+                  <My.NoPickListCardContents>
+                    찜한 내용이 없습니다.
+                  </My.NoPickListCardContents>
+                  <My.NoPickListCardContents>
+                    마음에 드시면 하트를 눌러주세요!!
+                  </My.NoPickListCardContents>
+                </My.NoPcickListWrapper>
+              </My.PickListCardWrapper>
+            </My.PickListCardWrapper>
+
+            <My.PickListCardWrapper>
+              <My.PickListCardWrapper>
+                <My.NoPcickListWrapper>
+                  <My.NoPickListCardImg src="/mypage/pick.png" />
+                  <My.NoPickListCardContents>
+                    찜한 내용이 없습니다.
+                  </My.NoPickListCardContents>
+                  <My.NoPickListCardContents>
+                    마음에 드시면 하트를 눌러주세요!!
+                  </My.NoPickListCardContents>
+                </My.NoPcickListWrapper>
+              </My.PickListCardWrapper>
+            </My.PickListCardWrapper>
+
+            <My.PickListCardWrapper>
+              <My.PickListCardWrapper>
+                <My.NoPcickListWrapper>
+                  <My.NoPickListCardImg src="/mypage/pick.png" />
+                  <My.NoPickListCardContents>
+                    찜한 내용이 없습니다.
+                  </My.NoPickListCardContents>
+                  <My.NoPickListCardContents>
+                    마음에 드시면 하트를 눌러주세요!!
+                  </My.NoPickListCardContents>
+                </My.NoPcickListWrapper>
+              </My.PickListCardWrapper>
+            </My.PickListCardWrapper>
+          </My.PickListWrapper>
+          {/* </My.InfiniteScroll> */}
+          {/* </InfiniteScroll> */}
+        </My.PickDetailWrapper>
+      </My.BodyWrapper>
+    </My.Wrapper>
   );
 }
