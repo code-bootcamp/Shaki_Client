@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-export const WrapperRoot = styled.div`
+export const WrapperRoot = styled.form`
   width: calc(100% - 250px);
   background-color: #f9f9f9;
   padding: 20px;
@@ -231,7 +231,7 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: center;
 `;
-export const SubmitButton = styled(Button)`
+export const SubmitButton = styled.button`
   width: 300px;
   height: 80px;
   border: 1px solid #000000;
