@@ -43,6 +43,27 @@ const appeared = keyframes`
   }
 `;
 
+export const WrapperRoot = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const WrapperImg = styled.div`
+  border-radius: 10px;
+  display: flex;
+  width: 150em;
+  height: 600px;
+  margin-top: 45px;
+  margin-left: 150px;
+  background-image: url("/landing/register.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
+`;
+
 export const Wrapper = styled.form`
   width: 100%;
   display: flex;
@@ -52,10 +73,13 @@ export const Wrapper = styled.form`
   perspective: 600px;
   transform-style: preserve-3d;
   justify-content: center;
+  /* background-image: url("/landing/target3.jpeg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 export const SecondWrapper = styled.div`
-  width: 25em;
+  width: 30em;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -77,7 +101,8 @@ export const panel = styled.div`
 
 export const BackFace = styled.div`
   width: 25em;
-  font-weight: 600;
+  /* height: 611px; */
+  opacity: 0.5;
   position: absolute;
   transform-style: preserve-3d;
   display: flex;
@@ -102,10 +127,6 @@ export const ButtonBox = styled.div`
 
 export const BackFaceCancelButton = styled.div`
   transform: rotateY(180deg);
-  cursor: pointer;
-  :hover {
-    color: #4e75ff;
-  }
   animation: ${(props: { fliped: boolean }) => (props.fliped ? unFlip : flip)}
     1s ease-out forwards;
 `;
@@ -114,18 +135,13 @@ export const Submit = styled.button`
   transform: rotateY(180deg);
   border: none;
   background-color: white;
-  font-weight: 600;
-  cursor: pointer;
-  :hover {
-    color: #4e75ff;
-  }
   animation: ${(props: { fliped: boolean }) => (props.fliped ? unFlip : flip)}
     1s ease-out forwards;
 `;
 
 export const Head = styled.div`
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 900;
   margin: 30px;
   backface-visibility: hidden;
 `;
@@ -176,9 +192,7 @@ export const AuthInput = styled.input`
   border-bottom: 1px solid black;
   /* background-color: #4e75ff; */
   margin: 10px 0;
-  outline: none;
   color: black;
-  padding-left: 10px;
   animation: ${(props: { sendAuth: boolean }) => props.sendAuth && appeared} 1s
     ease-out forwards;
 `;

@@ -26,8 +26,8 @@ export const Rectangle = styled.div`
   position: absolute;
   width: 10px;
   height: 40px;
-  left: 370px;
-  top: 1000px;
+  left: 420px;
+  top: 95px;
   background-image: url("/landing/landingdivider.png");
   transform: rotate(90deg);
 `;
