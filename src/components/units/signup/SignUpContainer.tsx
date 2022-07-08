@@ -10,10 +10,6 @@ import { Modal } from "antd";
 
 const schema = yup.object({
   name: yup.string().required("이름은 필수 입력요소 입니다."),
-  nickname: yup
-    .string()
-    .required("아이디를 입력해주세요")
-    .min(8, "아이디는 최소 8자리입니다."),
   email: yup
     .string()
     .required("이메일은 필수 입력요소 입니다.")

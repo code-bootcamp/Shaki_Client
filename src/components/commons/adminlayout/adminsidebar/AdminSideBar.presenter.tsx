@@ -1,5 +1,6 @@
 import * as AD from "./AdminSideBar.styles";
 import Divider from "@mui/material/Divider";
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 import { useRouter } from "next/router";
 
@@ -7,6 +8,7 @@ const ADMIN_HOME = [`/adminpage/adminhome`];
 const ADMIN_QUESTION = [`/adminpage`];
 const ADMIN_WRITE = [`/adminpage/adminwrite`];
 const ADMIN_ANSWER = [`/adminpage`];
+const ADMIN_EDIT = ["/adminEdit"];
 
 export default function AdminSideBarUI() {
   const router = useRouter();
@@ -15,6 +17,7 @@ export default function AdminSideBarUI() {
   const adminWrite = ADMIN_WRITE.includes(router.asPath);
   const adminQuestion = ADMIN_QUESTION.includes(router.asPath);
   const adminAnswer = ADMIN_ANSWER.includes(router.asPath);
+  const adminEdit = ADMIN_EDIT.includes(router.asPath);
 
   const onClickMoveHome = () => {
     router.push("/adminpage/adminhome");
@@ -28,6 +31,9 @@ export default function AdminSideBarUI() {
   };
   const onClickMoveAnswer = () => {
     router.push("/adminpage");
+  };
+  const onClickMoveEdit = () => {
+    router.push("/adminpage/adminedit");
   };
 
   return (
@@ -86,6 +92,19 @@ export default function AdminSideBarUI() {
               <AD.AdminNewBackFalse>
                 <AD.ControlPointIconImg />
                 <AD.AdminNew>가맹점 등록</AD.AdminNew>
+              </AD.AdminNewBackFalse>
+            )}
+          </AD.AdminNewWrapper>
+          <AD.AdminNewWrapper>
+            {adminWrite ? (
+              <AD.AdminNewBack>
+                <ModeEditOutlineIcon />
+                <AD.AdminNew onClick={onClickMoveEdit}>가맹점 관리</AD.AdminNew>
+              </AD.AdminNewBack>
+            ) : (
+              <AD.AdminNewBackFalse>
+                <ModeEditOutlineIcon />
+                <AD.AdminNew onClick={onClickMoveEdit}>가맹점 관리</AD.AdminNew>
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
