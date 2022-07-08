@@ -1,18 +1,44 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
 
+export const WrapperRoot = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+export const WrapperImg = styled.div`
+  border-radius: 10px;
+  display: flex;
+  width: 150em;
+  height: 600px;
+  margin-top: 45px;
+  margin-left: 250px;
+  background-image: url("/landing/03.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
+`;
+
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  margin-left: 7px;
   justify-content: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  @media screen and (max-width: 1500px) {
+    align-items: center;
+  }
 
   @media ${breakPoints.tablet} {
   }
   @media ${breakPoints.mobile} {
+    align-items: center;
+
     width: 100%;
   }
 `;
