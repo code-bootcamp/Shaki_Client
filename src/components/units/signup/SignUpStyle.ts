@@ -43,6 +43,27 @@ const appeared = keyframes`
   }
 `;
 
+export const WrapperRoot = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const WrapperImg = styled.div`
+  border-radius: 10px;
+  display: flex;
+  width: 150em;
+  height: 600px;
+  margin-top: 45px;
+  margin-left: 150px;
+  background-image: url("/landing/register.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
+`;
+
 export const Wrapper = styled.form`
   width: 100%;
   display: flex;
@@ -52,10 +73,13 @@ export const Wrapper = styled.form`
   perspective: 600px;
   transform-style: preserve-3d;
   justify-content: center;
+  /* background-image: url("/landing/target3.jpeg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 export const SecondWrapper = styled.div`
-  width: 25em;
+  width: 30em;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -117,7 +141,7 @@ export const Submit = styled.button`
 
 export const Head = styled.div`
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 900;
   margin: 30px;
   backface-visibility: hidden;
 `;
