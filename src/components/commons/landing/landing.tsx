@@ -5,8 +5,8 @@ import { useRef } from "react";
 
 const DownButton = styled.div`
   position: absolute;
-  width: 75px;
-  height: 75px;
+  width: 55px;
+  height: 55px;
   bottom: -100px;
   left: 1250px;
   z-index: 5;
@@ -19,8 +19,8 @@ const DownButton = styled.div`
 
 const UpButton = styled.div`
   position: absolute;
-  width: 75px;
-  height: 75px;
+  width: 55px;
+  height: 55px;
   bottom: -4500px;
   left: 1250px;
   z-index: 5;
