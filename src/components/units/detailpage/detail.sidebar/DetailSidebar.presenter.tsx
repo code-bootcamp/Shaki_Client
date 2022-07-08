@@ -20,15 +20,6 @@ export default function DetailSidebarUI() {
             </DS.CheckInTime>
           </DS.CheckInWrapper>
 
-          {/* <DS.CheckInWrapper>
-            <DS.Label>체크아웃</DS.Label>
-            <DS.CheckInTime>
-              <option value="08:00">08:00</option>
-              <option value="10:00">10:00</option>
-              <option value="12:00">12:00</option>
-            </DS.CheckInTime>
-          </DS.CheckInWrapper> */}
-
           <DS.CheckInWrapper>
             <DS.Label>게스트</DS.Label>
             <DS.CheckInTime>
