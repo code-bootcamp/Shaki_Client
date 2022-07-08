@@ -10,14 +10,14 @@ export default function Landing1UI() {
         <Ld.TitleHead>신개념 공유주방</Ld.TitleHead>
         <Ld.Title steps={["Sha(re) Ki(tchen)", 1500]} wrapper="p"></Ld.Title>
       </Ld.TitleWrapper>
-      <Ld.SocialLoginBox>
+      {/* <Ld.SocialLoginBox>
         <Ld.SocialLogInButton src="/landing/BigKakaoLogIn2.png" />
         <Ld.SocialLogInButton
           src="/landing/BigNaverLogIn.png"
           style={{ width: "366px", height: "90px", marginTop: "10px" }}
         />
         <Ld.SocialLogInButton
-          // ref={downRef}
+          ref={downRef}
           style={{
             marginTop: "5px",
             marginLeft: "-5px",
@@ -27,7 +27,7 @@ export default function Landing1UI() {
           }}
           src="/landing/BigGoogleLogIn2.png"
         />
-      </Ld.SocialLoginBox>
+      </Ld.SocialLoginBox> */}
     </Ld.WrapperRoot>
   );
 }
