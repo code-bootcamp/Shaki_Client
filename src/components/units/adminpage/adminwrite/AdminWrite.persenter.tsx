@@ -1,8 +1,14 @@
 import * as Ad from "./AdminWrite.styles";
 
-export default function AdminWriteUI() {
+interface IAdminWriteUI {
+  register: any;
+  handleSubmit: any;
+  onClickSubmit: (data) => void;
+}
+
+export default function AdminWriteUI(props: IAdminWriteUI) {
   return (
-    <Ad.WrapperRoot>
+    <Ad.WrapperRoot onSubmit={props.handleSubmit(props.onClickSubmit)}>
       <Ad.Wrapper>
         <Ad.HeadWrapper>
           <Ad.LogoWrapper>
@@ -19,11 +25,13 @@ export default function AdminWriteUI() {
             <Ad.Title
               type="text"
               placeholder="ㅇㅇ점으로 입력해주세요! ex) 구로점 or 신림점"
+              {...props.register("branch")}
             />
             <Ad.RoomNumberLabel>룸 이름:</Ad.RoomNumberLabel>
             <Ad.RoomNumber
               type="text"
               placeholder="쉐이키 뒤에 룸 번호를 입력해주세요! ex) 쉐이키 1 or 쉐이키 2"
+              {...props.register("name")}
             />
           </Ad.TitleWrapper>
 
@@ -89,7 +97,7 @@ export default function AdminWriteUI() {
         </Ad.BodyWrapper>
 
         <Ad.Buttons>
-          <Ad.SubmitButton variant="outlined">등록하기</Ad.SubmitButton>
+          <Ad.SubmitButton>등록하기</Ad.SubmitButton>
         </Ad.Buttons>
       </Ad.Wrapper>
     </Ad.WrapperRoot>
