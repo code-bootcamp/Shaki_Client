@@ -23,7 +23,7 @@ const UpButton = styled.div`
   width: 55px;
   height: 55px;
   bottom: -4500px;
-  left: 1270px;
+  left: 1230px;
   z-index: 5;
   /* background-color: white; */
   background-image: url("/landing/scrollArrow.png");
@@ -39,8 +39,6 @@ const SocialLoginBox = styled.div`
   left: 90px;
   margin-bottom: 100px;
 `;
-
-const SocialLogInButton = styled.img``;
 
 export default function LandingPage() {
   const downRef = useRef<any>();
