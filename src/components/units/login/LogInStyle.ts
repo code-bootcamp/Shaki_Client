@@ -85,16 +85,14 @@ export const UpperBody = styled.div`
 export const Email = styled.input`
   height: 40px;
   border: none;
-  background-color: #4e75ff;
-  opacity: 0.2;
   margin-bottom: 10px;
+  outline: none;
 `;
 
 export const Password = styled.input`
   height: 40px;
   border: none;
-  background-color: #4e75ff;
-  opacity: 0.2;
+  outline: none;
 `;
 
 export const LowerBody = styled.div`
