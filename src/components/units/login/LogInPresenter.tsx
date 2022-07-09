@@ -13,7 +13,7 @@ export default function LogInPresenter(props: any) {
               이메일
               <Li.Email type="text" {...props.register("email")} />
               비밀번호
-              <Li.Password type="text" {...props.register("pwd")} />
+              <Li.Password type="password" {...props.register("pwd")} />
             </Li.UpperBody>
             <Li.LowerBody>
               다음 소셜계정으로 로그인하기
