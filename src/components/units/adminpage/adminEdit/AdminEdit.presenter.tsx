@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AdminWrite from "../adminwrite/AdminWrite.container";
 import * as Ae from "./AdminEdit.style";
 
 export default function AdminEditPresenter() {
@@ -11,19 +12,29 @@ export default function AdminEditPresenter() {
   const [editId, setEditId] = useState("");
 
   const onClickOpenEdit = (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(event.target.id);
     setEditId(event.currentTarget.id);
-    console.log(editId);
   };
   return (
     <Ae.Wrapper>
-      {item.map((el) => (
-        <Ae.Header>
-          <Ae.HeaderItem id={el._id} onClick={onClickOpenEdit}>
-            {el.name}
-          </Ae.HeaderItem>
-        </Ae.Header>
-      ))}
-      <Ae.TableWrapper></Ae.TableWrapper>
+      <Ae.TebWrapper>
+        <Ae.HeadWrapper>
+          {item.map((el) => (
+            <Ae.Header>
+              <Ae.HeaderItem id={el._id} onClick={onClickOpenEdit}>
+                {el.name}
+              </Ae.HeaderItem>
+
+              <Ae.RoomWrapper className="dropdownItem">
+                {el.room.map((el) => (
+                  <Ae.RoomItem>{el}</Ae.RoomItem>
+                ))}
+              </Ae.RoomWrapper>
+            </Ae.Header>
+          ))}
+        </Ae.HeadWrapper>
+      </Ae.TebWrapper>
+      <AdminWrite />
     </Ae.Wrapper>
   );
 }
