@@ -48,6 +48,11 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
               type="text"
               placeholder="태그내용을 입력해주세요! ex) #모던한분위기 #제주도느낌 #연인 #가족"
             />
+          </Ad.TagsWrapper>
+
+          <Ad.PersonWrapper>
+            <Ad.PriceLabel>가격: </Ad.PriceLabel>
+            <Ad.Price type="text" placeholder="시간당 가격을 적어주세요!" />
             <Ad.PersonLabel>인원 수: </Ad.PersonLabel>
             <Ad.PersonSelect
               type="number"
@@ -55,7 +60,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
               min={0}
               max={8}
             />
-          </Ad.TagsWrapper>
+          </Ad.PersonWrapper>
 
           <Ad.ContentsWrapper>
             <Ad.ContentsLabel>Contents</Ad.ContentsLabel>

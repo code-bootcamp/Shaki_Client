@@ -104,24 +104,36 @@ export const TagsLabel = styled.div`
   font-weight: bold;
 `;
 export const Tags = styled.input`
-  width: 750px;
+  width: 1000px;
+  height: 40px;
+`;
+
+export const PersonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+export const PriceLabel = styled.div`
+  width: 100px;
+  font-size: 20px;
+  font-weight: bold;
+`;
+export const Price = styled.input`
+  width: 450px;
   height: 40px;
   margin-right: 20px;
 `;
 export const PersonLabel = styled.div`
   width: 100px;
-  margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
 `;
 export const PersonSelect = styled.input`
-  width: 120px;
+  width: 430px;
   height: 40px;
 `;
-export const Person = styled.option``;
-export const PersonSelected = styled.input`
-  width: 100px;
-`;
+
 export const ContentsWrapper = styled.div`
   width: 100%;
   height: 300px;
