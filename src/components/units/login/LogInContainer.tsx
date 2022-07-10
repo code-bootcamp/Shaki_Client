@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOG_IN } from "./LogInMutation";
 
@@ -19,6 +19,11 @@ export default function LogInContainer() {
   });
 
   const [logInUser] = useMutation(LOG_IN);
+  const [adminOn, setAdminOn] = useState(false);
+
+  const onClickAdmin = (event: React.MouseEvent<HTMLDivElement>) => {
+    setAdminOn((prev) => !prev);
+  };
 
   const onClickLogIn = async (data: any) => {
     console.log(data);
@@ -56,6 +61,8 @@ export default function LogInContainer() {
       onClickMoveToMain={onClickMoveToMain}
       onClickLogIn={onClickLogIn}
       onClickKakaoLogIn={onClickKakaoLogIn}
+      onClickAdmin={onClickAdmin}
+      adminOn={adminOn}
     />
   );
 }
