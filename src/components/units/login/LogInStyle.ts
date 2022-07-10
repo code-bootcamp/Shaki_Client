@@ -5,7 +5,9 @@ import { breakPoints } from "../../../commons/styles/media";
 const On = keyframes`
   from {
     padding-left: 3px;
+    background-color: #e0e3e8;
   } to {
+    background-color: #40a9ff;
     padding-left: 20px;
   }
 `;
@@ -13,8 +15,10 @@ const On = keyframes`
 const Off = keyframes`
   from {
     padding-left: 20px;
+    background-color: #40a9ff;
   } to {
     padding-left: 3px;
+    background-color: #e0e3e8;
   }
 `;
 
@@ -124,10 +128,11 @@ export const AdminToggle = styled.div`
   height: 20px;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 10px #4e75ff;
+  /* box-shadow: 0 0 10px #4e75ff; */
   margin-top: 5px;
-  animation: ${(props: { adminOn: boolean }) => (props.adminOn ? On : Off)} 0.5s
-    ease-in-out forwards;
+  padding-bottom: 1px;
+  animation: ${(props: { adminOn: boolean }) => (props.adminOn ? On : Off)}
+    0.15s ease-in-out forwards;
 `;
 
 export const AdminToggleButton = styled.div`
@@ -136,8 +141,7 @@ export const AdminToggleButton = styled.div`
   border-radius: 50%;
   border: 2.5px solid gray;
   cursor: pointer;
-  opacity: 0.4;
-  background-color: gray;
+  background-color: white;
 `;
 
 export const UpperBody = styled.div`
