@@ -11,3 +11,9 @@ export const CREATE_USER = gql`
     }
   }
 `;
+
+export const CHECK_EMAIL = gql`
+  mutation checkEmail($email: String!) {
+    checkEmail(email: $email)
+  }
+`;

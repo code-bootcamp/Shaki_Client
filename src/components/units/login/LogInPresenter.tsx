@@ -21,13 +21,13 @@ export default function LogInPresenter(props: any) {
               <Li.UpperBody>
                 이메일
                 <Li.Email
-                  value={props.adminOn ? "admin@adim1234.com" : ""}
+                  defaultValue={props.adminOn ? "admin@adim1234.com" : ""}
                   type="text"
                   {...props.register("email")}
                 />
                 비밀번호
                 <Li.Password
-                  value={props.adminOn ? "rhksflwk1234" : ""}
+                  defaultValue={props.adminOn ? "rhksflwk1234" : ""}
                   type="password"
                   {...props.register("pwd")}
                 />

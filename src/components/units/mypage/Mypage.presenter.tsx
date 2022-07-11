@@ -2,7 +2,7 @@ import KakaoMap from "../../../commons/kakaomap";
 import * as My from "./Mypage.styles";
 import InfiniteScroll from "react-infinite-scroller";
 
-export default function MypageUI() {
+export default function MypageUI(props: any) {
   return (
     <My.Wrapper>
       <My.TopWrapper>
@@ -57,7 +57,6 @@ export default function MypageUI() {
           <My.BodyTitleImg src="/mypage/calendar_title.png" />
           <My.BodyTitle>예약정보</My.BodyTitle>
         </My.BodyTitleWrapper>
-
         <My.ReservationInfoWrapper>
           <My.InfoWrapper>
             <My.Image src="/mypage/example.png" />
@@ -100,6 +99,49 @@ export default function MypageUI() {
           <My.KakaoMapWrapper>
             <KakaoMap />
           </My.KakaoMapWrapper>
+        </My.ReservationInfoWrapper>
+
+        {/* 후기 작성 부분  */}
+        <My.BodyTitleWrapper>
+          <My.BodyTitleImg src="/mypage/calendar_title.png" />
+          <My.BodyTitle>이용내역</My.BodyTitle>
+        </My.BodyTitleWrapper>
+        <My.ReservationInfoWrapper>
+          <My.InfoWrapper>
+            <My.Image src="/mypage/example.png" />
+
+            <My.Info>
+              <My.InfoDetailWrite>
+                <My.NameWrapper>
+                  <My.Name>구로점 쉐이키 2</My.Name>
+                </My.NameWrapper>
+                <My.PriceWrapper>
+                  <My.Price>결제 금액: 200,000원</My.Price>
+                </My.PriceWrapper>
+              </My.InfoDetailWrite>
+
+              <My.InfoDay>
+                <My.DateWrapper>
+                  <My.DateImg src="/mypage/calendar_detail.png" />
+                  <My.Date>예약 날짜: 2022.07.12</My.Date>
+                </My.DateWrapper>
+                <My.TimeWrapper>
+                  <My.TimeImg src="/mypage/clock.png" />
+                  <My.Time>예약 시간: 12:00</My.Time>
+                </My.TimeWrapper>
+                <My.MapWrapper>
+                  <My.MapImg src="/mypage/map.png" />
+                  <My.Map>
+                    서울특별시 구로구 디지털로 300 패스트파이브 구로점
+                  </My.Map>
+                </My.MapWrapper>
+              </My.InfoDay>
+            </My.Info>
+          </My.InfoWrapper>
+          <My.CommentWrapper>
+            <My.CommentMarker src="/icon/CCMarker.svg" />
+            <My.CommentInput />
+          </My.CommentWrapper>
         </My.ReservationInfoWrapper>
 
         {/* 찜한 정보 */}

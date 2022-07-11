@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React, { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { CREATE_USER } from "./SignUpMutation";
+import { CHECK_EMAIL, CREATE_USER } from "./SignUpMutation";
 import { Modal } from "antd";
 
 const schema = yup.object({
@@ -30,7 +30,10 @@ const schema = yup.object({
 export default function SignUpContainer() {
   const router = useRouter();
   const [createUser] = useMutation(CREATE_USER);
+  const [checkEmail] = useMutation(CHECK_EMAIL);
+
   const [email, setEmail] = useState("");
+
   const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
@@ -46,12 +49,23 @@ export default function SignUpContainer() {
   };
 
   const [sendAuth, setSendAuth] = useState<boolean>(false);
-  const onClickSendAuth = (event: React.MouseEvent<HTMLDivElement>) => {
-    alert("인증번호가 발송되었습니다.");
+  const onClickSendAuth = async (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(email);
+    try {
+      const authNumber = await checkEmail({
+        variables: {
+          email: email,
+        },
+      });
+      console.log(authNumber);
+      alert("인증번호가 발송되었습니다.");
+    } catch (error: any) {
+      alert(error.message);
+    }
     setSendAuth(true);
   };
 
-  const onClickAuthed = (event: React.MouseEvent<HTMLDListElement>) => {
+  const onClickAuthed = (event: React.MouseEvent<HTMLDivElement>) => {
     alert("이메일 인증이 완료되었습니다.");
   };
 
@@ -60,14 +74,13 @@ export default function SignUpContainer() {
   };
 
   const onClickSubmit = async (data: any) => {
-    console.log(data);
     try {
       await createUser({
         variables: {
           createUserInput: {
             name: data.name,
             nickname: data.nickname,
-            email: data.email,
+            email: email,
             pwd: data.pwd,
             phone_num: data.phone_num,
           },
