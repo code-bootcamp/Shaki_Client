@@ -3,6 +3,10 @@ import Button from "@mui/material/Button";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 
+interface IProps {
+  isActive: boolean;
+}
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperRoot = styled.form`
@@ -45,11 +49,18 @@ export const OptionNew = styled.div`
 export const BodyWrapper = styled.div`
   width: 100%;
 `;
+
+export const BodyFirstWrapper = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
 export const TitleWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 30px;
 `;
 export const TitleLabel = styled.div`
   width: 100px;
@@ -64,24 +75,35 @@ export const Title = styled.input`
   height: 40px;
 `;
 
+export const RoomNumberWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+`;
 export const RoomNumberLabel = styled.div`
   width: 100px;
   height: 40px;
   display: flex;
   align-items: center;
+  position: absolute;
   font-size: 20px;
   font-weight: bold;
-  margin-left: 20px;
 `;
 export const RoomNumber = styled.input`
-  width: 480px;
+  width: 450px;
   height: 40px;
+  position: absolute;
+  left: 100px;
+  margin-right: 20px;
 `;
 export const RemarksWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 30px;
 `;
 export const RemarksLabel = styled.div`
   width: 100px;
@@ -96,7 +118,8 @@ export const TagsWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 30px;
 `;
 export const TagsLabel = styled.div`
   width: 100px;
@@ -107,12 +130,19 @@ export const Tags = styled.input`
   width: 1000px;
   height: 40px;
 `;
-
+export const PriceWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+`;
 export const PersonWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 30px;
 `;
 export const PriceLabel = styled.div`
   width: 100px;
@@ -136,8 +166,12 @@ export const PersonSelect = styled.input`
 
 export const ContentsWrapper = styled.div`
   width: 100%;
-  height: 300px;
-  margin-bottom: 20px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+  margin-bottom: 30px;
 `;
 export const ContentsLabel = styled.div`
   width: 100%;
@@ -147,7 +181,8 @@ export const ContentsLabel = styled.div`
 `;
 export const ReactQuillWrapper = styled.div`
   width: 100%;
-  height: 200px;
+  height: 300px;
+  position: relative;
 `;
 export const Contents = styled(ReactQuill)`
   width: 100%;
@@ -164,8 +199,7 @@ export const MapWrapper = styled.div`
 `;
 export const Map = styled.div`
   width: 400px;
-  height: 250px;
-  background-color: #999999;
+  height: 300px;
 `;
 export const AddressDetailWrapper = styled.div`
   width: 100%;
@@ -205,39 +239,46 @@ export const ImageWrapper = styled.div`
   display: flex;
   margin-bottom: 100px;
 `;
+
+export const Img = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+`;
+
 export const MainWrapper = styled.div`
   width: 100%;
 `;
-export const Main = styled.img`
-  width: 300px;
-  height: 300px;
-  margin-right: 20px;
-  cursor: pointer;
-`;
-export const SubImageWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-export const SubImageOne = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-export const SubImage = styled.img`
-  width: 130px;
-  height: 130px;
-  cursor: pointer;
-`;
-export const SubImageWrappertwo = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-export const SubImagetwo = styled.img`
-  width: 130px;
-  height: 130px;
-  cursor: pointer;
-`;
+// export const Main = styled.img`
+//   width: 300px;
+//   height: 300px;
+//   margin-right: 20px;
+//   cursor: pointer;
+// `;
+// export const SubImageWrapper = styled.div`
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// `;
+// export const SubImageOne = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+// `;
+// export const SubImage = styled.img`
+//   width: 130px;
+//   height: 130px;
+//   cursor: pointer;
+// `;
+// export const SubImageWrappertwo = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+// `;
+// export const SubImagetwo = styled.img`
+//   width: 130px;
+//   height: 130px;
+//   cursor: pointer;
+// `;
 export const Buttons = styled.div`
   width: 100%;
   display: flex;
@@ -247,8 +288,28 @@ export const SubmitButton = styled.button`
   width: 300px;
   height: 80px;
   border: 1px solid #000000;
-  border-radius: 30px;
+  border-radius: 40px;
   font-size: 20px;
   font-family: snas-serif;
-  color: black;
+  cursor: pointer;
+  color: ${(props: IProps) => (props.isActive ? "#fff" : "#000000")};
+  background-color: ${(props: IProps) => (props.isActive ? "#4e75ff" : "#fff")};
+`;
+
+export const Error = styled.div`
+  position: absolute;
+  top: 40px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  color: red;
+`;
+
+export const ContentsError = styled.div`
+  position: absolute;
+  top: 260px;
+  color: red;
+`;
+
+export const AddressError = styled.div`
+  color: red;
 `;
