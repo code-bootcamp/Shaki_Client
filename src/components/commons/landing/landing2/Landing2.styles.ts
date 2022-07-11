@@ -65,10 +65,10 @@ export const MapWrapper = styled.div`
 
 export const MapBody = styled.div`
   position: absolute;
-  width: 100%;
-  max-width: 1600px;
-  height: 1080px;
-  background-image: url("/landing/3.png");
+  width: 1200px;
+  padding-top: 170px;
+  height: 740px;
+  /* background-image: url("/landing/3.png"); */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
