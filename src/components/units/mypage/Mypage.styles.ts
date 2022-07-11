@@ -188,7 +188,7 @@ export const BodyWrapper = styled.div`
   width: 100%;
 `;
 export const BodyTitleWrapper = styled.div`
-  width: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
   margin-bottom: 40px;
@@ -224,11 +224,12 @@ export const BodyTitle = styled.div`
 
 export const ReservationInfoWrapper = styled.div`
   width: 100%;
-  height: 800px;
+  /* height: 800px; */
   margin-bottom: 50px;
   padding: 20px;
   border: 1px solid #d9dbe3;
   border-radius: 10px;
+  display: block;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -479,6 +480,21 @@ export const PickTitleImg = styled.img`
     width: 30px;
     height: 30px;
   }
+`;
+
+export const CommentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const CommentMarker = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
+export const CommentInput = styled.input`
+  width: 40%;
+  margin-left: 20px;
 `;
 
 export const PickTitle = styled.div`

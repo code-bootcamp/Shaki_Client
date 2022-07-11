@@ -26,14 +26,14 @@ export default function LogInContainer() {
   };
 
   const onClickLogIn = async (data: any) => {
-    console.log(data);
     try {
-      await logInUser({
+      const result = await logInUser({
         variables: {
           email: data.email,
           pwd: data.pwd,
         },
       });
+      // console.log(result);
 
       router.push("/main");
     } catch (error: any) {
