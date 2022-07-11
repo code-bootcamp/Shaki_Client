@@ -33,9 +33,17 @@ export default function SignUpContainer() {
   const [checkEmail] = useMutation(CHECK_EMAIL);
 
   const [email, setEmail] = useState("");
+  const [auth, setAuth] = useState("");
+  const [received, setReceived] = useState("");
+  const [checkAuth, setCheckAuth] = useState(false);
 
   const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
+  };
+
+  const onChangeEmailAuth = (event: ChangeEvent<HTMLInputElement>) => {
+    setAuth(event.target.value);
+    console.log(auth);
   };
 
   const { handleSubmit, formState, register } = useForm({
@@ -50,23 +58,35 @@ export default function SignUpContainer() {
 
   const [sendAuth, setSendAuth] = useState<boolean>(false);
   const onClickSendAuth = async (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log(email);
-    try {
-      const authNumber = await checkEmail({
-        variables: {
-          email: email,
-        },
-      });
-      console.log(authNumber);
+    if (!email) {
+      alert("이메일을 입력해주세요");
+      return;
+    } else {
       alert("인증번호가 발송되었습니다.");
-    } catch (error: any) {
-      alert(error.message);
+      try {
+        const authNumber = await checkEmail({
+          variables: {
+            email: email,
+          },
+        });
+        console.log(authNumber.data.checkEmail);
+        setReceived(authNumber.data.checkEmail);
+      } catch (error: any) {
+        alert(error.message);
+      }
+      setSendAuth(true);
     }
-    setSendAuth(true);
   };
 
   const onClickAuthed = (event: React.MouseEvent<HTMLDivElement>) => {
-    alert("이메일 인증이 완료되었습니다.");
+    if (!auth) {
+      alert("인증번호를 입력해주세요.");
+    } else if (received != auth) {
+      alert("인증번호가 다릅니다.");
+    } else {
+      alert("이메일 인증이 완료되었습니다.");
+      setCheckAuth(true);
+    }
   };
 
   const onClickMoveToLanding = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -74,6 +94,7 @@ export default function SignUpContainer() {
   };
 
   const onClickSubmit = async (data: any) => {
+    !checkAuth && alert("이메일 인증이 완료되지 않았습니다.");
     try {
       await createUser({
         variables: {
@@ -105,6 +126,7 @@ export default function SignUpContainer() {
       onClickSendAuth={onClickSendAuth}
       onClickAuthed={onClickAuthed}
       onChangeEmail={onChangeEmail}
+      onChangeEmailAuth={onChangeEmailAuth}
     />
   );
 }
