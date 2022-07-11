@@ -31,6 +31,7 @@
     "react-infinite-scroller": "^1.2.6",
     "react-quill": "^1.3.5",
     "react-typical": "^0.1.3",
+    "recoil": "^0.7.4",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.3",
     "sockjs-client": "^1.6.1",

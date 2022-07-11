@@ -36,8 +36,15 @@ export default function SignUpContainer() {
   const [auth, setAuth] = useState("");
   const [received, setReceived] = useState("");
   const [checkAuth, setCheckAuth] = useState(false);
+  const { handleSubmit, formState, register, setValue, trigger } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
 
   const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue("email", event.target.value);
+    trigger("email");
+
     setEmail(event.target.value);
   };
 
@@ -45,11 +52,6 @@ export default function SignUpContainer() {
     setAuth(event.target.value);
     console.log(auth);
   };
-
-  const { handleSubmit, formState, register } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(schema),
-  });
 
   const [fliped, setFliped] = useState<boolean>();
   const onClickFliped = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -94,23 +96,26 @@ export default function SignUpContainer() {
   };
 
   const onClickSubmit = async (data: any) => {
-    !checkAuth && alert("이메일 인증이 완료되지 않았습니다.");
-    try {
-      await createUser({
-        variables: {
-          createUserInput: {
-            name: data.name,
-            nickname: data.nickname,
-            email: email,
-            pwd: data.pwd,
-            phone_num: data.phone_num,
+    if (checkAuth == false) {
+      alert("이메일인증이 완료되지 않았습니다.");
+      return;
+    } else {
+      try {
+        await createUser({
+          variables: {
+            createUserInput: {
+              name: data.name,
+              email: email,
+              pwd: data.pwd,
+              phone_num: data.phone_num,
+            },
           },
-        },
-      });
-      alert("회원가입이 완료되었습니다. 로그인 해주세요");
-      router.push("/login");
-    } catch (error: any) {
-      Modal.error({ content: error.message });
+        });
+        alert("회원가입이 완료되었습니다. 로그인 해주세요");
+        router.push("/login");
+      } catch (error: any) {
+        Modal.error({ content: error.message });
+      }
     }
   };
   return (

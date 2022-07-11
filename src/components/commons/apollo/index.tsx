@@ -14,6 +14,7 @@ interface IProps {
 export default function ApolloSetting(props: IProps) {
   const uploadLink = createUploadLink({
     uri: "https://shakiback.shop/graphql",
+    // credentials: "include",
   });
 
   const client = new ApolloClient({
