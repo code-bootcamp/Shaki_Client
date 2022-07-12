@@ -77,6 +77,29 @@ export const PrecautionsMenu = styled.div`
 `;
 
 // 댓글
+export const CommentHead = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const CommentBtn = styled.button`
+  border: none;
+  border-radius: 10px;
+  color: black;
+  background-color: lightgrey;
+  cursor: pointer;
+  :hover {
+    background-color: #4167ee;
+    color: white;
+  }
+`;
+
+export const CommentInput = styled.textarea`
+  width: 100%;
+  resize: none;
+`;
+
 export const CommentBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;

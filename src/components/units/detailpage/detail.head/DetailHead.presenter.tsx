@@ -1,65 +1,32 @@
 import * as DH from "./DetailHead.styles";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { useState } from "react";
 import { Rating } from "@mui/material";
-
-interface LinkTabProps {
-  label?: string;
-  href?: string;
-  value?: string;
-  id?: string;
-  onClick?: (e: any) => void;
-  style: { fontWeight: string; fontSize: string };
-}
-
-function LinkTab(props: LinkTabProps) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
 
 interface IDetailHeaderUI {
   onClickPick: () => void;
 }
 
 export default function DetailHeaderUI(props: IDetailHeaderUI) {
-  const [value, setValue] = useState("");
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
+  const data = [
+    {
+      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce",
+      name: "1번방",
+    },
+    {
+      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce",
+      name: "2번방",
+    },
+    {
+      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce",
+      name: "3번방",
+    },
+  ];
 
   return (
     <DH.Wrapper>
       <DH.MenuWrapper>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-          variant="fullWidth"
-        >
-          <LinkTab
-            label="구로점 쉐이키 1"
-            value="1"
-            style={{ fontWeight: "700", fontSize: "22" }}
-          />
-          <LinkTab
-            label="구로점 쉐이키 2"
-            value="2"
-            style={{ fontWeight: "700", fontSize: "22" }}
-          />
-          <LinkTab
-            label="구로점 쉐이키 3"
-            value="6"
-            style={{ fontWeight: "700", fontSize: "22" }}
-          />
-        </Tabs>
+        {data.map((el) => (
+          <DH.MenuName>{el.name}</DH.MenuName>
+        ))}
       </DH.MenuWrapper>
       {/* 별점 태그 문의하기 */}
       <DH.HeadInfoWrapper>
