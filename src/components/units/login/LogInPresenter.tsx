@@ -42,11 +42,11 @@ export default function LogInPresenter(props: any) {
                     <Li.Social src="/icon/sociallogin/kakaotalk_sharing_btn_small_ov.png" />
                     <Li.SocialTitle>카카오</Li.SocialTitle>
                   </Li.ImgBox>
-                  <Li.ImgBox>
+                  <Li.ImgBox onClick={props.onClickNaverLogIn}>
                     <Li.Social src="/icon/sociallogin/screenshotAtUploadCC_1656920622973.jpeg" />
                     <Li.SocialTitle>네이버</Li.SocialTitle>
                   </Li.ImgBox>
-                  <Li.ImgBox>
+                  <Li.ImgBox onClick={props.onClickGoogleLogIn}>
                     <Li.Social
                       style={{ borderRadius: "5px" }}
                       src="/icon/sociallogin/screenshotAtUploadCC_1656924592824.jpeg"

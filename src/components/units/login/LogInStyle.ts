@@ -54,6 +54,11 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  @media ${breakPoints.mobile} {
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
 `;
 
 export const LogInWrapper = styled.div`
@@ -99,6 +104,7 @@ export const MiddleWrapper = styled.div`
   font-weight: 500;
   @media ${breakPoints.mobile} {
     width: 60vw;
+    margin-bottom: 1em;
   }
 `;
 
@@ -251,5 +257,8 @@ export const CommentBox = styled.div`
   cursor: pointer;
   :hover {
     border-bottom: 2px solid #4e75ff;
+  }
+  @media ${breakPoints.mobile} {
+    margin-top: 1em;
   }
 `;
