@@ -45,6 +45,14 @@ export default function LogInContainer() {
     router.push("https://shakiback.shop/login/kakao");
   };
 
+  const onClickGoogleLogIn = () => {
+    router.push("https://shakiback.shop/login/google");
+  };
+
+  const onClickNaverLogIn = () => {
+    router.push("https://shakiback.shop/login/naver");
+  };
+
   const router = useRouter();
   const onClickMoveToSignUp = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push("/signup");
@@ -63,6 +71,8 @@ export default function LogInContainer() {
       onClickKakaoLogIn={onClickKakaoLogIn}
       onClickAdmin={onClickAdmin}
       adminOn={adminOn}
+      onClickNaverLogIn={onClickNaverLogIn}
+      onClickGoogleLogIn={onClickGoogleLogIn}
     />
   );
 }
