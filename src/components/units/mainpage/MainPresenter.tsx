@@ -1,17 +1,17 @@
 import * as Ma from "./MainStyle";
 
-export default function MainPresenter() {
+export default function MainPresenter(props: any) {
   return (
     <Ma.HTML>
       <Ma.Wrapper>
         <Ma.ImageWrapper1>
           <Ma.ImageHeader>
-            신대방역
+            {props.data?.fetchBranches[0].name}
             <Ma.ImageHeaderIcon />
           </Ma.ImageHeader>
           <Ma.MainImg src="/MainImage/MainImage_1.svg" />
           <Ma.ImageUnderBar>
-            언더바
+            {props.data?.fetchBranches[0].remarks}
             <Ma.UnderBarIcon src="/icon/Star.svg" />
           </Ma.ImageUnderBar>
         </Ma.ImageWrapper1>

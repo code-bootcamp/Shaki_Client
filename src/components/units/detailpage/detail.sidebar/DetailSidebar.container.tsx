@@ -19,7 +19,6 @@ export default function DetailSidebarContainer() {
     setDate(newValue);
   };
 
-  console.log(dateFormat);
   return (
     <>
       <DetailSidebarUI
