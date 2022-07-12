@@ -2,15 +2,14 @@ import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
 
 const CHATBOT_THEME = {
-  background: "#FFFEFC",
-  fontFamily: "Roboto",
-  headerBgColor: "#FFBFB5",
-  headerFontColor: "#fff",
-  headerFontSize: "15px",
-  botBubbleColor: "#C8D7C2",
-  botFontColor: "#fff",
-  userBubbleColor: "#FFBFB5",
-  userFontColor: "#fff",
+  background: "#f9fcf7",
+  headerBgColor: "#1fa8e3",
+  headerFontSize: "20px",
+  botBubbleColor: "#0F3789",
+  headerFontColor: "white",
+  botFontColor: "white",
+  userBubbleColor: "#FF5733",
+  userFontColor: "white",
 };
 
 interface Ibot {
@@ -18,21 +17,44 @@ interface Ibot {
   message: string;
 }
 
-export default function ChatBox() {
-  const BotRedirect = ({ url, message }: Ibot) => {
-    return (
-      <div>
-        <a href={url} target="_blank">
-          {message}
-        </a>
-      </div>
-    );
-  };
+const BotRedirect = ({ url, message }: Ibot) => {
+  return (
+    <div>
+      <a href={url} target="_blank">
+        {message}
+      </a>
+    </div>
+  );
+};
 
+export default function ChatBox() {
   const steps = [
     {
+      id: "0",
+      message: "인녕하세요 쉐이키관리자 봇입니다.",
+
+      trigger: "user",
+    },
+    {
+      id: "user",
+
+      message: "이름을입력해주세요",
+      trigger: "greet",
+    },
+    {
+      id: "greet",
+
+      user: true,
+      trigger: "hellow",
+    },
+    {
+      id: "hellow",
+      message: " 안녕하세요 {previousValue}, 님 ",
+      trigger: "1",
+    },
+    {
       id: "1",
-      message: "안녕하세요 관리자에게 문의하시고 싶으신가요?",
+      message: "잠시만 기다려주세요.",
       trigger: "2",
     },
     {
@@ -43,35 +65,67 @@ export default function ChatBox() {
     {
       id: "3",
       options: [
-        { value: 1, label: "관리자에게 직접 문의하기", trigger: "4" },
-        { value: 2, label: "지점별 문의하기", trigger: "5" },
+        { value: 1, label: "관리자에게 직접 문의하기", trigger: "qa" },
+        { value: 2, label: "자주 묻는 질문", trigger: "faq" },
       ],
     },
     {
-      id: "4",
+      id: "faq",
+
+      options: [
+        { value: 1, label: "환불규정", trigger: "refund" },
+        { value: 2, label: "개인정보처리방침", trigger: "security" },
+        { value: 3, label: "가맹점 문의", trigger: "store" },
+      ],
+    },
+    {
+      id: "refund",
+      component: <BotRedirect message="환불규정" url="/refund" />,
+      trigger: "after",
+    },
+
+    {
+      id: "security",
       component: (
         <BotRedirect
-          message="문의"
+          message="개인정보처리방침"
           url="<https://lucasbassetti.com.br/react-simple-    chatbot/#/docs/previous-value>"
         />
       ),
-      trigger: "2",
+      trigger: "after",
     },
+
     {
-      id: "5",
+      id: "store",
+      component: <BotRedirect message="가맹점문의하러가기" url="/store" />,
+      trigger: "after",
+    },
+
+    {
+      id: "qa",
       component: (
         <BotRedirect
-          message="문의"
-          url="<https://lucasbassetti.com.br/react-simple-chatbot/#/docs/chatbot>"
+          message="1:1문의하러가기"
+          url="<https://lucasbassetti.com.br/react-simple-    chatbot/#/docs/previous-value>"
         />
       ),
+      trigger: "after",
+    },
+    {
+      id: "after",
+      message: "궁금하신게 더 있으신가요?",
       trigger: "2",
     },
   ];
+
+  const config = {
+    botAvatar: "/logo.png",
+    floating: true,
+  };
   return (
     <>
       <ThemeProvider theme={CHATBOT_THEME}>
-        <ChatBot steps={steps} floating={true} />
+        <ChatBot steps={steps} {...config} headerTitle="💻 관리자 봇" />
       </ThemeProvider>
     </>
   );
