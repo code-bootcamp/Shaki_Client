@@ -6,6 +6,7 @@ import SideRightPage from "./sidebar.right";
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
+import ChatBox from "../../../commons/chatbot/ChatBot";
 
 const Body = styled.div`
   width: 100%;
@@ -53,6 +54,8 @@ export default function LayoutPage(props: LayoutProps) {
         <Body>{props.children}</Body>
         {!isHiddenSidebar && <SideRightPage />}
       </PageWrapper>
+      {!isHiddenLayout && <ChatBox />}
+
       <FooterWrapper>{!isHiddenLayout && <FooterPage />}</FooterWrapper>
     </div>
   );
