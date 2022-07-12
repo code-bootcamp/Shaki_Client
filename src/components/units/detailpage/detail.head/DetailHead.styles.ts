@@ -15,6 +15,23 @@ export const Wrapper = styled.div`
 export const MenuWrapper = styled.div`
   margin-top: 20px;
   margin-bottom: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+export const MenuName = styled.div`
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  &:hover {
+    color: #4167ee;
+    border-bottom: 2px solid #4167ee;
+  }
 `;
 
 export const HeadInfoWrapper = styled.div`

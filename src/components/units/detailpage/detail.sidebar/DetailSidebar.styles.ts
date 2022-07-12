@@ -36,13 +36,13 @@ export const SubmitBtn = styled.button`
   width: 306px;
   height: 56px;
   border: none;
-  background: #4167ee;
-  color: white;
+  background: lightgray;
+  color: black;
   margin-top: 30px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
-    color: black;
+    background-color: #4167ee;
+    color: white;
   }
 `;
 
