@@ -2,8 +2,10 @@ import * as Ad from "./AdminWrite.styles";
 import DaumPostcode from "react-daum-postcode";
 import KakaoMap from "../../../../commons/kakaomap";
 import { Modal } from "antd";
-import Uploads from "../../../commons/Uploads/Uploads.container";
 import { v4 as uuidv4 } from "uuid";
+import UploadsMain from "../../../commons/Uploads/uploadsMainImg/Uploads.container";
+import UploadsSubOne from "../../../commons/Uploads/uploadsSubOneImg/Uploads.container";
+import UploadsSubTwo from "../../../commons/Uploads/uploadsSubTwoImg/Uploads.container";
 
 interface IAdminWriteUI {
   register: any;
@@ -12,11 +14,15 @@ interface IAdminWriteUI {
   isModalView: boolean;
   address: string;
   zipcode: string | number;
-  imgUrls: string[];
+  imgMainUrls: string[];
+  imgSubOneUrls: string[];
+  imgSubTwoUrls: string[];
   onToggleModal: () => void;
   handelCompleteDaum: (addressData: any) => void;
   onChangeContents: (value: string) => void;
-  onChangeImgUrls: (imgUrls: string, index: number) => void;
+  onChangeImgMainUrls: (imgUrls: string, index: number) => void;
+  onChangeImgSubOneUrls: (imgUrls: string, index: number) => void;
+  onChangeImgSubTwoUrls: (imgUrls: string, index: number) => void;
   onClickSubmit: (data: any) => void;
 }
 
@@ -143,29 +149,36 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
             </Ad.AddressWrapper>
 
             <Ad.ImageWrapper>
+              {props.imgMainUrls.map((el, index) => (
+                <UploadsMain
+                  key={uuidv4()}
+                  index={index}
+                  fileUrl={el}
+                  onChangeFileUrls={props.onChangeImgMainUrls}
+                />
+              ))}
               <Ad.Img>
-                {props.imgUrls.map((el, index) => (
-                  <Uploads
-                    key={uuidv4()}
-                    index={index}
-                    fileUrl={el}
-                    onChangeFileUrls={props.onChangeImgUrls}
-                  />
-                ))}
+                <Ad.ImgSubOneWrapper>
+                  {props.imgSubOneUrls.map((el, index) => (
+                    <UploadsSubOne
+                      key={uuidv4()}
+                      index={index}
+                      fileUrl={el}
+                      onChangeFileUrls={props.onChangeImgSubOneUrls}
+                    />
+                  ))}
+                </Ad.ImgSubOneWrapper>
+                <Ad.ImgSubTwoWrapper>
+                  {props.imgSubTwoUrls.map((el, index) => (
+                    <UploadsSubTwo
+                      key={uuidv4()}
+                      index={index}
+                      fileUrl={el}
+                      onChangeFileUrls={props.onChangeImgSubTwoUrls}
+                    />
+                  ))}
+                </Ad.ImgSubTwoWrapper>
               </Ad.Img>
-              {/* <Ad.MainWrapper>
-                <Ad.Main src="/noimage/noimage.png" />
-              </Ad.MainWrapper>
-              <Ad.SubImageWrapper>
-                <Ad.SubImageOne>
-                  <Ad.SubImage src="/noimage/noimage.png" />
-                  <Ad.SubImage src="/noimage/noimage.png" />
-                </Ad.SubImageOne>
-                <Ad.SubImageWrappertwo>
-                  <Ad.SubImagetwo src="/noimage/noimage.png" />
-                  <Ad.SubImagetwo src="/noimage/noimage.png" />
-                </Ad.SubImageWrappertwo>
-              </Ad.SubImageWrapper> */}
             </Ad.ImageWrapper>
           </Ad.BodyWrapper>
 

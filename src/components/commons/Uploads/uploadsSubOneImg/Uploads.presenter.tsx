@@ -8,7 +8,7 @@ interface IUploadsUI {
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function UploadsUI(props: IUploadsUI) {
+export default function UploadsSubOneImgUI(props: IUploadsUI) {
   return (
     <>
       {props.fileUrl ? (
@@ -19,18 +19,13 @@ export default function UploadsUI(props: IUploadsUI) {
       ) : (
         <S.UploadButton onClick={props.onClickUpload}>
           <S.UploadWrapper>
-            <S.MainWrapper>
-              <S.Main src="/noimage/noimage.png" />
-            </S.MainWrapper>
             <S.SubImageWrapper>
               <S.SubImageOne>
                 <S.SubImage src="/noimage/noimage.png" />
-                <S.SubImage src="/noimage/noimage.png" />
               </S.SubImageOne>
-              <S.SubImageWrappertwo>
+              {/* <S.SubImageWrappertwo>
                 <S.SubImagetwo src="/noimage/noimage.png" />
-                <S.SubImagetwo src="/noimage/noimage.png" />
-              </S.SubImageWrappertwo>
+              </S.SubImageWrappertwo> */}
             </S.SubImageWrapper>
           </S.UploadWrapper>
         </S.UploadButton>

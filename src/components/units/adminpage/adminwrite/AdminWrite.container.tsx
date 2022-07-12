@@ -27,7 +27,9 @@ const schema = yup.object({
 
 export default function AdminWrite() {
   const [isModalView, setIsModalView] = useState(false);
-  const [imgUrls, setImgUrls] = useState([""]);
+  const [imgMainUrls, setImgMainUrls] = useState([""]);
+  const [imgSubOneUrls, setImgSubOneUrls] = useState(["", ""]);
+  const [imgSubTwoUrls, setImgSubTwoUrls] = useState(["", ""]);
   const [address, setAddress] = useState("");
   const [zipcode, setZipcode] = useState("");
 
@@ -45,10 +47,22 @@ export default function AdminWrite() {
     trigger("contents");
   };
 
-  const onChangeImgUrls = (fileUrl: string, index: number) => {
-    const newImgUrls = [...imgUrls];
+  const onChangeImgMainUrls = (fileUrl: string, index: number) => {
+    const newImgUrls = [...imgMainUrls];
     newImgUrls[index] = fileUrl;
-    setImgUrls(newImgUrls);
+    setImgMainUrls(newImgUrls);
+  };
+
+  const onChangeImgSubOneUrls = (fileUrl: string, index: number) => {
+    const newImgUrls = [...imgSubOneUrls];
+    newImgUrls[index] = fileUrl;
+    setImgSubOneUrls(newImgUrls);
+  };
+
+  const onChangeImgSubTwoUrls = (fileUrl: string, index: number) => {
+    const newImgUrls = [...imgSubTwoUrls];
+    newImgUrls[index] = fileUrl;
+    setImgSubTwoUrls(newImgUrls);
   };
 
   // Daumpost 연결 및 카카오맵 연동
@@ -69,7 +83,9 @@ export default function AdminWrite() {
             ...data,
             zipcode,
             address,
-            images: imgUrls,
+            images: imgMainUrls,
+            imgSubOneUrls,
+            imgSubTwoUrls,
           },
         },
       });
@@ -92,8 +108,12 @@ export default function AdminWrite() {
       address={address}
       zipcode={zipcode}
       // 이미지 업로드
-      onChangeImgUrls={onChangeImgUrls}
-      imgUrls={imgUrls}
+      onChangeImgMainUrls={onChangeImgMainUrls}
+      onChangeImgSubOneUrls={onChangeImgSubOneUrls}
+      onChangeImgSubTwoUrls={onChangeImgSubTwoUrls}
+      imgMainUrls={imgMainUrls}
+      imgSubOneUrls={imgSubOneUrls}
+      imgSubTwoUrls={imgSubTwoUrls}
     />
   );
 }
