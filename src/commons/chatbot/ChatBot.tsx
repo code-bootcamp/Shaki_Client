@@ -2,6 +2,7 @@ import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
 import InquiryContainer from "../../components/units/inquiry/Inquiry.Container";
 import CenterTxt from "../../components/commons/faq/faqinfo/FaqInfo";
+import ChatMain from "./main/ChatMain";
 
 const CHATBOT_THEME = {
   background: "#f9fcf7",
@@ -33,7 +34,7 @@ export default function ChatBox() {
   const steps = [
     {
       id: "0",
-      message: "인녕하세요 쉐이키관리자 봇입니다.",
+      component: <ChatMain />,
 
       trigger: "user",
     },
