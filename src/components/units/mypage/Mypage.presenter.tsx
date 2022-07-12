@@ -138,10 +138,10 @@ export default function MypageUI(props: any) {
               </My.InfoDay>
             </My.Info>
           </My.InfoWrapper>
-          <My.CommentWrapper>
+          {/* <My.CommentWrapper>
             <My.CommentMarker src="/icon/CCMarker.svg" />
             <My.CommentInput />
-          </My.CommentWrapper>
+          </My.CommentWrapper> */}
         </My.ReservationInfoWrapper>
 
         {/* 찜한 정보 */}
