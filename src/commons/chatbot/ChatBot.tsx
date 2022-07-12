@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
+import InquiryContainer from "../../components/units/inquiry/Inquiry.Container";
+import CenterTxt from "../../components/commons/faq/faqinfo/FaqInfo";
 
 const CHATBOT_THEME = {
   background: "#f9fcf7",
@@ -59,7 +61,7 @@ export default function ChatBox() {
     },
     {
       id: "2",
-      message: "문의사항선택하기",
+      message: "문의사항을 선택해주세요.",
       trigger: "3",
     },
     {
@@ -74,7 +76,7 @@ export default function ChatBox() {
 
       options: [
         { value: 1, label: "환불규정", trigger: "refund" },
-        { value: 2, label: "개인정보처리방침", trigger: "security" },
+        { value: 2, label: "고객센터정보", trigger: "infofaq" },
         { value: 3, label: "가맹점 문의", trigger: "store" },
       ],
     },
@@ -85,13 +87,8 @@ export default function ChatBox() {
     },
 
     {
-      id: "security",
-      component: (
-        <BotRedirect
-          message="개인정보처리방침"
-          url="<https://lucasbassetti.com.br/react-simple-    chatbot/#/docs/previous-value>"
-        />
-      ),
+      id: "infofaq",
+      component: <CenterTxt />,
       trigger: "after",
     },
 
@@ -114,7 +111,21 @@ export default function ChatBox() {
     {
       id: "after",
       message: "궁금하신게 더 있으신가요?",
-      trigger: "2",
+      trigger: "endings",
+    },
+
+    {
+      id: "endings",
+      options: [
+        { value: 1, label: "궁금증이 해결되었어요!", trigger: "finish" },
+        { value: 2, label: "궁금한게 남았어요!", trigger: "2" },
+      ],
+    },
+
+    {
+      id: "finish",
+      message: "감사합니다 쉐이키였습니다^^!",
+      end: true,
     },
   ];
 
@@ -125,7 +136,12 @@ export default function ChatBox() {
   return (
     <>
       <ThemeProvider theme={CHATBOT_THEME}>
-        <ChatBot steps={steps} {...config} headerTitle="💻 관리자 봇" />
+        <ChatBot
+          speechSynthesis={{ enable: true, lang: "ko" }}
+          steps={steps}
+          {...config}
+          headerTitle="💻 관리자 봇"
+        />
       </ThemeProvider>
     </>
   );
