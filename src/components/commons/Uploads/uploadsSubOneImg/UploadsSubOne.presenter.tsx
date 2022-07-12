@@ -1,5 +1,5 @@
 import { ChangeEvent, RefObject } from "react";
-import * as S from "./Uploads.styles";
+import * as S from "./UploadsSubOne.styles";
 
 interface IUploadsUI {
   fileRef: RefObject<HTMLInputElement>;

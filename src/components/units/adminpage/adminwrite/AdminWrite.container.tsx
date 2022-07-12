@@ -27,9 +27,8 @@ const schema = yup.object({
 
 export default function AdminWrite() {
   const [isModalView, setIsModalView] = useState(false);
-  const [imgMainUrls, setImgMainUrls] = useState([""]);
-  const [imgSubOneUrls, setImgSubOneUrls] = useState(["", ""]);
-  const [imgSubTwoUrls, setImgSubTwoUrls] = useState(["", ""]);
+  const [imgMainUrls, setImgMainUrls] = useState(["", "", "", "", ""]);
+
   const [address, setAddress] = useState("");
   const [zipcode, setZipcode] = useState("");
 
@@ -42,7 +41,6 @@ export default function AdminWrite() {
 
   const onChangeContents = (value: string) => {
     // console.log(value);
-
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   };
@@ -53,17 +51,17 @@ export default function AdminWrite() {
     setImgMainUrls(newImgUrls);
   };
 
-  const onChangeImgSubOneUrls = (fileUrl: string, index: number) => {
-    const newImgUrls = [...imgSubOneUrls];
-    newImgUrls[index] = fileUrl;
-    setImgSubOneUrls(newImgUrls);
-  };
+  // const onChangeImgSubOneUrls = (fileUrl: string, index: number) => {
+  //   const newImgUrls = [...imgSubOneUrls];
+  //   newImgUrls[index] = fileUrl;
+  //   setImgSubOneUrls(newImgUrls);
+  // };
 
-  const onChangeImgSubTwoUrls = (fileUrl: string, index: number) => {
-    const newImgUrls = [...imgSubTwoUrls];
-    newImgUrls[index] = fileUrl;
-    setImgSubTwoUrls(newImgUrls);
-  };
+  // const onChangeImgSubTwoUrls = (fileUrl: string, index: number) => {
+  //   const newImgUrls = [...imgSubTwoUrls];
+  //   newImgUrls[index] = fileUrl;
+  //   setImgSubTwoUrls(newImgUrls);
+  // };
 
   // Daumpost 연결 및 카카오맵 연동
   const onToggleModal = () => {
@@ -71,28 +69,29 @@ export default function AdminWrite() {
   };
   const handelCompleteDaum = (addressData: any) => {
     onToggleModal();
-    setAddress(addressData.address);
     setZipcode(addressData.zonecode);
+    setAddress(addressData.address);
   };
 
   const onClickSubmit = async (data: any) => {
-    try {
-      await createRoom({
-        variables: {
-          createRoom: {
-            ...data,
-            zipcode,
-            address,
-            images: imgMainUrls,
-            imgSubOneUrls,
-            imgSubTwoUrls,
-          },
+    // try {
+    const result = await createRoom({
+      variables: {
+        createRoom: {
+          ...data,
+          zipcode,
+          address,
+          images: imgMainUrls,
+          lat: 34.5,
+          lng: 127.1,
         },
-      });
-      Modal.success({ content: "게시글이 등록되었습니다." });
-    } catch (error) {
-      Modal.error({ content: "게시글 등록 실패하였습니다." });
-    }
+      },
+    });
+    console.log(result);
+    // Modal.success({ content: "게시글이 등록되었습니다." });
+    // } catch (error) {
+    //   Modal.error({ content: "게시글 등록 실패하였습니다." });
+    // }
   };
   return (
     <AdminWriteUI
@@ -109,11 +108,11 @@ export default function AdminWrite() {
       zipcode={zipcode}
       // 이미지 업로드
       onChangeImgMainUrls={onChangeImgMainUrls}
-      onChangeImgSubOneUrls={onChangeImgSubOneUrls}
-      onChangeImgSubTwoUrls={onChangeImgSubTwoUrls}
+      // onChangeImgSubOneUrls={onChangeImgSubOneUrls}
+      // onChangeImgSubTwoUrls={onChangeImgSubTwoUrls}
       imgMainUrls={imgMainUrls}
-      imgSubOneUrls={imgSubOneUrls}
-      imgSubTwoUrls={imgSubTwoUrls}
+      //   imgSubOneUrls={imgSubOneUrls}
+      //   imgSubTwoUrls={imgSubTwoUrls}
     />
   );
 }

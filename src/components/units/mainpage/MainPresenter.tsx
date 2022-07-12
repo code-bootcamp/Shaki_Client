@@ -1,43 +1,43 @@
-import * as M from "./MainStyle";
+import * as Ma from "./MainStyle";
 
 export default function MainPresenter() {
   return (
-    <M.HTML>
-      <M.Wrapper>
-        <M.ImageWrapper1>
-          <M.ImageHeader>
+    <Ma.HTML>
+      <Ma.Wrapper>
+        <Ma.ImageWrapper1>
+          <Ma.ImageHeader>
             신대방역
-            <M.ImageHeaderIcon />
-          </M.ImageHeader>
-          <M.MainImg src="/MainImage/MainImage_1.svg" />
-          <M.ImageUnderBar>
+            <Ma.ImageHeaderIcon />
+          </Ma.ImageHeader>
+          <Ma.MainImg src="/MainImage/MainImage_1.svg" />
+          <Ma.ImageUnderBar>
             언더바
-            <M.UnderBarIcon src="/icon/Star.svg" />
-          </M.ImageUnderBar>
-        </M.ImageWrapper1>
-        <M.ImageWrapper2>
-          <M.ImageHeader>
+            <Ma.UnderBarIcon src="/icon/Star.svg" />
+          </Ma.ImageUnderBar>
+        </Ma.ImageWrapper1>
+        <Ma.ImageWrapper2>
+          <Ma.ImageHeader>
             신림역
-            <M.ImageHeaderIcon />
-          </M.ImageHeader>
-          <M.MainImg src="/MainImage/MainImage_2.svg" />
-          <M.ImageUnderBar>
+            <Ma.ImageHeaderIcon />
+          </Ma.ImageHeader>
+          <Ma.MainImg src="/MainImage/MainImage_2.svg" />
+          <Ma.ImageUnderBar>
             언더바
-            <M.UnderBarIcon src="/icon/Star.svg" />
-          </M.ImageUnderBar>
-        </M.ImageWrapper2>
-        <M.ImageWrapper3>
-          <M.ImageHeader>
+            <Ma.UnderBarIcon src="/icon/Star.svg" />
+          </Ma.ImageUnderBar>
+        </Ma.ImageWrapper2>
+        <Ma.ImageWrapper3>
+          <Ma.ImageHeader>
             구로디지털단지역
-            <M.ImageHeaderIcon />
-          </M.ImageHeader>
-          <M.MainImg src="/MainImage/MainImage_3.svg" />
-          <M.ImageUnderBar>
+            <Ma.ImageHeaderIcon />
+          </Ma.ImageHeader>
+          <Ma.MainImg src="/MainImage/MainImage_3.svg" />
+          <Ma.ImageUnderBar>
             언더바
-            <M.UnderBarIcon src="/icon/Star.svg" />
-          </M.ImageUnderBar>
-        </M.ImageWrapper3>
-      </M.Wrapper>
-    </M.HTML>
+            <Ma.UnderBarIcon src="/icon/Star.svg" />
+          </Ma.ImageUnderBar>
+        </Ma.ImageWrapper3>
+      </Ma.Wrapper>
+    </Ma.HTML>
   );
 }

@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 
 export const UploadImage = styled.img`
-  width: 350px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   margin-right: 24px;
   cursor: pointer;
 `;
 
 export const UploadButton = styled.div`
   width: 100%;
-  height: 300px;
+  height: 100px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -24,8 +24,8 @@ export const MainWrapper = styled.div`
   width: 100%;
 `;
 export const Main = styled.img`
-  width: 350px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   margin-right: 20px;
   cursor: pointer;
 `;
@@ -33,3 +33,6 @@ export const Main = styled.img`
 export const UploadFile = styled.input`
   display: none;
 `;
+
+export const DeleteButtons = styled.div``;
+export const Button = styled.button``;
