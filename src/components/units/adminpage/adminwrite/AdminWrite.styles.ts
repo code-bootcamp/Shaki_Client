@@ -237,7 +237,7 @@ export const ImageWrapper = styled.div`
   display: flex;
   margin-bottom: 100px;
 `;
-
+export const MainImg = styled.input``;
 export const Img = styled.div`
   width: 100%;
   display: flex;

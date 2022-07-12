@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
-import UploadsSubTwoImgUI from "../uploadsSubTwoImg/Uploads.presenter";
-import { UPLOAD_FILE } from "./Uploads.queries";
-import { checkValidationImage } from "./Uploads.validation";
+import UploadsSubOneImgUI from "./UploadsSubOne.presenter";
+import { UPLOAD_FILE } from "./UploadsSubOne.queries";
+import { checkValidationImage } from "./UploadsSubOne.validation";
 
 interface IUploads {
   index: number;
@@ -10,7 +10,7 @@ interface IUploads {
   onChangeFileUrls: (fileUrl: string, index: number) => void;
 }
 
-export default function UploadsSubTwo(props: IUploads) {
+export default function UploadsSubOne(props: IUploads) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
@@ -23,11 +23,11 @@ export default function UploadsSubTwo(props: IUploads) {
     if (!file) return;
 
     const result = await uploadFile({ variables: { file } });
-    props.onChangeFileUrls(result.data.uploadFile.url, props.index);
+    props.onChangeFileUrls(result.data.uploadFile, props.index);
   };
 
   return (
-    <UploadsSubTwoImgUI
+    <UploadsSubOneImgUI
       fileRef={fileRef}
       fileUrl={props.fileUrl}
       onClickUpload={onClickUpload}

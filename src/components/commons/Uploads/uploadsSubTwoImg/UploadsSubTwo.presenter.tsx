@@ -1,5 +1,5 @@
 import { ChangeEvent, RefObject } from "react";
-import * as S from "./Uploads.styles";
+import * as S from "./UploadsSubTwo.styles";
 
 interface IUploadsUI {
   fileRef: RefObject<HTMLInputElement>;
@@ -8,7 +8,7 @@ interface IUploadsUI {
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function UploadsMainImgUI(props: IUploadsUI) {
+export default function UploadsSubTwoImgUI(props: IUploadsUI) {
   return (
     <>
       {props.fileUrl ? (
@@ -19,17 +19,14 @@ export default function UploadsMainImgUI(props: IUploadsUI) {
       ) : (
         <S.UploadButton onClick={props.onClickUpload}>
           <S.UploadWrapper>
-            <S.MainWrapper>
-              <S.Main src="/noimage/noimage.png" />
-            </S.MainWrapper>
-            {/* <S.SubImageWrapper>
-              <S.SubImageOne>
+            <S.SubImageWrapper>
+              {/* <S.SubImageOne>
                 <S.SubImage src="/noimage/noimage.png" />
-              </S.SubImageOne>
+              </S.SubImageOne> */}
               <S.SubImageWrappertwo>
                 <S.SubImagetwo src="/noimage/noimage.png" />
               </S.SubImageWrappertwo>
-            </S.SubImageWrapper> */}
+            </S.SubImageWrapper>
           </S.UploadWrapper>
         </S.UploadButton>
       )}

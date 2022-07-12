@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
-import UploadsMainImgUI from "../uploadsMainImg/Uploads.presenter";
-import { UPLOAD_FILE } from "./Uploads.queries";
-import { checkValidationImage } from "./Uploads.validation";
+import UploadsMainImgUI from "./UploadsMain.presenter";
+import { UPLOAD_FILE } from "./UploadsMain.queries";
+import { checkValidationImage } from "./UploadsMain.validation";
 
 interface IUploads {
   index: number;
@@ -23,7 +23,7 @@ export default function UploadsMain(props: IUploads) {
     if (!file) return;
 
     const result = await uploadFile({ variables: { file } });
-    props.onChangeFileUrls(result.data.uploadFile.url, props.index);
+    props.onChangeFileUrls(result.data.uploadFile, props.index);
   };
 
   return (
