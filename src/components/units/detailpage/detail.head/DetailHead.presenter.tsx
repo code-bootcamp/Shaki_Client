@@ -24,8 +24,9 @@ export default function DetailHeaderUI(props: IDetailHeaderUI) {
   return (
     <DH.Wrapper>
       <DH.MenuWrapper>
-        {data.map((el) => (
-          <DH.MenuName>{el.name}</DH.MenuName>
+        {/* key값 수정필요! */}
+        {data.map((el, i) => (
+          <DH.MenuName key={i}>{el.name}</DH.MenuName>
         ))}
       </DH.MenuWrapper>
       {/* 별점 태그 문의하기 */}

@@ -3,7 +3,7 @@ import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 346px;
-  height: 736px;
+  height: 100%;
   border: 1px solid #4167ee;
   border-radius: 15px 0px 15px 0px;
   display: flex;
@@ -39,6 +39,7 @@ export const SubmitBtn = styled.button`
   background: lightgray;
   color: black;
   margin-top: 30px;
+  margin-bottom: 30px;
   :hover {
     cursor: pointer;
     background-color: #4167ee;
@@ -60,6 +61,11 @@ export const CalendarWrapper = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
   padding: 0px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   @media ${breakPoints.tablet} {
     width: 50%;
   }
@@ -89,9 +95,25 @@ export const CheckInTime = styled.select`
   width: 121px;
   height: 42px;
   border: 1px solid #d9dbe3;
-  :hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
+`;
+
+export const CheckGuest = styled.div`
+  width: 121px;
+  height: 42px;
+  border: 1px solid #d9dbe3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const GuestBtn = styled.button`
+  height: 100%;
+  width: 30px;
+  border: none;
+  cursor: pointer;
 `;
 // 가격
 export const PriceWrapper = styled.div`
