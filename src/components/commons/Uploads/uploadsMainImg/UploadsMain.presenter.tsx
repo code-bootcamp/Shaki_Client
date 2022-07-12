@@ -16,11 +16,9 @@ export default function UploadsMainImgUI(props: IUploadsUI) {
         <S.UploadImage onClick={props.onClickUpload} src={props.fileUrl} />
       ) : (
         <S.UploadButton onClick={props.onClickUpload}>
-          <S.UploadWrapper>
-            <S.MainWrapper>
-              <S.Main src="/noimage/noimage.png" />
-            </S.MainWrapper>
-          </S.UploadWrapper>
+          <S.MainWrapper>
+            <S.Main src="/noimage/noimage.png" />
+          </S.MainWrapper>
         </S.UploadButton>
       )}
       {/* <S.DeleteButtons>

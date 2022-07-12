@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 export const UploadImage = styled.img`
-  width: 100px;
-  height: 100px;
-  margin-right: 24px;
+  width: 200px;
+  height: 200px;
+  /* margin-right: 24px; */
   cursor: pointer;
 `;
 
@@ -24,8 +24,8 @@ export const MainWrapper = styled.div`
   width: 100%;
 `;
 export const Main = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin-right: 20px;
   cursor: pointer;
 `;

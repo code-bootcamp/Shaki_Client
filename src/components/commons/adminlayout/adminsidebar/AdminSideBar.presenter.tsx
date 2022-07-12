@@ -8,7 +8,7 @@ const ADMIN_HOME = [`/adminpage/adminhome`];
 const ADMIN_QUESTION = [`/adminpage`];
 const ADMIN_WRITE = [`/adminpage/adminwrite`];
 const ADMIN_ANSWER = [`/adminpage`];
-const ADMIN_EDIT = ["/adminEdit"];
+const ADMIN_EDIT = ["/adminpage/adminedit"];
 
 export default function AdminSideBarUI() {
   const router = useRouter();
@@ -95,16 +95,16 @@ export default function AdminSideBarUI() {
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
-          <AD.AdminNewWrapper>
-            {adminWrite ? (
+          <AD.AdminNewWrapper onClick={onClickMoveEdit}>
+            {adminEdit ? (
               <AD.AdminNewBack>
                 <ModeEditOutlineIcon />
-                <AD.AdminNew onClick={onClickMoveEdit}>가맹점 관리</AD.AdminNew>
+                <AD.AdminNew>가맹점 관리</AD.AdminNew>
               </AD.AdminNewBack>
             ) : (
               <AD.AdminNewBackFalse>
                 <ModeEditOutlineIcon />
-                <AD.AdminNew onClick={onClickMoveEdit}>가맹점 관리</AD.AdminNew>
+                <AD.AdminNew>가맹점 관리</AD.AdminNew>
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>

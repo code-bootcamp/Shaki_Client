@@ -4,8 +4,6 @@ import KakaoMap from "../../../../commons/kakaomap";
 import { Modal } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import UploadsMain from "../../../commons/Uploads/uploadsMainImg/UploadsMain.container";
-import UploadsSubOne from "../../../commons/Uploads/uploadsSubOneImg/UploadsSubOne.container";
-import UploadsSubTwo from "../../../commons/Uploads/uploadsSubTwoImg/UploadsSubTwo.container";
 import TagPage from "../../../../commons/tags";
 
 interface IAdminWriteUI {
@@ -16,15 +14,13 @@ interface IAdminWriteUI {
   address: string;
   zipcode: string | number;
   imgMainUrls: string[];
-  // imgSubOneUrls: string[];
-  // imgSubTwoUrls: string[];
+  tags: string;
+  setTags: string;
+
   onToggleModal: () => void;
   handelCompleteDaum: (addressData: any) => void;
   onChangeContents: (value: string) => void;
-  onChangeAddressDetail: (value: string) => void;
   onChangeImgMainUrls: (imgUrls: string, index: number) => void;
-  // onChangeImgSubOneUrls: (imgUrls: string, index: number) => void;
-  // onChangeImgSubTwoUrls: (imgUrls: string, index: number) => void;
   onClickSubmit: (data: any) => void;
 }
 
@@ -91,7 +87,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                 placeholder="태그내용을 입력해주세요! ex) #모던한분위기 #제주도느낌 #연인 #가족"
                 {...props.register("tags")}
               /> */}
-              <TagPage />
+              <TagPage tags={props.tags} setTags={props.setTags} />
               <Ad.Error>{props.formState.errors.tags?.message}</Ad.Error>
             </Ad.TagsWrapper>
 
@@ -137,7 +133,11 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
               <Ad.AddressDetailWrapper>
                 <Ad.AddressLabel>주소 등록</Ad.AddressLabel>
                 <Ad.AddressSearchWrapper>
-                  <Ad.AddressCode placeholder="12345" value={props.zipcode} />
+                  <Ad.AddressCode
+                    placeholder="12345"
+                    value={props.zipcode}
+                    readOnly
+                  />
                   <Ad.AddressSearchButton
                     type="button"
                     onClick={props.onToggleModal}
@@ -145,7 +145,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                     우편번호 검색
                   </Ad.AddressSearchButton>
                 </Ad.AddressSearchWrapper>
-                <Ad.Address type="text" value={props.address} />
+                <Ad.Address type="text" value={props.address} readOnly />
                 <Ad.AddressError></Ad.AddressError>
                 <Ad.AddressDetail
                   type="text"
@@ -163,8 +163,8 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   onChangeFileUrls={props.onChangeImgMainUrls}
                 />
               ))}
-              {/* <Ad.Img>
-                <Ad.ImgSubOneWrapper>
+              <Ad.Img>
+                {/* <Ad.ImgSubOneWrapper>
                   {props.imgSubOneUrls.map((el, index) => (
                     <UploadsSubOne
                       key={uuidv4()}
@@ -183,8 +183,8 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                       onChangeFileUrls={props.onChangeImgSubTwoUrls}
                     />
                   ))}
-                </Ad.ImgSubTwoWrapper>
-              </Ad.Img> */}
+                </Ad.ImgSubTwoWrapper> */}
+              </Ad.Img>
             </Ad.ImageWrapper>
           </Ad.BodyWrapper>
 

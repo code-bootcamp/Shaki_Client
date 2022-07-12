@@ -235,6 +235,7 @@ export const AddressDetail = styled.input`
 export const ImageWrapper = styled.div`
   width: 100%;
   display: flex;
+  margin-top: 100px;
   margin-bottom: 100px;
 `;
 export const MainImg = styled.input``;
