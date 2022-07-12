@@ -17,8 +17,8 @@ export default function DetailBodyUI(props: Iprops) {
       <DB.Divedline />
       <DB.Title>구로점 쉐이키 1</DB.Title>
       <DB.TagWrapper>
-        {tags.map((el) => (
-          <DB.TagDiv>#{el}</DB.TagDiv>
+        {tags.map((el, i) => (
+          <DB.TagDiv key={i}>#{el}</DB.TagDiv>
         ))}
       </DB.TagWrapper>
       <DB.Divedline2 />
