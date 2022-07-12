@@ -2,8 +2,8 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Input, Tag, Tooltip } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 
-const TagPage = () => {
-  const [tags, setTags] = useState(["Unremovable", "Tag 2", "Tag 3"]);
+const TagPage = (props: any) => {
+  // const [tags, setTags] = useState(["Unremovable", "Tag 2", "Tag 3"]);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -19,23 +19,23 @@ const TagPage = () => {
     editInputRef.current?.focus();
   }, [inputValue]);
 
-  const handleClose = (removedTag) => {
-    const newTags = tags.filter((tag) => tag !== removedTag);
+  const handleClose = (removedTag: any) => {
+    const newTags = props.tags.filter((tag) => tag !== removedTag);
     console.log(newTags);
-    setTags(newTags);
+    props.setTags(newTags);
   };
 
   const showInput = () => {
     setInputVisible(true);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setInputValue(e.target.value);
   };
 
   const handleInputConfirm = () => {
-    if (inputValue && tags.indexOf(inputValue) === -1) {
-      setTags([...tags, inputValue]);
+    if (inputValue && props.tags.indexOf(inputValue) === -1) {
+      props.setTags([...props.tags, inputValue]);
     }
 
     setInputVisible(false);
@@ -47,16 +47,16 @@ const TagPage = () => {
   };
 
   const handleEditInputConfirm = () => {
-    const newTags = [...tags];
+    const newTags = [...props.tags];
     newTags[editInputIndex] = editInputValue;
-    setTags(newTags);
+    props.setTags(newTags);
     setEditInputIndex(-1);
     setInputValue("");
   };
 
   return (
     <>
-      {tags.map((tag, index) => {
+      {props.tags.map((tag, index) => {
         if (editInputIndex === index) {
           return (
             <Input

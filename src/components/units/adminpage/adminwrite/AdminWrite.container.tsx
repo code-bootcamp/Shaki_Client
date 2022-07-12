@@ -6,12 +6,12 @@ import AdminWriteUI from "./AdminWrite.persenter";
 import { CREATE_ROOM } from "./AdminWrite.queries";
 import * as yup from "yup";
 import { Modal } from "antd";
+import { useRouter } from "next/router";
 
 const schema = yup.object({
   branch: yup.string().required("필수입력사항 입니다."),
   name: yup.string().required("필수입력사항 입니다."),
   remarks: yup.string().required("필수입력사항 입니다."),
-  tags: yup.string().required("필수입력사항 입니다."),
   price: yup
     .number()
     .typeError("숫자만 입력해주세요.")
@@ -26,8 +26,11 @@ const schema = yup.object({
 });
 
 export default function AdminWrite() {
+  const router = useRouter();
+
   const [isModalView, setIsModalView] = useState(false);
   const [imgMainUrls, setImgMainUrls] = useState(["", "", "", "", ""]);
+  const [tags, setTags] = useState([]);
 
   const [address, setAddress] = useState("");
   const [zipcode, setZipcode] = useState("");
@@ -40,7 +43,7 @@ export default function AdminWrite() {
   const [createRoom] = useMutation(CREATE_ROOM);
 
   const onChangeContents = (value: string) => {
-    // console.log(value);
+    console.log(value);
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   };
@@ -74,24 +77,24 @@ export default function AdminWrite() {
   };
 
   const onClickSubmit = async (data: any) => {
-    // try {
-    const result = await createRoom({
-      variables: {
-        createRoom: {
-          ...data,
-          zipcode,
-          address,
-          images: imgMainUrls,
-          lat: 34.5,
-          lng: 127.1,
+    try {
+      const result = await createRoom({
+        variables: {
+          createRoom: {
+            ...data,
+            zipcode,
+            address,
+            images: imgMainUrls,
+            tags,
+          },
         },
-      },
-    });
-    console.log(result);
-    // Modal.success({ content: "게시글이 등록되었습니다." });
-    // } catch (error) {
-    //   Modal.error({ content: "게시글 등록 실패하였습니다." });
-    // }
+      });
+      console.log(result);
+      Modal.success({ content: "게시글이 등록되었습니다." });
+      router.push(`/adminpage/adminhome`);
+    } catch (error) {
+      Modal.error({ content: "게시글 등록 실패하였습니다." });
+    }
   };
   return (
     <AdminWriteUI
@@ -108,11 +111,10 @@ export default function AdminWrite() {
       zipcode={zipcode}
       // 이미지 업로드
       onChangeImgMainUrls={onChangeImgMainUrls}
-      // onChangeImgSubOneUrls={onChangeImgSubOneUrls}
-      // onChangeImgSubTwoUrls={onChangeImgSubTwoUrls}
       imgMainUrls={imgMainUrls}
-      //   imgSubOneUrls={imgSubOneUrls}
-      //   imgSubTwoUrls={imgSubTwoUrls}
+      // 태그
+      tags={tags}
+      setTags={setTags}
     />
   );
 }
