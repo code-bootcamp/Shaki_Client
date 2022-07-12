@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Button from "@mui/material/Button";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 
@@ -81,6 +80,7 @@ export const RoomNumberWrapper = styled.div`
   align-items: center;
   position: relative;
   margin-bottom: 30px;
+  right: 10px;
 `;
 export const RoomNumberLabel = styled.div`
   width: 100px;
@@ -96,7 +96,6 @@ export const RoomNumber = styled.input`
   height: 40px;
   position: absolute;
   left: 100px;
-  margin-right: 20px;
 `;
 export const RemarksWrapper = styled.div`
   width: 100%;
@@ -170,7 +169,6 @@ export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* position: relative; */
   margin-bottom: 30px;
 `;
 export const ContentsLabel = styled.div`
@@ -243,42 +241,16 @@ export const ImageWrapper = styled.div`
 export const Img = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 20px;
+  flex-direction: column;
 `;
 
-export const MainWrapper = styled.div`
-  width: 100%;
+export const ImgSubOneWrapper = styled.div`
+  display: flex;
 `;
-// export const Main = styled.img`
-//   width: 300px;
-//   height: 300px;
-//   margin-right: 20px;
-//   cursor: pointer;
-// `;
-// export const SubImageWrapper = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-// `;
-// export const SubImageOne = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
-// export const SubImage = styled.img`
-//   width: 130px;
-//   height: 130px;
-//   cursor: pointer;
-// `;
-// export const SubImageWrappertwo = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
-// export const SubImagetwo = styled.img`
-//   width: 130px;
-//   height: 130px;
-//   cursor: pointer;
-// `;
+export const ImgSubTwoWrapper = styled.div`
+  display: flex;
+`;
+
 export const Buttons = styled.div`
   width: 100%;
   display: flex;

@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
-import OldBoardUploadsUI from "./Uploads.presenter";
+import UploadsMainImgUI from "../uploadsMainImg/Uploads.presenter";
 import { UPLOAD_FILE } from "./Uploads.queries";
 import { checkValidationImage } from "./Uploads.validation";
 
@@ -10,7 +10,7 @@ interface IUploads {
   onChangeFileUrls: (fileUrl: string, index: number) => void;
 }
 
-export default function Uploads(props: IUploads) {
+export default function UploadsMain(props: IUploads) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
@@ -27,7 +27,7 @@ export default function Uploads(props: IUploads) {
   };
 
   return (
-    <OldBoardUploadsUI
+    <UploadsMainImgUI
       fileRef={fileRef}
       fileUrl={props.fileUrl}
       onClickUpload={onClickUpload}
