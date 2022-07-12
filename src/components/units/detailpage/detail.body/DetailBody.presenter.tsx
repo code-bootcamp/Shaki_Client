@@ -1,5 +1,4 @@
 import KakaoMap from "../../../../commons/kakaomap";
-import TagPage from "../../../../commons/tags";
 import * as DB from "./DetailBody.styles";
 import { Modal } from "antd";
 
@@ -10,15 +9,18 @@ interface Iprops {
   handleCancel: () => void;
 }
 
+const tags = ["태그1", "태그2", "태그3"];
+
 export default function DetailBodyUI(props: Iprops) {
   return (
     <DB.Wrapper>
       <DB.Divedline />
       <DB.Title>구로점 쉐이키 1</DB.Title>
-      {/* <DB.TagWrapper> */}
-      {/* 태그 데이터 들어오면 맵으로 뿌려서 만들기. */}
-      <TagPage />
-      {/* </DB.TagWrapper> */}
+      <DB.TagWrapper>
+        {tags.map((el) => (
+          <DB.TagDiv>#{el}</DB.TagDiv>
+        ))}
+      </DB.TagWrapper>
       <DB.Divedline2 />
       <DB.ReservationText>
         무료취소는 예약 1일 전까지 가능합니다.
@@ -42,9 +44,9 @@ export default function DetailBodyUI(props: Iprops) {
       <DB.CommentHead>
         <DB.Title>후기</DB.Title>
         {/* 후기 등록시 모달창 import */}
-        <DB.CommentBtn onClick={props.showModal}>후기등록</DB.CommentBtn>
+        <DB.CommentBtn onClick={props.showModal}>후기 등록</DB.CommentBtn>
         <Modal
-          title="후기등록"
+          title="후기 등록하기"
           visible={props.isModalVisible}
           onOk={props.handleOk}
           onCancel={props.handleCancel}

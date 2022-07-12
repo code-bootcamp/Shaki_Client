@@ -29,11 +29,20 @@ export const Title = styled.div`
 `;
 
 export const TagWrapper = styled.div`
-  background-color: red;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+`;
+
+export const TagDiv = styled.div`
+  background: #f6f7fb;
+  border: 1px solid #d9dbe3;
+  border-radius: 5px;
+  padding: 0px 8px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #838385;
+  margin-right: 4px;
 `;
 
 export const SubTitle = styled.div`
@@ -78,16 +87,24 @@ export const PrecautionsMenu = styled.div`
 
 // 댓글
 export const CommentHead = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media ${breakPoints.mobile} {
+    justify-content: space-around;
+  }
 `;
 
 export const CommentBtn = styled.button`
-  border: none;
-  border-radius: 10px;
-  color: black;
-  background-color: lightgrey;
+  height: 30px;
+  background: #f6f7fb;
+  border: 1px solid #d9dbe3;
+  border-radius: 5px;
+  padding: 0px 8px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #838385;
   cursor: pointer;
   :hover {
     background-color: #4167ee;
