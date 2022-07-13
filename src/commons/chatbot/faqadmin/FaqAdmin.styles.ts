@@ -2,12 +2,18 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 100%;
-  margin-top: 100px;
+  background-color: #f0f0f0;
 `;
 
 export const HeaderWrapper = styled.div`
+  width: 100%;
+  height: 70px;
+  background-color: skyblue;
   display: flex;
   flex-direction: row;
+  padding-left: 20px;
+  padding-top: 7px;
+  border-radius: 10px;
 `;
 
 export const Icon = styled.div`
@@ -58,7 +64,7 @@ export const Title = styled.input`
   border-radius: 5px;
 `;
 export const Contents = styled.textarea`
-  width: 300px;
+  width: 500px;
   height: 200px;
   padding-left: 10px;
   background: #ffffff;

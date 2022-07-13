@@ -26,15 +26,15 @@ export default function FaqAdmin() {
             <FA.Icon />
             <h1>1:1 문의센터</h1>
           </FA.HeaderWrapper>
-          <FA.Label>이름 *</FA.Label>
+          <FA.Label>📛 이름 *</FA.Label>
           <FA.UserName></FA.UserName>
-          <FA.Label>이메일 *</FA.Label>
+          <FA.Label>📧 이메일 *</FA.Label>
           <FA.UserEmail></FA.UserEmail>
           <FA.Error>{formState.errors.email?.message}</FA.Error>
-          <FA.Label>제목 *</FA.Label>
+          <FA.Label>📝 제목 *</FA.Label>
           <FA.Title></FA.Title>
           <FA.Error>{formState.errors.title?.message}</FA.Error>
-          <FA.Label>문의 카테고리선택 *</FA.Label>
+          <FA.Label>🔘 문의 카테고리선택 *</FA.Label>
 
           <select
             style={{
@@ -50,7 +50,7 @@ export default function FaqAdmin() {
             <option value="가맹점신청">가맹점신청</option>
             <option value="지점상세문의">지점상세문의</option>
           </select>
-          <FA.Label>문의 내용 *</FA.Label>
+          <FA.Label>📝문의 내용 *</FA.Label>
           <FA.Contents></FA.Contents>
           <FA.Error>{formState.errors.contetns?.message}</FA.Error>
           <FA.Button>문의 등록하기 </FA.Button>
