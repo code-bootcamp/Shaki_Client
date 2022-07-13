@@ -5,8 +5,21 @@ export const Wrapper = styled.div`
   margin-top: 100px;
 `;
 
+export const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Icon = styled.div`
+  width: 60px;
+  height: 50px;
+  background-image: url("/landing/locationLogo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+`;
+
 export const SignUpForm = styled.form`
-  width: 742px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,8 +93,7 @@ export const Label = styled.label`
   line-height: 100%;
   /* or 24px */
   margin-top: 13px;
-  display: flex;
-  align-items: center;
+  margin-bottom: 13px;
   letter-spacing: -0.05em;
 
   color: #000000;
