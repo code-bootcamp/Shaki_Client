@@ -2,7 +2,7 @@ import Landing1UI from "./landing1/Landing1.presenter";
 import Landing2UI from "./landing2/Landing2.presenter";
 import styled from "@emotion/styled";
 import { useRef } from "react";
-import LogInContainer from "../../units/login/LogInContainer";
+import LogInContainer from "../../units/login/LogIn.Container";
 
 const DownButton = styled.div`
   position: absolute;
