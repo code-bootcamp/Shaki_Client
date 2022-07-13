@@ -13,7 +13,7 @@ interface IProps {
 
 export default function ApolloSetting(props: IProps) {
   const uploadLink = createUploadLink({
-    uri: "https://shakiback.shop/graphql",
+    uri: "https://shaki-back.shop/graphql",
     // credentials: "include",
   });
 
