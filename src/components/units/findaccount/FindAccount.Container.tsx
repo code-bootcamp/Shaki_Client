@@ -62,6 +62,7 @@ export default function FindAccountContainer() {
       onChangeDigits={onChangeDigits}
       onClickFindEmail={onClickFindEmail}
       onClickCancel={onClickCancel}
+      onChangeEmail={onChangeEmail}
       page={page}
       data={data}
     />

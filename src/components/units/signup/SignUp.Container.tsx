@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import SignUpPresenter from "./SignUpPresenter";
+import SignUpPresenter from "./SignUp.Presenter";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { CHECK_EMAIL, CREATE_USER } from "./SignUpMutation";
+import { CHECK_EMAIL, CREATE_USER } from "./SignUp.Mutation";
 import { Modal } from "antd";
 
 const schema = yup.object({

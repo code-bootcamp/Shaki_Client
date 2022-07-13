@@ -1,11 +1,11 @@
-import LogInPresenter from "./LogInPresenter";
+import LogInPresenter from "./LogIn.Presenter";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { LOG_IN } from "./LogInMutation";
+import { LOG_IN } from "./LogIn.Mutation";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 

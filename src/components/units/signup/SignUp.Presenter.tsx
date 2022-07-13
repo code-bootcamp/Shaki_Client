@@ -1,4 +1,4 @@
-import * as Su from "./SignUpStyle";
+import * as Su from "./SignUp.Style";
 
 export default function SignUpPresenter(props: any) {
   return (
