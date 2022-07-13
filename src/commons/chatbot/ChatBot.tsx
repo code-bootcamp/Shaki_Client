@@ -1,6 +1,5 @@
 import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
-import InquiryContainer from "../../components/units/inquiry/Inquiry.Container";
 import CenterTxt from "../../components/commons/faq/faqinfo/FaqInfo";
 import ChatMain from "./main/ChatMain";
 
@@ -137,12 +136,7 @@ export default function ChatBox() {
   return (
     <>
       <ThemeProvider theme={CHATBOT_THEME}>
-        <ChatBot
-          speechSynthesis={{ enable: true, lang: "ko" }}
-          steps={steps}
-          {...config}
-          headerTitle="💻 관리자 봇"
-        />
+        <ChatBot steps={steps} {...config} headerTitle="💻 관리자 봇" />
       </ThemeProvider>
     </>
   );
