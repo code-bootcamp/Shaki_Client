@@ -1,5 +1,5 @@
 import FooterPage from "./footer";
-import HeaderPage from "./header";
+import HeaderPage from "./header/Header.container";
 // 사이드
 import SideLeftPage from "./sidebar.left";
 import SideRightPage from "./sidebar.right";

@@ -1,12 +1,14 @@
 import KakaoMap from "../../../../commons/kakaomap";
 import * as DB from "./DetailBody.styles";
 import { Modal } from "antd";
+import { Rate } from "antd";
 
 interface Iprops {
   isModalVisible: boolean;
   showModal: () => void;
   handleOk: () => void;
   handleCancel: () => void;
+  setStar: any;
 }
 
 const tags = ["태그1", "태그2", "태그3"];
@@ -43,7 +45,6 @@ export default function DetailBodyUI(props: Iprops) {
       <DB.Divedline2 />
       <DB.CommentHead>
         <DB.Title>후기</DB.Title>
-        {/* 별점등록하기 추가해야합니다. createReview mutation*/}
         <DB.CommentBtn onClick={props.showModal}>후기 등록</DB.CommentBtn>
         <Modal
           title="후기 등록하기"
@@ -51,6 +52,8 @@ export default function DetailBodyUI(props: Iprops) {
           onOk={props.handleOk}
           onCancel={props.handleCancel}
         >
+          {/* 별점 */}
+          <Rate onChange={props.setStar} />
           <DB.CommentInput placeholder="후기를 입력해주세요" />
         </Modal>
       </DB.CommentHead>
