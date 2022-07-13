@@ -3,6 +3,8 @@ import { Rating } from "@mui/material";
 
 interface IDetailHeaderUI {
   onClickPick: () => void;
+  onClickRoomMove: (e: any) => void;
+  router: any;
 }
 
 export default function DetailHeaderUI(props: IDetailHeaderUI) {
@@ -12,26 +14,31 @@ export default function DetailHeaderUI(props: IDetailHeaderUI) {
       name: "1번방",
     },
     {
-      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce",
+      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce2",
       name: "2번방",
     },
     {
-      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce",
+      id: "0ea15360-7477-48ff-ab0b-97c9e9884fce3",
       name: "3번방",
     },
   ];
-
   return (
     <DH.Wrapper>
       <DH.MenuWrapper>
-        {/* key값 수정필요! */}
         {data.map((el, i) => (
-          <DH.MenuName key={i}>{el.name}</DH.MenuName>
+          <DH.MenuName
+            onClick={props.onClickRoomMove}
+            isPosition={props.router.asPath.split("/")[1]}
+            id={el.id}
+            key={i}
+          >
+            {el.name}
+          </DH.MenuName>
         ))}
       </DH.MenuWrapper>
-      {/* 별점 태그 문의하기 */}
       <DH.HeadInfoWrapper>
         <DH.HeadInfo>
+          {/* 별점 Fetch 받아온값 연결해야함. */}
           <Rating size="large" />
           4.0/ 5.0
         </DH.HeadInfo>
