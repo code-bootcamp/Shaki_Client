@@ -1,29 +1,30 @@
 import { useQuery } from "@apollo/client";
-import React, { ChangeEvent, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import FindAccounPresenter from "./FindAccount.Presenter";
 import { FIND_EMAIL } from "./FindAccount.Query";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-const schema = yup.object({
-  phone_num: yup.string().required("전화번호를 입력해주세요"),
-  name: yup.string().required("이름을 입력해주세요"),
-});
 
 export default function FindAccountContainer() {
-  const { handleSubmit, formState, register } = useForm({
-    resolver: yupResolver(schema),
-    mode: "onSubmit",
-  });
+  const router = useRouter();
 
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [digits, setDigits] = useState("");
+  const [page, setPage] = useState(true);
 
+  const onClickEmailPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPage(true);
+  };
+
+  const onClickPwdPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPage(false);
+  };
   const onChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-
+  const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
   const onChangeDigits = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDigits(event.target.value);
   };
@@ -39,15 +40,29 @@ export default function FindAccountContainer() {
     },
   });
 
-  const onClickShowEmail = (event: React.MouseEvent<HTMLButtonElement>) => {
-    alert(`${name}님의 아이디는 *****${data.findEmail.substring(5)} 입니다.`);
+  const onClickFindEmail = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (!name || !digits) {
+      alert("정보를 입력해주세요.");
+    } else if (data) {
+      alert(`${name}님의 아이디는 *****${data.findEmail.substring(5)} 입니다.`);
+    } else if (!data) {
+      alert("정보가 없습니다. 이름또는 전화번호를 확인해주세요.");
+    }
+  };
+
+  const onClickCancel = () => {
+    router.push("/main");
   };
 
   return (
     <FindAccounPresenter
+      onClickEmailPage={onClickEmailPage}
+      onClickPwdPage={onClickPwdPage}
       onChangeName={onChangeName}
       onChangeDigits={onChangeDigits}
-      onClickShowEmail={onClickShowEmail}
+      onClickFindEmail={onClickFindEmail}
+      onClickCancel={onClickCancel}
+      page={page}
       data={data}
     />
   );
