@@ -6,12 +6,12 @@ export default function MainPresenter(props: any) {
       <Ma.Wrapper>
         <Ma.ImageWrapper1>
           <Ma.ImageHeader>
-            {props.data?.fetchBranches[0].name}
+            {/* {props.data?.fetchBranches[0].name} */}네임
             <Ma.ImageHeaderIcon />
           </Ma.ImageHeader>
           <Ma.MainImg src="/MainImage/MainImage_1.svg" />
           <Ma.ImageUnderBar>
-            {props.data?.fetchBranches[0].remarks}
+            {/* {props.data?.fetchBranches[0].remarks} */}리마크
             <Ma.UnderBarIcon src="/icon/Star.svg" />
           </Ma.ImageUnderBar>
         </Ma.ImageWrapper1>

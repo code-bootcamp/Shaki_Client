@@ -43,7 +43,7 @@ export default function DetailBodyUI(props: Iprops) {
       <DB.Divedline2 />
       <DB.CommentHead>
         <DB.Title>후기</DB.Title>
-        {/* 후기 등록시 모달창 import */}
+        {/* 별점등록하기 추가해야합니다. createReview mutation*/}
         <DB.CommentBtn onClick={props.showModal}>후기 등록</DB.CommentBtn>
         <Modal
           title="후기 등록하기"
