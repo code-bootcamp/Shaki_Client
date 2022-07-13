@@ -107,7 +107,12 @@ export default function SignUpContainer() {
               name: data.name,
               email: email,
               pwd: data.pwd,
-              phone_num: data.phone_num,
+              phone_num:
+                data.phone_num.slice(0, 3) +
+                "-" +
+                data.phone_num.slice(3, 7) +
+                "-" +
+                data.phone_num.slice(7, 11),
             },
           },
         });

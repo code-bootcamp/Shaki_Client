@@ -36,6 +36,7 @@ export default function SignUpPresenter(props: any) {
             <Su.BodyInput type="text" />
             휴대폰
             <Su.BodyInput type="text" {...props.register("phone_num")} />
+            <Su.Error>{props.formState.errors.phone_num?.message}</Su.Error>
           </Su.Body>
         </Su.SecondWrapper>
         <Su.BottomLine fliped={props.fliped} />

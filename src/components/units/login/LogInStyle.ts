@@ -208,8 +208,31 @@ export const Social = styled.img`
 
 export const SocialTitle = styled.div``;
 
+export const LogInBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
+
 export const LogIn = styled.button`
   border: none;
+  width: 7em;
+  height: 3em;
+  background-color: #4e75ff;
+  border-radius: 10px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 10px;
+  cursor: pointer;
+`;
+
+export const FindEmail = styled.div`
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 7em;
   height: 3em;
   background-color: #4e75ff;
