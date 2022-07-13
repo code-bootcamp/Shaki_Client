@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
+interface IIntroPage {
+  id: string;
+  isPosition: string;
+}
 export const Wrapper = styled.div`
   width: 100%;
   height: 100px;
@@ -45,9 +49,15 @@ export const NavText = styled.div`
   text-decoration: none;
   color: black;
   font-weight: 500;
-  font-size: 14px;
+  font-size: ${(props: IIntroPage) =>
+    props.id === props.isPosition ? "18px" : "12px"};
+  color: ${(props: IIntroPage) =>
+    props.id === props.isPosition ? " #4167ee" : "black"};
+  border-bottom: ${(props: IIntroPage) =>
+    props.id === props.isPosition ? "3px solid #4167ee" : "none"};
   cursor: pointer;
   transition: 0.2s;
+
   /* 마우스를 올렸을때 */
   &:hover {
     color: #4167ee;
@@ -56,26 +66,6 @@ export const NavText = styled.div`
   }
   :focus {
     font-size: 18px;
-  }
-  @media ${breakPoints.tablet} {
-    font-size: 13px;
-  }
-  @media ${breakPoints.mobile} {
-    font-size: 10px;
-  }
-`;
-
-export const MenuText = styled.div`
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.2s;
-  /* 마우스를 올렸을때 */
-  &:hover {
-    color: #4167ee;
-    border-bottom: 2px solid #4167ee;
   }
   @media ${breakPoints.tablet} {
     font-size: 13px;
