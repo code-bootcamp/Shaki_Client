@@ -1,34 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import * as React from "react";
 import * as THS from "./Header.styles";
 import { LOG_OUT } from "./mutation";
 
-const data = {
-  Shaki: [
-    {
-      Roomlist: {
-        1: "1번방",
-        2: "2번방",
-        3: "3번방",
-      },
-    },
-    {
-      Guro: {
-        1: "1번방",
-        2: "2번방",
-        3: "3번방",
-      },
-    },
-    {
-      Shinrim: {
-        1: "1번방",
-        2: "2번방",
-        3: "3번방",
-      },
-    },
-  ],
-};
 export default function TestNavTabs() {
   const router = useRouter();
 
@@ -52,11 +26,19 @@ export default function TestNavTabs() {
         <THS.LogoImg src="./logo.png" />
         {/* 네비 메뉴 */}
         <THS.NavMenu>
-          <THS.NavText id="/" onClick={onClickMovePage}>
+          <THS.NavText
+            id="/"
+            isPosition={router.asPath.split("/")[1]}
+            onClick={onClickMovePage}
+          >
             쉐이키 소개
           </THS.NavText>
           <THS.Dropdown>
-            <THS.NavText id="main" onClick={onClickMovePage}>
+            <THS.NavText
+              id="main"
+              onClick={onClickMovePage}
+              isPosition={router.asPath.split("/")[1]}
+            >
               지점 소개
             </THS.NavText>
             <THS.DropdownContent className="dropdown-content">
@@ -81,7 +63,11 @@ export default function TestNavTabs() {
             </THS.DropdownContent>
           </THS.Dropdown>
 
-          <THS.NavText id="mypage" onClick={onClickMovePage}>
+          <THS.NavText
+            id="mypage"
+            onClick={onClickMovePage}
+            isPosition={router.asPath.split("/")[1]}
+          >
             마이페이지
           </THS.NavText>
         </THS.NavMenu>
