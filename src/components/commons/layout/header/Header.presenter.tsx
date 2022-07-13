@@ -1,24 +1,18 @@
-import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import * as THS from "./Header.styles";
-import { LOG_OUT } from "./mutation";
 
-export default function TestNavTabs() {
+// 타입 잡아야함.
+// interface IHeaderType {
+//   onClickLogOut: () => void;
+//   accessToken : string
+// }
+export default function HeaderUI(props: any) {
   const router = useRouter();
-
-  const [logOutUser] = useMutation(LOG_OUT);
 
   const onClickMovePage = (e: any) => {
     router.push(`/${e.target.id}`);
   };
 
-  const onClickLogOut = (event: React.MouseEvent<HTMLButtonElement>) => {
-    try {
-      logOutUser();
-    } catch (error: any) {
-      alert(error.message);
-    }
-  };
   return (
     <THS.Wrapper>
       {/* 로고이미지 */}
@@ -74,15 +68,23 @@ export default function TestNavTabs() {
       </THS.LeftHeadWrapper>
       {/* 회원가입 / 로그인  */}
       <THS.BtnWrapper>
-        <THS.Button id="login" onClick={onClickMovePage}>
-          로그인
-        </THS.Button>
-        <THS.Button id="signup" onClick={onClickMovePage}>
-          회원가입
-        </THS.Button>
-        {/* <THS.Button id="logOut" onClick={onClickLogOut}>
-          로그아웃
-        </THS.Button> */}
+        {props.accessToken ? (
+          <div>
+            <p>님 환영합니다!</p>
+            <THS.Button id="logOut" onClick={props.onClickLogOut}>
+              로그아웃
+            </THS.Button>
+          </div>
+        ) : (
+          <div>
+            <THS.Button id="login" onClick={onClickMovePage}>
+              로그인
+            </THS.Button>
+            <THS.Button id="signup" onClick={onClickMovePage}>
+              회원가입
+            </THS.Button>
+          </div>
+        )}
       </THS.BtnWrapper>
     </THS.Wrapper>
   );

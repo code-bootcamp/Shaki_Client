@@ -3,7 +3,7 @@ import DetailBodyUI from "./DetailBody.presenter";
 
 export default function DetailBodyContainer() {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const [star, setStar] = useState(3);
   const showModal = () => {
     // 모달 보여주기전 권한분기로 로그인이 되어있는지 확인하기.
     setIsModalVisible(true);
@@ -16,6 +16,9 @@ export default function DetailBodyContainer() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  // 별점
+
   return (
     <>
       <DetailBodyUI
@@ -23,6 +26,7 @@ export default function DetailBodyContainer() {
         showModal={showModal}
         handleOk={handleOk}
         handleCancel={handleCancel}
+        setStar={setStar}
       />
     </>
   );
