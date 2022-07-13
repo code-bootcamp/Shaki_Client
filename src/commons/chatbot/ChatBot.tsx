@@ -100,12 +100,7 @@ export default function ChatBox() {
 
     {
       id: "qa",
-      component: (
-        <BotRedirect
-          message="1:1문의하러가기"
-          url="<https://lucasbassetti.com.br/react-simple-    chatbot/#/docs/previous-value>"
-        />
-      ),
+      component: <BotRedirect message="1:1문의하러가기" url="/faqadmin" />,
       trigger: "after",
     },
     {
