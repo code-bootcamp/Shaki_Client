@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOG_IN } from "./LogInMutation";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../commons/store";
 
 const schema = yup.object({
   email: yup.string().required(),
@@ -20,6 +22,7 @@ export default function LogInContainer() {
 
   const [logInUser] = useMutation(LOG_IN);
   const [adminOn, setAdminOn] = useState(false);
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   const onClickAdmin = (event: React.MouseEvent<HTMLDivElement>) => {
     setAdminOn((prev) => !prev);
@@ -33,9 +36,11 @@ export default function LogInContainer() {
           pwd: data.pwd,
         },
       });
-      // console.log(result);
+      const accessToken = result.data.login;
+      setAccessToken(accessToken);
+      localStorage.setItem("accessToken", accessToken);
 
-      router.push("/main");
+      router.push("/mypage");
     } catch (error: any) {
       alert(error.message);
     }
