@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
-interface IIntroPage {
+interface IPage {
   id: string;
   isPosition: string;
 }
@@ -49,11 +49,11 @@ export const NavText = styled.div`
   text-decoration: none;
   color: black;
   font-weight: 500;
-  font-size: ${(props: IIntroPage) =>
+  font-size: ${(props: IPage) =>
     props.id === props.isPosition ? "18px" : "12px"};
-  color: ${(props: IIntroPage) =>
+  color: ${(props: IPage) =>
     props.id === props.isPosition ? " #4167ee" : "black"};
-  border-bottom: ${(props: IIntroPage) =>
+  border-bottom: ${(props: IPage) =>
     props.id === props.isPosition ? "3px solid #4167ee" : "none"};
   cursor: pointer;
   transition: 0.2s;

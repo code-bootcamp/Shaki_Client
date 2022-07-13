@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
+interface IPage {
+  id: string;
+  isPosition: string;
+}
+
 export const Wrapper = styled.div`
   width: 1200px;
   height: auto;
@@ -28,6 +33,10 @@ export const MenuName = styled.div`
   width: 100%;
   text-align: center;
   padding: 10px;
+  color: ${(props: IPage) =>
+    props.id === props.isPosition ? "#4167ee" : "black"};
+  border-bottom: ${(props: IPage) =>
+    props.id === props.isPosition ? "2px solid #4167ee" : "none"};
   &:hover {
     color: #4167ee;
     border-bottom: 2px solid #4167ee;
