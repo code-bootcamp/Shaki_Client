@@ -1,4 +1,4 @@
-import * as Ma from "./MainStyle";
+import * as Ma from "./Main.Style";
 
 export default function MainPresenter(props: any) {
   return (
