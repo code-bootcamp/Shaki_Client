@@ -8,6 +8,11 @@ import * as yup from "yup";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 
+interface IAdminWrite {
+  isEdit?: boolean;
+  roomdata?: any;
+}
+
 const schema = yup.object({
   branch: yup.string().required("필수입력사항 입니다."),
   name: yup.string().required("필수입력사항 입니다."),
@@ -25,7 +30,7 @@ const schema = yup.object({
   contents: yup.string().required("필수입력사항 입니다."),
 });
 
-export default function AdminWrite() {
+export default function AdminWrite(props: IAdminWrite) {
   const router = useRouter();
 
   const [isModalView, setIsModalView] = useState(false);
@@ -115,6 +120,9 @@ export default function AdminWrite() {
       // 태그
       tags={tags}
       setTags={setTags}
+      // 수정
+      isEdit={props.isEdit}
+      roomdata={props.roomdata}
     />
   );
 }
