@@ -1,5 +1,5 @@
-import LogInMobileButtonStyle from "./LogInMobileButton";
-import * as Li from "./LogInStyle";
+import LogInMobileButtonStyle from "./LogIn.MobileButton";
+import * as Li from "./LogIn.Style";
 
 export default function LogInPresenter(props: any) {
   return (
