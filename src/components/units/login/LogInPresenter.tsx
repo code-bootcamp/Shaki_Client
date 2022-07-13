@@ -55,7 +55,10 @@ export default function LogInPresenter(props: any) {
                   </Li.ImgBox>
                 </Li.ImgWrapper>
               </Li.LowerBody>
-              <Li.LogIn>로그인</Li.LogIn>
+              <Li.LogInBox>
+                <Li.LogIn>로그인</Li.LogIn>
+                <Li.FindEmail>계정찾기</Li.FindEmail>
+              </Li.LogInBox>
               아직 회원이 아니신가요?
               <Li.SignUp onClick={props.onClickMoveToSignUp}>
                 회원가입

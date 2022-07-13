@@ -15,9 +15,7 @@ export default function InquiryPresenter() {
           <Iq.Logo src="/sideImg/shakiRight.png" />
         </Iq.Head>
         <Iq.Body>
-          <Iq.BodyUpperItem>공지사항</Iq.BodyUpperItem>
           <Iq.BodyUpperItem>안내</Iq.BodyUpperItem>
-          <Iq.BodyUpperItem>FAQ</Iq.BodyUpperItem>
           <Iq.BodyUpperItem>사용법</Iq.BodyUpperItem>
           <Iq.BodyUnderItem>저작권, 운영정책</Iq.BodyUnderItem>
         </Iq.Body>
