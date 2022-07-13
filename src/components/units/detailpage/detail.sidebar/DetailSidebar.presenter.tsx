@@ -14,6 +14,12 @@ interface IDetailSide {
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
+  // 다음날짜 구하기
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+  // maxDate 30일
+  const NextDate = new Date();
+  NextDate.setDate(NextDate.getDate() + 30);
   return (
     <>
       <DS.Wrapper>
@@ -25,7 +31,8 @@ export default function DetailSidebarUI(props: IDetailSide) {
             <DatePicker
               label="날짜를 선택해주세요"
               value={props.date}
-              minDate={new Date()}
+              minDate={date}
+              maxDate={NextDate}
               inputFormat={"yyyy-MM-dd"}
               mask={"____-__-__"}
               onChange={props.onChangeDate}

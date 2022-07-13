@@ -111,8 +111,10 @@ export default function DetailBodyUI(props: Iprops) {
         <DB.ExampleWrapper>
           <DB.SmallLabel>이용규칙</DB.SmallLabel>
           <DB.Example>
-            체크인: 오후 3:00 이후 <br />
-            체크아웃 시간: 오전 11:00 <br />
+            당일 예약 금지
+            <br />
+            30일이내 예약
+            <br />
             키패드(으)로 셀프 체크인
             <br />
             흡연 금지
