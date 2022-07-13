@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 export const UploadImage = styled.img`
   width: 200px;
   height: 200px;
-  /* margin-right: 24px; */
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
 `;
 

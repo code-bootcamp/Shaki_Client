@@ -101,6 +101,9 @@ export default function AdminWrite(props: IAdminWrite) {
       Modal.error({ content: "게시글 등록 실패하였습니다." });
     }
   };
+
+  //
+
   return (
     <AdminWriteUI
       register={register}
