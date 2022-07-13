@@ -16,6 +16,8 @@ interface IAdminWriteUI {
   imgMainUrls: string[];
   tags: string;
   setTags: string;
+  isEdit?: boolean;
+  roomdata?: any;
 
   onToggleModal: () => void;
   handelCompleteDaum: (addressData: any) => void;
@@ -43,7 +45,9 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
               <Ad.Logo src="/logo.png" />
             </Ad.LogoWrapper>
             <Ad.OptionWrapper>
-              <Ad.OptionNew>가맹점 등록하기</Ad.OptionNew>
+              <Ad.OptionNew>
+                {props.isEdit ? "가맹점 수정하기" : "가맹점 등록하기"}
+              </Ad.OptionNew>
             </Ad.OptionWrapper>
           </Ad.HeadWrapper>
 

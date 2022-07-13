@@ -9,7 +9,6 @@ interface IUploadsUI {
 }
 
 export default function UploadsMainImgUI(props: IUploadsUI) {
-  console.log(props.fileUrl);
   return (
     <>
       {props.fileUrl ? (
