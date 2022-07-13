@@ -12,7 +12,9 @@ export default function UploadsMainImgUI(props: IUploadsUI) {
   return (
     <>
       {props.fileUrl ? (
-        <S.UploadImage onClick={props.onClickUpload} src={props.fileUrl} />
+        <div style={{ width: "100%" }}>
+          <S.UploadImage onClick={props.onClickUpload} src={props.fileUrl} />
+        </div>
       ) : (
         <S.UploadButton onClick={props.onClickUpload}>
           <S.MainWrapper>

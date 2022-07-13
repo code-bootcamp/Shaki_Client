@@ -59,6 +59,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   type="text"
                   placeholder="ㅇㅇ점으로 입력해주세요! ex) 구로점 or 신림점"
                   {...props.register("branch")}
+                  defaultValue={props.roomdata?.fetchRoom.branch}
                 />
                 <Ad.Error>{props.formState.errors.branch?.message}</Ad.Error>
               </Ad.TitleWrapper>
@@ -69,6 +70,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   type="text"
                   placeholder="쉐이키 뒤에 룸 번호를 입력해주세요! ex) 쉐이키 1 or 쉐이키 2"
                   {...props.register("name")}
+                  defaultValue={props.roomdata?.fetchRoom.name}
                 />
                 <Ad.Error>{props.formState.errors.name?.message}</Ad.Error>
               </Ad.RoomNumberWrapper>
@@ -80,6 +82,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                 type="text"
                 placeholder="룸을 소개할 수 있는 한 줄 느낌을 작성해주세요! 예를 들어 깔끔하고 모던한 느낌의 구로점 쉐이키 1"
                 {...props.register("remarks")}
+                defaultValue={props.roomdata?.fetchRoom.remarks}
               />
               <Ad.Error>{props.formState.errors.remarks?.message}</Ad.Error>
             </Ad.RemarksWrapper>
@@ -91,7 +94,11 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                 placeholder="태그내용을 입력해주세요! ex) #모던한분위기 #제주도느낌 #연인 #가족"
                 {...props.register("tags")}
               /> */}
-              <TagPage tags={props.tags} setTags={props.setTags} />
+              <TagPage
+                tags={props.tags}
+                setTags={props.setTags}
+                defaultValue={props.roomdata?.fetchRoom.tags}
+              />
               <Ad.Error>{props.formState.errors.tags?.message}</Ad.Error>
             </Ad.TagsWrapper>
 
@@ -102,6 +109,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   type="text"
                   placeholder="시간당 가격을 적어주세요!"
                   {...props.register("price")}
+                  defaultValue={props.roomdata?.fetchRoom.price}
                 />
                 <Ad.Error>{props.formState.errors.price?.message}</Ad.Error>
               </Ad.PriceWrapper>
@@ -113,6 +121,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   min={0}
                   max={8}
                   {...props.register("maxPeople")}
+                  defaultValue={props.roomdata?.fetchRoom.maxPeople}
                 />
                 <Ad.Error>{props.formState.errors.maxPeople?.message}</Ad.Error>
               </Ad.PersonWrapper>
@@ -121,7 +130,10 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
             <Ad.ContentsWrapper>
               <Ad.ContentsLabel>Contents</Ad.ContentsLabel>
               <Ad.ReactQuillWrapper>
-                <Ad.Contents onChange={props.onChangeContents} />
+                <Ad.Contents
+                  onChange={props.onChangeContents}
+                  defaultValue={props.roomdata?.fetchRoom.contents}
+                />
                 <Ad.ContentsError>
                   {props.formState.errors.contents?.message}
                 </Ad.ContentsError>
@@ -139,8 +151,8 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                 <Ad.AddressSearchWrapper>
                   <Ad.AddressCode
                     placeholder="12345"
-                    value={props.zipcode}
                     readOnly
+                    value={props.zipcode || props.roomdata?.fetchRoom.zipcode}
                   />
                   <Ad.AddressSearchButton
                     type="button"
@@ -149,11 +161,16 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                     우편번호 검색
                   </Ad.AddressSearchButton>
                 </Ad.AddressSearchWrapper>
-                <Ad.Address type="text" value={props.address} readOnly />
+                <Ad.Address
+                  type="text"
+                  readOnly
+                  value={props.address || props.roomdata?.fetchRoom.address}
+                />
                 <Ad.AddressError></Ad.AddressError>
                 <Ad.AddressDetail
                   type="text"
                   {...props.register("conaddressDetail")}
+                  defaultValue={props.roomdata?.fetchRoom.conaddressDetail}
                 />
               </Ad.AddressDetailWrapper>
             </Ad.AddressWrapper>
@@ -167,12 +184,12 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   onChangeFileUrls={props.onChangeImgMainUrls}
                 />
               ))}
-              <Ad.Img>
-                {/* <Ad.ImgSubOneWrapper>
+              {/* <Ad.Img> */}
+              {/* <Ad.ImgSubOneWrapper>
                   {props.imgSubOneUrls.map((el, index) => (
                     <UploadsSubOne
-                      key={uuidv4()}
-                      index={index}
+                    key={uuidv4()}
+                    index={index}
                       fileUrl={el}
                       onChangeFileUrls={props.onChangeImgSubOneUrls}
                     />
@@ -188,7 +205,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                     />
                   ))}
                 </Ad.ImgSubTwoWrapper> */}
-              </Ad.Img>
+              {/* </Ad.Img> */}
             </Ad.ImageWrapper>
           </Ad.BodyWrapper>
 

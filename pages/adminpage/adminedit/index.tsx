@@ -9,7 +9,9 @@ const FETCH_ROOM = gql`
   query fetchRoom($id: String!) {
     fetchRoom(id: $id) {
       id
-      branch
+      branch {
+        branch
+      }
       name
       remarks
       price
@@ -18,8 +20,14 @@ const FETCH_ROOM = gql`
       zipcode
       address
       conaddressDetail
-      images
-      tags
+      images {
+        url
+        room
+      }
+      tags {
+        tag
+        room
+      }
     }
   }
 `;
