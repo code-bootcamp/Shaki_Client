@@ -1,6 +1,13 @@
 import * as DN from "./DetailNavigation.styles";
 
-export default function DetailNavUI(props) {
+interface IDetailNavUI {
+  onClickRoomMove: (e: any) => void;
+  router: any;
+  data: any;
+  Rooms: any;
+}
+
+export default function DetailNavUI(props: IDetailNavUI) {
   return (
     <DN.Wrapper>
       <DN.MenuWrapper>
