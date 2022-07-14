@@ -2,6 +2,8 @@ import * as FA from "./FaqAdmin.styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useMutation } from "@apollo/client";
+import { CREATE_QUESTION } from "./FaqAdmin.queries";
 
 const schema = yup.object({
   email: yup
@@ -13,6 +15,18 @@ const schema = yup.object({
 });
 
 export default function FaqAdmin() {
+  const [createQuestion] = useMutation(CREATE_QUESTION);
+
+  const onClickSubmit = async (data: any) => {
+    await createQuestion({
+      variables: {
+        createQuestionInput: {
+          ...data,
+        },
+      },
+    });
+  };
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -29,10 +43,10 @@ export default function FaqAdmin() {
           <FA.Label>📛 이름 *</FA.Label>
           <FA.UserName></FA.UserName>
           <FA.Label>📧 이메일 *</FA.Label>
-          <FA.UserEmail></FA.UserEmail>
+          <FA.UserEmail type="text" {...register("email")}></FA.UserEmail>
           <FA.Error>{formState.errors.email?.message}</FA.Error>
           <FA.Label>📝 제목 *</FA.Label>
-          <FA.Title></FA.Title>
+          <FA.Title type="text" {...register("title")}></FA.Title>
           <FA.Error>{formState.errors.title?.message}</FA.Error>
           <FA.Label>🔘 문의 카테고리선택 *</FA.Label>
 
@@ -51,7 +65,7 @@ export default function FaqAdmin() {
             <option value="지점상세문의">지점상세문의</option>
           </select>
           <FA.Label>📝문의 내용 *</FA.Label>
-          <FA.Contents></FA.Contents>
+          <FA.Contents {...register("contents")}></FA.Contents>
           <FA.Error>{formState.errors.contetns?.message}</FA.Error>
           <FA.Button>문의 등록하기 </FA.Button>
         </FA.SignUpForm>
