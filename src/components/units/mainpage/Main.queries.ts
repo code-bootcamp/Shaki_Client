@@ -13,7 +13,7 @@ export const FETCH_BRANCHES = gql`
       images {
         url
       }
-      starAmount
+      star
     }
   }
 `;
