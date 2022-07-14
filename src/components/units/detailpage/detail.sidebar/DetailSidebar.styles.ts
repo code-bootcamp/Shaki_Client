@@ -47,6 +47,10 @@ export const SubmitBtn = styled.button`
   }
 `;
 
+export const StartTime = styled.input``;
+
+export const EndTime = styled.input``;
+
 export const Label = styled.label`
   font-weight: 500;
   font-size: 16px;
@@ -124,6 +128,7 @@ export const TimeBox = styled.div`
   background-color: #f6f7fb;
   padding: 3px;
   border-radius: 3px;
+  cursor: pointer;
   :hover {
     background-color: cornflowerblue;
     color: white;

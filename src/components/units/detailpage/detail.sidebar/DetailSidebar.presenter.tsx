@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { useState } from "react";
 
 interface IDetailSide {
   date: any;
@@ -16,20 +17,21 @@ interface IDetailSide {
   ToggleGuest: boolean;
 }
 
-const houer = [
-  { time: "09:00~10:00" },
-  { time: "10:00~11:00" },
-  { time: "11:00~12:00" },
-  { time: "12:00~13:00" },
-  { time: "13:00~14:00" },
-  { time: "14:00~15:00" },
-  { time: "15:00~16:00" },
-  { time: "16:00~17:00" },
-  { time: "17:00~18:00" },
-  { time: "18:00~19:00" },
-  { time: "19:00~20:00" },
-  { time: "20:00~21:00" },
-  { time: "21:00~22:00" },
+const hour = [
+  { time: "09:00", status: false },
+  { time: "10:00", status: false },
+  { time: "11:00", status: false },
+  { time: "12:00", status: false },
+  { time: "13:00", status: false },
+  { time: "14:00", status: false },
+  { time: "15:00", status: false },
+  { time: "16:00", status: false },
+  { time: "17:00", status: false },
+  { time: "18:00", status: false },
+  { time: "19:00", status: false },
+  { time: "20:00", status: false },
+  { time: "21:00", status: false },
+  { time: "22:00", status: false },
 ];
 
 export default function DetailSidebarUI(props: IDetailSide) {
@@ -61,13 +63,22 @@ export default function DetailSidebarUI(props: IDetailSide) {
             </DS.CheckInTime>
             {props.ToggleGuest && (
               <DS.TimesWrapper>
-                {houer.map((el, i) => (
-                  <DS.TimeBox key={i}>{el.time}</DS.TimeBox>
+                {hour.map((el, i) => (
+                  <DS.TimeBox
+                    id={el.time}
+                    onClick={
+                      props.choiceEndPoint
+                        ? props.onClickSetEndTime
+                        : props.onClickSetStartTime
+                    }
+                    key={i}
+                  >
+                    {el.time}
+                  </DS.TimeBox>
                 ))}
               </DS.TimesWrapper>
             )}
           </DS.CheckInWrapper>
-
           <DS.CheckInWrapper>
             <DS.Label>게스트</DS.Label>
             <DS.CheckGuest>
@@ -87,14 +98,15 @@ export default function DetailSidebarUI(props: IDetailSide) {
               </DS.GuestBtn>
             </DS.CheckGuest>
           </DS.CheckInWrapper>
-
           <DS.CheckInWrapper>
             <DS.Label>체크인</DS.Label>
             <DS.PriceWrapper>
               <DS.PriceText>240,000</DS.PriceText>원
             </DS.PriceWrapper>
           </DS.CheckInWrapper>
-
+          <DS.StartTime value={props.startTime} />
+          ~
+          <DS.EndTime value={props.endTime} />
           <DS.SubmitBtn>예약하기</DS.SubmitBtn>
         </DS.CheckWrapper>
       </DS.Wrapper>
