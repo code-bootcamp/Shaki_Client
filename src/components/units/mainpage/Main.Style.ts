@@ -113,6 +113,8 @@ export const ImageHeaderIcon = styled.div`
   }
 `;
 
+export const MainContents = styled.div``;
+
 export const MainImg = styled.img`
   width: 100%;
   height: 570px;
@@ -132,6 +134,7 @@ export const MainImg = styled.img`
 `;
 
 export const ImageUnderBar = styled.div`
+  margin-bottom: 20px;
   width: 100%;
   height: 85px;
   display: flex;

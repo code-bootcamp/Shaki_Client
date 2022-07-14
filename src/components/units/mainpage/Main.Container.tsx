@@ -5,7 +5,11 @@ import MainPresenter from "./Main.Presenter";
 
 export default function MainContainer() {
   const router = useRouter();
+
   const { data } = useQuery(FETCH_BRANCHES);
-  console.log(data);
-  return <MainPresenter data={data} />;
+
+  const onClickRoom = (e: any) => {
+    router.push(`/${e.currentTarget.id}`);
+  };
+  return <MainPresenter data={data} onClickRoom={onClickRoom} />;
 }
