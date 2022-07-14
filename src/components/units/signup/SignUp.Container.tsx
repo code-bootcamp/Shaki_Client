@@ -8,6 +8,13 @@ import { useMutation } from "@apollo/client";
 import { CHECK_EMAIL, CREATE_USER } from "./SignUp.Mutation";
 import { Modal } from "antd";
 
+interface accountInput {
+  name: string;
+  email: string;
+  pwd: string;
+  phone_num: string;
+}
+
 const schema = yup.object({
   name: yup.string().required("이름은 필수 입력요소 입니다."),
   email: yup
@@ -95,7 +102,7 @@ export default function SignUpContainer() {
     router.push("/");
   };
 
-  const onClickSubmit = async (data: any) => {
+  const onClickSubmit = async (data: accountInput) => {
     if (checkAuth == false) {
       alert("이메일인증이 완료되지 않았습니다.");
       return;
