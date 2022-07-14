@@ -23,19 +23,18 @@ export const TopTitle = styled.div`
 
 export const Row = styled.div`
   width: 1100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   height: 50px;
+  display: flex;
+  align-items: center;
+  overflow: auto;
   border-bottom: 1px solid #999999;
 `;
 export const Branch = styled.div`
-  width: 200px;
+  width: 150px;
   text-align: center;
 `;
 export const Name = styled.div`
-  width: 200px;
+  width: 150px;
   text-align: center;
 `;
 export const Remarks = styled.div`
@@ -43,12 +42,12 @@ export const Remarks = styled.div`
   text-align: center;
 `;
 export const ListBranch = styled.div`
-  width: 200px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
 `;
 export const ListName = styled.div`
-  width: 200px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
 `;
@@ -56,4 +55,16 @@ export const ListRemarks = styled.div`
   width: 700px;
   padding-left: 30px;
   cursor: pointer;
+`;
+
+export const DeleteButton = styled.button`
+  height: 40px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  :hover {
+    transition-duration: 2s;
+    color: #ffffff;
+    background-color: #4475ff;
+  }
 `;
