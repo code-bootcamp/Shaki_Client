@@ -180,7 +180,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                 <UploadsMain
                   key={uuidv4()}
                   index={index}
-                  fileUrl={el}
+                  fileUrl={el.url}
                   onChangeFileUrls={props.onChangeImgMainUrls}
                 />
               ))}

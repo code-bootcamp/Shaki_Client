@@ -7,11 +7,11 @@ export default function AdminList() {
   const router = useRouter();
 
   const { data } = useQuery(FETCH_ROOMS);
-  console.log(data);
 
   const onClickMoveEdit = (event) => {
     router.push(`/adminpage/${event.currentTarget.id}/adminedit`);
   };
+  console.log(data);
 
   return <AdminListUI data={data} onClickMoveEdit={onClickMoveEdit} />;
 }
