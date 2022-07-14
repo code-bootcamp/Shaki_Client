@@ -40,7 +40,7 @@ export default function ChatBox() {
     {
       id: "user",
 
-      message: "계속하시려면 아무 키나 입력해주세요.",
+      message: "이름을 입력해주세요.",
       trigger: "greet",
     },
     {
@@ -60,11 +60,13 @@ export default function ChatBox() {
       id: "1",
       message: "잠시만 기다려주세요.",
       trigger: "2",
+      hideInput: true,
     },
     {
       id: "2",
       message: "문의사항을 선택해주세요.",
       trigger: "3",
+      hideInput: true,
     },
     {
       id: "3",
@@ -72,6 +74,7 @@ export default function ChatBox() {
         { value: 1, label: "관리자에게 직접 문의하기", trigger: "qa" },
         { value: 2, label: "자주 묻는 질문", trigger: "faq" },
       ],
+      hideInput: true,
     },
     {
       id: "faq",
@@ -81,34 +84,40 @@ export default function ChatBox() {
         { value: 2, label: "고객센터정보", trigger: "infofaq" },
         { value: 3, label: "가맹점 문의", trigger: "store" },
       ],
+      hideInput: true,
     },
     {
       id: "refund",
       component: <BotRedirect message="환불규정" url="/refund" />,
       trigger: "after",
+      hideInput: true,
     },
 
     {
       id: "infofaq",
       component: <CenterTxt />,
       trigger: "after",
+      hideInput: true,
     },
 
     {
       id: "store",
       component: <BotRedirect message="가맹점문의하러가기" url="/store" />,
       trigger: "after",
+      hideInput: true,
     },
 
     {
       id: "qa",
       component: <BotRedirect message="1:1문의하러가기" url="/faqadmin" />,
       trigger: "after",
+      hideInput: true,
     },
     {
       id: "after",
       message: "궁금하신게 더 있으신가요?",
       trigger: "endings",
+      hideInput: true,
     },
 
     {
@@ -117,12 +126,14 @@ export default function ChatBox() {
         { value: 1, label: "궁금증이 해결되었어요!", trigger: "finish" },
         { value: 2, label: "궁금한게 남았어요!", trigger: "2" },
       ],
+      hideInput: true,
     },
 
     {
       id: "finish",
       message: "감사합니다 쉐이키였습니다^^!",
       end: true,
+      hideInput: true,
     },
   ];
 
