@@ -6,6 +6,14 @@ export const FETCH_BRANCHES = gql`
       id
       name
       remarks
+      branch {
+        branch
+        id
+      }
+      images {
+        url
+      }
+      starAmount
     }
   }
 `;
