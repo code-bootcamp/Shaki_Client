@@ -1,13 +1,15 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
 import HeaderUI from "./Header.presenter";
-import { LOG_OUT } from "./Header.queries";
+import { FETCH_LOGIN_USER, LOG_OUT } from "./Header.queries";
 
 export default function HeaderContainer() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [logOutUser] = useMutation(LOG_OUT);
+  const { data } = useQuery(FETCH_LOGIN_USER);
+
   const router = useRouter();
 
   const onClickLogOut = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -24,7 +26,11 @@ export default function HeaderContainer() {
   };
   return (
     <>
-      <HeaderUI onClickLogOut={onClickLogOut} accessToken={accessToken} />
+      <HeaderUI
+        onClickLogOut={onClickLogOut}
+        accessToken={accessToken}
+        data={data}
+      />
     </>
   );
 }
