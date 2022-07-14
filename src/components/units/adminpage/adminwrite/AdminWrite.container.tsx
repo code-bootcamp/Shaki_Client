@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import AdminWriteUI from "./AdminWrite.persenter";
 import { CREATE_ROOM } from "./AdminWrite.queries";
@@ -71,7 +71,7 @@ export default function AdminWrite(props: IAdminWrite) {
   const onClickSubmit = async (data: any) => {
     console.log(imgMainUrls);
     try {
-      const result = await createRoom({
+      await createRoom({
         variables: {
           createRoom: {
             ...data,
@@ -82,7 +82,6 @@ export default function AdminWrite(props: IAdminWrite) {
           },
         },
       });
-      console.log("result", data, zipcode, address, imgMainUrls, tags);
       Modal.success({ content: "게시글이 등록되었습니다." });
       router.push(`/adminpage/adminhome`);
     } catch (error) {
@@ -90,7 +89,20 @@ export default function AdminWrite(props: IAdminWrite) {
     }
   };
 
-  //
+  useEffect(() => {
+    setAddress(props.roomdata?.fetchRoom.address || ""),
+      setZipcode(props.roomdata?.fetchRoom.zipcode || "");
+    if (props.roomdata?.fetchRoom.images?.length) {
+      setImgMainUrls([...props.roomdata?.fetchRoom.images]);
+    }
+  }, [props.roomdata]);
+
+  // useEffect(() => {
+  //   if (props.roomdata?.fetchRoom.images?.length) {
+  //     setImgMainUrls([...props.roomdata?.fetchRoom.images]);
+  //   }
+  // }, [props.roomdata?.fetchRoom.images]);
+  // console.log("ima", props.roomdata?.fetchRoom.images);
 
   return (
     <AdminWriteUI
