@@ -1,9 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import AdminHeaderPage from "../../../src/components/commons/adminlayout/adminheader/AdminHeader.presenter";
-import AdminSideBarUI from "../../../src/components/commons/adminlayout/adminsidebar/AdminSideBar.presenter";
-import AdminEditPresenter from "../../../src/components/units/adminpage/adminEdit/AdminEdit.presenter";
+import AdminHeaderPage from "../../../../src/components/commons/adminlayout/adminheader/AdminHeader.presenter";
+import AdminSideBarUI from "../../../../src/components/commons/adminlayout/adminsidebar/AdminSideBar.presenter";
+import AdminEditPresenter from "../../../../src/components/units/adminpage/adminEdit/AdminEdit.presenter";
 
 const FETCH_ROOM = gql`
   query fetchRoom($id: String!) {

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const ADMIN_HOME = [`/adminpage/adminhome`];
 const ADMIN_QUESTION = [`/adminpage`];
-const ADMIN_List = [`/adminpage`];
+const ADMIN_List = [`/adminpage/adminlist`];
 const ADMIN_WRITE = [`/adminpage/adminwrite`];
 const ADMIN_EDIT = ["/adminpage/adminedit"];
 
