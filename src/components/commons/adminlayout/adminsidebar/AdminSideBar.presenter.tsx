@@ -6,17 +6,17 @@ import { useRouter } from "next/router";
 
 const ADMIN_HOME = [`/adminpage/adminhome`];
 const ADMIN_QUESTION = [`/adminpage`];
+const ADMIN_List = [`/adminpage`];
 const ADMIN_WRITE = [`/adminpage/adminwrite`];
-const ADMIN_ANSWER = [`/adminpage`];
 const ADMIN_EDIT = ["/adminpage/adminedit"];
 
 export default function AdminSideBarUI() {
   const router = useRouter();
 
   const adminHome = ADMIN_HOME.includes(router.asPath);
-  const adminWrite = ADMIN_WRITE.includes(router.asPath);
   const adminQuestion = ADMIN_QUESTION.includes(router.asPath);
-  const adminAnswer = ADMIN_ANSWER.includes(router.asPath);
+  const adminList = ADMIN_List.includes(router.asPath);
+  const adminWrite = ADMIN_WRITE.includes(router.asPath);
   const adminEdit = ADMIN_EDIT.includes(router.asPath);
 
   const onClickMoveHome = () => {
@@ -29,8 +29,8 @@ export default function AdminSideBarUI() {
   const onClickMoveMakeNew = () => {
     router.push("/adminpage/adminwrite");
   };
-  const onClickMoveAnswer = () => {
-    router.push("/adminpage");
+  const onClickMoveList = () => {
+    router.push("/adminpage/adminlist");
   };
   const onClickMoveEdit = () => {
     router.push("/adminpage/adminedit");
@@ -82,6 +82,19 @@ export default function AdminSideBarUI() {
               </AD.AdminQuestionBackFalse>
             )}
           </AD.AdminLabelReservationWrapper>
+          <AD.AdminAnswerWrapper onClick={onClickMoveList}>
+            {adminList ? (
+              <AD.AdminAnswerBack>
+                <AD.CommentIconImg />
+                <AD.AdminAnswer>가맹점 목록</AD.AdminAnswer>
+              </AD.AdminAnswerBack>
+            ) : (
+              <AD.AdminAnswerBackFalse>
+                <AD.CommentIconImg />
+                <AD.AdminAnswer>가맹점 목록</AD.AdminAnswer>
+              </AD.AdminAnswerBackFalse>
+            )}
+          </AD.AdminAnswerWrapper>
           <AD.AdminNewWrapper onClick={onClickMoveMakeNew}>
             {adminWrite ? (
               <AD.AdminNewBack>
@@ -108,19 +121,6 @@ export default function AdminSideBarUI() {
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
-          {/* <AD.AdminAnswerWrapper onClick={onClickMoveAnswer}>
-            {adminAnswer ? (
-              <AD.AdminAnswerBack>
-                <AD.CommentIconImg />
-                <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
-              </AD.AdminAnswerBack>
-            ) : (
-              <AD.AdminAnswerBackFalse>
-                <AD.CommentIconImg />
-                <AD.AdminAnswer>문의 답변 확인</AD.AdminAnswer>
-              </AD.AdminAnswerBackFalse>
-            )}
-          </AD.AdminAnswerWrapper> */}
         </AD.Meuns>
         <Divider />
       </AD.WrapperWrapper>

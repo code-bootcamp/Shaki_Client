@@ -48,7 +48,6 @@ export default function AdminWrite(props: IAdminWrite) {
   const [createRoom] = useMutation(CREATE_ROOM);
 
   const onChangeContents = (value: string) => {
-    console.log(value);
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   };
@@ -58,18 +57,6 @@ export default function AdminWrite(props: IAdminWrite) {
     newImgUrls[index] = fileUrl;
     setImgMainUrls(newImgUrls);
   };
-
-  // const onChangeImgSubOneUrls = (fileUrl: string, index: number) => {
-  //   const newImgUrls = [...imgSubOneUrls];
-  //   newImgUrls[index] = fileUrl;
-  //   setImgSubOneUrls(newImgUrls);
-  // };
-
-  // const onChangeImgSubTwoUrls = (fileUrl: string, index: number) => {
-  //   const newImgUrls = [...imgSubTwoUrls];
-  //   newImgUrls[index] = fileUrl;
-  //   setImgSubTwoUrls(newImgUrls);
-  // };
 
   // Daumpost 연결 및 카카오맵 연동
   const onToggleModal = () => {
@@ -82,6 +69,7 @@ export default function AdminWrite(props: IAdminWrite) {
   };
 
   const onClickSubmit = async (data: any) => {
+    console.log(imgMainUrls);
     try {
       const result = await createRoom({
         variables: {
@@ -94,7 +82,7 @@ export default function AdminWrite(props: IAdminWrite) {
           },
         },
       });
-      console.log(result);
+      console.log("result", data, zipcode, address, imgMainUrls, tags);
       Modal.success({ content: "게시글이 등록되었습니다." });
       router.push(`/adminpage/adminhome`);
     } catch (error) {
