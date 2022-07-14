@@ -11,7 +11,20 @@ export default function AdminList() {
   const onClickMoveEdit = (event) => {
     router.push(`/adminpage/${event.currentTarget.id}/adminedit`);
   };
-  console.log(data);
 
-  return <AdminListUI data={data} onClickMoveEdit={onClickMoveEdit} />;
+  const onClickDelete = () => {
+    if (confirm("정말 삭제하시겠습니까? 삭제하면 되돌릴 수 없습니다!")) {
+      router.push(`/adminpage/adminhome`);
+    } else {
+      router.push(`/adminpage/adminlist`);
+    }
+  };
+
+  return (
+    <AdminListUI
+      data={data}
+      onClickMoveEdit={onClickMoveEdit}
+      onClickDelete={onClickDelete}
+    />
+  );
 }

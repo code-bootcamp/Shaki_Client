@@ -108,19 +108,19 @@ export default function AdminSideBarUI() {
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
-          <AD.AdminNewWrapper onClick={onClickMoveEdit}>
+          {/* <AD.AdminNewWrapper onClick={onClickMoveEdit}>
             {adminEdit ? (
               <AD.AdminNewBack>
                 <ModeEditOutlineIcon />
-                <AD.AdminNew>가맹점 관리</AD.AdminNew>
+                <AD.AdminNew>가맹점 수정사항</AD.AdminNew>
               </AD.AdminNewBack>
             ) : (
               <AD.AdminNewBackFalse>
                 <ModeEditOutlineIcon />
-                <AD.AdminNew>가맹점 관리</AD.AdminNew>
+                <AD.AdminNew>가맹점 수정사항</AD.AdminNew>
               </AD.AdminNewBackFalse>
             )}
-          </AD.AdminNewWrapper>
+          </AD.AdminNewWrapper> */}
         </AD.Meuns>
         <Divider />
       </AD.WrapperWrapper>
