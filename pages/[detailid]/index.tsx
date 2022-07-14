@@ -3,6 +3,7 @@ import DetailBodyContainer from "../../src/components/units/detailpage/detail.bo
 import DetailHeadContainer from "../../src/components/units/detailpage/detail.head/DetailHead.container";
 import DetailSidebarContainer from "../../src/components/units/detailpage/detail.sidebar/DetailSidebar.container";
 import { breakPoints } from "../../src/commons/styles/media";
+import DetailNavContainer from "../../src/components/units/detailpage/detail.navigation/DetailNavigation.container";
 
 const DetailBox = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ const DetailBodyWrapper = styled.div`
 export default function DetailPage() {
   return (
     <DetailBox>
+      <DetailNavContainer />
       <DetailHeadContainer />
       <DetailBodyWrapper>
         <DetailBodyContainer />

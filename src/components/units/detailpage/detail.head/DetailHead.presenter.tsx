@@ -12,7 +12,7 @@ interface IDetailHeaderUI {
 export default function DetailHeaderUI(props: IDetailHeaderUI) {
   return (
     <DH.Wrapper>
-      <DH.MenuWrapper>
+      {/* <DH.MenuWrapper>
         {props.Rooms[0]?.map((el: any, i: number) => (
           <DH.MenuName
             onClick={props.onClickRoomMove}
@@ -23,11 +23,11 @@ export default function DetailHeaderUI(props: IDetailHeaderUI) {
             쉐이키{i + 1}
           </DH.MenuName>
         ))}
-      </DH.MenuWrapper>
+      </DH.MenuWrapper> */}
       <DH.HeadInfoWrapper>
         <DH.HeadInfo>
           {/* 별점 Fetch 받아온값 연결해야함. value*/}
-          <Rate />
+          <Rate disabled />
           0.0/ 5.0
         </DH.HeadInfo>
 
