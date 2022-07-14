@@ -6,10 +6,11 @@ export const LOG_OUT = gql`
   }
 `;
 
-// export const FETCH_LOGIN_USER = gql`
-//   mutation fetchLoginUser(???) {
-//     fetchLoginUser(???) {
-//       name
-//     }
-//   }
-// `;
+export const FETCH_LOGIN_USER = gql`
+  query fetchLoginUser {
+    fetchLoginUser {
+      email
+      name
+    }
+  }
+`;

@@ -1,12 +1,18 @@
 import { useRouter } from "next/router";
 import * as THS from "./Header.styles";
 
-// 타입 잡아야함.
-// interface IHeaderType {
-//   onClickLogOut: () => void;
-//   accessToken : string
-// }
-export default function HeaderUI(props: any) {
+interface IHeaderType {
+  onClickLogOut: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  accessToken: string;
+  data: {
+    fetchLoginUser: {
+      email: string;
+      name: string;
+    };
+  };
+}
+
+export default function HeaderUI(props: IHeaderType) {
   const router = useRouter();
 
   const onClickMovePage = (e: any) => {
@@ -69,8 +75,8 @@ export default function HeaderUI(props: any) {
       {/* 회원가입 / 로그인  */}
       <THS.BtnWrapper>
         {props.accessToken ? (
-          <div>
-            <p>님 환영합니다!</p>
+          <div style={{ display: "flex" }}>
+            <p>{props.data?.fetchLoginUser.name}님 환영합니다!</p>
             <THS.Button id="logOut" onClick={props.onClickLogOut}>
               로그아웃
             </THS.Button>
