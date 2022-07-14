@@ -184,34 +184,12 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   onChangeFileUrls={props.onChangeImgMainUrls}
                 />
               ))}
-              {/* <Ad.Img> */}
-              {/* <Ad.ImgSubOneWrapper>
-                  {props.imgSubOneUrls.map((el, index) => (
-                    <UploadsSubOne
-                    key={uuidv4()}
-                    index={index}
-                      fileUrl={el}
-                      onChangeFileUrls={props.onChangeImgSubOneUrls}
-                    />
-                  ))}
-                </Ad.ImgSubOneWrapper>
-                <Ad.ImgSubTwoWrapper>
-                  {props.imgSubTwoUrls.map((el, index) => (
-                    <UploadsSubTwo
-                      key={uuidv4()}
-                      index={index}
-                      fileUrl={el}
-                      onChangeFileUrls={props.onChangeImgSubTwoUrls}
-                    />
-                  ))}
-                </Ad.ImgSubTwoWrapper> */}
-              {/* </Ad.Img> */}
             </Ad.ImageWrapper>
           </Ad.BodyWrapper>
 
           <Ad.Buttons>
             <Ad.SubmitButton isActive={props.formState.isValid}>
-              등록하기
+              {props.isEdit ? "수정하기" : "등록하기"}
             </Ad.SubmitButton>
           </Ad.Buttons>
         </Ad.Wrapper>
