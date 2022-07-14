@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { useMemo } from "react";
 
 interface IDetailSide {
   date: any;
@@ -11,28 +10,41 @@ interface IDetailSide {
   guest: number;
   onIncrease: () => void;
   onDecrease: () => void;
+  Nextday: any;
+  MaxDay: any;
+  onClickTime: () => void;
+  ToggleGuest: boolean;
 }
 
+const houer = [
+  { time: "09:00~10:00" },
+  { time: "10:00~11:00" },
+  { time: "11:00~12:00" },
+  { time: "12:00~13:00" },
+  { time: "13:00~14:00" },
+  { time: "14:00~15:00" },
+  { time: "15:00~16:00" },
+  { time: "16:00~17:00" },
+  { time: "17:00~18:00" },
+  { time: "18:00~19:00" },
+  { time: "19:00~20:00" },
+  { time: "20:00~21:00" },
+  { time: "21:00~22:00" },
+];
+
 export default function DetailSidebarUI(props: IDetailSide) {
-  // 다음날짜 구하기
-  const date = new Date();
-  date.setDate(date.getDate() + 1);
-  // maxDate 30일
-  const NextDate = new Date();
-  NextDate.setDate(NextDate.getDate() + 30);
   return (
     <>
       <DS.Wrapper>
         <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
         <DS.CalendarWrapper>
           <DS.Label>날짜 선택</DS.Label>
-          {/* 달력 mui import */}
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
               label="날짜를 선택해주세요"
               value={props.date}
-              minDate={date}
-              maxDate={NextDate}
+              minDate={props.Nextday}
+              maxDate={props.MaxDay}
               inputFormat={"yyyy-MM-dd"}
               mask={"____-__-__"}
               onChange={props.onChangeDate}
@@ -44,11 +56,16 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.CheckWrapper>
           <DS.CheckInWrapper>
             <DS.Label>시간</DS.Label>
-            <DS.CheckInTime>
-              <option value="08:00">08:00</option>
-              <option value="10:00">10:00</option>
-              <option value="12:00">12:00</option>
+            <DS.CheckInTime onClick={props.onClickTime}>
+              시간선택
             </DS.CheckInTime>
+            {props.ToggleGuest && (
+              <DS.TimesWrapper>
+                {houer.map((el, i) => (
+                  <DS.TimeBox key={i}>{el.time}</DS.TimeBox>
+                ))}
+              </DS.TimesWrapper>
+            )}
           </DS.CheckInWrapper>
 
           <DS.CheckInWrapper>

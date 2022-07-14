@@ -91,11 +91,43 @@ export const CheckInWrapper = styled.div`
   margin-bottom: 10px;
 `;
 
-export const CheckInTime = styled.select`
+export const CheckInTime = styled.button`
   width: 121px;
   height: 42px;
+  color: #9ca0ac;
   border: 1px solid #d9dbe3;
   cursor: pointer;
+  :hover {
+    color: black;
+  }
+`;
+// 시간선택시 나오는 Div
+export const TimesWrapper = styled.div`
+  position: absolute;
+  background-color: #d9dbe3;
+  border-radius: 10px;
+  padding: 10px;
+  /* 중앙정렬 포지션 */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+`;
+
+export const TimeBox = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f6f7fb;
+  padding: 3px;
+  border-radius: 3px;
+  :hover {
+    background-color: cornflowerblue;
+    color: white;
+  }
 `;
 
 export const CheckGuest = styled.div`
