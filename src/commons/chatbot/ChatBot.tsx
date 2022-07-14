@@ -40,7 +40,7 @@ export default function ChatBox() {
     {
       id: "user",
 
-      message: "이름을입력해주세요",
+      message: "계속하시려면 아무 키나 입력해주세요.",
       trigger: "greet",
     },
     {
@@ -52,6 +52,8 @@ export default function ChatBox() {
     {
       id: "hellow",
       message: " 안녕하세요 {previousValue}, 님 ",
+      // message: " 어서오세요 Shaki입니다!",
+
       trigger: "1",
     },
     {
