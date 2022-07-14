@@ -1,10 +1,29 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import DetailSidebarUI from "./DetailSidebar.presenter";
 
 export default function DetailSidebarContainer() {
   const [date, setDate] = useState(null);
   const [guest, setGuest] = useState(1);
   const [ToggleGuest, setToggleGuest] = useState(false);
+
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
+
+  const onClickSetStartTime = (event) => {
+    setStartTime(event?.target.id);
+    setChoiceEndPoint(true);
+  };
+
+  const onClickSetEndTime = (event) => {
+    setEndTime(event?.target.id);
+    setChoiceEndPoint(false);
+  };
+
+  const duration =
+    Number(endTime.replace(":", "")) / 100 -
+    Number(startTime.replace(":", "")) / 100;
+  const price = duration * 20000;
 
   // 게스트 초기값
   const onIncrease = () => {
@@ -42,6 +61,11 @@ export default function DetailSidebarContainer() {
         onDecrease={onDecrease}
         onClickTime={onClickTime}
         ToggleGuest={ToggleGuest}
+        startTime={startTime}
+        endTime={endTime}
+        onClickSetStartTime={onClickSetStartTime}
+        onClickSetEndTime={onClickSetEndTime}
+        choiceEndPoint={choiceEndPoint}
       />
     </>
   );
