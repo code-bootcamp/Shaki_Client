@@ -39,7 +39,6 @@ export default function LogInContainer() {
       const accessToken = result.data.login;
       setAccessToken(accessToken);
       localStorage.setItem("accessToken", accessToken);
-
       router.push("/mypage");
     } catch (error: any) {
       alert(error.message);
