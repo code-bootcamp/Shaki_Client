@@ -44,9 +44,7 @@ export default function HeaderUI(props: IHeaderType) {
             <THS.DropdownContent className="dropdown-content">
               <THS.DropdownMenuWrapper>
                 <THS.DropdownTwo>
-                  <THS.Menu2Text id="detailpage" onClick={onClickMovePage}>
-                    신대방역
-                  </THS.Menu2Text>
+                  <THS.Menu2Text id="detailpage">신대방역</THS.Menu2Text>
                   <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>
                 </THS.DropdownTwo>
 
