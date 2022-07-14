@@ -22,11 +22,9 @@ const FETCH_ROOM = gql`
       conaddressDetail
       images {
         url
-        room
       }
       tags {
         tag
-        room
       }
     }
   }

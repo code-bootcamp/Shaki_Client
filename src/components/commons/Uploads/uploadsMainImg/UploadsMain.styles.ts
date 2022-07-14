@@ -27,7 +27,7 @@ export const MainWrapper = styled.div`
 export const Main = styled.img`
   width: 200px;
   height: 200px;
-  margin-right: 20px;
+  margin-top: 100px;
   cursor: pointer;
 `;
 

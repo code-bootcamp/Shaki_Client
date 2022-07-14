@@ -20,7 +20,7 @@ export default function AdminListUI(props: IAdminListUI) {
       </Ad.Row>
 
       {props.data?.fetchRooms.map((el: any) => (
-        <Ad.Row key={el.id} onClick={props.onClickMoveEdit}>
+        <Ad.Row key={el.id} id={el.id} onClick={props.onClickMoveEdit}>
           <Ad.ListBranch>{el.branch.branch}</Ad.ListBranch>
           <Ad.ListName>{el.name}</Ad.ListName>
           <Ad.ListRemarks>{el.remarks}</Ad.ListRemarks>

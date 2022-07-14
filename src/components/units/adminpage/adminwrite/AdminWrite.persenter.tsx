@@ -59,7 +59,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                   type="text"
                   placeholder="ㅇㅇ점으로 입력해주세요! ex) 구로점 or 신림점"
                   {...props.register("branch")}
-                  defaultValue={props.roomdata?.fetchRoom.branch}
+                  defaultValue={props.roomdata?.fetchRoom.branch.branch}
                 />
                 <Ad.Error>{props.formState.errors.branch?.message}</Ad.Error>
               </Ad.TitleWrapper>
