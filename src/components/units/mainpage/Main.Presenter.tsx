@@ -19,8 +19,8 @@ export default function MainPresenter(props: any) {
         </Ma.ImageWrapper1> */}
         <Ma.ImageWrapper2>
           {props.data?.fetchBranches.map((el: any) => (
-            <>
-              <Ma.ImageHeader key={v1()}>
+            <div key={v1()}>
+              <Ma.ImageHeader>
                 {el.branch.branch}
                 <Ma.ImageHeaderIcon />
               </Ma.ImageHeader>
@@ -33,7 +33,7 @@ export default function MainPresenter(props: any) {
                   <Rate value={el.starAmount} />
                 </Ma.ImageUnderBar>
               </Ma.MainContents>
-            </>
+            </div>
           ))}
         </Ma.ImageWrapper2>
         {/* <Ma.ImageWrapper3>
