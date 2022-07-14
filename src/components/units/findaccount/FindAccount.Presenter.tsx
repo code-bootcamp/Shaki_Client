@@ -25,7 +25,13 @@ export default function FindAccounPresenter(props: any) {
             이메일 <Fa.Email onChange={props.onChangeEmail} /> 번호
             <Fa.Phone onChange={props.onChangeDigits} />
             <Fa.ButtonBox>
-              <Fa.FindButton onClick={props.onClickFindEmail}>
+              <Fa.FindButton
+                onClick={
+                  props.page
+                    ? props.onClickFindEmail
+                    : props.onClickFindPassword
+                }
+              >
                 찾기
               </Fa.FindButton>
               <Fa.CancelButton onClick={props.onClickCancel}>

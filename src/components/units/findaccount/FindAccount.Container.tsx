@@ -1,8 +1,8 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import FindAccounPresenter from "./FindAccount.Presenter";
-import { FIND_EMAIL } from "./FindAccount.Query";
+import { FIND_EMAIL, FIND_PWD } from "./FindAccount.Query";
 
 export default function FindAccountContainer() {
   const router = useRouter();
@@ -28,6 +28,27 @@ export default function FindAccountContainer() {
   const onChangeDigits = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDigits(event.target.value);
   };
+  const [findPassword] = useMutation(FIND_PWD);
+
+  const onClickFindPassword = async (
+    event: React.MouseEvent<HTMLDivElement>
+  ) => {
+    alert("이메일을 확인해주세요.");
+    await findPassword({
+      variables: {
+        email,
+        name,
+        phone_num:
+          digits.slice(0, 3) +
+          "-" +
+          digits.slice(3, 7) +
+          "-" +
+          digits.slice(7, 11),
+      },
+    });
+    router.push("/main");
+  };
+
   const { data } = useQuery(FIND_EMAIL, {
     variables: {
       name,
@@ -59,10 +80,11 @@ export default function FindAccountContainer() {
       onClickEmailPage={onClickEmailPage}
       onClickPwdPage={onClickPwdPage}
       onChangeName={onChangeName}
+      onChangeEmail={onChangeEmail}
       onChangeDigits={onChangeDigits}
       onClickFindEmail={onClickFindEmail}
+      onClickFindPassword={onClickFindPassword}
       onClickCancel={onClickCancel}
-      onChangeEmail={onChangeEmail}
       page={page}
       data={data}
     />
