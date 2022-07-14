@@ -69,7 +69,6 @@ export default function AdminWrite(props: IAdminWrite) {
   };
 
   const onClickSubmit = async (data: any) => {
-    console.log(imgMainUrls);
     try {
       await createRoom({
         variables: {
@@ -92,10 +91,12 @@ export default function AdminWrite(props: IAdminWrite) {
   useEffect(() => {
     setAddress(props.roomdata?.fetchRoom.address || ""),
       setZipcode(props.roomdata?.fetchRoom.zipcode || "");
-    if (props.roomdata?.fetchRoom.images?.length) {
+
+    if (props.roomdata?.fetchRoom.images.length) {
       setImgMainUrls([...props.roomdata?.fetchRoom.images]);
     }
   }, [props.roomdata]);
+  console.log(props.roomdata);
 
   // useEffect(() => {
   //   if (props.roomdata?.fetchRoom.images?.length) {
