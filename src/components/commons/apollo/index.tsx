@@ -5,7 +5,7 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 
@@ -15,6 +15,12 @@ interface IProps {
 
 export default function ApolloSetting(props: IProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  // 로그인 유지
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    setAccessToken(accessToken || "");
+  });
+
   const uploadLink = createUploadLink({
     uri: "https://shaki-back.shop/graphql",
     headers: {
