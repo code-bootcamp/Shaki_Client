@@ -4,6 +4,19 @@ import DetailHeadContainer from "../../src/components/units/detailpage/detail.he
 import DetailSidebarContainer from "../../src/components/units/detailpage/detail.sidebar/DetailSidebar.container";
 import { breakPoints } from "../../src/commons/styles/media";
 import DetailNavContainer from "../../src/components/units/detailpage/detail.navigation/DetailNavigation.container";
+import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+
+const FETCH_ROOM = gql`
+  query fetchRoom($id: String!) {
+    fetchRoom(id: $id) {
+      star
+      images {
+        url
+      }
+    }
+  }
+`;
 
 const DetailBox = styled.div`
   display: flex;
@@ -33,10 +46,16 @@ const DetailBodyWrapper = styled.div`
 `;
 
 export default function DetailPage() {
+  const router = useRouter();
+
+  const { data } = useQuery(FETCH_ROOM, {
+    variables: { id: router.query.detailid },
+  });
+
   return (
     <DetailBox>
       <DetailNavContainer />
-      <DetailHeadContainer />
+      <DetailHeadContainer data={data} />
       <DetailBodyWrapper>
         <DetailBodyContainer />
         <DetailSidebarContainer />

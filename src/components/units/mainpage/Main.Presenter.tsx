@@ -30,7 +30,7 @@ export default function MainPresenter(props: any) {
                 <Ma.ImageUnderBar>
                   {el.remarks}
                   {/* rating */}
-                  <Rate value={el.starAmount} disabled />
+                  <Rate value={el.star} disabled />
                 </Ma.ImageUnderBar>
               </Ma.MainContents>
             </div>

@@ -1,8 +1,10 @@
 import { Rate } from "antd";
 import * as DH from "./DetailHead.styles";
 
+// data 타입잡기
 interface IDetailHeaderUI {
   onClickPick: () => void;
+  data: any;
 }
 
 export default function DetailHeaderUI(props: IDetailHeaderUI) {
@@ -11,22 +13,24 @@ export default function DetailHeaderUI(props: IDetailHeaderUI) {
       <DH.HeadInfoWrapper>
         <DH.HeadInfo>
           {/* 별점 Fetch 받아온값 연결해야함. value*/}
-          <Rate disabled />
-          0.0/ 5.0
+          <Rate disabled value={props.data?.fetchRoom.star} />
+          {props.data?.fetchRoom.star}.0 / 5.0
         </DH.HeadInfo>
-
         <DH.PickWrapper>
           <DH.PickImg src="/mypage/pick_detail.png" />
           <DH.QuestionBtn onClick={props.onClickPick}>찜하기</DH.QuestionBtn>
         </DH.PickWrapper>
       </DH.HeadInfoWrapper>
       <DH.ExImgBox>
-        <DH.ExImgTitle src="./logo.png" />
+        <DH.ExImgTitle src={props.data?.fetchRoom.images[0].url} />
         <DH.ExImgWrapper>
-          <DH.ExImg src="./logo.png" />
-          <DH.ExImg src="./logo.png" />
-          <DH.ExImg src="./logo.png" />
-          <DH.ExImg src="./logo.png" />
+          {props.data?.fetchRoom.images
+            .filter((el: any, i: number) => i !== 0)
+            .map((el: any, i: number) => (
+              <div key={i}>
+                <DH.ExImg src={el.url} />
+              </div>
+            ))}
         </DH.ExImgWrapper>
       </DH.ExImgBox>
     </DH.Wrapper>
