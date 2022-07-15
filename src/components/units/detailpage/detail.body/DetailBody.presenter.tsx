@@ -2,6 +2,7 @@ import KakaoMap from "../../../../commons/kakaomap";
 import * as DB from "./DetailBody.styles";
 import { Modal } from "antd";
 import { Rate } from "antd";
+import Dompurify from "dompurify";
 
 interface Iprops {
   isModalVisible: boolean;
@@ -9,39 +10,43 @@ interface Iprops {
   handleOk: () => void;
   handleCancel: () => void;
   setStar: any;
-}
+  data: {
+    fetchRoom: {
+      name: String;
+      remarks: String;
 
-const tags = ["태그1", "태그2", "태그3"];
+      contents: string;
+    };
+  };
+}
 
 export default function DetailBodyUI(props: Iprops) {
   return (
     <DB.Wrapper>
       <DB.Divedline />
-      <DB.Title>구로점 쉐이키 1</DB.Title>
+      <DB.Title>{props.data?.fetchRoom.name}</DB.Title>
       <DB.TagWrapper>
-        {tags.map((el, i) => (
-          <DB.TagDiv key={i}>#{el}</DB.TagDiv>
+        {props.data?.fetchRoom.tags.map((el, i) => (
+          <DB.TagDiv key={i}>{el.tag}</DB.TagDiv>
         ))}
       </DB.TagWrapper>
       <DB.Divedline2 />
       <DB.ReservationText>
         무료취소는 예약 1일 전까지 가능합니다.
       </DB.ReservationText>
-      <DB.Title>Contents</DB.Title>
-      <DB.SubTitle>
-        Remarks: 깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은 분들을 위한
-        룸입니다.
-      </DB.SubTitle>
-      <DB.PrecautionsMenu>
-        <div>Content 숙소 편의 시설</div>
-        <div>Content 숙소 편의 시설2</div>
-        <div>Content 숙소 편의 시설3</div>
-        <div>Content 숙소 편의 시설4</div>
-      </DB.PrecautionsMenu>
-      <DB.SmallLabel>기타 주의사항</DB.SmallLabel>
+      <DB.Title>숙소 설명</DB.Title>
+      <DB.SubTitle>{props.data?.fetchRoom.remarks}</DB.SubTitle>
+      {typeof window !== "undefined" && (
+        <DB.PrecautionsMenu
+          dangerouslySetInnerHTML={{
+            __html: Dompurify.sanitize(props.data?.fetchRoom.contents),
+          }}
+        />
+      )}
+      {/* <DB.SmallLabel>기타 주의사항</DB.SmallLabel>
       <div>
         실내에서의 흡연과 애완동물의 출입은 삼가해 주시면 감사하겠습니다.
-      </div>
+      </div> */}
       <DB.Divedline2 />
       <DB.CommentHead>
         <DB.Title>후기</DB.Title>
@@ -54,59 +59,29 @@ export default function DetailBodyUI(props: Iprops) {
         >
           {/* 별점 */}
           <Rate onChange={props.setStar} />
-          <DB.CommentInput placeholder="후기를 입력해주세요" />
+          <DB.CommentInput
+            placeholder="후기를 입력해주세요"
+            onChange={props.onChangeComment}
+          />
         </Modal>
       </DB.CommentHead>
       <DB.CommentWrapper>
         <DB.CommentBox>
-          <DB.Comment>
-            <DB.SmallLabel>댓글1</DB.SmallLabel>
-            <DB.Example>
-              노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두
-              짱 노원두 짱{" "}
-            </DB.Example>
-          </DB.Comment>
-          <DB.Comment>
-            <DB.SmallLabel>댓글1</DB.SmallLabel>
-            <DB.Example>
-              노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두
-              짱 노원두 짱{" "}
-            </DB.Example>
-          </DB.Comment>
-          <DB.Comment>
-            <DB.SmallLabel>댓글1</DB.SmallLabel>
-            <DB.Example>
-              노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두
-              짱 노원두 짱{" "}
-            </DB.Example>
-          </DB.Comment>
-          <DB.Comment>
-            <DB.SmallLabel>댓글1</DB.SmallLabel>
-            <DB.Example>
-              노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두
-              짱 노원두 짱{" "}
-            </DB.Example>
-          </DB.Comment>
-          <DB.Comment>
-            <DB.SmallLabel>댓글1</DB.SmallLabel>
-            <DB.Example>
-              노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두
-              짱 노원두 짱{" "}
-            </DB.Example>
-          </DB.Comment>
-          <DB.Comment>
-            <DB.SmallLabel>댓글1</DB.SmallLabel>
-            <DB.Example>
-              노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두 짱 노원두
-              짱 노원두 짱{" "}
-            </DB.Example>
-          </DB.Comment>
+          {props.data?.fetchRoom.reviews.map((el, i) => (
+            <DB.Comment key={el.id}>
+              <DB.CommentTitle>
+                <DB.SmallLabel>{el.user.name}</DB.SmallLabel>
+                <Rate value={el.star} />
+              </DB.CommentTitle>
+              <DB.Example>{el.content}</DB.Example>
+            </DB.Comment>
+          ))}
         </DB.CommentBox>
       </DB.CommentWrapper>
       <DB.Divedline2 />
       <DB.Title>지점 위치 정보 지역</DB.Title>
       <DB.KakaoMapWrapper>
-        <KakaoMap />
+        <KakaoMap address={props.data?.fetchRoom.address} />
       </DB.KakaoMapWrapper>
       <DB.Divedline2 />
       <DB.Title>알아두어야 할 사항</DB.Title>
