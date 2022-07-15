@@ -3,9 +3,12 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface IDetailSide {
+  price: number;
+  time: string;
+  clicked: boolean;
   date: any;
   onChangeDate: (newValue: any) => void;
   guest: number;
@@ -15,24 +18,16 @@ interface IDetailSide {
   MaxDay: any;
   onClickTime: () => void;
   ToggleGuest: boolean;
+  startTime: string;
+  endTime: string;
+  choiceEndPoint: boolean;
+  hour: { time: string; clicked: boolean }[];
+  // onClickSetStartTime: (
+  //   event1: React.MouseEvent<HTMLDivElement>
+  // ) => (event2: React.MouseEvent<HTMLDivElement>) => void;
+  onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
-
-const hour = [
-  { time: "09:00", status: false },
-  { time: "10:00", status: false },
-  { time: "11:00", status: false },
-  { time: "12:00", status: false },
-  { time: "13:00", status: false },
-  { time: "14:00", status: false },
-  { time: "15:00", status: false },
-  { time: "16:00", status: false },
-  { time: "17:00", status: false },
-  { time: "18:00", status: false },
-  { time: "19:00", status: false },
-  { time: "20:00", status: false },
-  { time: "21:00", status: false },
-  { time: "22:00", status: false },
-];
 
 export default function DetailSidebarUI(props: IDetailSide) {
   return (
@@ -63,10 +58,16 @@ export default function DetailSidebarUI(props: IDetailSide) {
             </DS.CheckInTime>
             {props.ToggleGuest && (
               <DS.TimesWrapper>
-                {hour.map((el, i) => (
+                <DS.TimeHead style={{ width: "100%" }}>
+                  {props.choiceEndPoint
+                    ? "이용 종료시간을 선택 해주세요"
+                    : "이용시작시간을 선택 해주세요"}
+                </DS.TimeHead>
+                {props.hour.map((el, i: number) => (
                   <DS.TimeBox
                     id={el.time}
                     onClick={
+                      // () => props.onClickSetStartTime(el.time)(el.time)
                       props.choiceEndPoint
                         ? props.onClickSetEndTime
                         : props.onClickSetStartTime
@@ -76,6 +77,10 @@ export default function DetailSidebarUI(props: IDetailSide) {
                     {el.time}
                   </DS.TimeBox>
                 ))}
+                {/* <DS.BoxWrapper>
+                  <DS.blueBox type="checkbox" /> 시작시간
+                  <DS.redBox type="checkbox" /> 종료시간
+                </DS.BoxWrapper> */}
               </DS.TimesWrapper>
             )}
           </DS.CheckInWrapper>
@@ -98,15 +103,21 @@ export default function DetailSidebarUI(props: IDetailSide) {
               </DS.GuestBtn>
             </DS.CheckGuest>
           </DS.CheckInWrapper>
+
+          <DS.TimeWrapper>
+            <DS.Label>이용시간</DS.Label>
+            <DS.TimeRange>
+              <DS.StartTime value={props.startTime} />
+              ~
+              <DS.EndTime value={props.endTime} />
+            </DS.TimeRange>
+          </DS.TimeWrapper>
           <DS.CheckInWrapper>
-            <DS.Label>체크인</DS.Label>
+            <DS.Label>가격</DS.Label>
             <DS.PriceWrapper>
-              <DS.PriceText>240,000</DS.PriceText>원
+              <DS.PriceText>{props.price}</DS.PriceText>원
             </DS.PriceWrapper>
           </DS.CheckInWrapper>
-          <DS.StartTime value={props.startTime} />
-          ~
-          <DS.EndTime value={props.endTime} />
           <DS.SubmitBtn>예약하기</DS.SubmitBtn>
         </DS.CheckWrapper>
       </DS.Wrapper>
