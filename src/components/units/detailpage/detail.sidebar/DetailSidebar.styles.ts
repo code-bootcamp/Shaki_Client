@@ -47,9 +47,27 @@ export const SubmitBtn = styled.button`
   }
 `;
 
-export const StartTime = styled.input``;
+export const TimeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-export const EndTime = styled.input``;
+export const TimeRange = styled.div`
+  font-size: 15px;
+  margin-top: 10px;
+`;
+
+export const StartTime = styled.input`
+  width: 60px;
+  padding-left: 8px;
+  margin-right: 10px;
+`;
+
+export const EndTime = styled.input`
+  width: 60px;
+  padding-left: 8px;
+  margin-left: 10px;
+`;
 
 export const Label = styled.label`
   font-weight: 500;
@@ -93,6 +111,7 @@ export const CheckInWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  padding: 10px 0;
 `;
 
 export const CheckInTime = styled.button`
@@ -108,6 +127,7 @@ export const CheckInTime = styled.button`
 // 시간선택시 나오는 Div
 export const TimesWrapper = styled.div`
   position: absolute;
+  top: 220px;
   background-color: #d9dbe3;
   border-radius: 10px;
   padding: 10px;
@@ -116,10 +136,17 @@ export const TimesWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%); */
   z-index: 1;
-  display: grid;
+  /* display: grid; */
+  display: flex;
+  flex-wrap: wrap;
   gap: 5px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr; */
+`;
+
+export const TimeHead = styled.div`
+  width: 100%;
+  font-weight: 600;
 `;
 
 export const TimeBox = styled.div`
@@ -133,6 +160,25 @@ export const TimeBox = styled.div`
     background-color: cornflowerblue;
     color: white;
   }
+`;
+
+export const BoxWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const blueBox = styled.input`
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+`;
+
+export const redBox = styled.input`
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  margin-right: 5px;
 `;
 
 export const CheckGuest = styled.div`
