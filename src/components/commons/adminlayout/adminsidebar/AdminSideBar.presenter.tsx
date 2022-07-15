@@ -4,36 +4,39 @@ import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 import { useRouter } from "next/router";
 
-const ADMIN_HOME = [`/adminpage/adminhome`];
-const ADMIN_QUESTION = [`/adminpage`];
+const ADMIN_HOME = [`/adminpage`];
+const ADMIN_RESERVATION = [`/adminpage/adminreservation`];
+const ADMIN_QUESTION = ["/adminpage/adminquestion"];
 const ADMIN_List = [`/adminpage/adminlist`];
 const ADMIN_WRITE = [`/adminpage/adminwrite`];
-const ADMIN_EDIT = ["/adminpage/adminedit"];
 
 export default function AdminSideBarUI() {
   const router = useRouter();
 
   const adminHome = ADMIN_HOME.includes(router.asPath);
+  const adminReservation = ADMIN_RESERVATION.includes(router.asPath);
   const adminQuestion = ADMIN_QUESTION.includes(router.asPath);
   const adminList = ADMIN_List.includes(router.asPath);
   const adminWrite = ADMIN_WRITE.includes(router.asPath);
-  const adminEdit = ADMIN_EDIT.includes(router.asPath);
 
   const onClickMoveHome = () => {
-    router.push("/adminpage/adminhome");
+    router.push("/adminpage");
+  };
+
+  const onClickMoveReservation = () => {
+    router.push("/adminpage/adminreservation");
   };
 
   const onClickMoveQuestion = () => {
-    router.push("/adminpage");
+    router.push("/adminpage/adminquestion");
   };
+
   const onClickMoveMakeNew = () => {
     router.push("/adminpage/adminwrite");
   };
+
   const onClickMoveList = () => {
     router.push("/adminpage/adminlist");
-  };
-  const onClickMoveEdit = () => {
-    router.push("/adminpage/adminedit");
   };
 
   return (
@@ -65,23 +68,34 @@ export default function AdminSideBarUI() {
             )}
           </AD.HomeWraaper>
 
-          <AD.AdminLabelReservationWrapper onClick={onClickMoveQuestion}>
-            {adminQuestion ? (
+          <AD.AdminLabelReservationWrapper onClick={onClickMoveReservation}>
+            {adminReservation ? (
               <AD.AdminQuestionBack>
                 <AD.AllInboxIconImg />
-                <AD.AdminLabelReservation>
-                  예약/문의 내역
-                </AD.AdminLabelReservation>
+                <AD.AdminLabelReservation>예약 내역</AD.AdminLabelReservation>
               </AD.AdminQuestionBack>
             ) : (
               <AD.AdminQuestionBackFalse>
                 <AD.AllInboxIconImg />
-                <AD.AdminLabelReservation>
-                  예약/문의 내역
-                </AD.AdminLabelReservation>
+                <AD.AdminLabelReservation>예약 내역</AD.AdminLabelReservation>
               </AD.AdminQuestionBackFalse>
             )}
           </AD.AdminLabelReservationWrapper>
+
+          <AD.AdminNewWrapper onClick={onClickMoveQuestion}>
+            {adminQuestion ? (
+              <AD.AdminNewBack>
+                <ModeEditOutlineIcon />
+                <AD.AdminNew>문의 내역</AD.AdminNew>
+              </AD.AdminNewBack>
+            ) : (
+              <AD.AdminNewBackFalse>
+                <ModeEditOutlineIcon />
+                <AD.AdminNew>문의 내역</AD.AdminNew>
+              </AD.AdminNewBackFalse>
+            )}
+          </AD.AdminNewWrapper>
+
           <AD.AdminAnswerWrapper onClick={onClickMoveList}>
             {adminList ? (
               <AD.AdminAnswerBack>
@@ -95,6 +109,7 @@ export default function AdminSideBarUI() {
               </AD.AdminAnswerBackFalse>
             )}
           </AD.AdminAnswerWrapper>
+
           <AD.AdminNewWrapper onClick={onClickMoveMakeNew}>
             {adminWrite ? (
               <AD.AdminNewBack>
@@ -108,19 +123,6 @@ export default function AdminSideBarUI() {
               </AD.AdminNewBackFalse>
             )}
           </AD.AdminNewWrapper>
-          {/* <AD.AdminNewWrapper onClick={onClickMoveEdit}>
-            {adminEdit ? (
-              <AD.AdminNewBack>
-                <ModeEditOutlineIcon />
-                <AD.AdminNew>가맹점 수정사항</AD.AdminNew>
-              </AD.AdminNewBack>
-            ) : (
-              <AD.AdminNewBackFalse>
-                <ModeEditOutlineIcon />
-                <AD.AdminNew>가맹점 수정사항</AD.AdminNew>
-              </AD.AdminNewBackFalse>
-            )}
-          </AD.AdminNewWrapper> */}
         </AD.Meuns>
         <Divider />
       </AD.WrapperWrapper>

@@ -1,21 +1,21 @@
 import styled from "@emotion/styled";
 import AdminHeaderPage from "../../../src/components/commons/adminlayout/adminheader/AdminHeader.presenter";
 import AdminSideBarUI from "../../../src/components/commons/adminlayout/adminsidebar/AdminSideBar.presenter";
-import AdminAnswerWriteUI from "../../../src/components/units/adminpage/adminanswerwrite/Admin.Answer.Write.presenter";
+import AdminReservationUI from "../../../src/components/units/adminpage/adminreservation/AdminMain.presenter";
 
 const SideBar = styled.div`
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
 `;
 
-export default function AdminAnswerWritePage() {
+export default function AdminReservationPage() {
   return (
     <>
       <AdminHeaderPage />
       <SideBar>
         <AdminSideBarUI />
-        <AdminAnswerWriteUI />
+        <AdminReservationUI />
       </SideBar>
     </>
   );

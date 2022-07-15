@@ -1,4 +1,4 @@
-import * as AAW from "./Admin.Answer.Write.styles";
+import * as AAW from "./AdminQuestionAnswer.styles";
 // import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });
-export default function AdminAnswerWriteUI() {
+export default function AdminQuestionAnswerUI() {
   return (
     <AAW.WrapperRoot>
       <AAW.Wrapper>

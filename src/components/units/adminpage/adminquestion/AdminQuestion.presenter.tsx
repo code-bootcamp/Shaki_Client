@@ -1,6 +1,5 @@
-import * as Ad from "./AdminMain.styles";
+import * as Ad from "./AdminQuestion.styles";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import AdminListUI from "./adminlistup/AdminList";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
@@ -35,14 +34,12 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-export default function AdminMainUI() {
+export default function AdminQuestionUI() {
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
-        <Ad.TitleWrapper>
-          <Ad.RightButton>지점 등록</Ad.RightButton>
-        </Ad.TitleWrapper>
-        <Ad.Label>예약내역</Ad.Label>
+        <Ad.TitleWrapper></Ad.TitleWrapper>
+        <Ad.Label>문의 내역</Ad.Label>
         <div style={{ height: 400, width: "100%", padding: "10px" }}>
           <DataGrid
             rows={rows}
@@ -52,8 +49,6 @@ export default function AdminMainUI() {
             checkboxSelection
           />
         </div>
-        <Ad.Label>문의내역</Ad.Label>
-        <AdminListUI />
       </Ad.Wrapper>
     </Ad.WrapperRoot>
   );
