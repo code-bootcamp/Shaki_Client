@@ -89,11 +89,6 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
 
             <Ad.TagsWrapper>
               <Ad.TagsLabel>태그: </Ad.TagsLabel>
-              {/* <Ad.Tags
-                type="text"
-                placeholder="태그내용을 입력해주세요! ex) #모던한분위기 #제주도느낌 #연인 #가족"
-                {...props.register("tags")}
-              /> */}
               <TagPage
                 tags={props.tags}
                 setTags={props.setTags}
