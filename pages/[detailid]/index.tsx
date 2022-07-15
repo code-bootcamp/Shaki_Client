@@ -14,6 +14,21 @@ const FETCH_ROOM = gql`
       images {
         url
       }
+      tags {
+        tag
+      }
+      name
+      remarks
+      contents
+      address
+      reviews {
+        id
+        star
+        user {
+          name
+        }
+        content
+      }
     }
   }
 `;
@@ -57,7 +72,7 @@ export default function DetailPage() {
       <DetailNavContainer />
       <DetailHeadContainer data={data} />
       <DetailBodyWrapper>
-        <DetailBodyContainer />
+        <DetailBodyContainer data={data} />
         <DetailSidebarContainer />
       </DetailBodyWrapper>
     </DetailBox>
