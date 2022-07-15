@@ -1,7 +1,16 @@
 import { Modal } from "antd";
 import DetailHeaderUI from "./DetailHead.presenter";
 
-export default function DetailHeadContainer() {
+interface IRoom {
+  data: {
+    star: Number;
+    images: {
+      url: string;
+    };
+  };
+}
+
+export default function DetailHeadContainer(props: IRoom) {
   // 찜하기
   const onClickPick = () => {
     try {
@@ -11,5 +20,5 @@ export default function DetailHeadContainer() {
     }
   };
 
-  return <DetailHeaderUI onClickPick={onClickPick} />;
+  return <DetailHeaderUI onClickPick={onClickPick} data={props.data} />;
 }

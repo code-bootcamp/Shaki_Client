@@ -76,7 +76,6 @@ export const ReservationText = styled.div`
 export const SmallLabel = styled.div`
   font-weight: 500;
   font-size: 16px;
-  margin-bottom: 10px;
 `;
 
 export const PrecautionsMenu = styled.div`
@@ -117,13 +116,6 @@ export const CommentInput = styled.textarea`
   resize: none;
 `;
 
-export const CommentBox = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 10px;
-`;
-
 export const CommentWrapper = styled.div`
   width: 814px;
   height: 440px;
@@ -136,11 +128,26 @@ export const CommentWrapper = styled.div`
   }
 `;
 
+export const CommentBox = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
+`;
+
 export const Comment = styled.div`
   border: 1px solid black;
   padding: 10px;
   border-radius: 15px;
 `;
+
+export const CommentTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 // 카카오맵
 export const KakaoMapWrapper = styled.div`
   width: 814px;
