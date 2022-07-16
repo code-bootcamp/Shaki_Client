@@ -2,9 +2,9 @@ import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
 import CenterTxt from "../../components/commons/faq/faqinfo/FaqInfo";
 import ChatMain from "./main/ChatMain";
-import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { voiceOnState } from "../store";
+import { enableExperimentalFragmentVariables } from "@apollo/client";
 
 const CHATBOT_THEME = {
   background: "#f9fcf7",
@@ -39,8 +39,15 @@ export default function ChatBox() {
     {
       id: "0",
       component: <ChatMain />,
-
-      trigger: "user",
+      trigger: "chat",
+    },
+    {
+      id: "chat",
+      options: [
+        { value: 1, label: "쉐이키 봇 이용하기", trigger: "user" },
+        { value: 2, label: "다음에 이용하겠습니다.", trigger: "finish" },
+      ],
+      hideInput: true,
     },
     {
       id: "user",
@@ -142,8 +149,8 @@ export default function ChatBox() {
   ];
 
   const speechConfig = {
-    enable: voiceOn,
-    // enable: true,
+    // enable: voiceOn,
+    enable: true,
 
     lang: "ko",
     voice: null,
@@ -157,8 +164,8 @@ export default function ChatBox() {
     <>
       <ThemeProvider theme={CHATBOT_THEME}>
         <ChatBot
-          speechSynthesis={{ ...speechConfig }}
           steps={steps}
+          speechSynthesis={{ ...speechConfig }}
           {...config}
           headerTitle="💻 관리자 봇"
         />
