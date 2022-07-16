@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   width: 346px;
   height: 100%;
   border: 1px solid #4167ee;
@@ -114,9 +114,13 @@ export const CheckInWrapper = styled.div`
   padding: 10px 0;
 `;
 
-export const CheckInTime = styled.button`
+export const CheckInTime = styled.div`
   width: 121px;
   height: 42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: #9ca0ac;
   border: 1px solid #d9dbe3;
   cursor: pointer;
@@ -189,14 +193,21 @@ export const CheckGuest = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 `;
 
-export const GuestBtn = styled.button`
+export const GuestBtn = styled.div`
   height: 100%;
-  width: 30px;
-  border: none;
+  width: 20px;
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
   cursor: pointer;
+  :active {
+    background-color: gray;
+  }
 `;
 // 가격
 export const PriceWrapper = styled.div`
