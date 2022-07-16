@@ -66,6 +66,7 @@ export default function SignUpContainer() {
   };
 
   const [sendAuth, setSendAuth] = useState<boolean>(false);
+
   const onClickSendAuth = async (event: React.MouseEvent<HTMLDivElement>) => {
     if (!email) {
       alert("이메일을 입력해주세요");
