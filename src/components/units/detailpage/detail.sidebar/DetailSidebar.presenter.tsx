@@ -32,7 +32,6 @@ interface IDetailSide {
   register: any;
   handleSubmit: any;
   formState: any;
-
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
@@ -70,7 +69,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
                 <DS.TimeBox
                   id={el.time}
                   onClick={
-                    // () => props.onClickSetStartTime(el.time)(el.time)
                     props.choiceEndPoint
                       ? props.onClickSetEndTime
                       : props.onClickSetStartTime
@@ -97,7 +95,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
           </DS.CheckGuest>
         </DS.CheckInWrapper>
 
-
         <DS.TimeWrapper>
           <DS.Label>이용시간</DS.Label>
           <DS.TimeRange>
@@ -123,6 +120,5 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.SubmitBtn onClick={props.onClickPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
     </DS.Wrapper>
-
   );
 }

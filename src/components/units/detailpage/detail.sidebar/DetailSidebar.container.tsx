@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 import { getTime } from "../../../commons/getDate";
@@ -45,7 +44,6 @@ const hour: Array<aaa> = [
 export default function DetailSidebarContainer() {
   const router = useRouter();
 
-
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
   const [date, setDate] = useState("");
@@ -57,16 +55,12 @@ export default function DetailSidebarContainer() {
   const [endTime, setEndTime] = useState("");
   const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
 
-
   const onClickSetStartTime = (event: React.MouseEvent<HTMLDivElement>) => {
     setStartTime((event.target as HTMLDivElement).id);
     console.log(startTime);
 
     setChoiceEndPoint(true);
-
-    console.log((data.target as HTMLDivElement).id);
   };
-
 
   const onClickSetEndTime = (event: React.MouseEvent<HTMLDivElement>) => {
     if ((event.target as HTMLDivElement).id < startTime) {
@@ -117,7 +111,7 @@ export default function DetailSidebarContainer() {
     setToggleGuest((prev) => !prev);
   };
 
-  const onClickPay = async () => {
+  const onClickPay = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
       const result = await createPayment({
         variables: {
@@ -156,9 +150,7 @@ export default function DetailSidebarContainer() {
         onClickSetStartTime={onClickSetStartTime}
         onClickSetEndTime={onClickSetEndTime}
         choiceEndPoint={choiceEndPoint}
-
         onClickPay={onClickPay}
-
       />
     </>
   );
