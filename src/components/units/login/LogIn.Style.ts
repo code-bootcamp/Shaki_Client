@@ -41,7 +41,9 @@ export const WrapperImg = styled.div`
   margin-left: 250px;
   box-shadow: 0 0 10px #4e75ff;
 
-  background-image: url("/landing/foodie.jpeg");
+  /* background-image: url("/landing/foodlogin5.jpeg"); */
+  background-image: url("/foodlogin2.webp");
+
   background-size: cover;
   background-repeat: no-repeat;
   @media screen and (max-width: 1500px) {
