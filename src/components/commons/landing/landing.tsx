@@ -19,10 +19,10 @@ const DownButton = styled.div`
 `;
 
 const UpButton = styled.div`
-  position: absolute;
+  position: relative;
   width: 55px;
   height: 55px;
-  bottom: -4500px;
+  bottom: -2050px;
   left: 1230px;
   z-index: 5;
   /* background-color: white; */
@@ -34,7 +34,7 @@ const UpButton = styled.div`
 
 const SocialLoginBox = styled.div`
   position: relative;
-  width: 70vw;
+  width: 100vw;
   top: 2000px;
   left: 90px;
   margin-bottom: 100px;
