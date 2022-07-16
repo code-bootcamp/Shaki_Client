@@ -34,7 +34,7 @@ const UpButton = styled.div`
 
 const SocialLoginBox = styled.div`
   position: relative;
-  width: 100vw;
+  width: 90vw;
   top: 2000px;
   left: 90px;
   margin-bottom: 100px;

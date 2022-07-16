@@ -27,10 +27,12 @@ interface IDetailSide {
   // ) => (event2: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
+
   onClickPay: (data: any) => void;
   register: any;
   handleSubmit: any;
   formState: any;
+
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
@@ -95,6 +97,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
           </DS.CheckGuest>
         </DS.CheckInWrapper>
 
+
         <DS.TimeWrapper>
           <DS.Label>이용시간</DS.Label>
           <DS.TimeRange>
@@ -120,5 +123,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.SubmitBtn onClick={props.onClickPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
     </DS.Wrapper>
+
   );
 }

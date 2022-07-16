@@ -37,8 +37,10 @@ export const WrapperImg = styled.div`
   display: flex;
   width: 150em;
   height: 580px;
-  margin-top: 50px;
+  margin-top: 58px;
   margin-left: 250px;
+  box-shadow: 0 0 10px #4e75ff;
+
   background-image: url("/landing/foodie.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
