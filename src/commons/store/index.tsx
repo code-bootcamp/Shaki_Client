@@ -7,3 +7,8 @@ export const accessTokenState = atom({
   key: `accessTokenState/${v1()}`,
   default: "",
 });
+
+export const voiceOnState = atom({
+  key: `voiceOnstate/${v1()}`,
+  default: false,
+});

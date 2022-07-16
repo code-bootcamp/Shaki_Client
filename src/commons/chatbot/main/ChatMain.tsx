@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import { SettingsVoiceOutlined } from "@mui/icons-material";
+import { useRecoilState } from "recoil";
+import { voiceOnState } from "../../store";
 const WrapperRoot = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,9 +30,16 @@ const Contents = styled.span`
 `;
 
 export default function ChatMain() {
+  const [voiceOn, setVoiceOn] = useRecoilState(voiceOnState);
+
+  const onClickVoice = () => {
+    setVoiceOn(true);
+  };
+
   return (
     <WrapperRoot>
       <Wrapper></Wrapper>
+      <button onClick={onClickVoice}>voice</button>
       <Title>쉐이키 ShaKi에 문의하기</Title>
       <Contents>
         신개념 공유주방 플랫폼 쉐이키!<br></br>
