@@ -144,7 +144,12 @@ export default function ChatBox() {
   return (
     <>
       <ThemeProvider theme={CHATBOT_THEME}>
-        <ChatBot steps={steps} {...config} headerTitle="💻 관리자 봇" />
+        <ChatBot
+          speechSynthesis={{ enable: true, lang: "ko " }}
+          steps={steps}
+          {...config}
+          headerTitle="💻 관리자 봇"
+        />
       </ThemeProvider>
     </>
   );
