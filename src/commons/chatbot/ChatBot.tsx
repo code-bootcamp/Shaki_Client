@@ -2,6 +2,9 @@ import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
 import CenterTxt from "../../components/commons/faq/faqinfo/FaqInfo";
 import ChatMain from "./main/ChatMain";
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { voiceOnState } from "../store";
 
 const CHATBOT_THEME = {
   background: "#f9fcf7",
@@ -30,6 +33,8 @@ const BotRedirect = ({ url, message }: Ibot) => {
 };
 
 export default function ChatBox() {
+  const [voiceOn, setVoiceOn] = useRecoilState(voiceOnState);
+
   const steps = [
     {
       id: "0",
@@ -39,7 +44,6 @@ export default function ChatBox() {
     },
     {
       id: "user",
-
       message: "이름을 입력해주세요.",
       trigger: "greet",
     },
@@ -137,6 +141,14 @@ export default function ChatBox() {
     },
   ];
 
+  const speechConfig = {
+    enable: voiceOn,
+    // enable: true,
+
+    lang: "ko",
+    voice: null,
+  };
+
   const config = {
     botAvatar: "/logo.png",
     floating: true,
@@ -144,7 +156,12 @@ export default function ChatBox() {
   return (
     <>
       <ThemeProvider theme={CHATBOT_THEME}>
-        <ChatBot steps={steps} {...config} headerTitle="💻 관리자 봇" />
+        <ChatBot
+          speechSynthesis={{ ...speechConfig }}
+          steps={steps}
+          {...config}
+          headerTitle="💻 관리자 봇"
+        />
       </ThemeProvider>
     </>
   );

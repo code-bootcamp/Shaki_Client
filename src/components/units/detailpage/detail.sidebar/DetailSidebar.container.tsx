@@ -1,4 +1,6 @@
+
 import React, { useEffect, useState } from "react";
+
 import { getTime } from "../../../commons/getDate";
 import DetailSidebarUI from "./DetailSidebar.presenter";
 import * as yup from "yup";
@@ -6,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { CREATE_PAYMENT } from "./DetailSibebar.queries";
 import { useMutation } from "@apollo/client";
+
 import { useRouter } from "next/router";
 
 interface data {
@@ -42,6 +45,7 @@ const hour: Array<aaa> = [
 export default function DetailSidebarContainer() {
   const router = useRouter();
 
+
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
   const [date, setDate] = useState("");
@@ -53,11 +57,16 @@ export default function DetailSidebarContainer() {
   const [endTime, setEndTime] = useState("");
   const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
 
+
   const onClickSetStartTime = (event: React.MouseEvent<HTMLDivElement>) => {
     setStartTime((event.target as HTMLDivElement).id);
     console.log(startTime);
+
     setChoiceEndPoint(true);
+
+    console.log((data.target as HTMLDivElement).id);
   };
+
 
   const onClickSetEndTime = (event: React.MouseEvent<HTMLDivElement>) => {
     if ((event.target as HTMLDivElement).id < startTime) {
@@ -65,6 +74,7 @@ export default function DetailSidebarContainer() {
       return;
     } else {
       setEndTime((event.target as HTMLDivElement).id);
+
       setChoiceEndPoint(false);
       setToggleGuest((prev) => !prev);
     }
@@ -76,6 +86,7 @@ export default function DetailSidebarContainer() {
       Number(startTime.replace(":", "")) / 100;
     setPrice(duration * 20000);
   }, [endTime]);
+
   // 게스트 초기값
   const onIncrease = () => {
     setGuest((prev) => prev + 1);
@@ -145,7 +156,9 @@ export default function DetailSidebarContainer() {
         onClickSetStartTime={onClickSetStartTime}
         onClickSetEndTime={onClickSetEndTime}
         choiceEndPoint={choiceEndPoint}
+
         onClickPay={onClickPay}
+
       />
     </>
   );

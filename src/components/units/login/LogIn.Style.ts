@@ -33,13 +33,15 @@ export const WrapperRoot = styled.form`
 `;
 
 export const WrapperImg = styled.div`
-  border-radius: 20px;
+  /* border-radius: 20px; */
   display: flex;
   width: 150em;
-  height: 600px;
-  margin-top: 45px;
+  height: 580px;
+  margin-top: 58px;
   margin-left: 250px;
-  background-image: url("/landing/03.gif");
+  box-shadow: 0 0 10px #4e75ff;
+
+  background-image: url("/landing/foodie.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   @media screen and (max-width: 1500px) {
@@ -67,7 +69,7 @@ export const LogInWrapper = styled.div`
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  margin-left: 7px;
+  margin-left: 2px;
   justify-content: center;
   padding-top: 80px;
   @media screen and (max-width: 1500px) {
@@ -98,7 +100,7 @@ export const MiddleWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   padding: 20px 0;
   box-shadow: 0 0 10px #4e75ff;
   font-weight: 500;
@@ -162,6 +164,7 @@ export const UpperBody = styled.div`
 export const Email = styled.input`
   height: 40px;
   border: none;
+  border-bottom: 1px solid gray;
   margin-bottom: 10px;
   outline: none;
 `;
@@ -169,6 +172,8 @@ export const Email = styled.input`
 export const Password = styled.input`
   height: 40px;
   border: none;
+  border-bottom: 1px solid gray;
+
   outline: none;
 `;
 
