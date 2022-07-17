@@ -4,7 +4,6 @@ import CenterTxt from "../../components/commons/faq/faqinfo/FaqInfo";
 import ChatMain from "./main/ChatMain";
 import { useRecoilState } from "recoil";
 import { voiceOnState } from "../store";
-import { enableExperimentalFragmentVariables } from "@apollo/client";
 
 const CHATBOT_THEME = {
   background: "#f9fcf7",

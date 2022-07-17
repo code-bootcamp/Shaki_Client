@@ -20,11 +20,13 @@ const Wrapper = styled.div`
 const Title = styled.span`
   font-size: 20px;
   font-weight: 700;
+  font-family: sans-serif;
 `;
 
 const Contents = styled.span`
   font-size: 15px;
   font-weight: 10;
+  font-family: sans-serif;
   color: gray;
 `;
 
@@ -39,7 +41,12 @@ export default function ChatMain() {
   return (
     <WrapperRoot>
       <Wrapper></Wrapper>
-      <button onClick={onClickVoice}>reset</button>
+      <button
+        style={{ border: "none", backgroundColor: "beige" }}
+        onClick={onClickVoice}
+      >
+        봇 새로고침
+      </button>
       <Title>쉐이키 ShaKi에 문의하기</Title>
       <Contents>
         신개념 공유주방 플랫폼 쉐이키!<br></br>
