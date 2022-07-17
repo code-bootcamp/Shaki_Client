@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
-export const Wrapper = styled.form`
+export const Wrapper = styled.div`
   width: 346px;
   height: 100%;
   border: 1px solid #4167ee;

@@ -7,8 +7,6 @@ import React, { useState } from "react";
 
 interface IDetailSide {
   price: number;
-  time: string;
-  clicked: boolean;
   date: any;
   onChangeDate: (newValue: any) => void;
   guest: number;
@@ -21,18 +19,10 @@ interface IDetailSide {
   startTime: string;
   endTime: string;
   choiceEndPoint: boolean;
-  hour: { time: string; clicked: boolean }[];
-  // onClickSetStartTime: (
-  //   event1: React.MouseEvent<HTMLDivElement>
-  // ) => (event2: React.MouseEvent<HTMLDivElement>) => void;
+  hour: { time: string; reserved: boolean }[];
   onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
-
   onClickPay: (data: any) => void;
-  register: any;
-  handleSubmit: any;
-  formState: any;
-
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
@@ -70,7 +60,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
                 <DS.TimeBox
                   id={el.time}
                   onClick={
-                    // () => props.onClickSetStartTime(el.time)(el.time)
                     props.choiceEndPoint
                       ? props.onClickSetEndTime
                       : props.onClickSetStartTime
@@ -97,7 +86,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
           </DS.CheckGuest>
         </DS.CheckInWrapper>
 
-
         <DS.TimeWrapper>
           <DS.Label>이용시간</DS.Label>
           <DS.TimeRange>
@@ -123,6 +111,5 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.SubmitBtn onClick={props.onClickPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
     </DS.Wrapper>
-
   );
 }
