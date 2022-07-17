@@ -30,24 +30,34 @@ const Contents = styled.span`
   color: gray;
 `;
 
+const Infotxt = styled.span`
+  font-size: 12px;
+  font-weight: 10;
+  font-family: sans-serif;
+  color: darkgray;
+`;
+
 export default function ChatMain() {
   const [voiceOn, setVoiceOn] = useRecoilState(voiceOnState);
 
   const onClickVoice = () => {
     window.location.reload();
-    setVoiceOn(true);
+    // setVoiceOn(true);
   };
 
   return (
     <WrapperRoot>
       <Wrapper></Wrapper>
+      <Title>쉐이키 문의하기 봇</Title>
+      <Infotxt>
+        쉐이키봇은 음성과함께 안내됩니다 <br></br> 볼륨을 조절해주세요!
+      </Infotxt>
       <button
         style={{ border: "none", backgroundColor: "beige" }}
         onClick={onClickVoice}
       >
-        봇 새로고침
+        문제가있나요? 클릭!
       </button>
-      <Title>쉐이키 ShaKi에 문의하기</Title>
       <Contents>
         신개념 공유주방 플랫폼 쉐이키!<br></br>
         주중 10:00 ~ 19:00 까지 운영{" "}

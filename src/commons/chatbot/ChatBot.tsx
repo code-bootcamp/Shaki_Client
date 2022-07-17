@@ -146,6 +146,7 @@ export default function ChatBox() {
       hideInput: true,
     },
   ];
+  // console.log(voiceOn);
 
   const speechConfig = {
     // enable: voiceOn,
