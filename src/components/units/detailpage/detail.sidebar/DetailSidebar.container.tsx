@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from "react";
-
 import { getTime } from "../../../commons/getDate";
 import DetailSidebarUI from "./DetailSidebar.presenter";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 import { CREATE_PAYMENT } from "./DetailSibebar.queries";
 import { useMutation } from "@apollo/client";
 
 import { useRouter } from "next/router";
 
-interface aaa {
+interface timeTable {
   time: string;
-  clicked: boolean;
+  reserved: boolean;
 }
 
-const hour: Array<aaa> = [
-  { time: "09:00", clicked: false },
-  { time: "10:00", clicked: false },
-  { time: "11:00", clicked: false },
-  { time: "12:00", clicked: false },
-  { time: "13:00", clicked: false },
-  { time: "14:00", clicked: false },
-  { time: "15:00", clicked: false },
-  { time: "16:00", clicked: false },
-  { time: "17:00", clicked: false },
-  { time: "18:00", clicked: false },
-  { time: "19:00", clicked: false },
-  { time: "20:00", clicked: false },
-  { time: "21:00", clicked: false },
-  { time: "22:00", clicked: false },
+const hour: Array<timeTable> = [
+  { time: "09:00", reserved: false },
+  { time: "10:00", reserved: false },
+  { time: "11:00", reserved: false },
+  { time: "12:00", reserved: false },
+  { time: "13:00", reserved: false },
+  { time: "14:00", reserved: false },
+  { time: "15:00", reserved: false },
+  { time: "16:00", reserved: false },
+  { time: "17:00", reserved: false },
+  { time: "18:00", reserved: false },
+  { time: "19:00", reserved: false },
+  { time: "20:00", reserved: false },
+  { time: "21:00", reserved: false },
+  { time: "22:00", reserved: false },
 ];
 
 export default function DetailSidebarContainer() {

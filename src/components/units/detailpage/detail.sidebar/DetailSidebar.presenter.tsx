@@ -19,7 +19,7 @@ interface IDetailSide {
   startTime: string;
   endTime: string;
   choiceEndPoint: boolean;
-  hour: { time: string; clicked: boolean }[];
+  hour: { time: string; reserved: boolean }[];
   onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   onClickPay: (data: any) => void;

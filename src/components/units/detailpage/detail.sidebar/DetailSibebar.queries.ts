@@ -12,3 +12,18 @@ export const CREATE_PAYMENT = gql`
     }
   }
 `;
+
+export const FETCH_RESERVATION = gql`
+  query fetchReservation($room: String!, $date: String!) {
+    fetchReservation(room: $room, date: $date) {
+      id
+      date
+      start_time
+      end_time
+      amount
+      status
+      guest
+      room
+    }
+  }
+`;
