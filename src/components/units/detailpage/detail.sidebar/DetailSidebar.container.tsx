@@ -10,15 +10,6 @@ import { useMutation } from "@apollo/client";
 
 import { useRouter } from "next/router";
 
-interface data {
-  roomId: string;
-  date: string;
-  start_time: string;
-  end_time: string;
-  price: number;
-  guest: number;
-}
-
 interface aaa {
   time: string;
   clicked: boolean;
@@ -105,8 +96,6 @@ export default function DetailSidebarContainer() {
     setDate(date);
   };
 
-  console.log(router.query.detailid);
-  // 게스트 시간
   const onClickTime = () => {
     setToggleGuest((prev) => !prev);
   };
@@ -132,26 +121,24 @@ export default function DetailSidebarContainer() {
   };
 
   return (
-    <>
-      <DetailSidebarUI
-        hour={hour}
-        price={price}
-        date={date}
-        Nextday={Nextday}
-        MaxDay={MaxDay}
-        onChangeDate={onChangeDate}
-        guest={guest}
-        onIncrease={onIncrease}
-        onDecrease={onDecrease}
-        onClickTime={onClickTime}
-        ToggleGuest={ToggleGuest}
-        startTime={startTime}
-        endTime={endTime}
-        onClickSetStartTime={onClickSetStartTime}
-        onClickSetEndTime={onClickSetEndTime}
-        choiceEndPoint={choiceEndPoint}
-        onClickPay={onClickPay}
-      />
-    </>
+    <DetailSidebarUI
+      hour={hour}
+      price={price}
+      date={date}
+      Nextday={Nextday}
+      MaxDay={MaxDay}
+      onChangeDate={onChangeDate}
+      guest={guest}
+      onIncrease={onIncrease}
+      onDecrease={onDecrease}
+      onClickTime={onClickTime}
+      ToggleGuest={ToggleGuest}
+      startTime={startTime}
+      endTime={endTime}
+      onClickSetStartTime={onClickSetStartTime}
+      onClickSetEndTime={onClickSetEndTime}
+      choiceEndPoint={choiceEndPoint}
+      onClickPay={onClickPay}
+    />
   );
 }

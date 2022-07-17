@@ -7,8 +7,6 @@ import React, { useState } from "react";
 
 interface IDetailSide {
   price: number;
-  time: string;
-  clicked: boolean;
   date: any;
   onChangeDate: (newValue: any) => void;
   guest: number;
@@ -22,16 +20,9 @@ interface IDetailSide {
   endTime: string;
   choiceEndPoint: boolean;
   hour: { time: string; clicked: boolean }[];
-  // onClickSetStartTime: (
-  //   event1: React.MouseEvent<HTMLDivElement>
-  // ) => (event2: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
-
   onClickPay: (data: any) => void;
-  register: any;
-  handleSubmit: any;
-  formState: any;
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
