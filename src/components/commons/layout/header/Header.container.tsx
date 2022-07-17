@@ -3,12 +3,13 @@ import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
 import HeaderUI from "./Header.presenter";
-import { FETCH_LOGIN_USER, LOG_OUT } from "./Header.queries";
+import { FETCH_BRANCHES, FETCH_LOGIN_USER, LOG_OUT } from "./Header.queries";
 
 export default function HeaderContainer() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [logOutUser] = useMutation(LOG_OUT);
   const { data } = useQuery(FETCH_LOGIN_USER);
+  const { data: dataFetchBranches } = useQuery(FETCH_BRANCHES);
 
   const router = useRouter();
 
@@ -23,12 +24,20 @@ export default function HeaderContainer() {
       alert(error.message);
     }
   };
+
+  const onClickMovePage = (e: any) => {
+    router.push(`/${e.target.id}`);
+  };
+
   return (
     <>
       <HeaderUI
+        onClickMovePage={onClickMovePage}
         onClickLogOut={onClickLogOut}
         accessToken={accessToken}
         data={data}
+        dataFetchBranches={dataFetchBranches}
+        router={router}
       />
     </>
   );
