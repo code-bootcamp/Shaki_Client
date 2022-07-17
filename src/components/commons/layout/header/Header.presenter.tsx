@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
 import * as THS from "./Header.styles";
 
 interface IHeaderType {
+  onClickMovePage: (e: any) => void;
   onClickLogOut: (event: React.MouseEvent<HTMLButtonElement>) => void;
   accessToken: string;
   data: {
@@ -10,15 +10,19 @@ interface IHeaderType {
       name: string;
     };
   };
+  dataFetchBranches: {
+    fetchBranches: {
+      id: string;
+      branch: {
+        branch: string;
+        id: string;
+      };
+    };
+  };
+  router: any;
 }
 
 export default function HeaderUI(props: IHeaderType) {
-  const router = useRouter();
-
-  const onClickMovePage = (e: any) => {
-    router.push(`/${e.target.id}`);
-  };
-
   return (
     <THS.Wrapper>
       {/* 로고이미지 */}
@@ -28,43 +32,38 @@ export default function HeaderUI(props: IHeaderType) {
         <THS.NavMenu>
           <THS.NavText
             id="/"
-            isPosition={router.asPath.split("/")[1]}
-            onClick={onClickMovePage}
+            isPosition={props.router.asPath.split("/")[1]}
+            onClick={props.onClickMovePage}
           >
             쉐이키 소개
           </THS.NavText>
           <THS.Dropdown>
             <THS.NavText
               id="main"
-              onClick={onClickMovePage}
-              isPosition={router.asPath.split("/")[1]}
+              onClick={props.onClickMovePage}
+              isPosition={props.router.asPath.split("/")[1]}
             >
               지점 소개
             </THS.NavText>
+            {/* 메뉴 map 으로 뿌려주기 */}
             <THS.DropdownContent className="dropdown-content">
               <THS.DropdownMenuWrapper>
-                <THS.DropdownTwo>
-                  <THS.Menu2Text id="detailpage">신대방역</THS.Menu2Text>
-                  <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>
-                </THS.DropdownTwo>
-
-                <THS.DropdownTwo>
-                  <THS.Menu2Text>신림역</THS.Menu2Text>
-                  <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>
-                </THS.DropdownTwo>
-
-                <THS.DropdownTwo>
-                  <THS.Menu2Text>구로디지털역점</THS.Menu2Text>
-                  <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>
-                </THS.DropdownTwo>
+                {props.dataFetchBranches?.fetchBranches.map((el: any) => (
+                  <THS.DropdownTwo key={el.branch.id}>
+                    <THS.Menu2Text id={el.id} onClick={props.onClickMovePage}>
+                      {el.branch.branch}
+                    </THS.Menu2Text>
+                    <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>
+                  </THS.DropdownTwo>
+                ))}
               </THS.DropdownMenuWrapper>
             </THS.DropdownContent>
           </THS.Dropdown>
 
           <THS.NavText
             id="mypage"
-            onClick={onClickMovePage}
-            isPosition={router.asPath.split("/")[1]}
+            onClick={props.onClickMovePage}
+            isPosition={props.router.asPath.split("/")[1]}
           >
             마이페이지
           </THS.NavText>
@@ -81,10 +80,10 @@ export default function HeaderUI(props: IHeaderType) {
           </div>
         ) : (
           <div>
-            <THS.Button id="login" onClick={onClickMovePage}>
+            <THS.Button id="login" onClick={props.onClickMovePage}>
               로그인
             </THS.Button>
-            <THS.Button id="signup" onClick={onClickMovePage}>
+            <THS.Button id="signup" onClick={props.onClickMovePage}>
               회원가입
             </THS.Button>
           </div>

@@ -14,3 +14,15 @@ export const FETCH_LOGIN_USER = gql`
     }
   }
 `;
+
+export const FETCH_BRANCHES = gql`
+  query fetchBranches {
+    fetchBranches {
+      id
+      branch {
+        branch
+        id
+      }
+    }
+  }
+`;
