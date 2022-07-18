@@ -114,4 +114,5 @@ export const FooterItem = styled.div`
 export const FooterInnerText = styled.div`
   width: 100%;
   margin: 12px 0;
+  padding-left: 20px;
 `;

@@ -1,9 +1,22 @@
 import { useRouter } from "next/router";
 import * as Iq from "./Inquiry.Style";
 
-export default function InquiryPresenter() {
+type fetchQuestions = {
+  content: string;
+};
+
+type data = {
+  fetchQuestions: fetchQuestions[];
+};
+
+interface IInquiryProps {
+  data: data;
+}
+
+export default function InquiryPresenter(props: IInquiryProps) {
   const router = useRouter();
-  console.log(router);
+  console.log(props.data);
+
   return (
     <Iq.HTML>
       <Iq.Wrapper>
@@ -22,11 +35,9 @@ export default function InquiryPresenter() {
         <Iq.Footer>
           <Iq.FooterItem>
             자주묻는 질문
-            <Iq.FooterInnerText>1번</Iq.FooterInnerText>
-            <Iq.FooterInnerText>2번</Iq.FooterInnerText>
-            <Iq.FooterInnerText>3번</Iq.FooterInnerText>
-            <Iq.FooterInnerText>4번</Iq.FooterInnerText>
-            <Iq.FooterInnerText>5번</Iq.FooterInnerText>
+            {props.data?.fetchQuestions.map((el, index) => (
+              <Iq.FooterInnerText>{el.content}</Iq.FooterInnerText>
+            ))}
           </Iq.FooterItem>
           <Iq.FooterItem>...?</Iq.FooterItem>
         </Iq.Footer>
