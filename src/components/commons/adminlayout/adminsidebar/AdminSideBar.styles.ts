@@ -121,6 +121,10 @@ export const AdminNewWrapper = styled.div`
   width: 100%;
   margin-bottom: 15px;
   cursor: pointer;
+  &:hover {
+    background-color: #ebeff5;
+    transition-duration: 1s;
+  }
 `;
 export const AdminNewBack = styled.div`
   width: 100%;
@@ -151,6 +155,10 @@ export const AdminAnswerWrapper = styled.div`
   width: 100%;
   margin-bottom: 15px;
   cursor: pointer;
+  &:hover {
+    background-color: #ebeff5;
+    transition-duration: 1s;
+  }
 `;
 
 export const AdminAnswerBack = styled.div`
