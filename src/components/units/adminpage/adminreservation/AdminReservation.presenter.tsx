@@ -1,5 +1,6 @@
-import * as Ad from "./AdminQuestion.styles";
+import * as Ad from "./AdminReservation.styles";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import AdminListUI from "../adminquesti/AdminQuestion.presenter";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
@@ -34,12 +35,16 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-export default function AdminQuestionUI() {
+export default function AdminReservationUI() {
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
-        <Ad.TitleWrapper></Ad.TitleWrapper>
-        <Ad.Label>문의 내역</Ad.Label>
+        <Ad.TitleWrapper>
+          <Ad.RightButton>
+            예약한 내역을 볼 수 있는 페이지 입니다.
+          </Ad.RightButton>
+        </Ad.TitleWrapper>
+        <Ad.Label>예약내역</Ad.Label>
         <div style={{ height: 400, width: "100%", padding: "10px" }}>
           <DataGrid
             rows={rows}

@@ -42,6 +42,7 @@ export const TopWrapper = styled.div`
     margin-bottom: 20px;
   }
 `;
+
 export const UserWrapper = styled.div`
   width: 300px;
   display: flex;
@@ -72,9 +73,11 @@ export const UserPicture = styled.img`
 export const UserNameWrapper = styled.div`
   margin-left: 20px;
 `;
+
 export const UserName = styled.div`
   font-size: 30px;
 `;
+
 export const TopBreakPoint = styled.div`
   width: calc(100% - 300px);
   display: flex;
@@ -87,6 +90,7 @@ export const TopBreakPoint = styled.div`
     width: calc(100% - 300px);
   }
 `;
+
 export const PointWrapper = styled.div`
   width: 200px;
   height: 150px;
@@ -95,6 +99,7 @@ export const PointWrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
 `;
+
 export const PointImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,14 +107,17 @@ export const PointImgWrapper = styled.div`
   align-items: center;
   height: 60px;
 `;
+
 export const PointImg = styled.img`
   width: 40px;
 `;
+
 export const PointLabel = styled.div`
   padding-top: 5px;
   font-size: 16px;
   font-weight: 500;
 `;
+
 export const PointNumberWrapper = styled.div``;
 export const PointNumber = styled.div`
   margin-right: 10px;
