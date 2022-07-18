@@ -5,6 +5,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import React, { useState } from "react";
 
+declare const window: typeof globalThis & {
+  IMP: any;
+};
+
 interface IDetailSide {
   price: number;
   date: any;
@@ -22,7 +26,7 @@ interface IDetailSide {
   hour: { time: string; reserved: boolean }[];
   onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onClickPay: (data: any) => void;
+  requestPay: () => any;
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
@@ -108,7 +112,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
             <DS.PriceText>{props.price}</DS.PriceText>원
           </DS.PriceWrapper>
         </DS.CheckInWrapper>
-        <DS.SubmitBtn onClick={props.onClickPay}>예약하기</DS.SubmitBtn>
+        <DS.SubmitBtn onClick={props.requestPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
     </DS.Wrapper>
   );
