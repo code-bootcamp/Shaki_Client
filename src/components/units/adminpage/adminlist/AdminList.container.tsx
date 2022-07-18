@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 import AdminListUI from "./AdminList.presenter";
 import { FETCH_ROOMS } from "./AdminList.queries";
 
@@ -8,7 +9,7 @@ export default function AdminList() {
 
   const { data } = useQuery(FETCH_ROOMS);
 
-  const onClickMoveEdit = (event) => {
+  const onClickMoveEdit = (event: MouseEvent<HTMLDivElement>) => {
     router.push(`/adminpage/${event.currentTarget.id}/adminedit`);
   };
 

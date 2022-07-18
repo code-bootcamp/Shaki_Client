@@ -95,15 +95,11 @@ export default function AdminWrite(props: IAdminWrite) {
     if (props.roomdata?.fetchRoom.images.length) {
       setImgMainUrls([...props.roomdata?.fetchRoom.images]);
     }
+    if (props.roomdata?.fetchRoom.tags.length) {
+      setTags([...props.roomdata?.fetchRoom.tags]);
+    }
   }, [props.roomdata]);
   console.log(props.roomdata);
-
-  // useEffect(() => {
-  //   if (props.roomdata?.fetchRoom.images?.length) {
-  //     setImgMainUrls([...props.roomdata?.fetchRoom.images]);
-  //   }
-  // }, [props.roomdata?.fetchRoom.images]);
-  // console.log("ima", props.roomdata?.fetchRoom.images);
 
   return (
     <AdminWriteUI

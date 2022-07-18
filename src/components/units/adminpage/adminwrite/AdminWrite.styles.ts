@@ -235,19 +235,47 @@ export const AddressDetail = styled.input`
 export const ImageWrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 100px;
   margin-bottom: 100px;
 `;
-export const MainImg = styled.input``;
+export const ImageText = styled.div`
+  width: 100%;
+`;
+export const ImageTitle = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const ImageDanger = styled.div`
+  color: red;
+  margin-bottom: 20px;
+`;
 export const Img = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+`;
+export const DeleteButton = styled.button`
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  background-color: #ffffff;
+  margin-top: 100px;
+  transition-duration: 1s;
+  border: none;
+  cursor: pointer;
+  :hover {
+    background-color: #4475ff;
+    color: #ffffff;
+  }
 `;
 
-export const ImgSubOneWrapper = styled.div`
+export const ImageMapWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const ImgSubTwoWrapper = styled.div`
   display: flex;
@@ -257,6 +285,7 @@ export const Buttons = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;
 export const SubmitButton = styled.button`
   width: 300px;

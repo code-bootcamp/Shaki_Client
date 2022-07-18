@@ -1,5 +1,9 @@
+import { useQuery } from "@apollo/client";
+import { useState } from "react";
 import AdminReservationUI from "./AdminReservation.presenter";
+import { FETCH_PAYMENTS } from "./AdminReservation.queries";
 
 export default function AdminReservation() {
-  return <AdminReservationUI />;
+  const { data } = useQuery(FETCH_PAYMENTS);
+  return <AdminReservationUI data={data} />;
 }

@@ -1,8 +1,9 @@
+import { MouseEvent } from "react";
 import * as Ad from "./AdminList.styles";
 
 interface IAdminListUI {
   data?: any;
-  onClickMoveEdit: (event) => void;
+  onClickMoveEdit: (event: MouseEvent<HTMLDivElement>) => void;
   onClickDelete: () => void;
 }
 

@@ -171,14 +171,25 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
             </Ad.AddressWrapper>
 
             <Ad.ImageWrapper>
-              {props.imgMainUrls.map((el, index) => (
-                <UploadsMain
-                  key={uuidv4()}
-                  index={index}
-                  fileUrl={el.url}
-                  onChangeFileUrls={props.onChangeImgMainUrls}
-                />
-              ))}
+              <Ad.ImageText>
+                <Ad.ImageTitle>사진 첨부</Ad.ImageTitle>
+                <Ad.ImageDanger>
+                  *주의 할 점: 사진은 최대 5장입니다.
+                </Ad.ImageDanger>
+              </Ad.ImageText>
+              <Ad.Img>
+                {props.imgMainUrls.map((el, index) => (
+                  <Ad.ImageMapWrapper>
+                    <UploadsMain
+                      key={uuidv4()}
+                      index={index}
+                      fileUrl={el.url}
+                      onChangeFileUrls={props.onChangeImgMainUrls}
+                    />
+                    <Ad.DeleteButton type="button">사진 삭제</Ad.DeleteButton>
+                  </Ad.ImageMapWrapper>
+                ))}
+              </Ad.Img>
             </Ad.ImageWrapper>
           </Ad.BodyWrapper>
 

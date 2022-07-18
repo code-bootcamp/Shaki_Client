@@ -8,7 +8,14 @@ export const FETCH_PAYMENTS = gql`
       start_time
       end_time
       amount
+      guest
       room {
+        branch {
+          branch
+        }
+        name
+      }
+      user {
         name
       }
     }
