@@ -39,7 +39,7 @@ export const WrapperImg = styled.div`
   height: 580px;
   margin-top: 58px;
   margin-left: 250px;
-  box-shadow: 0 0 10px #4e75ff;
+  box-shadow: 0 0 10px black;
 
   /* background-image: url("/landing/foodlogin5.jpeg"); */
   background-image: url("/foodlogin2.webp");
@@ -104,7 +104,7 @@ export const MiddleWrapper = styled.div`
   justify-content: center;
   /* border-radius: 20px; */
   padding: 20px 0;
-  box-shadow: 0 0 10px #4e75ff;
+  box-shadow: 0 0 10px black;
   font-weight: 500;
   @media ${breakPoints.mobile} {
     width: 60vw;

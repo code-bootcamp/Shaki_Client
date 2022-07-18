@@ -40,7 +40,7 @@ const Infotxt = styled.span`
 export default function ChatMain() {
   const [voiceOn, setVoiceOn] = useRecoilState(voiceOnState);
 
-  const onClickVoice = () => {
+  const onClickReset = () => {
     window.location.reload();
     // setVoiceOn(true);
   };
@@ -54,7 +54,7 @@ export default function ChatMain() {
       </Infotxt>
       <button
         style={{ border: "none", backgroundColor: "beige" }}
-        onClick={onClickVoice}
+        onClick={onClickReset}
       >
         문제가있나요? 클릭!
       </button>
