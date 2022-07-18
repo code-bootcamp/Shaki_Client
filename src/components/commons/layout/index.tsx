@@ -27,7 +27,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const HIDDEN_LAYOUT = ["/"];
+const HIDDEN_LAYOUT = ["/", "/faqadmin"];
 const HIDDEN_SIDEBAR: Array<string> = [];
 // 예외처리 함수
 function EditBoolean(element: any) {
