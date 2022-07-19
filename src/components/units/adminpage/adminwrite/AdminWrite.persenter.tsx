@@ -14,7 +14,7 @@ interface IAdminWriteUI {
   address: string;
   zipcode: string | number;
   imgMainUrls: string[];
-  tags: string;
+  tags: string[];
   setTags: string;
   isEdit?: boolean;
   roomdata?: any;
@@ -23,10 +23,12 @@ interface IAdminWriteUI {
   handelCompleteDaum: (addressData: any) => void;
   onChangeContents: (value: string) => void;
   onChangeImgMainUrls: (imgUrls: string, index: number) => void;
+  onClickRemoveFile: () => void;
   onClickSubmit: (data: any) => void;
 }
 
 export default function AdminWriteUI(props: IAdminWriteUI) {
+  console.log("123", props.roomdata);
   return (
     <>
       {props.isModalView && (
@@ -183,10 +185,15 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                     <UploadsMain
                       key={uuidv4()}
                       index={index}
-                      fileUrl={el.url}
-                      onChangeFileUrls={props.onChangeImgMainUrls}
+                      fileUrl={el}
+                      onChangeImgMainUrls={props.onChangeImgMainUrls}
                     />
-                    <Ad.DeleteButton type="button">사진 삭제</Ad.DeleteButton>
+                    {/* <Ad.DeleteButton
+                      type="button"
+                      // onClick={props.onClickRemoveFile}
+                    >
+                      사진 삭제
+                    </Ad.DeleteButton> */}
                   </Ad.ImageMapWrapper>
                 ))}
               </Ad.Img>

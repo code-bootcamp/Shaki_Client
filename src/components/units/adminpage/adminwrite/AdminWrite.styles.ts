@@ -12,6 +12,7 @@ export const WrapperRoot = styled.form`
   width: calc(100% - 250px);
   background-color: #f9f9f9;
   padding: 20px;
+  /* overflow-x: scroll; */
 `;
 export const Wrapper = styled.div`
   width: 1200px;
@@ -254,6 +255,7 @@ export const ImageDanger = styled.div`
 `;
 export const Img = styled.div`
   width: 100%;
+  padding-top: 10px;
   display: flex;
   justify-content: space-around;
 `;
@@ -262,7 +264,7 @@ export const DeleteButton = styled.button`
   height: 50px;
   border-radius: 40px;
   background-color: #ffffff;
-  margin-top: 100px;
+  margin-top: 40px;
   transition-duration: 1s;
   border: none;
   cursor: pointer;

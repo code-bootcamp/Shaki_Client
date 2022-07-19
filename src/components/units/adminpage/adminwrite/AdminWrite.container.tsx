@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import AdminWriteUI from "./AdminWrite.persenter";
-import { CREATE_ROOM } from "./AdminWrite.queries";
+import { CREATE_ROOM, REMOVE_FILE } from "./AdminWrite.queries";
 import * as yup from "yup";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
@@ -46,6 +46,7 @@ export default function AdminWrite(props: IAdminWrite) {
   });
 
   const [createRoom] = useMutation(CREATE_ROOM);
+  const [removeFile] = useMutation(REMOVE_FILE);
 
   const onChangeContents = (value: string) => {
     setValue("contents", value === "<p><br></p>" ? "" : value);
@@ -68,9 +69,13 @@ export default function AdminWrite(props: IAdminWrite) {
     setAddress(addressData.address);
   };
 
+  const onClickRemoveFile = () => {
+    // setImgMainUrls([""]);
+  };
+
   const onClickSubmit = async (data: any) => {
     try {
-      await createRoom({
+      const result = await createRoom({
         variables: {
           createRoom: {
             ...data,
@@ -81,8 +86,9 @@ export default function AdminWrite(props: IAdminWrite) {
           },
         },
       });
+      console.log("result", result);
       Modal.success({ content: "게시글이 등록되었습니다." });
-      router.push(`/adminpage/adminhome`);
+      router.push(`/adminpage/adminlist`);
     } catch (error) {
       Modal.error({ content: "게시글 등록 실패하였습니다." });
     }
@@ -93,13 +99,20 @@ export default function AdminWrite(props: IAdminWrite) {
       setZipcode(props.roomdata?.fetchRoom.zipcode || "");
 
     if (props.roomdata?.fetchRoom.images.length) {
-      setImgMainUrls([...props.roomdata?.fetchRoom.images]);
+      const image = props.roomdata?.fetchRoom.images.map((el) => el.url);
+      setImgMainUrls([...image]);
     }
-    if (props.roomdata?.fetchRoom.tags.length) {
-      setTags([...props.roomdata?.fetchRoom.tags]);
-    }
+    // if (props.roomdata?.fetchRoom.tags.length) {
+    //   setTags([...props.roomdata?.fetchRoom.tags]);
+    // }
   }, [props.roomdata]);
-  console.log(props.roomdata);
+
+  // const currentFiles = JSON.stringify(imgMainUrls);
+  // const defaultFiles = JSON.stringify(props.roomdata.fetchRoom.images);
+  // const isChangedFiles = currentFiles !== defaultFiles;
+
+  // const updateUseditemInput: any = {};
+  // if (isChangedFiles) updateUseditemInput.images = imgMainUrls;
 
   return (
     <AdminWriteUI
@@ -117,6 +130,7 @@ export default function AdminWrite(props: IAdminWrite) {
       // 이미지 업로드
       onChangeImgMainUrls={onChangeImgMainUrls}
       imgMainUrls={imgMainUrls}
+      onClickRemoveFile={onClickRemoveFile}
       // 태그
       tags={tags}
       setTags={setTags}

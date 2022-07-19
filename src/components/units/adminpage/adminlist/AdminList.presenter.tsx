@@ -4,7 +4,7 @@ import * as Ad from "./AdminList.styles";
 interface IAdminListUI {
   data?: any;
   onClickMoveEdit: (event: MouseEvent<HTMLDivElement>) => void;
-  onClickDelete: () => void;
+  onClickDelete: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function AdminListUI(props: IAdminListUI) {
@@ -24,17 +24,17 @@ export default function AdminListUI(props: IAdminListUI) {
 
         {props.data?.fetchRooms.map((el: any) => (
           <Ad.Row key={el.id}>
-            <Ad.ListBranch id={el.id} onClick={props.onClickMoveEdit}>
-              {el.branch.branch}
-            </Ad.ListBranch>
+            <Ad.ListBranch>{el.branch.branch}</Ad.ListBranch>
             <Ad.ListName id={el.id} onClick={props.onClickMoveEdit}>
               {el.name}
             </Ad.ListName>
-            <Ad.ListRemarks id={el.id} onClick={props.onClickMoveEdit}>
-              {el.remarks}
-            </Ad.ListRemarks>
+            <Ad.ListRemarks>{el.remarks}</Ad.ListRemarks>
 
-            <Ad.DeleteButton onClick={props.onClickDelete}>
+            <Ad.DeleteButton
+              type="button"
+              id={el.id}
+              onClick={props.onClickDelete}
+            >
               가맹점 삭제
             </Ad.DeleteButton>
           </Ad.Row>

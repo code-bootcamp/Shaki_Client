@@ -7,10 +7,12 @@ import { checkValidationImage } from "./UploadsMain.validation";
 interface IUploads {
   index: number;
   fileUrl: string;
-  onChangeFileUrls: (fileUrl: string, index: number) => void;
+  defaultFileUrl?: string;
+  onChangeImgMainUrls: (fileUrl: string, index: number) => void;
 }
 
 export default function UploadsMain(props: IUploads) {
+  console.log("111", props.fileUrl);
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
@@ -24,14 +26,15 @@ export default function UploadsMain(props: IUploads) {
     if (!file) return;
 
     const result = await uploadFile({ variables: { file } });
-    console.log(result.data.uploadFile, props.index);
-    props.onChangeFileUrls(result.data.uploadFile, props.index);
+    console.log("123123123", result.data.uploadFile, props.index);
+    props.onChangeImgMainUrls(result.data.uploadFile, props.index);
   };
 
   return (
     <UploadsMainImgUI
       fileRef={fileRef}
       fileUrl={props.fileUrl}
+      defaultFileUrl={props.defaultFileUrl}
       onClickUpload={onClickUpload}
       onChangeFile={onChangeFile}
     />
