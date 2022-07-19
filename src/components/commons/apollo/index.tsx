@@ -22,7 +22,7 @@ export default function ApolloSetting(props: IProps) {
   });
 
   const uploadLink = createUploadLink({
-    uri: "https://shaki-back.shop/graphql",
+    uri: "https://shaki-server.shop/graphql",
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
