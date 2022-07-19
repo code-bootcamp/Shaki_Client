@@ -6,11 +6,12 @@ export const UploadImage = styled.img`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  border: 1px solid #999999;
 `;
 
 export const UploadButton = styled.div`
-  width: 100%;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -23,11 +24,11 @@ export const UploadWrapper = styled.div`
 `;
 export const MainWrapper = styled.div`
   width: 100%;
+  /* padding-top: 65px; */
 `;
 export const Main = styled.img`
   width: 200px;
   height: 200px;
-  margin-top: 100px;
   cursor: pointer;
 `;
 

@@ -5,3 +5,9 @@ export const CREATE_ROOM = gql`
     createRoom(createRoom: $createRoom)
   }
 `;
+
+export const REMOVE_FILE = gql`
+  mutation removeFile($imageUrl: String!) {
+    removeFile(imageUrl: $imageUrl)
+  }
+`;
