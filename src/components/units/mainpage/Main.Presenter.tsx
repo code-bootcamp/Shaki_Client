@@ -1,10 +1,14 @@
 import * as Ma from "./Main.Style";
 import { v1 } from "uuid";
 import { Rate } from "antd";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../pages/_app";
 
 export default function MainPresenter(props: any) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <Ma.HTML>
+    <Ma.HTML theme={theme}>
       <Ma.Wrapper>
         {/* <Ma.ImageWrapper1>
           <Ma.ImageHeader>
