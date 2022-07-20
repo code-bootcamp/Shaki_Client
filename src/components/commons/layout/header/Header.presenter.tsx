@@ -1,3 +1,4 @@
+import DarkModeToggle from "./darkmodetoggle/darkmode";
 import * as THS from "./Header.styles";
 
 interface IHeaderType {
@@ -88,6 +89,7 @@ export default function HeaderUI(props: IHeaderType) {
             </THS.Button>
           </div>
         )}
+        <DarkModeToggle />
       </THS.BtnWrapper>
     </THS.Wrapper>
   );
