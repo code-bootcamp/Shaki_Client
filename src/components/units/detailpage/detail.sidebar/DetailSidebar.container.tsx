@@ -1,77 +1,133 @@
 import React, { useEffect, useState } from "react";
 import { getTime } from "../../../commons/getDate";
 import DetailSidebarUI from "./DetailSidebar.presenter";
-import { CREATE_PAYMENT, FETCH_LOGIN_USER } from "./DetailSibebar.queries";
-import { useMutation, useQuery } from "@apollo/client";
+import {
+  CREATE_PAYMENT,
+  FETCH_LOGIN_USER,
+  FETCH_RESERVATION,
+} from "./DetailSibebar.queries";
+import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { useRecoilState } from "recoil";
+import { reservedState } from "../../../../commons/store";
 
 declare const window: typeof globalThis & {
   IMP: any;
 };
 
 interface timeTable {
-  time: string;
+  start_time: string;
+  end_time: string;
   reserved: boolean;
 }
 
 const hour: Array<timeTable> = [
-  { time: "09:00", reserved: false },
-  { time: "10:00", reserved: false },
-  { time: "11:00", reserved: false },
-  { time: "12:00", reserved: false },
-  { time: "13:00", reserved: false },
-  { time: "14:00", reserved: false },
-  { time: "15:00", reserved: false },
-  { time: "16:00", reserved: false },
-  { time: "17:00", reserved: false },
-  { time: "18:00", reserved: false },
-  { time: "19:00", reserved: false },
-  { time: "20:00", reserved: false },
-  { time: "21:00", reserved: false },
-  { time: "22:00", reserved: false },
+  { start_time: "09:00", end_time: "10:00", reserved: false },
+  { start_time: "10:00", end_time: "11:00", reserved: false },
+  { start_time: "11:00", end_time: "12:00", reserved: false },
+  { start_time: "12:00", end_time: "13:00", reserved: false },
+  { start_time: "13:00", end_time: "14:00", reserved: false },
+  { start_time: "14:00", end_time: "15:00", reserved: false },
+  { start_time: "15:00", end_time: "16:00", reserved: false },
+  { start_time: "16:00", end_time: "17:00", reserved: false },
+  { start_time: "17:00", end_time: "18:00", reserved: false },
+  { start_time: "18:00", end_time: "19:00", reserved: false },
+  { start_time: "19:00", end_time: "20:00", reserved: false },
+  { start_time: "20:00", end_time: "21:00", reserved: false },
+  { start_time: "21:00", end_time: "22:00", reserved: false },
+  { start_time: "22:00", end_time: "23:00", reserved: false },
 ];
 
 export default function DetailSidebarContainer() {
   const router = useRouter();
 
-  const [createPayment] = useMutation(CREATE_PAYMENT);
-  const { data: user } = useQuery(FETCH_LOGIN_USER);
-
   const [date, setDate] = useState<string>("");
   const [guest, setGuest] = useState<number>(1);
-  const [ToggleGuest, setToggleGuest] = useState<boolean>(false);
   const [price, setPrice] = useState<number>(0);
-
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
   const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
+  const [ToggleGuest, setToggleGuest] = useState<boolean>(false);
+  const [startTime, setStartTime] = useState<string>("");
+  const [endTime, setEndTime] = useState<string>("");
+  const [timeToggle, setTimeToggle] = useState<boolean>(false);
+  const [reserved, setReserved] = useRecoilState(reservedState);
+  const client = useApolloClient();
+  const [clicked, setClicked] = useState([]);
 
-  const onClickSetStartTime = (event: React.MouseEvent<HTMLDivElement>) => {
-    setStartTime((event.target as HTMLDivElement).id);
-    console.log(startTime);
+  const [createPayment] = useMutation(CREATE_PAYMENT);
 
-    setChoiceEndPoint(true);
-  };
-
-  const onClickSetEndTime = (event: React.MouseEvent<HTMLDivElement>) => {
-    if ((event.target as HTMLDivElement).id < startTime) {
-      alert("예약시작 이후의 시간을 골라주세요");
-      return;
+  const onClickToggleTime = (event: React.MouseEvent<HTMLButtonElement>) => {
+    hour[Number(event.currentTarget.id)].reserved = true;
+    // console.log(hour);
+    if (clicked === []) {
+      const newClicked = [];
+      newClicked.push((event.target as HTMLButtonElement).value);
+      setClicked(newClicked);
+      setStartTime(clicked[0].slice(0, 2));
+      setEndTime(clicked.at(-1).slice(6));
+      setPrice(20000 * clicked.length);
     } else {
-      setEndTime((event.target as HTMLDivElement).id);
+      const newClicked = [...clicked];
+      if (newClicked.includes((event.target as HTMLButtonElement).value)) {
+        hour[Number(event.currentTarget.id)].reserved = false;
+        setClicked(newClicked.filter((el) => el !== event.target.value));
+      } else {
+        newClicked.push((event.target as HTMLButtonElement).value);
+        // newClicked.push(event.target.id);
+        // .sort(
+        //   (el) =>
+        //     function (a, b) {
+        //       return a.slice(0, 2) - b.slice(0, 2);
+        //     }
+        // );
+        setClicked(newClicked);
+        setStartTime(clicked[0]?.slice(0, 5));
+        setEndTime(clicked.at(-1)?.slice(6));
 
-      setChoiceEndPoint(false);
-      setToggleGuest((prev) => !prev);
+        // console.log(clicked, event.target);
+      }
     }
   };
 
+  // const onClickSetStartTime = (event: React.MouseEvent<HTMLDivElement>) => {
+  //   setStartTime((event.target as HTMLDivElement).id);
+
+  //   setChoiceEndPoint(false);
+  // };
+
+  // const onClickSetEndTime = (event: React.MouseEvent<HTMLDivElement>) => {
+  //   if ((event.target as HTMLDivElement).id < startTime) {
+  //     alert("예약시작 이후의 시간을 골라주세요");
+  //     return;
+  //   } else {
+  //     setEndTime((event.target as HTMLDivElement).id);
+
+  //     setChoiceEndPoint(false);
+  //     setToggleGuest((prev) => !prev);
+  //   }
+  // };
+
+  const onClickCancel = () => {
+    setToggleGuest((prev) => !prev);
+  };
+
   useEffect(() => {
-    const duration =
-      Number(endTime.replace(":", "")) / 100 -
-      Number(startTime.replace(":", "")) / 100;
-    setPrice(duration * 20000);
-  }, [endTime]);
+    setPrice(clicked.length * 20000);
+    clicked.sort(function (a, b) {
+      return a.slice(0, 2) - b.slice(0, 2);
+    });
+    setStartTime(clicked.length === 0 ? "" : clicked[0].slice(0, 5));
+    setEndTime(
+      clicked.length === 0 ? "" : clicked[clicked.length - 1].slice(6)
+    );
+    // console.log(endTime);
+    // console.log(
+    //   `start_time: ${clicked[0]?.slice(0, 5)}`,
+    //   `end_time: ${clicked.at(-1)?.slice(6)}`
+    // );
+    // console.log(startTime, endTime);
+    // console.log(clicked);
+  }, [clicked]);
 
   // 게스트 초기값
   const onIncrease = () => {
@@ -92,9 +148,20 @@ export default function DetailSidebarContainer() {
   const MaxDay = new Date();
   MaxDay.setDate(MaxDay.getDate() + 30);
 
-  const onChangeDate = (newValue: string) => {
+  const onChangeDate = async (newValue: string) => {
     const date = getTime(newValue);
     setDate(date);
+
+    const reserved = await client.query({
+      query: FETCH_RESERVATION,
+      variables: {
+        room: router.query.detailid,
+        date: date,
+      },
+    });
+    const reservedTime = reserved.data.fetchReservation;
+    setReserved(reservedTime);
+    // console.log(reserved);
   };
 
   const onClickTime = () => {
@@ -119,7 +186,7 @@ export default function DetailSidebarContainer() {
         // callback
         if (rsp.success) {
           try {
-            createPayment({
+            const result = createPayment({
               variables: {
                 createPaymentInput: {
                   roomId: router.query.detailid,
@@ -128,6 +195,7 @@ export default function DetailSidebarContainer() {
                   end_time: endTime,
                   amount: price,
                   guest: guest,
+                  point: (price * 1) / 11,
                 },
               },
             });
@@ -171,10 +239,14 @@ export default function DetailSidebarContainer() {
         ToggleGuest={ToggleGuest}
         startTime={startTime}
         endTime={endTime}
-        onClickSetStartTime={onClickSetStartTime}
-        onClickSetEndTime={onClickSetEndTime}
+        onClickToggleTime={onClickToggleTime}
+        // onClickSetStartTime={onClickSetStartTime}
+        // onClickSetEndTime={onClickSetEndTime}
         choiceEndPoint={choiceEndPoint}
         requestPay={requestPay}
+        onClickCancel={onClickCancel}
+        clicked={clicked}
+        reserved={reserved}
       />
     </>
   );

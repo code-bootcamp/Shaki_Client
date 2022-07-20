@@ -12,3 +12,8 @@ export const voiceOnState = atom({
   key: `voiceOnstate/${v1()}`,
   default: false,
 });
+
+export const reservedState = atom({
+  key: `reservedState/${v1()}`,
+  default: [],
+});

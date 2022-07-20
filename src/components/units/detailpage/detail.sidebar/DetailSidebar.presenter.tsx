@@ -4,6 +4,11 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -23,11 +28,23 @@ interface IDetailSide {
   startTime: string;
   endTime: string;
   choiceEndPoint: boolean;
-  hour: { time: string; reserved: boolean }[];
-  onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
+  hour: { start_time: string; end_time: string; reserved: boolean }[];
+  onClickToggleTime: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  // onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
+  // onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   requestPay: () => any;
+  onClickCancel: () => any;
+  clicked: string[];
 }
+
+// const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+//   "& .MuiBadge-badge": {
+//     right: -3,
+//     top: 13,
+//     border: 2px solid ${theme.palette.background.paper},
+//     padding: "0 4px",
+//   },
+// }));
 
 export default function DetailSidebarUI(props: IDetailSide) {
   return (
@@ -56,23 +73,29 @@ export default function DetailSidebarUI(props: IDetailSide) {
           {props.ToggleGuest && (
             <DS.TimesWrapper>
               <DS.TimeHead style={{ width: "100%" }}>
-                {props.choiceEndPoint
-                  ? "이용 종료시간을 선택 해주세요"
-                  : "이용시작시간을 선택 해주세요"}
+                이용시간을 확인해주세요
               </DS.TimeHead>
               {props.hour.map((el, i: number) => (
                 <DS.TimeBox
-                  id={el.time}
+                  disabled={props.reserved.includes(el) && false}
+                  // disabled
+                  reserved={el.reserved}
+                  id={String(i)}
                   onClick={
-                    props.choiceEndPoint
-                      ? props.onClickSetEndTime
-                      : props.onClickSetStartTime
+                    props.onClickToggleTime
+                    // props.choiceEndPoint
+                    //   ? props.onClickSetEndTime
+                    //   : props.onClickSetStartTime
                   }
-                  key={i}
+                  key={uuidv4()}
+                  value={el.start_time + "" + el.end_time}
                 >
-                  {el.time}
+                  {el.start_time} ~ {el.end_time}
                 </DS.TimeBox>
               ))}
+              <div onClick={props.onClickCancel} style={{ width: "100%" }}>
+                닫기
+              </div>
               {/* <DS.BoxWrapper>
                   <DS.blueBox type="checkbox" /> 시작시간
                   <DS.redBox type="checkbox" /> 종료시간
@@ -114,6 +137,12 @@ export default function DetailSidebarUI(props: IDetailSide) {
         </DS.CheckInWrapper>
         <DS.SubmitBtn onClick={props.requestPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
+
+      {/* <IconButton aria-label="cart">
+      <StyledBadge badgeContent={3} color="secondary">
+        <ShoppingCartIcon />
+      </StyledBadge>
+    </IconButton> */}
     </DS.Wrapper>
   );
 }
