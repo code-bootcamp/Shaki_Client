@@ -1,8 +1,11 @@
 import { css } from "@emotion/react";
 import { Theme } from "../styles/theme";
+import emotionReset from "emotion-reset";
 
 export const GlobalStyle = (props: Theme) =>
   css`
+    ${emotionReset},
+
     * {
       margin: 0;
       box-sizing: border-box;
