@@ -131,7 +131,7 @@ export const CheckInTime = styled.div`
 // 시간선택시 나오는 Div
 export const TimesWrapper = styled.div`
   position: absolute;
-  top: 220px;
+  top: 80px;
   background-color: #d9dbe3;
   border-radius: 10px;
   padding: 10px;
@@ -153,16 +153,26 @@ export const TimeHead = styled.div`
   font-weight: 600;
 `;
 
-export const TimeBox = styled.div`
+export const TimeBox = styled.button`
   font-size: 14px;
   font-weight: 500;
-  background-color: #f6f7fb;
+  /* background-color: #f6f7fb; */
+  background-color: ${(props) => (props.reserved ? "#849cf0" : "#f6f7fb")};
   padding: 3px;
   border-radius: 3px;
+  border: none;
   cursor: pointer;
   :hover {
     background-color: cornflowerblue;
     color: white;
+  }
+  :disabled {
+    background-color: gray;
+    :hover {
+      background-color: none;
+      color: black;
+      cursor: initial;
+    }
   }
 `;
 
@@ -170,19 +180,6 @@ export const BoxWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-
-export const blueBox = styled.input`
-  width: 14px;
-  height: 14px;
-  margin-right: 5px;
-`;
-
-export const redBox = styled.input`
-  width: 14px;
-  height: 14px;
-  margin-left: 10px;
-  margin-right: 5px;
 `;
 
 export const CheckGuest = styled.div`
@@ -220,3 +217,34 @@ export const PriceText = styled.div`
   font-size: 20px;
   color: #4167ee;
 `;
+
+export const DragList = styled.div`
+  height: 200px;
+  width: 100px;
+  border: 1px solid blue;
+`;
+
+export const DragZone = styled.div`
+  height: 400px;
+  width: 500px;
+  border: 1px solid lightcoral;
+`;
+
+let DumDum = [
+  {
+    id: 1,
+    name: "기본세팅",
+  },
+  {
+    id: 2,
+    name: "카놀라유",
+  },
+  {
+    id: 3,
+    name: "에어프라이",
+  },
+  {
+    id: 4,
+    name: "가스레인지",
+  },
+];
