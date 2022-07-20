@@ -6,24 +6,37 @@ export const CREATE_REVIEW = gql`
   }
 `;
 
-export const FETCH_ROOM = gql`
-  query fetchRoom($id: String!) {
-    fetchRoom(id: $id) {
-      tags {
-        tag
-      }
-      name
-      remarks
-      contents
-      address
-      reviews {
-        id
-        star
-        user {
-          name
-        }
-        content
+export const FETCH_REVIEWS = gql`
+  query fetchReviews($pageNum: Float!, $roomId: String!) {
+    fetchReviews(pageNum: $pageNum, roomId: $roomId) {
+      id
+      content
+      star
+      user {
+        name
       }
     }
   }
 `;
+
+// export const FETCH_ROOM = gql`
+//   query fetchRoom($id: String!) {
+//     fetchRoom(id: $id) {
+//       tags {
+//         tag
+//       }
+//       name
+//       remarks
+//       contents
+//       address
+//       reviews {
+//         id
+//         star
+//         user {
+//           name
+//         }
+//         content
+//       }
+//     }
+//   }
+// `;
