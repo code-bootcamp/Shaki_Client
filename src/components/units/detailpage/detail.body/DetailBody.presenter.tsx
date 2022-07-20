@@ -12,12 +12,13 @@ interface Iprops {
   setStar: any;
   data: {
     fetchRoom: {
-      name: String;
-      remarks: String;
-
+      name: string;
+      remarks: string;
       contents: string;
+      address: string;
     };
   };
+  loadFunc: () => void;
 }
 
 export default function DetailBodyUI(props: Iprops) {
@@ -43,10 +44,6 @@ export default function DetailBodyUI(props: Iprops) {
           }}
         />
       )}
-      {/* <DB.SmallLabel>기타 주의사항</DB.SmallLabel>
-      <div>
-        실내에서의 흡연과 애완동물의 출입은 삼가해 주시면 감사하겠습니다.
-      </div> */}
       <DB.Divedline2 />
       <DB.CommentHead>
         <DB.Title>후기</DB.Title>
@@ -56,6 +53,7 @@ export default function DetailBodyUI(props: Iprops) {
           visible={props.isModalVisible}
           onOk={props.handleOk}
           onCancel={props.handleCancel}
+          destroyOnClose={true}
         >
           {/* 별점 */}
           <Rate onChange={props.setStar} />
@@ -66,12 +64,17 @@ export default function DetailBodyUI(props: Iprops) {
         </Modal>
       </DB.CommentHead>
       <DB.CommentWrapper>
-        <DB.CommentBox>
-          {props.data?.fetchRoom.reviews.map((el, i) => (
+        <DB.CommentBox
+          padStart={0}
+          loadMore={props.loadFunc}
+          hasMore={true}
+          useWindow={true}
+        >
+          {props.reviewData?.fetchReviews.map((el, i) => (
             <DB.Comment key={el.id}>
               <DB.CommentTitle>
                 <DB.SmallLabel>{el.user.name}</DB.SmallLabel>
-                <Rate value={el.star} />
+                <Rate value={el.star} disabled />
               </DB.CommentTitle>
               <DB.Example>{el.content}</DB.Example>
             </DB.Comment>

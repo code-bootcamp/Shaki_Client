@@ -29,6 +29,7 @@ function RoomArray(data: any, asPath: any) {
 
 export default function DetailNavUI(props: IDetailNavUI) {
   let Rooms: any[string];
+  console.log(props.data.fetchBranches);
   Rooms = RoomArray(props.data.fetchBranches, props.router.asPath);
 
   return (
