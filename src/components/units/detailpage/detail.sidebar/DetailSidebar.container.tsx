@@ -57,8 +57,8 @@ export default function DetailSidebarContainer() {
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
   const onClickToggleTime = (event: React.MouseEvent<HTMLButtonElement>) => {
-    hour[Number(event.currentTarget.id)].reserved = true;
     // console.log(hour);
+    hour[Number(event.currentTarget.id)].reserved = true;
     if (clicked === []) {
       const newClicked = [];
       newClicked.push((event.target as HTMLButtonElement).value);
@@ -73,13 +73,6 @@ export default function DetailSidebarContainer() {
         setClicked(newClicked.filter((el) => el !== event.target.value));
       } else {
         newClicked.push((event.target as HTMLButtonElement).value);
-        // newClicked.push(event.target.id);
-        // .sort(
-        //   (el) =>
-        //     function (a, b) {
-        //       return a.slice(0, 2) - b.slice(0, 2);
-        //     }
-        // );
         setClicked(newClicked);
         setStartTime(clicked[0]?.slice(0, 5));
         setEndTime(clicked.at(-1)?.slice(6));
@@ -89,23 +82,7 @@ export default function DetailSidebarContainer() {
     }
   };
 
-  // const onClickSetStartTime = (event: React.MouseEvent<HTMLDivElement>) => {
-  //   setStartTime((event.target as HTMLDivElement).id);
-
-  //   setChoiceEndPoint(false);
-  // };
-
-  // const onClickSetEndTime = (event: React.MouseEvent<HTMLDivElement>) => {
-  //   if ((event.target as HTMLDivElement).id < startTime) {
-  //     alert("예약시작 이후의 시간을 골라주세요");
-  //     return;
-  //   } else {
-  //     setEndTime((event.target as HTMLDivElement).id);
-
-  //     setChoiceEndPoint(false);
-  //     setToggleGuest((prev) => !prev);
-  //   }
-  // };
+  console.log(clicked);
 
   const onClickCancel = () => {
     setToggleGuest((prev) => !prev);
@@ -120,13 +97,6 @@ export default function DetailSidebarContainer() {
     setEndTime(
       clicked.length === 0 ? "" : clicked[clicked.length - 1].slice(6)
     );
-    // console.log(endTime);
-    // console.log(
-    //   `start_time: ${clicked[0]?.slice(0, 5)}`,
-    //   `end_time: ${clicked.at(-1)?.slice(6)}`
-    // );
-    // console.log(startTime, endTime);
-    // console.log(clicked);
   }, [clicked]);
 
   // 게스트 초기값
@@ -139,6 +109,10 @@ export default function DetailSidebarContainer() {
     } else {
       setGuest((prev: number) => prev - 1);
     }
+  };
+
+  const onClickTime = () => {
+    setToggleGuest((prev) => !prev);
   };
 
   // 다음날짜 구하기
@@ -163,10 +137,13 @@ export default function DetailSidebarContainer() {
     setReserved(reservedTime);
     // console.log(reserved);
   };
+  const reservedStart = reserved[0]?.slice(0, 2);
+  const reservedEnd = reserved[0]?.slice(7, 10);
+  const reservedArr = [];
 
-  const onClickTime = () => {
-    setToggleGuest((prev) => !prev);
-  };
+  for (let i = Number(reservedStart); i <= Number(reservedEnd); i++) {
+    reservedArr.push(`${i}:00 ~ ${i + 1}:00`);
+  }
 
   const requestPay = () => {
     const IMP = window.IMP; // 생략 가능
@@ -195,7 +172,7 @@ export default function DetailSidebarContainer() {
                   end_time: endTime,
                   amount: price,
                   guest: guest,
-                  point: (price * 1) / 11,
+                  point: price / 10,
                 },
               },
             });
@@ -240,13 +217,12 @@ export default function DetailSidebarContainer() {
         startTime={startTime}
         endTime={endTime}
         onClickToggleTime={onClickToggleTime}
-        // onClickSetStartTime={onClickSetStartTime}
-        // onClickSetEndTime={onClickSetEndTime}
         choiceEndPoint={choiceEndPoint}
         requestPay={requestPay}
         onClickCancel={onClickCancel}
         clicked={clicked}
         reserved={reserved}
+        reservedArr={reservedArr}
       />
     </>
   );

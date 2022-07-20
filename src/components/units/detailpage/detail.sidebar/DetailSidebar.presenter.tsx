@@ -77,9 +77,14 @@ export default function DetailSidebarUI(props: IDetailSide) {
               </DS.TimeHead>
               {props.hour.map((el, i: number) => (
                 <DS.TimeBox
-                  disabled={props.reserved.includes(el) && false}
+                  disabled={
+                    props.reservedArr.includes(
+                      `${el.start_time} ~ ${el.end_time}`
+                    ) && true
+                  }
                   // disabled
                   reserved={el.reserved}
+                  value={el.start_time + "~" + el.end_time}
                   id={String(i)}
                   onClick={
                     props.onClickToggleTime
@@ -88,7 +93,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
                     //   : props.onClickSetStartTime
                   }
                   key={uuidv4()}
-                  value={el.start_time + "" + el.end_time}
                 >
                   {el.start_time} ~ {el.end_time}
                 </DS.TimeBox>
