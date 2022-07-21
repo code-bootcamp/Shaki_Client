@@ -32,32 +32,35 @@ export const ThemeContext = createContext<ContextProps>({
 function MyApp({ Component, pageProps }: AppProps) {
   const { theme, toggleTheme } = useDarkMode();
   function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    const script = document.createElement("script");
+    useEffect(() => {
+      const script = document.createElement("script");
 
-    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
-    document.head.appendChild(script);
-    script.onload = () => {
-      window.Kakao.init("357c3087451d43e05fe837f631665a97");
-      window.Kakao.isInitialized();
-    };
-  }, []);
+      script.src = "https://developers.kakao.com/sdk/js/kakao.js";
+      document.head.appendChild(script);
+      script.onload = () => {
+        window.Kakao.init("357c3087451d43e05fe837f631665a97");
+        window.Kakao.isInitialized();
+      };
+    }, []);
 
-  return (
-    <RecoilRoot>
-      <Head></Head>
-      <ApolloSetting>
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-          <Global
-            styles={GlobalStyle(theme === lightTheme ? lightTheme : darkTheme)}
-          />
-          <LayoutPage>
-            <Component {...pageProps} />
-          </LayoutPage>
-        </ThemeContext.Provider>
-      </ApolloSetting>
-    </RecoilRoot>
-  );
+    return (
+      <RecoilRoot>
+        <Head></Head>
+        <ApolloSetting>
+          <ThemeContext.Provider value={{ theme, toggleTheme }}>
+            <Global
+              styles={GlobalStyle(
+                theme === lightTheme ? lightTheme : darkTheme
+              )}
+            />
+            <LayoutPage>
+              <Component {...pageProps} />
+            </LayoutPage>
+          </ThemeContext.Provider>
+        </ApolloSetting>
+      </RecoilRoot>
+    );
+  }
 }
 
 export default MyApp;
