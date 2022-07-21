@@ -9,10 +9,21 @@ import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Modal } from "antd";
+import DragPage from "./drag&drop";
 
 declare const window: typeof globalThis & {
   IMP: any;
 };
+
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: "2px solid ${theme.palette.background.paper}",
+    padding: "0 4px",
+  },
+}));
 
 interface IDetailSide {
   price: number;
@@ -35,6 +46,7 @@ interface IDetailSide {
   requestPay: () => any;
   onClickCancel: () => any;
   clicked: string[];
+  setSidePrice: any;
 }
 
 // const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
@@ -134,19 +146,31 @@ export default function DetailSidebarUI(props: IDetailSide) {
           </DS.TimeRange>
         </DS.TimeWrapper>
         <DS.CheckInWrapper>
+          {props.isModalVisible && (
+            <Modal
+              visible={true}
+              onOk={props.handleOk}
+              onCancel={props.handleCancel}
+              footer={[<div>제출</div>]}
+              bodyStyle={{ width: "1000px" }}
+            >
+              <DragPage setSidePrice={props.setSidePrice} />
+            </Modal>
+          )}
+
           <DS.Label>가격</DS.Label>
           <DS.PriceWrapper>
             <DS.PriceText>{props.price}</DS.PriceText>원
           </DS.PriceWrapper>
         </DS.CheckInWrapper>
+        <IconButton aria-label="cart">
+          <DS.Cart onClick={props.onClickCartOpen}>추가옵션 예약하기</DS.Cart>
+          <StyledBadge badgeContent={3} color="secondary">
+            <ShoppingCartIcon />
+          </StyledBadge>
+        </IconButton>
         <DS.SubmitBtn onClick={props.requestPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
-
-      {/* <IconButton aria-label="cart">
-      <StyledBadge badgeContent={3} color="secondary">
-        <ShoppingCartIcon />
-      </StyledBadge>
-    </IconButton> */}
     </DS.Wrapper>
   );
 }

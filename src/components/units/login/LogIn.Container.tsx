@@ -4,11 +4,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { LOG_IN } from "./LogIn.Mutation";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 import Head from "next/head";
+import { getAccessToken } from "../../../commons/library/getAccessToken";
 
 const schema = yup.object({
   email: yup.string().required(),
@@ -24,6 +25,19 @@ export default function LogInContainer() {
     mode: "onChange",
     resolver: yupResolver(schema),
   });
+
+  const RESTORE_ACCESS_TOKEN = gql`
+    mutation restoreAccessToken {
+      restoreAccessToken
+    }
+  `;
+
+  const [restoreToken] = useMutation(RESTORE_ACCESS_TOKEN);
+
+  const onClick = async () => {
+    const result = await restoreToken;
+    console.log(result);
+  };
 
   const [logInUser] = useMutation(LOG_IN);
   const [adminOn, setAdminOn] = useState(false);
@@ -43,7 +57,6 @@ export default function LogInContainer() {
       });
       const accessToken = result.data.login;
       setAccessToken(accessToken);
-      localStorage.setItem("accessToken", accessToken);
       router.push("/mypage");
     } catch (error: any) {
       alert(error.message);
@@ -112,6 +125,7 @@ export default function LogInContainer() {
         onClickKakaoLogIn={onClickKakaoLogIn}
         onClickNaverLogIn={onClickNaverLogIn}
         onClickGoogleLogIn={onClickGoogleLogIn}
+        onClick={onClick}
       />
     </>
   );

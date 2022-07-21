@@ -4,7 +4,26 @@ import InfiniteScroll from "react-infinite-scroller";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../pages/_app";
 
-export default function MypageUI(props: any) {
+type payment = {
+  id: string;
+  date: string;
+  start_time: string;
+  end_time: string;
+  amount: number;
+};
+
+interface IMypageprops {
+  data: {
+    fetchLoginUser: {
+      __typename?: "User";
+      name: string;
+      point: number;
+      payment: payment;
+    };
+  };
+}
+
+export default function MypageUI(props: IMypageprops) {
   const { theme } = useContext(ThemeContext);
   return (
     <My.HTML theme={theme}>
@@ -16,7 +35,9 @@ export default function MypageUI(props: any) {
               <My.UserPicture src="/mypage/profile.png" />
             </My.UserPictureWrapper>
             <My.UserNameWrapper>
-              <My.UserName>홍길동 님</My.UserName>
+              <My.UserName>
+                {props.data ? `${props.data.fetchLoginUser.name}님` : "게스트"}
+              </My.UserName>
             </My.UserNameWrapper>
           </My.UserWrapper>
 
@@ -28,7 +49,9 @@ export default function MypageUI(props: any) {
                 <My.PointLabel>적립금</My.PointLabel>
               </My.PointImgWrapper>
               <My.PointNumberWrapper>
-                <My.PointNumber>0</My.PointNumber>
+                <My.PointNumber>
+                  {props.data ? props.data.fetchLoginUser.point : 0}
+                </My.PointNumber>
               </My.PointNumberWrapper>
             </My.PointWrapper>
 

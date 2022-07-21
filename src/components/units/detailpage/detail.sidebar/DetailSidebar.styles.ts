@@ -230,6 +230,13 @@ export const DragZone = styled.div`
   border: 1px solid lightcoral;
 `;
 
+export const Cart = styled.div`
+  cursor: initial;
+  :hover {
+    background-color: white;
+  }
+`;
+
 let DumDum = [
   {
     id: 1,
