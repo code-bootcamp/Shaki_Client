@@ -1,4 +1,6 @@
 import { Rate } from "antd";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 import * as DH from "./DetailHead.styles";
 
 // data 타입잡기
@@ -8,8 +10,9 @@ interface IDetailHeaderUI {
 }
 
 export default function DetailHeaderUI(props: IDetailHeaderUI) {
+  const { theme } = useContext(ThemeContext);
   return (
-    <DH.Wrapper>
+    <DH.Wrapper theme={theme}>
       <DH.HeadInfoWrapper>
         <DH.HeadInfo>
           {/* 별점 Fetch 받아온값 연결해야함. value*/}

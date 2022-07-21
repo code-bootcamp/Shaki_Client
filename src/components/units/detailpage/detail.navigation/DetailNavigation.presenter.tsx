@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 import * as DN from "./DetailNavigation.styles";
 
 interface IDetailNavUI {
@@ -28,12 +30,14 @@ function RoomArray(data: any, asPath: any) {
 }
 
 export default function DetailNavUI(props: IDetailNavUI) {
+  const { theme } = useContext(ThemeContext);
+
   let Rooms: any[string];
   // console.log(props.data.fetchBranches, props.router.query.detailid);
   Rooms = RoomArray(props.data.fetchBranches, props.router.query.detailid);
 
   return (
-    <DN.Wrapper>
+    <DN.Wrapper theme={theme}>
       <DN.MenuWrapper>
         {Rooms[0].map((el: any, i: number) => (
           <DN.MenuName

@@ -3,6 +3,8 @@ import * as DB from "./DetailBody.styles";
 import { Modal } from "antd";
 import { Rate } from "antd";
 import Dompurify from "dompurify";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 
 interface Iprops {
   isModalVisible: boolean;
@@ -22,6 +24,7 @@ interface Iprops {
 }
 
 export default function DetailBodyUI(props: Iprops) {
+  const { theme } = useContext(ThemeContext);
   return (
     <DB.Wrapper>
       <DB.Divedline />
@@ -63,7 +66,7 @@ export default function DetailBodyUI(props: Iprops) {
           />
         </Modal>
       </DB.CommentHead>
-      <DB.CommentWrapper>
+      <DB.CommentWrapper theme={theme}>
         <DB.CommentBox
           padStart={0}
           loadMore={props.loadFunc}

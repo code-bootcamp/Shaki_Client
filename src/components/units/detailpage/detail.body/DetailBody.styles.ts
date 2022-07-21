@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 import InfiniteScroll from "react-infinite-scroller";
+import { Theme } from "../../../../commons/styles/theme";
+
+interface ThemeProps {
+  theme: Theme;
+}
+
 export const Wrapper = styled.div`
   width: 814px;
   @media ${breakPoints.mobile} {
@@ -8,7 +14,6 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
   }
 `;
 
@@ -85,13 +90,16 @@ export const PrecautionsMenu = styled.div`
 `;
 
 // 댓글
-export const CommentWrapper = styled.div`
+export const CommentWrapper = styled.div<ThemeProps>`
   width: 814px;
   height: 450px;
   overflow: auto;
   background: #f6f7fb;
   border-radius: 10px;
   padding: 20px;
+  background: ${({ theme }) => theme.SUBBACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
   @media ${breakPoints.mobile} {
     width: 80%;
     padding: 10px;
