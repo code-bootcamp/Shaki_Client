@@ -70,7 +70,7 @@ export default function AdminWrite(props: IAdminWrite) {
   };
 
   const onClickRemoveFile = () => {
-    // setImgMainUrls([""]);
+    setImgMainUrls(["", "", "", "", ""]);
   };
 
   const onClickSubmit = async (data: any) => {
@@ -102,9 +102,11 @@ export default function AdminWrite(props: IAdminWrite) {
       const image = props.roomdata?.fetchRoom.images.map((el: any) => el.url);
       setImgMainUrls([...image]);
     }
-    // if (props.roomdata?.fetchRoom.images.length) {
-    //   setImgMainUrls([images]);
-    // }
+
+    if (props.roomdata?.fetchRoom.tags.length) {
+      const tags = props.roomdata?.fetchRoom.tags.map((el: any) => el.tag);
+      setTags([...tags]);
+    }
   }, [props.roomdata]);
 
   console.log("이미지", imgMainUrls);

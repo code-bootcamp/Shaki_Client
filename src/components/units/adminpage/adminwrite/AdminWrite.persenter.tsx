@@ -29,6 +29,7 @@ interface IAdminWriteUI {
 }
 
 export default function AdminWriteUI(props: IAdminWriteUI) {
+  console.log("roomdata", props.roomdata);
   return (
     <>
       {props.isModalView && (
@@ -98,9 +99,8 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
               <TagPage
                 tags={props.tags}
                 setTags={props.setTags}
-                defaultValue={props.roomdata?.fetchRoom.tags}
+                defaultValue={props.roomdata?.fetchRoom.tags.tag}
               />
-              <Ad.Error>{props.formState.errors.tags?.message}</Ad.Error>
             </Ad.TagsWrapper>
 
             <Ad.BodyFirstWrapper>
@@ -192,12 +192,6 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
                       fileUrl={el}
                       onChangeImgMainUrls={props.onChangeImgMainUrls}
                     />
-                    {/* <Ad.DeleteButton
-                      type="button"
-                      // onClick={props.onClickRemoveFile}
-                    >
-                      사진 삭제
-                    </Ad.DeleteButton> */}
                   </Ad.ImageMapWrapper>
                 ))}
               </Ad.Img>

@@ -22,26 +22,31 @@ export const HeadWrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  position: relative;
   display: inline-block;
   font-weight: 800;
   &:hover .dropdownItem {
-    display: block;
+    visibility: visible;
   }
 `;
 
 export const HeaderItem = styled.div`
+  height: 25px;
   display: flex;
   justify-content: center;
   font-weight: 800;
+  position: relative;
+  cursor: pointer;
 `;
 
 export const RoomWrapper = styled.div`
+  width: 100px;
+  text-align: center;
   font-size: 10px;
   font-weight: 300;
-  display: none;
+  visibility: hidden;
   position: absolute;
   z-index: 1;
+  top: 25px;
 `;
 
 export const RoomItem = styled.div`

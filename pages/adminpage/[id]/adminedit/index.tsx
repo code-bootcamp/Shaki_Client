@@ -29,6 +29,17 @@ const FETCH_ROOM = gql`
     }
   }
 `;
+const FETCH_ROOMS = gql`
+  query fetchRooms {
+    fetchRooms {
+      id
+      branch {
+        branch
+      }
+      name
+    }
+  }
+`;
 
 const SideBar = styled.div`
   display: flex;
@@ -44,6 +55,15 @@ export default function AdminEditPage() {
       id: router.query.id,
     },
   });
+  const onClickOpenEdit = (event) => {
+    router.push(`/adminpage/${event.currentTarget.id}/adminedit`);
+  };
+
+  const { data: roomsdata } = useQuery(FETCH_ROOMS, {
+    variables: {
+      id: router.query.id,
+    },
+  });
 
   return loading ? (
     <></>
@@ -52,7 +72,12 @@ export default function AdminEditPage() {
       <AdminHeaderPage />
       <SideBar>
         <AdminSideBarUI />
-        <AdminEditPresenter roomdata={data} isEdit={true} />;
+        <AdminEditPresenter
+          roomsdata={roomsdata}
+          roomdata={data}
+          isEdit={true}
+          onClickOpenEdit={onClickOpenEdit}
+        />
       </SideBar>
     </>
   );
