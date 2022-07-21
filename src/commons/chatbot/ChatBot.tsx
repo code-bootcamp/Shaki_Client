@@ -167,7 +167,7 @@ export default function ChatBox() {
           steps={steps}
           speechSynthesis={{ ...speechConfig }}
           {...config}
-          headerTitle="💻 관리자 봇"
+          headerTitle=""
         />
       </ThemeProvider>
     </>

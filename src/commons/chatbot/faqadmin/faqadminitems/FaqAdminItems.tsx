@@ -3,7 +3,9 @@ import Checkbox from "@mui/material/Checkbox";
 export default function SecurityTxt(props: any) {
   return (
     <>
-      <h2>✓필수 개인정보 수집 이용동의 *</h2>
+      <h2 style={{ backgroundColor: "white" }}>
+        ✓필수 개인정보 수집 이용동의 *
+      </h2>
       <a>
         쉐이키는 이용자 문의를 처리하기 위해 다음과 같이 개인정보를 수집 및
         이용하여, 이를 위한 최소한의 개인정보이므로 동의를 해주셔야 처리가
@@ -19,6 +21,7 @@ export default function SecurityTxt(props: any) {
           width: "230px",
           height: "20px",
           backgroundColor: "yellow",
+          color: "black",
         }}
       >
         -보유기간: 3년간 보관 후 지체없이 파기
@@ -28,7 +31,9 @@ export default function SecurityTxt(props: any) {
         제한됩니다.
       </a>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div style={{ marginTop: "7px" }}>개인정보 수집내용동의</div>
+        <div style={{ marginTop: "7px", color: "black" }}>
+          개인정보 수집내용동의
+        </div>
         <Checkbox
           checked={props.checked}
           onChange={props.handleChange}

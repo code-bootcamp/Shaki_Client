@@ -44,6 +44,7 @@ export const UserName = styled.input`
   background: #ffffff;
   border: 1px solid #c9c9c9;
   border-radius: 5px;
+  color: black;
 `;
 
 export const UserEmail = styled.input`
@@ -55,13 +56,14 @@ export const UserEmail = styled.input`
   background: #ffffff;
   border: 1px solid #c9c9c9;
   border-radius: 5px;
+  color: black;
 `;
 
 export const Title = styled.input`
   width: 600px;
   height: 50px;
   margin-left: 10px;
-
+  color: black;
   padding-left: 10px;
   background: #ffffff;
   border: 1px solid #c9c9c9;
@@ -74,6 +76,7 @@ export const Contents = styled.textarea`
   background: #ffffff;
   border: 1px solid #c9c9c9;
   border-radius: 5px;
+  color: black;
 `;
 
 export const Button = styled.button`
