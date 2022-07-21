@@ -1,29 +1,40 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { Theme } from "../../../../commons/styles/theme";
 
 interface IPage {
   id: string;
   isPosition: string;
 }
 
-export const Wrapper = styled.div`
-  width: 1200px;
+interface ThemeProps {
+  theme: Theme;
+}
+
+export const Wrapper = styled.div<ThemeProps>`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: auto;
-  @media ${breakPoints.tablet} {
-    width: 100%;
-  }
-  @media ${breakPoints.mobile} {
-    width: 100%;
-  }
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const MenuWrapper = styled.div`
   margin-top: 20px;
   margin-bottom: 60px;
-  width: 100%;
+  width: 1200px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  @media ${breakPoints.tablet} {
+    width: 890px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 475px;
+  }
 `;
 
 export const MenuName = styled.div`
