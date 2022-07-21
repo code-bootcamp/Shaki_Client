@@ -17,8 +17,7 @@ export const Wrapper = styled.div<ThemeProps>`
   flex-direction: row;
   justify-content: space-around;
   border-bottom: 1px solid lightgray;
-  box-shadow: 1px 0px red;
-  background: ${({ theme }) => theme.BACKGROUND};
+  background: ${({ theme }) => theme.LAYOUT};
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
 `;

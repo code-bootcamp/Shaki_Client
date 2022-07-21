@@ -15,7 +15,7 @@ export const FooterWrapper = styled.div<ThemeProps>`
   flex-direction: row;
   padding: 3em;
   z-index: 4;
-  background: ${({ theme }) => theme.BACKGROUND};
+  background: ${({ theme }) => theme.LAYOUT};
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
   @media ${breakPoints.tablet} {

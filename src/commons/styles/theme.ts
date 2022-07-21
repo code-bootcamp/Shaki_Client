@@ -10,7 +10,7 @@ export const darkTheme: Theme = {
   MAIN: "#fff",
   SUB: "#000",
   BACKGROUND: "#202124",
-  LAYOUT: "#0f0f27",
+  LAYOUT: "#343434",
   SUBBACKGROUND: "#30373e",
 };
 
