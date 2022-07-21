@@ -33,7 +33,7 @@ export default function SignUpPresenter(props: any) {
             <Su.BodyInput type="password" {...props.register("pwd")} />
             <Su.Error>{props.formState.errors.pwd?.message}</Su.Error>
             비밀번호확인
-            <Su.BodyInput type="text" />
+            <Su.BodyInput type="password" />
             휴대폰
             <Su.BodyInput type="text" {...props.register("phone_num")} />
             <Su.Error>{props.formState.errors.phone_num?.message}</Su.Error>

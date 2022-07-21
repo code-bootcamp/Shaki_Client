@@ -31,7 +31,7 @@ const schema = yup.object({
   phone_num: yup
     .string()
     .required()
-    .matches(/^\d{3}-\d{3,4}-\d{4}/, "전화번호 형식에 맞지 않습니다."),
+    .matches(/^\d{3}\d{3,4}\d{4}/, "전화번호 형식에 맞지 않습니다."),
 });
 
 export default function SignUpContainer() {
