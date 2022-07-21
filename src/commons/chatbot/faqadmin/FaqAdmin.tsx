@@ -76,7 +76,9 @@ export default function FaqAdmin() {
       <FA.Wrapper>
         <FA.SignUpForm onSubmit={handleSubmit(onClickSubmit)}>
           <FA.HeaderWrapper>
-            <h2 style={{ color: "white" }}>문의 양식에 알맞게 작성해주세요.</h2>
+            <h2 style={{ color: "white", backgroundColor: "#3c3c3c" }}>
+              문의 양식에 알맞게 작성해주세요.
+            </h2>
           </FA.HeaderWrapper>
           <FA.LabelWrapper>
             <FA.Label>📛 이름 *</FA.Label>
@@ -112,6 +114,7 @@ export default function FaqAdmin() {
               width: "300px",
               height: "50px",
               border: "1px solid black",
+              color: "black",
             }}
             onChange={onChangeCategory}
             id="category-select"
