@@ -1,6 +1,13 @@
 import { PlusOutlined } from "@ant-design/icons";
+import styled from "@emotion/styled";
 import { Input, Tag, Tooltip } from "antd";
 import React, { useEffect, useRef, useState } from "react";
+
+const Wrapper = styled.div`
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const TagPage = (props: any) => {
   // const [tags, setTags] = useState(["Unremovable", "Tag 2", "Tag 3"]);
@@ -10,6 +17,7 @@ const TagPage = (props: any) => {
   const [editInputValue, setEditInputValue] = useState("");
   const inputRef = useRef(null);
   const editInputRef = useRef(null);
+
   useEffect(() => {
     if (inputVisible) {
       inputRef.current?.focus();
@@ -55,7 +63,7 @@ const TagPage = (props: any) => {
   };
 
   return (
-    <>
+    <Wrapper>
       {props.tags.map((tag, index) => {
         if (editInputIndex === index) {
           return (
@@ -118,7 +126,7 @@ const TagPage = (props: any) => {
           <PlusOutlined /> New Tag
         </Tag>
       )}
-    </>
+    </Wrapper>
   );
 };
 

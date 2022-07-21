@@ -9,7 +9,7 @@ interface IProps {
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperRoot = styled.form`
-  width: calc(100% - 250px);
+  /* width: 1200px; */
   background-color: #f9f9f9;
   padding: 20px;
 `;
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   padding-right: 40px;
   padding-bottom: 50px;
   background-color: #ffffff;
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 export const HeadWrapper = styled.div`
   width: 100%;
@@ -115,7 +115,7 @@ export const Remarks = styled.input`
   height: 40px;
 `;
 export const TagsWrapper = styled.div`
-  width: 100%;
+  width: 1000px;
   display: flex;
   align-items: center;
   position: relative;
@@ -258,6 +258,10 @@ export const Img = styled.div`
   padding-top: 10px;
   display: flex;
   justify-content: space-around;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 export const DeleteButton = styled.button`
   width: 100px;

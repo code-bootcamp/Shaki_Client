@@ -5,39 +5,26 @@ import { v4 as uuidv4 } from "uuid";
 
 interface IAdminEditPresenter {
   isEdit?: boolean;
+  roomsdata?: any;
   roomdata?: any;
+  onClickOpenEdit: (event) => void;
 }
 
 export default function AdminEditPresenter(props: IAdminEditPresenter) {
-  const item = [
-    { name: "구디점", room: ["number1", "number2", "number3"], _id: "1" },
-    { name: "신림점", room: ["number1", "number2"], _id: "2" },
-    { name: "신대방점", room: ["number1"], _id: "3" },
-  ];
-
-  const [editId, setEditId] = useState("");
-
-  const onClickOpenEdit = (event: React.MouseEvent<HTMLDivElement>) => {
-    // console.log(event.target.id);
-    setEditId(event.currentTarget.id);
-  };
   return (
     <Ae.Wrapper>
       <Ae.TebWrapper>
         <Ae.HeadWrapper>
-          {item.map((el) => (
+          {props.roomsdata?.fetchRooms?.map((el) => (
             <Ae.Header key={uuidv4()}>
-              <Ae.HeaderItem id={el._id} onClick={onClickOpenEdit}>
-                {el.name}
-              </Ae.HeaderItem>
-
-              <Ae.RoomWrapper className="dropdownItem">
-                {el.room.map((el) => (
-                  <Fragment key={uuidv4()}>
-                    <Ae.RoomItem>{el}</Ae.RoomItem>
+              <Ae.HeaderItem id={el.id} onClick={props.onClickOpenEdit}>
+                {el.branch.branch}
+                <Ae.RoomWrapper className="dropdownItem">
+                  <Fragment>
+                    <Ae.RoomItem>{el.name}</Ae.RoomItem>
                   </Fragment>
-                ))}
-              </Ae.RoomWrapper>
+                </Ae.RoomWrapper>
+              </Ae.HeaderItem>
             </Ae.Header>
           ))}
         </Ae.HeadWrapper>

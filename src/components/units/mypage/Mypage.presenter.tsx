@@ -6,10 +6,11 @@ import { ThemeContext } from "../../../../pages/_app";
 
 export default function MypageUI(props: any) {
   const { theme } = useContext(ThemeContext);
+
   return (
     <My.HTML theme={theme}>
       <My.Wrapper>
-        <My.TopWrapper>
+        <My.TopWrapper theme={theme}>
           {/* 프로필 사진, 이름 */}
           <My.UserWrapper>
             <My.UserPictureWrapper>

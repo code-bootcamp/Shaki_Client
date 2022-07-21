@@ -32,23 +32,24 @@ export default function UploadsMain(props: IUploads) {
     props.onChangeImgMainUrls(result.data.uploadFile, props.index);
   };
 
-  const onClickDelete = async () => {
-    try {
-      await removeFile({
-        variables: {
-          imageUrl: props.fileUrl,
-        },
-        // refetchQueries: [
-        //   {
-        //     query: UPLOAD_FILE,
-        //   },
-        // ],
-      });
-      alert(props.fileUrl);
-    } catch (error) {
-      alert("사진 삭제 실패");
-    }
-  };
+  // const onClickDelete = async () => {
+  //   try {
+  //     await removeFile({
+  //       variables: {
+  //         imageUrl: "",
+  //       },
+  //       // refetchQueries: [
+  //       //   {
+  //       //     query: UPLOAD_FILE
+  //       //   }
+  //       // ]
+  //     });
+  //     alert(props.fileUrl);
+  //     window.location.reload();
+  //   } catch (error) {
+  //     alert("사진 삭제 실패");
+  //   }
+  // };
 
   return (
     <UploadsMainImgUI
@@ -57,7 +58,7 @@ export default function UploadsMain(props: IUploads) {
       defaultFileUrl={props.defaultFileUrl}
       onClickUpload={onClickUpload}
       onChangeFile={onChangeFile}
-      onClickDelete={onClickDelete}
+      // onClickDelete={onClickDelete}
     />
   );
 }

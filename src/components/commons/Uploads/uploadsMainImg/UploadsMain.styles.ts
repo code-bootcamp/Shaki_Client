@@ -6,7 +6,6 @@ export const UploadImage = styled.img`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  border: 1px solid #999999;
 `;
 
 export const UploadButton = styled.div`
