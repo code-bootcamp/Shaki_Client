@@ -1,23 +1,34 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { Theme } from "../../../../commons/styles/theme";
 
-export const Wrapper = styled.div`
-  width: 1200px;
+interface ThemeProps {
+  theme: Theme;
+}
+
+export const Wrapper = styled.div<ThemeProps>`
+  width: 100%;
   height: auto;
-  @media ${breakPoints.tablet} {
-    width: 100%;
-  }
-  @media ${breakPoints.mobile} {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const HeadInfoWrapper = styled.div`
-  width: 100%;
+  width: 1200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
+  @media ${breakPoints.tablet} {
+    width: 850px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 475px;
+  }
 `;
 export const PickWrapper = styled.div``;
 

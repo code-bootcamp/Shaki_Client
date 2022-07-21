@@ -1,15 +1,23 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { Theme } from "../../../../commons/styles/theme";
 
-export const FooterWrapper = styled.div`
+interface ThemeProps {
+  theme: Theme;
+}
+
+export const FooterWrapper = styled.div<ThemeProps>`
   position: sticky;
   background-color: white;
   width: 100%;
-  height: 300px;
+  height: 200px;
   display: flex;
   flex-direction: row;
   padding: 3em;
   z-index: 4;
+  background: ${({ theme }) => theme.LAYOUT};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
   @media ${breakPoints.tablet} {
     padding: 2em;
     height: 230px;

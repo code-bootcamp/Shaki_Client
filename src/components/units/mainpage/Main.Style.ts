@@ -1,11 +1,19 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
+import { Theme } from "../../../commons/styles/theme";
 
-export const HTML = styled.div`
+interface ThemeProps {
+  theme: Theme;
+}
+
+export const HTML = styled.div<ThemeProps>`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const Wrapper = styled.div`

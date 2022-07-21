@@ -3,25 +3,11 @@ import HeaderPage from "./header/Header.container";
 // 사이드
 import SideLeftPage from "./sidebar.left";
 import SideRightPage from "./sidebar.right";
-import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { useRouter } from "next/router";
 import ChatBox from "../../../commons/chatbot/ChatBot";
-
-const Body = styled.div`
-  width: 100%;
-`;
-// 사이드
-const PageWrapper = styled.div`
-  /* display: flex; */
-  flex-direction: row;
-  position: sticky;
-`;
-
-const FooterWrapper = styled.div`
-  display: flex;
-  position: sticky;
-`;
+import * as LS from "./styles";
+import { ThemeContext } from "../../../../pages/_app";
 
 interface LayoutProps {
   children: ReactNode;
@@ -46,17 +32,19 @@ export default function LayoutPage(props: LayoutProps) {
   const isHiddenLayout = HIDDEN_LAYOUT.includes(router.asPath);
   const isHiddenSidebar = HIDDEN_SIDEBAR.includes(router.asPath);
 
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div>
       {!isHiddenLayout && <HeaderPage />}
-      <PageWrapper>
+      <LS.PageWrapper theme={theme}>
         {!isHiddenSidebar && <SideLeftPage />}
-        <Body>{props.children}</Body>
+        <LS.Body>{props.children}</LS.Body>
         {!isHiddenSidebar && <SideRightPage />}
-      </PageWrapper>
+      </LS.PageWrapper>
       {!isHiddenLayout && <ChatBox />}
 
-      <FooterWrapper>{!isHiddenLayout && <FooterPage />}</FooterWrapper>
+      <LS.FooterWrapper>{!isHiddenLayout && <FooterPage />}</LS.FooterWrapper>
     </div>
   );
 }

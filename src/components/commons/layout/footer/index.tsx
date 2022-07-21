@@ -1,17 +1,22 @@
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 import * as Ft from "./Footer.styles";
 
 export default function FooterPage() {
   const router = useRouter();
+  const { theme } = useContext(ThemeContext);
+
   const onClickLogo = () => {
     // 나중에 삭제할 이벤트
     router.push("/detailpage");
   };
-  const onClickSNS = (e: any) => {
-    window.location.href = `https://www.${e.target.id}.com`;
-  };
+  // const onClickSNS = (e: any) => {
+  //   window.location.href = `https://www.${e.target.id}.com`;
+  // };
+
   return (
-    <Ft.FooterWrapper>
+    <Ft.FooterWrapper theme={theme}>
       <Ft.FooterInfoWrapper>
         {/* FooterTitle */}
         <Ft.FooterInfoTitle>
@@ -20,7 +25,7 @@ export default function FooterPage() {
           <Ft.InfoSub>사업자등록번호 : 717-87-02373</Ft.InfoSub>
         </Ft.FooterInfoTitle>
         {/* FooterInfo */}
-        <Ft.FooterInfoLink>
+        {/* <Ft.FooterInfoLink>
           <Ft.InfoLinkTitle>Follows Up</Ft.InfoLinkTitle>
           <Ft.ImgDiv>
             <Ft.SNSIcon
@@ -39,7 +44,7 @@ export default function FooterPage() {
               onClick={onClickSNS}
             />
           </Ft.ImgDiv>
-        </Ft.FooterInfoLink>
+        </Ft.FooterInfoLink> */}
       </Ft.FooterInfoWrapper>
       {/* Footer Address */}
       <Ft.FooterAddressWrapper>

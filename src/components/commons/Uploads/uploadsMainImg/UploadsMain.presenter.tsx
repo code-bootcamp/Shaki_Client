@@ -8,6 +8,7 @@ interface IUploadsUI {
   defaultFileUrl?: any;
   onClickUpload: () => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickDelete: () => void;
 }
 
 export default function UploadsMainImgUI(props: IUploadsUI) {
@@ -24,9 +25,11 @@ export default function UploadsMainImgUI(props: IUploadsUI) {
           </S.MainWrapper>
         </S.UploadButton>
       )}
-      {/* <S.DeleteButtons>
-        <S.Button>사진 삭제</S.Button>
-      </S.DeleteButtons> */}
+      <S.DeleteButtons>
+        <S.Button type="button" onClick={props.onClickDelete}>
+          사진 삭제
+        </S.Button>
+      </S.DeleteButtons>
 
       <S.UploadFile
         type="file"

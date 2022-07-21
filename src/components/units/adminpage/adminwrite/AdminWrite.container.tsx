@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import AdminWriteUI from "./AdminWrite.persenter";
-import { CREATE_ROOM, REMOVE_FILE } from "./AdminWrite.queries";
+import { CREATE_ROOM, UPDATE_ROOM } from "./AdminWrite.queries";
 import * as yup from "yup";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
@@ -46,7 +46,7 @@ export default function AdminWrite(props: IAdminWrite) {
   });
 
   const [createRoom] = useMutation(CREATE_ROOM);
-  const [removeFile] = useMutation(REMOVE_FILE);
+  const [updateRoom] = useMutation(UPDATE_ROOM);
 
   const onChangeContents = (value: string) => {
     setValue("contents", value === "<p><br></p>" ? "" : value);
@@ -99,20 +99,43 @@ export default function AdminWrite(props: IAdminWrite) {
       setZipcode(props.roomdata?.fetchRoom.zipcode || "");
 
     if (props.roomdata?.fetchRoom.images.length) {
-      const image = props.roomdata?.fetchRoom.images.map((el) => el.url);
+      const image = props.roomdata?.fetchRoom.images.map((el: any) => el.url);
       setImgMainUrls([...image]);
     }
-    // if (props.roomdata?.fetchRoom.tags.length) {
-    //   setTags([...props.roomdata?.fetchRoom.tags]);
+    // if (props.roomdata?.fetchRoom.images.length) {
+    //   setImgMainUrls([images]);
     // }
   }, [props.roomdata]);
 
-  // const currentFiles = JSON.stringify(imgMainUrls);
-  // const defaultFiles = JSON.stringify(props.roomdata.fetchRoom.images);
-  // const isChangedFiles = currentFiles !== defaultFiles;
+  console.log("이미지", imgMainUrls);
 
-  // const updateUseditemInput: any = {};
-  // if (isChangedFiles) updateUseditemInput.images = imgMainUrls;
+  const onClickEdit = async (data: any) => {
+    try {
+      const currentFiles = JSON.stringify(imgMainUrls);
+      const defaultFiles = JSON.stringify(props.roomdata.fetchRoom.images);
+      const isChangedFiles = currentFiles !== defaultFiles;
+
+      const updateUseditemInput: any = {};
+      if (isChangedFiles) updateUseditemInput.images = imgMainUrls;
+
+      await updateRoom({
+        variables: {
+          roomId: router.query.id,
+          updateRoomInput: {
+            ...data,
+            zipcode,
+            address,
+            images: imgMainUrls,
+            tags,
+          },
+        },
+      });
+      alert("가맹점 수정 완료");
+      router.push(`/adminpage/adminlist`);
+    } catch (error) {
+      alert("가맹점 수정 실패");
+    }
+  };
 
   return (
     <AdminWriteUI
@@ -137,6 +160,7 @@ export default function AdminWrite(props: IAdminWrite) {
       // 수정
       isEdit={props.isEdit}
       roomdata={props.roomdata}
+      onClickEdit={onClickEdit}
     />
   );
 }

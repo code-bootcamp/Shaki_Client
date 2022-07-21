@@ -6,8 +6,10 @@ export const CREATE_ROOM = gql`
   }
 `;
 
-export const REMOVE_FILE = gql`
-  mutation removeFile($imageUrl: String!) {
-    removeFile(imageUrl: $imageUrl)
+export const UPDATE_ROOM = gql`
+  mutation updateRoom($roomId: String!, $updateRoomInput: UpdateRoomInput!) {
+    updateRoom(roomId: $roomId, updateRoomInput: $updateRoomInput) {
+      id
+    }
   }
 `;
