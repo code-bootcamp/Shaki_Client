@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 13;
 `;
 
 export const Body = styled.div`
