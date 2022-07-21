@@ -45,8 +45,10 @@ export default function DetailSidebarContainer() {
   const [date, setDate] = useState<string>("");
   const [guest, setGuest] = useState<number>(1);
   const [price, setPrice] = useState<number>(0);
+  const [sidePrice, setSidePrice] = useState(0);
   const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
   const [ToggleGuest, setToggleGuest] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [startTime, setStartTime] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("");
   const [timeToggle, setTimeToggle] = useState<boolean>(false);
@@ -81,8 +83,6 @@ export default function DetailSidebarContainer() {
       }
     }
   };
-
-  console.log(clicked);
 
   const onClickCancel = () => {
     setToggleGuest((prev) => !prev);
@@ -145,6 +145,18 @@ export default function DetailSidebarContainer() {
     reservedArr.push(`${i}:00 ~ ${i + 1}:00`);
   }
 
+  const onClickCartOpen = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible((prev) => !prev);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible((prev) => !prev);
+  };
+
   const requestPay = () => {
     const IMP = window.IMP; // 생략 가능
     IMP.init("imp49910675"); // Example: imp00000000
@@ -170,7 +182,7 @@ export default function DetailSidebarContainer() {
                   date,
                   start_time: startTime,
                   end_time: endTime,
-                  amount: price,
+                  amount: price + sidePrice,
                   guest: guest,
                   point: price / 10,
                 },
@@ -189,6 +201,8 @@ export default function DetailSidebarContainer() {
       }
     );
   };
+
+  console.log(sidePrice);
 
   return (
     <>
@@ -223,6 +237,11 @@ export default function DetailSidebarContainer() {
         clicked={clicked}
         reserved={reserved}
         reservedArr={reservedArr}
+        onClickCartOpen={onClickCartOpen}
+        isModalVisible={isModalVisible}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+        setSidePrice={setSidePrice}
       />
     </>
   );

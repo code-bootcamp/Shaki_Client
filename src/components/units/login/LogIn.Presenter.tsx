@@ -4,6 +4,7 @@ import * as Li from "./LogIn.Style";
 export default function LogInPresenter(props: any) {
   return (
     <Li.WrapperRoot onSubmit={props.handleSubmit(props.onClickLogIn)}>
+      {/* <div onClick={props.onClick}>asdasdsad</div> */}
       <Li.Wrapper>
         <Li.WrapperImg />
         <Li.LogInWrapper>
