@@ -1,5 +1,20 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
+import { Theme } from "../../../commons/styles/theme";
+
+interface ThemeProps {
+  theme: Theme;
+}
+
+export const HTML = styled.div<ThemeProps>`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
+`;
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -17,15 +32,18 @@ export const Wrapper = styled.div`
     padding: 0;
   }
 `;
-export const TopWrapper = styled.div`
+export const TopWrapper = styled.div<ThemeProps>`
   width: 100%;
   height: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #f6f7fb;
+  /* background-color: #f6f7fb; */
   border-radius: 60px 0px;
   margin-bottom: 50px;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 
   @media ${breakPoints.tablet} {
     width: 100%;

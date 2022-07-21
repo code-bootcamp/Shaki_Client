@@ -25,10 +25,10 @@ interface IAdminWriteUI {
   onChangeImgMainUrls: (imgUrls: string, index: number) => void;
   onClickRemoveFile: () => void;
   onClickSubmit: (data: any) => void;
+  onClickEdit: (data: any) => void;
 }
 
 export default function AdminWriteUI(props: IAdminWriteUI) {
-  console.log("123", props.roomdata);
   return (
     <>
       {props.isModalView && (
@@ -40,7 +40,11 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
           <DaumPostcode onComplete={props.handelCompleteDaum} />
         </Modal>
       )}
-      <Ad.WrapperRoot onSubmit={props.handleSubmit(props.onClickSubmit)}>
+      <Ad.WrapperRoot
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickEdit : props.onClickSubmit
+        )}
+      >
         <Ad.Wrapper>
           <Ad.HeadWrapper>
             <Ad.LogoWrapper>

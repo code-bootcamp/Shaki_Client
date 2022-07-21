@@ -12,7 +12,6 @@ export const WrapperRoot = styled.form`
   width: calc(100% - 250px);
   background-color: #f9f9f9;
   padding: 20px;
-  /* overflow-x: scroll; */
 `;
 export const Wrapper = styled.div`
   width: 1200px;
@@ -21,6 +20,7 @@ export const Wrapper = styled.div`
   padding-right: 40px;
   padding-bottom: 50px;
   background-color: #ffffff;
+  overflow: scroll;
 `;
 export const HeadWrapper = styled.div`
   width: 100%;
