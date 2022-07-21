@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 import DarkModeToggle from "./darkmodetoggle/darkmode";
 import * as THS from "./Header.styles";
 
 interface IHeaderType {
   onClickMovePage: (e: any) => void;
+  onClickMoveDetail: (e: any) => void;
   onClickLogOut: (event: React.MouseEvent<HTMLButtonElement>) => void;
   accessToken: string;
   data: {
@@ -24,8 +27,9 @@ interface IHeaderType {
 }
 
 export default function HeaderUI(props: IHeaderType) {
+  const { theme } = useContext(ThemeContext);
   return (
-    <THS.Wrapper>
+    <THS.Wrapper theme={theme}>
       {/* 로고이미지 */}
       <THS.LeftHeadWrapper>
         <THS.LogoImg src="./logo.png" />
@@ -51,7 +55,7 @@ export default function HeaderUI(props: IHeaderType) {
               <THS.DropdownMenuWrapper>
                 {props.dataFetchBranches?.fetchBranches.map((el: any) => (
                   <THS.DropdownTwo key={el.branch.id}>
-                    <THS.Menu2Text id={el.id} onClick={props.onClickMovePage}>
+                    <THS.Menu2Text id={el.id} onClick={props.onClickMoveDetail}>
                       {el.branch.branch}
                     </THS.Menu2Text>
                     <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>
