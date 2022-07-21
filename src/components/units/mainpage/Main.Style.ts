@@ -121,13 +121,19 @@ export const ImageHeaderIcon = styled.div`
   }
 `;
 
-export const MainContents = styled.div``;
+export const MainContents = styled.div`
+  cursor: pointer;
+  img:hover {
+    opacity: 0.5;
+  }
+`;
 
 export const MainImg = styled.img`
   width: 100%;
   height: 570px;
   border-radius: 50px 50px 0 0;
   margin-top: 50px;
+
   @media ${breakPoints.mobile} {
     width: 100%;
     height: auto;
