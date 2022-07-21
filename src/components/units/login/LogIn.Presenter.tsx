@@ -38,9 +38,11 @@ export default function LogInPresenter(props: any) {
                   <LogInMobileButtonStyle />
                 </Li.MobileBox>
                 <Li.ImgWrapper>
-                  <Li.ImgBox onClick={props.onClickKakaoLogIn}>
+                  <Li.ImgBox>
                     <Li.Social src="/icon/sociallogin/kakaotalk_sharing_btn_small_ov.png" />
-                    <Li.SocialTitle>카카오</Li.SocialTitle>
+                    <Li.SocialTitle onClick={props.onClickKakoLogIn}>
+                      카카오
+                    </Li.SocialTitle>
                   </Li.ImgBox>
                   <Li.ImgBox onClick={props.onClickNaverLogIn}>
                     <Li.Social src="/icon/sociallogin/screenshotAtUploadCC_1656920622973.jpeg" />
