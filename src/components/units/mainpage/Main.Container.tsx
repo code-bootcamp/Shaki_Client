@@ -9,7 +9,7 @@ export default function MainContainer() {
   const { data } = useQuery(FETCH_BRANCHES);
 
   const onClickRoom = (e: any) => {
-    router.push(`/${e.currentTarget.id}`);
+    router.push(`/detailpage/${e.currentTarget.id}`);
   };
   return <MainPresenter data={data} onClickRoom={onClickRoom} />;
 }

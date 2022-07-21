@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import DetailBodyContainer from "../../src/components/units/detailpage/detail.body/DetailBody.container";
-import DetailHeadContainer from "../../src/components/units/detailpage/detail.head/DetailHead.container";
-import DetailSidebarContainer from "../../src/components/units/detailpage/detail.sidebar/DetailSidebar.container";
-import { breakPoints } from "../../src/commons/styles/media";
-import DetailNavContainer from "../../src/components/units/detailpage/detail.navigation/DetailNavigation.container";
+import DetailBodyContainer from "../../../src/components/units/detailpage/detail.body/DetailBody.container";
+import DetailHeadContainer from "../../../src/components/units/detailpage/detail.head/DetailHead.container";
+import DetailSidebarContainer from "../../../src/components/units/detailpage/detail.sidebar/DetailSidebar.container";
+import { breakPoints } from "../../../src/commons/styles/media";
+import DetailNavContainer from "../../../src/components/units/detailpage/detail.navigation/DetailNavigation.container";
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 

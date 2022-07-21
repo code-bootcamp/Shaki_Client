@@ -8,7 +8,7 @@ export default function DetailNavContainer() {
   const { data, loading } = useQuery(FETCH_BRANCHES);
 
   const onClickRoomMove = (e: any) => {
-    router.push(`/${e.target.id}`);
+    router.push(`/detailpage/${e.target.id}`);
   };
   // 데이터를 받아올떄까지 Loading함수로 기다리기.
   return (

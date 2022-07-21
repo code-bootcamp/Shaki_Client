@@ -1,24 +1,33 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { Theme } from "../../../../commons/styles/theme";
 
 interface IPage {
   id: string;
   isPosition: string;
 }
-export const Wrapper = styled.div`
+
+interface ThemeProps {
+  theme: Theme;
+}
+export const Wrapper = styled.div<ThemeProps>`
   width: 100%;
   height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border-bottom: 1px solid lightgray;
+  box-shadow: 1px 0px red;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const LeftHeadWrapper = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 30%;
+  width: 40%;
   @media ${breakPoints.tablet} {
     width: 50%;
   }
@@ -50,9 +59,9 @@ export const NavText = styled.div`
   color: black;
   font-weight: 500;
   font-size: ${(props: IPage) =>
-    props.id === props.isPosition ? "18px" : "12px"};
+    props.id === props.isPosition ? "20px" : "15px"};
   color: ${(props: IPage) =>
-    props.id === props.isPosition ? " #4167ee" : "black"};
+    props.id === props.isPosition ? " #4167ee" : "#808080"};
   border-bottom: ${(props: IPage) =>
     props.id === props.isPosition ? "3px solid #4167ee" : "none"};
   cursor: pointer;
@@ -139,12 +148,12 @@ export const BtnWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 20%;
+  width: 23%;
   @media ${breakPoints.tablet} {
-    width: 27%;
+    width: 32%;
   }
   @media ${breakPoints.mobile} {
-    width: 30%;
+    width: 35%;
   }
 `;
 

@@ -29,10 +29,15 @@ export default function HeaderContainer() {
     router.push(`/${e.target.id}`);
   };
 
+  const onClickMoveDetail = (e: any) => {
+    router.push(`/detailpage/${e.target.id}`);
+  };
+
   return (
     <>
       <HeaderUI
         onClickMovePage={onClickMovePage}
+        onClickMoveDetail={onClickMoveDetail}
         onClickLogOut={onClickLogOut}
         accessToken={accessToken}
         data={data}

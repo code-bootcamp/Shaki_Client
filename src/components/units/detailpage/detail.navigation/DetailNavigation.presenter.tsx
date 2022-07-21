@@ -11,13 +11,13 @@ function RoomArray(data: any, asPath: any) {
   for (let i = 0; i < data.length; i++) {
     const answer = data[i].branch.idAll.split(",");
     for (let j = 0; j < answer.length; j++) {
-      if (asPath.slice(1, asPath.length).includes("?")) {
-        if (asPath.slice(1, asPath.length - 1) == answer[j]) {
+      if (asPath.slice(0, asPath.length).includes("?")) {
+        if (asPath.slice(0, asPath.length - 1) == answer[j]) {
           result.push(answer);
           return result;
         }
       } else {
-        if (asPath.slice(1, asPath.length) == answer[j]) {
+        if (asPath.slice(0, asPath.length) == answer[j]) {
           result.push(answer);
           return result;
         }
@@ -29,8 +29,8 @@ function RoomArray(data: any, asPath: any) {
 
 export default function DetailNavUI(props: IDetailNavUI) {
   let Rooms: any[string];
-  console.log(props.data.fetchBranches);
-  Rooms = RoomArray(props.data.fetchBranches, props.router.asPath);
+  // console.log(props.data.fetchBranches, props.router.query.detailid);
+  Rooms = RoomArray(props.data.fetchBranches, props.router.query.detailid);
 
   return (
     <DN.Wrapper>
@@ -38,7 +38,7 @@ export default function DetailNavUI(props: IDetailNavUI) {
         {Rooms[0].map((el: any, i: number) => (
           <DN.MenuName
             onClick={props.onClickRoomMove}
-            isPosition={props.router.asPath.split("/")[1].replace("?", "")}
+            isPosition={props.router.asPath.split("/")[2].replace("?", "")}
             id={el}
             key={i}
           >
