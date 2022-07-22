@@ -38,3 +38,9 @@ export const FETCH_ROOMS = gql`
     }
   }
 `;
+
+export const FETCH_PAYMENTSUM = gql`
+  query fetchPaymentSum {
+    fetchPaymentSum
+  }
+`;
