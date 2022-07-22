@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import AdminHomeUI from "./AdminHome.presenter";
 import {
   FETCH_PAYMENTS,
+  FETCH_PAYMENTSUM,
   FETCH_QUESTIONS,
   FETCH_ROOMS,
   FETCH_USERNUM,
@@ -21,6 +22,7 @@ export default function AdminHome() {
     router.push(`/adminpage/adminlist`);
   };
 
+  const { data: paymentsumdata } = useQuery(FETCH_PAYMENTSUM);
   const { data: paymentdata } = useQuery(FETCH_PAYMENTS);
   const { data: questiondata } = useQuery(FETCH_QUESTIONS);
   const { data: usernumdata } = useQuery(FETCH_USERNUM);
@@ -30,6 +32,7 @@ export default function AdminHome() {
 
   return (
     <AdminHomeUI
+      paymentsumdata={paymentsumdata}
       paymentdata={paymentdata}
       questiondata={questiondata}
       usernumdata={usernumdata}

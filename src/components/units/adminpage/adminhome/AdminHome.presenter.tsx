@@ -3,6 +3,7 @@ import { Message } from "semantic-ui-react";
 import * as AD from "./AdminHome.styles";
 
 interface IAdminHomeUI {
+  paymentsumdata?: any;
   paymentdata?: any;
   questiondata?: any;
   usernumdata?: any;
@@ -13,6 +14,7 @@ interface IAdminHomeUI {
 }
 
 export default function AdminHomeUI(props: IAdminHomeUI) {
+  console.log("data", props.paymentsumdata);
   return (
     <AD.Wrapper>
       <AD.BodyWrapper>
@@ -55,7 +57,9 @@ export default function AdminHomeUI(props: IAdminHomeUI) {
               <Card.Content>
                 <Card.Header>결제금액 합산</Card.Header>
                 <Card.Meta>transaction$</Card.Meta>
-                <Card.Description>총 240,000원</Card.Description>
+                <Card.Description>
+                  {props.paymentsumdata?.fetchPaymentSum}
+                </Card.Description>
               </Card.Content>
             </Card>
 
