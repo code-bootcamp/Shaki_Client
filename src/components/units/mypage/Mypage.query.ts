@@ -11,18 +11,18 @@ export const USER_INFO = gql`
         start_time
         end_time
         amount
-      }
-      room {
-        id
-        remarks
-        name
-        zipcode
-        address
-        images {
+        room {
           id
-          url
-          room {
+          remarks
+          name
+          zipcode
+          address
+          images {
             id
+            url
+            room {
+              id
+            }
           }
         }
       }
