@@ -6,7 +6,7 @@ import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { useRecoilState } from "recoil";
-import { reservedState } from "../../../../commons/store";
+import { accessTokenState, reservedState } from "../../../../commons/store";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -37,6 +37,8 @@ const hour: Array<timeTable> = [
 
 export default function DetailSidebarContainer() {
   const router = useRouter();
+
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   const [date, setDate] = useState<string>("");
   const [guest, setGuest] = useState<number>(1);
@@ -155,48 +157,56 @@ export default function DetailSidebarContainer() {
   };
 
   const requestPay = () => {
-    const IMP = window.IMP; // 생략 가능
-    IMP.init("imp49910675"); // Example: imp00000000
+    if (!accessToken) {
+      alert("로그인 후 이용해주세요");
+      router.push("/login");
+    } else if (!price || !date || !startTime || !endTime) {
+      alert("필수 정보를 입력해주세요.");
+      return;
+    } else {
+      const IMP = window.IMP; // 생략 가능
+      IMP.init("imp49910675"); // Example: imp00000000
 
-    IMP.request_pay(
-      {
-        // param
-        pg: "html5_inicis",
-        pay_method: "card",
-        // merchant_uid: "ORD20180131-0000011",
-        name: "SHAKI",
-        amount: 100,
-        m_redirect_url: "/",
-      },
-      (rsp: any) => {
-        // callback
-        if (rsp.success) {
-          try {
-            const result = createPayment({
-              variables: {
-                createPaymentInput: {
-                  roomId: router.query.detailid,
-                  date,
-                  start_time: startTime,
-                  end_time: endTime,
-                  amount: price + sidePrice,
-                  guest: guest,
-                  point: (price + sidePrice) / 10,
+      IMP.request_pay(
+        {
+          // param
+          pg: "html5_inicis",
+          pay_method: "card",
+          // merchant_uid: "ORD20180131-0000011",
+          name: "SHAKI",
+          amount: 100,
+          m_redirect_url: "/",
+        },
+        (rsp: any) => {
+          // callback
+          if (rsp.success) {
+            try {
+              const result = createPayment({
+                variables: {
+                  createPaymentInput: {
+                    roomId: router.query.detailid,
+                    date,
+                    start_time: startTime,
+                    end_time: endTime,
+                    amount: price + sidePrice,
+                    guest: guest,
+                    point: (price + sidePrice) / 10,
+                  },
                 },
-              },
-            });
-          } catch (error) {
-            alert("결제에 실패하였습니다.");
+              });
+            } catch (error) {
+              alert("결제에 실패하였습니다.");
+            }
+            router.push("/main");
+          } else {
+            // ...,
+            // 결제 실패 시 로직,
+            // ...
+            alert("결제가 취소되었습니다.");
           }
-          router.push("/main");
-        } else {
-          // ...,
-          // 결제 실패 시 로직,
-          // ...
-          alert("결제가 취소되었습니다.");
         }
-      }
-    );
+      );
+    }
   };
 
   return (
