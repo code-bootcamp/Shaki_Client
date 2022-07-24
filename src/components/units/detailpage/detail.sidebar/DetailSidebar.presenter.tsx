@@ -149,7 +149,10 @@ export default function DetailSidebarUI(props: IDetailSide) {
                 </div>,
               ]}
             >
-              <DragPage setSidePrice={props.setSidePrice} />
+              <DragPage
+                setOption={props.setOption}
+                setSidePrice={props.setSidePrice}
+              />
             </Modal>
           )}
 
@@ -160,7 +163,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
         </DS.CheckInWrapper>
         <IconButton aria-label="cart">
           <DS.Cart onClick={props.onClickCartOpen}>추가옵션 예약하기</DS.Cart>
-          <StyledBadge badgeContent={3} color="secondary">
+          <StyledBadge badgeContent={props.option} color="secondary">
             <ShoppingCartIcon />
           </StyledBadge>
         </IconButton>

@@ -41,7 +41,8 @@ export default function DetailSidebarContainer() {
   const [date, setDate] = useState<string>("");
   const [guest, setGuest] = useState<number>(1);
   const [price, setPrice] = useState<number>(0);
-  const [sidePrice, setSidePrice] = useState(0);
+  const [sidePrice, setSidePrice] = useState<number>(0);
+  const [option, setOption] = useState<number>(0);
   const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
   const [ToggleGuest, setToggleGuest] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -237,6 +238,8 @@ export default function DetailSidebarContainer() {
         handleCancel={handleCancel}
         sidePrice={sidePrice}
         setSidePrice={setSidePrice}
+        option={option}
+        setOption={setOption}
       />
     </>
   );

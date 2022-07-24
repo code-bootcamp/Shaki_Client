@@ -110,6 +110,7 @@ export default function DragPage(props) {
   }
 
   props.setSidePrice(sum);
+  props.setOption(cart?.length);
 
   return (
     <D.Wrapper>
