@@ -2,11 +2,11 @@ import * as Ad from "./AdminQuestion.styles";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
-  { field: "name", headerName: "name", width: 150 },
-  { field: "email", headerName: "email", width: 250 },
-  { field: "category", headerName: "category", width: 150 },
-  { field: "title", headerName: "title", width: 200 },
-  { field: "content", headerName: "content", width: 350 },
+  { field: "name", headerName: "회원 이름", width: 150 },
+  { field: "email", headerName: "이메일", width: 250 },
+  { field: "category", headerName: "카테고리", width: 150 },
+  { field: "title", headerName: "제목", width: 200 },
+  { field: "content", headerName: "내용", width: 350 },
 ];
 
 interface IAdminQuestionUI {

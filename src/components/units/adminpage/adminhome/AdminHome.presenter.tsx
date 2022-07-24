@@ -77,7 +77,7 @@ export default function AdminHomeUI(props: IAdminHomeUI) {
               style={{ cursor: "pointer" }}
               header="가맹점 수"
               meta="List"
-              description={`현재 문의내역은 ${props.questiondata?.fetchQuestions.length}건입니다.`}
+              description={`현재 등록된 가맹점 수는 ${props.roomnumdata?.fetchRooms.length}건입니다.`}
               onClick={props.onClickMoveList}
             />
             <Card

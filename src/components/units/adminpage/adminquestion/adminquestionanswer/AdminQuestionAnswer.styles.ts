@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import Button from "@mui/material/Button";
 
 export const WrapperRoot = styled.div`
   width: calc(100% - 250px);
   background-color: #f9f9f9;
   padding: 20px;
+  overflow-y: scroll;
 `;
 
 export const Wrapper = styled.div`
@@ -100,23 +100,26 @@ export const AnswerTitle = styled.div`
   margin-bottom: 10px;
 `;
 
-export const ReactQuillWrapper = styled.div`
+export const ReplyContentWrapper = styled.div`
   width: 100%;
   height: 280px;
 `;
-
+export const ReplyContent = styled.textarea`
+  width: 100%;
+  height: 200px;
+`;
 export const ButtonWrapper = styled.div`
   width: 1100px;
   display: flex;
   justify-content: flex-end;
 `;
 
-export const SubmitButton = styled(Button)`
+export const SubmitButton = styled.button`
   width: 150px;
   height: 50px;
   border: 1px solid #000000;
   border-radius: 15px;
   font-size: 20px;
-  font-family: snas-serif;
+
   color: black;
 `;

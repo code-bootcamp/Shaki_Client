@@ -1,15 +1,10 @@
 import * as Ad from "./AdminQuestionAnswer.styles";
-// import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
 
 interface IAdminQuestionAnswerUI {
   data?: any;
+  onChangeReplyContent: (event: any) => void;
+  onClickAnswer: (data: any) => void;
 }
-
-const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false,
-});
 
 export default function AdminQuestionAnswerUI(props: IAdminQuestionAnswerUI) {
   return (
@@ -50,13 +45,17 @@ export default function AdminQuestionAnswerUI(props: IAdminQuestionAnswerUI) {
 
           <Ad.AnswerWrapper>
             <Ad.AnswerTitle>답변 내용</Ad.AnswerTitle>
-            <Ad.ReactQuillWrapper>
-              <ReactQuill style={{ height: "200px" }} />
-            </Ad.ReactQuillWrapper>
+            <Ad.ReplyContentWrapper>
+              <Ad.ReplyContent
+                onChange={props.onChangeReplyContent}
+              ></Ad.ReplyContent>
+            </Ad.ReplyContentWrapper>
           </Ad.AnswerWrapper>
         </Ad.OptionNew>
         <Ad.ButtonWrapper>
-          <Ad.SubmitButton variant="outlined">답변보내기</Ad.SubmitButton>
+          <Ad.SubmitButton type="button" onClick={props.onClickAnswer}>
+            답변보내기
+          </Ad.SubmitButton>
         </Ad.ButtonWrapper>
       </Ad.Wrapper>
     </Ad.WrapperRoot>
