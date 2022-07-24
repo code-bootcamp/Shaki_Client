@@ -14,14 +14,14 @@ export default function AdminReservationUI(props: IAdminReservationUI) {
         </Ad.TopWrapper>
 
         <Ad.Row>
-          <Ad.UserName>User Name</Ad.UserName>
-          <Ad.Date>Date</Ad.Date>
-          <Ad.StartTime>StartTime</Ad.StartTime>
-          <Ad.EndTime>EndTime</Ad.EndTime>
-          <Ad.Amount>amount</Ad.Amount>
-          <Ad.RoomBranch>Branch Name</Ad.RoomBranch>
-          <Ad.RoomName>Room Name</Ad.RoomName>
-          <Ad.Guest>Guest</Ad.Guest>
+          <Ad.UserName>회원 이름</Ad.UserName>
+          <Ad.Date>날짜</Ad.Date>
+          <Ad.StartTime>시작 시간</Ad.StartTime>
+          <Ad.EndTime>끝 시간</Ad.EndTime>
+          <Ad.Amount>가격</Ad.Amount>
+          <Ad.RoomBranch>지점 명</Ad.RoomBranch>
+          <Ad.RoomName>룸 이름</Ad.RoomName>
+          <Ad.Guest>게스트 수</Ad.Guest>
         </Ad.Row>
 
         {props.data?.fetchPayments.map((el: any) => (
