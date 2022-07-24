@@ -24,11 +24,15 @@ export default function AdminListUI(props: IAdminListUI) {
 
         {props.data?.fetchRooms.map((el: any) => (
           <Ad.Row key={el.id}>
-            <Ad.ListBranch>{el.branch.branch}</Ad.ListBranch>
+            <Ad.ListBranch id={el.id} onClick={props.onClickMoveEdit}>
+              {el.branch.branch}
+            </Ad.ListBranch>
             <Ad.ListName id={el.id} onClick={props.onClickMoveEdit}>
               {el.name}
             </Ad.ListName>
-            <Ad.ListRemarks>{el.remarks}</Ad.ListRemarks>
+            <Ad.ListRemarks id={el.id} onClick={props.onClickMoveEdit}>
+              {el.remarks}
+            </Ad.ListRemarks>
 
             <Ad.DeleteButton
               type="button"

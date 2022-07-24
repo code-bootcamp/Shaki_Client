@@ -23,23 +23,27 @@ export default function AdminQuestionAnswerUI(props: IAdminQuestionAnswerUI) {
             <Ad.TitleLabel
               type="text"
               defaultValue={props.data?.fetchQuestion.name}
+              readOnly
             />
 
             <Ad.EmailLabel
               type="text"
-              defaultValue={`이메일: ${props.data?.fetchQuestion.email}`}
+              value={`이메일: ${props.data?.fetchQuestion.email}`}
+              readOnly
             />
           </Ad.ProfileWrapper>
 
           <Ad.QuestionWrapper>
             <Ad.QuestionLabel
               type="text"
-              defaultValue={`제목: ${props.data?.fetchQuestion.title}`}
+              value={`제목: ${props.data?.fetchQuestion.title}`}
+              readOnly
             />
 
             <Ad.CategoryLabel
               type="text"
-              defaultValue={`카테고리 : ${props.data?.fetchQuestion.category}`}
+              value={`카테고리 : ${props.data?.fetchQuestion.category}`}
+              readOnly
             />
           </Ad.QuestionWrapper>
 
@@ -48,6 +52,7 @@ export default function AdminQuestionAnswerUI(props: IAdminQuestionAnswerUI) {
             <Ad.QuestionContent
               type="text"
               defaultValue={props.data?.fetchQuestion.content}
+              readOnly
             />
           </Ad.QuestionContentLabel>
           <Ad.DivedLine />
@@ -55,9 +60,7 @@ export default function AdminQuestionAnswerUI(props: IAdminQuestionAnswerUI) {
           <Ad.AnswerWrapper>
             <Ad.AnswerTitle>답변 내용</Ad.AnswerTitle>
             <Ad.ReplyContentWrapper>
-              <Ad.ReplyContent
-                onChange={props.onChangeReplyContent}
-              ></Ad.ReplyContent>
+              <Ad.ReplyContent onChange={props.onChangeReplyContent} />
               <Ad.Error>{props.error}</Ad.Error>
             </Ad.ReplyContentWrapper>
           </Ad.AnswerWrapper>
