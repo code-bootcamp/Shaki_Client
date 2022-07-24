@@ -178,9 +178,9 @@ export default function DetailSidebarContainer() {
                   date,
                   start_time: startTime,
                   end_time: endTime,
-                  amount: price,
+                  amount: price + sidePrice,
                   guest: guest,
-                  point: price / 10,
+                  point: (price + sidePrice) / 10,
                 },
               },
             });
@@ -235,6 +235,7 @@ export default function DetailSidebarContainer() {
         isModalVisible={isModalVisible}
         handleOk={handleOk}
         handleCancel={handleCancel}
+        sidePrice={sidePrice}
         setSidePrice={setSidePrice}
       />
     </>

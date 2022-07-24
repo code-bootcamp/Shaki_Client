@@ -38,37 +38,32 @@ let DumDum = [
     price: "3000",
   },
   {
-    id: 1,
-    name: "기본세팅",
+    id: 5,
+    name: "나이프",
     price: "3000",
   },
   {
-    id: 2,
-    name: "카놀라유",
+    id: 6,
+    name: "사용 후 애프터서비스",
     price: "3000",
   },
   {
-    id: 3,
-    name: "에어프라이",
+    id: 7,
+    name: "후라이팬",
     price: "3000",
   },
   {
-    id: 4,
-    name: "가스레인지",
+    id: 8,
+    name: "마체태",
     price: "3000",
   },
 ];
 
-console.log(DumDum);
-
 export default function DragPage(props) {
   let dragged: HTMLDivElement;
 
-  const [keyword, setKeyword] = useState("");
-
-  const onChangekeyWord = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setKeyword(event.target.value);
-  };
+  const [cart, setCart] = useState([]);
+  const [price, setPrice] = useState(0);
 
   const DragItem = (e: any) => {
     console.log("드레그아이템", e.target);
@@ -81,23 +76,40 @@ export default function DragPage(props) {
     e.preventDefault();
   };
 
-  const DropZone = (e: any) => {
+  const BeforeDropZone = (e: any) => {
     console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();
-    if (e.target.id === "dropzone") {
+    if (e.target.id === "BeforeDropzone") {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
       e.target.appendChild(dragged);
-      const price = Number(
-        e.dataTransfer
-          .getData("data")
-          .split("")
-          .filter((el) => !isNaN(el))
-          .join("")
+      console.log("ddd", e.target.appendChild(dragged).innerText);
+      const newCart = cart.filter(
+        (el) => el !== e.target.appendChild(dragged).innerText
       );
-
-      props.setSidePrice((prev) => (prev += price));
+      setCart(newCart);
     }
   };
+
+  const AfterDropZone = (e: any) => {
+    const newCart = [...cart];
+    console.log("드롭존", typeof e.dataTransfer.getData("data"));
+    e.preventDefault();
+    if (e.target.id === "AfterDropzone") {
+      (dragged.parentNode as HTMLDivElement).removeChild(dragged);
+      e.target.appendChild(dragged);
+      newCart.push(e.target.appendChild(dragged).innerText);
+      setCart(newCart);
+      console.log(newCart, "newCart");
+    }
+  };
+
+  let sum = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    sum += Number(cart[i].slice(-5, -1));
+  }
+
+  props.setSidePrice(sum);
 
   return (
     <D.Wrapper>
@@ -106,8 +118,12 @@ export default function DragPage(props) {
         placeholder="키워드를 입력해주세요."
         onChange={onChangekeyWord}
       /> */}
-      <DragList id="dropzone" onDrop={DropZone} onDragOver={DragOver}>
-        {DumDum.filter((el) => el.name.includes(keyword))?.map((el, i) => (
+      <DragList
+        id="BeforeDropzone"
+        onDrop={BeforeDropZone}
+        onDragOver={DragOver}
+      >
+        {DumDum.map((el, i) => (
           <D.DraggableItem
             id="draggable"
             draggable={true}
@@ -119,7 +135,7 @@ export default function DragPage(props) {
           </D.DraggableItem>
         ))}
       </DragList>
-      <DragZone id="dropzone" onDragOver={DragOver} onDrop={DropZone}>
+      <DragZone id="AfterDropzone" onDragOver={DragOver} onDrop={AfterDropZone}>
         <D.Introduction>여기로 드롭해주세요</D.Introduction>
       </DragZone>
     </D.Wrapper>

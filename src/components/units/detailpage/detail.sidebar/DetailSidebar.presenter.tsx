@@ -132,27 +132,22 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.TimeWrapper>
           <DS.Label>이용시간</DS.Label>
           <DS.TimeRange>
-            <DS.StartTime
-              readOnly
-              value={props.startTime}
-              // {...props.register("start_time")}
-            />
+            <DS.StartTime readOnly value={props.startTime} />
             ~
-            <DS.EndTime
-              readOnly
-              value={props.endTime}
-              // {...props.register("end_time")}
-            />
+            <DS.EndTime readOnly value={props.endTime} />
           </DS.TimeRange>
         </DS.TimeWrapper>
         <DS.CheckInWrapper>
           {props.isModalVisible && (
             <Modal
               visible={true}
-              onOk={props.handleOk}
               onCancel={props.handleCancel}
-              footer={[<div>제출</div>]}
-              bodyStyle={{ width: "1000px" }}
+              footer={[
+                <div>
+                  <div onClick={props.handleOk}>확인</div>
+                  <div style={{ fontWeight: "700" }}>${props.sidePrice}</div>
+                </div>,
+              ]}
             >
               <DragPage setSidePrice={props.setSidePrice} />
             </Modal>
@@ -160,7 +155,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
 
           <DS.Label>가격</DS.Label>
           <DS.PriceWrapper>
-            <DS.PriceText>{props.price}</DS.PriceText>원
+            <DS.PriceText>{props.price + props.sidePrice}</DS.PriceText>원
           </DS.PriceWrapper>
         </DS.CheckInWrapper>
         <IconButton aria-label="cart">
