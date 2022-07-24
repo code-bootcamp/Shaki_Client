@@ -15,7 +15,7 @@ export default function HeaderContainer() {
 
   const onClickLogOut = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
-      await logOutUser;
+      await logOutUser();
       setAccessToken("");
       alert("로그아웃성공");
       router.push("/login");
