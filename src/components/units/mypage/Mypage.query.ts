@@ -14,15 +14,17 @@ export const USER_INFO = gql`
       }
       room {
         id
-        usedPeople
-        starAmount
         remarks
         name
-        price
         zipcode
         address
-        conaddressDetail
-        images
+        images {
+          id
+          url
+          room {
+            id
+          }
+        }
       }
     }
   }

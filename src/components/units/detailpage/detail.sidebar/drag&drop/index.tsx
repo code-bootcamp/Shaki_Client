@@ -59,6 +59,8 @@ let DumDum = [
   },
 ];
 
+console.log(DumDum);
+
 export default function DragPage(props) {
   let dragged: HTMLDivElement;
 

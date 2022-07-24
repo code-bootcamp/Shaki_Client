@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getTime } from "../../../commons/getDate";
 import DetailSidebarUI from "./DetailSidebar.presenter";
-import {
-  CREATE_PAYMENT,
-  FETCH_LOGIN_USER,
-  FETCH_RESERVATION,
-} from "./DetailSibebar.queries";
+import { CREATE_PAYMENT, FETCH_RESERVATION } from "./DetailSibebar.queries";
 import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -182,7 +178,7 @@ export default function DetailSidebarContainer() {
                   date,
                   start_time: startTime,
                   end_time: endTime,
-                  amount: price + sidePrice,
+                  amount: price,
                   guest: guest,
                   point: price / 10,
                 },
@@ -201,8 +197,6 @@ export default function DetailSidebarContainer() {
       }
     );
   };
-
-  console.log(sidePrice);
 
   return (
     <>
