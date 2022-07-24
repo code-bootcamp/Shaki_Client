@@ -75,7 +75,7 @@ export default function AdminWrite(props: IAdminWrite) {
 
   const onClickSubmit = async (data: any) => {
     try {
-      const result = await createRoom({
+      await createRoom({
         variables: {
           createRoom: {
             ...data,
@@ -86,7 +86,6 @@ export default function AdminWrite(props: IAdminWrite) {
           },
         },
       });
-      console.log("result", result);
       Modal.success({ content: "게시글이 등록되었습니다." });
       router.push(`/adminpage/adminlist`);
     } catch (error) {
