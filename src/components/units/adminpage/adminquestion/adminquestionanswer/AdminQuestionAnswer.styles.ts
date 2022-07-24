@@ -4,7 +4,7 @@ export const WrapperRoot = styled.div`
   width: calc(100% - 250px);
   background-color: #f9f9f9;
   padding: 20px;
-  overflow-y: scroll;
+  overflow-x: scroll;
 `;
 
 export const Wrapper = styled.div`
@@ -53,18 +53,20 @@ export const ProfileImg = styled.img`
   margin-right: 20px;
 `;
 
-export const TitleLabel = styled.div`
+export const TitleLabel = styled.input`
   font-size: 26px;
   font-weight: 700;
   margin-right: 20px;
+  border: none;
 `;
 
-export const EmailLabel = styled.div`
+export const EmailLabel = styled.input`
   width: 950px;
   display: flex;
-  justify-content: flex-end;
+  text-align: end;
   font-size: 26px;
   font-weight: 700;
+  border: none;
 `;
 
 export const QuestionWrapper = styled.div`
@@ -74,9 +76,16 @@ export const QuestionWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-export const QuestionLabel = styled.div`
+export const QuestionLabel = styled.input`
   font-size: 26px;
   padding-left: 70px;
+  border: none;
+`;
+export const CategoryLabel = styled.input`
+  font-size: 26px;
+  padding-left: 70px;
+  border: none;
+  text-align: end;
 `;
 
 export const QuestionContentLabel = styled.div`
@@ -86,11 +95,12 @@ export const QuestionContentLabel = styled.div`
   font-size: 26px;
 `;
 
-export const QuestionContent = styled.div`
+export const QuestionContent = styled.input`
   width: 600px;
   overflow-wrap: break-word;
   font-size: 26px;
   margin-left: 20px;
+  border: none;
 `;
 
 export const AnswerWrapper = styled.div``;
@@ -107,6 +117,9 @@ export const ReplyContentWrapper = styled.div`
 export const ReplyContent = styled.textarea`
   width: 100%;
   height: 200px;
+`;
+export const Error = styled.div`
+  color: red;
 `;
 export const ButtonWrapper = styled.div`
   width: 1100px;
