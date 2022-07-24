@@ -4,12 +4,27 @@ import InfiniteScroll from "react-infinite-scroller";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../pages/_app";
 
-type payment = {
+type aaa = {
   id: string;
   date: string;
   start_time: string;
   end_time: string;
   amount: number;
+};
+
+type payment = Array<aaa>;
+
+type room = {
+  id: string;
+  remarks: string;
+  name: string;
+  zipcode: string;
+  address: string;
+  images: {
+    id: string;
+    url: string;
+    room: room;
+  };
 };
 
 interface IMypageprops {
@@ -19,6 +34,18 @@ interface IMypageprops {
       name: string;
       point: number;
       payment: payment;
+      room: {
+        id: string;
+        remarks: string;
+        name: string;
+        zipcode: string;
+        address: string;
+        images: {
+          id: string;
+          url: string;
+          room: room;
+        };
+      };
     };
   };
 }
@@ -85,49 +112,57 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
-          <My.ReservationInfoWrapper>
-            <My.InfoWrapper>
-              <My.Image src="/mypage/example.png" />
+          {props.data ? (
+            <My.ReservationInfoWrapper>
+              <My.InfoWrapper>
+                <My.Image src={props.data.fetchLoginUser.room.images?.url} />
+                <My.Info>
+                  <My.InfoDetailWrite>
+                    <My.NameWrapper>
+                      <My.Name>{props.data.fetchLoginUser.room.name}</My.Name>
+                    </My.NameWrapper>
+                    <My.ContentsWrapper>
+                      <My.Contents>
+                        깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은
+                        분들을 위한 룸입니다.
+                      </My.Contents>
+                    </My.ContentsWrapper>
+                    <My.PriceWrapper>
+                      <My.Price>결제 금액: 200,000원</My.Price>
+                    </My.PriceWrapper>
+                  </My.InfoDetailWrite>
 
-              <My.Info>
-                <My.InfoDetailWrite>
-                  <My.NameWrapper>
-                    <My.Name>구로점 쉐이키 1</My.Name>
-                  </My.NameWrapper>
-                  <My.ContentsWrapper>
-                    <My.Contents>
-                      깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은 분들을
-                      위한 룸입니다.
-                    </My.Contents>
-                  </My.ContentsWrapper>
-                  <My.PriceWrapper>
-                    <My.Price>결제 금액: 200,000원</My.Price>
-                  </My.PriceWrapper>
-                </My.InfoDetailWrite>
+                  <My.InfoDay>
+                    <My.DateWrapper>
+                      <My.DateImg src="/mypage/calendar_detail.png" />
+                      <My.Date>
+                        예약 날짜: {props.data.fetchLoginUser.payment[0].date}
+                      </My.Date>
+                    </My.DateWrapper>
+                    <My.TimeWrapper>
+                      <My.TimeImg src="/mypage/clock.png" />
+                      <My.Time>
+                        예약 시간:{" "}
+                        {props.data.fetchLoginUser.payment[0].start_time}
+                      </My.Time>
+                    </My.TimeWrapper>
+                    <My.MapWrapper>
+                      <My.MapImg src="/mypage/map.png" />
+                      <My.Map>
+                        서울특별시 구로구 디지털로 300 패스트파이브 구로점
+                      </My.Map>
+                    </My.MapWrapper>
+                  </My.InfoDay>
+                </My.Info>
+              </My.InfoWrapper>
 
-                <My.InfoDay>
-                  <My.DateWrapper>
-                    <My.DateImg src="/mypage/calendar_detail.png" />
-                    <My.Date>예약 날짜: 2022.07.12</My.Date>
-                  </My.DateWrapper>
-                  <My.TimeWrapper>
-                    <My.TimeImg src="/mypage/clock.png" />
-                    <My.Time>예약 시간: 12:00</My.Time>
-                  </My.TimeWrapper>
-                  <My.MapWrapper>
-                    <My.MapImg src="/mypage/map.png" />
-                    <My.Map>
-                      서울특별시 구로구 디지털로 300 패스트파이브 구로점
-                    </My.Map>
-                  </My.MapWrapper>
-                </My.InfoDay>
-              </My.Info>
-            </My.InfoWrapper>
-
-            <My.KakaoMapWrapper>
-              <KakaoMap />
-            </My.KakaoMapWrapper>
-          </My.ReservationInfoWrapper>
+              <My.KakaoMapWrapper>
+                <KakaoMap />
+              </My.KakaoMapWrapper>
+            </My.ReservationInfoWrapper>
+          ) : (
+            <></>
+          )}
 
           {/* 후기 작성 부분  */}
           <My.BodyTitleWrapper>

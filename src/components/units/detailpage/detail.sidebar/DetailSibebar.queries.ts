@@ -19,13 +19,3 @@ export const FETCH_RESERVATION = gql`
     fetchReservation(room: $room, date: $date)
   }
 `;
-
-export const FETCH_LOGIN_USER = gql`
-  query fetchLoginUser {
-    fetchLoginUser {
-      name
-      email
-      phone_num
-    }
-  }
-`;

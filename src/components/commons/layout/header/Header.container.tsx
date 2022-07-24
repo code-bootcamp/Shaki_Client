@@ -17,7 +17,6 @@ export default function HeaderContainer() {
     try {
       await logOutUser;
       setAccessToken("");
-      localStorage.clear();
       alert("로그아웃성공");
       router.push("/login");
     } catch (error: any) {
