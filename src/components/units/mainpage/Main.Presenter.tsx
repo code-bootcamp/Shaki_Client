@@ -4,7 +4,32 @@ import { Rate } from "antd";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../pages/_app";
 
-export default function MainPresenter(props: any) {
+type branch = {
+  __typename: string;
+  branch: string;
+  id: string;
+};
+
+type images = {
+  __typename: string;
+  url: string;
+};
+
+type fetchBranches = {
+  branch: branch;
+  id: string;
+  images: images[];
+  name: string;
+  remarks: string;
+  star: number;
+};
+
+interface IMainProps {
+  data: { fetchBranches: fetchBranches[] };
+  onClickRoom: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
+
+export default function MainPresenter(props: IMainProps) {
   const { theme } = useContext(ThemeContext);
 
   return (

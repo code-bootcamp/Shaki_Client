@@ -10,11 +10,11 @@ export default function AdminList() {
   const { data } = useQuery(FETCH_ROOMS);
   const [deleteRoom] = useMutation(DELETE_ROOM);
 
-  const onClickMoveEdit = (event: MouseEvent<HTMLDivElement>) => {
+  const onClickMoveEdit = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push(`/adminpage/${event.currentTarget.id}/adminedit`);
   };
 
-  const onClickDelete = async (event: MouseEvent<HTMLButtonElement>) => {
+  const onClickDelete = async (event: React.MouseEvent<HTMLButtonElement>) => {
     if (confirm("정말 삭제하시겠습니까? 삭제하면 되돌릴 수 없습니다!")) {
       try {
         await deleteRoom({

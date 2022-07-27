@@ -12,13 +12,15 @@ import {
 export default function AdminHome() {
   const router = useRouter();
 
-  const onClickMoveReservation = () => {
+  const onClickMoveReservation = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
     router.push(`/adminpage/adminreservation`);
   };
-  const onClickMoveQuestion = () => {
+  const onClickMoveQuestion = (event: React.MouseEvent<HTMLAnchorElement>) => {
     router.push(`/adminpage/adminquestion`);
   };
-  const onClickMoveList = () => {
+  const onClickMoveList = (event: React.MouseEvent<HTMLAnchorElement>) => {
     router.push(`/adminpage/adminlist`);
   };
 

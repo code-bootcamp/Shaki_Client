@@ -13,6 +13,16 @@ interface IAdminWrite {
   roomdata?: any;
 }
 
+type data = {
+  branch: string;
+  name: string;
+  price: number;
+  remarks: string;
+  contents: string;
+  maxPeople: number;
+  conaddressDetail: string;
+};
+
 const schema = yup.object({
   branch: yup.string().required("필수입력사항 입니다."),
   name: yup.string().required("필수입력사항 입니다."),
@@ -73,7 +83,7 @@ export default function AdminWrite(props: IAdminWrite) {
     setImgMainUrls(["", "", "", "", ""]);
   };
 
-  const onClickSubmit = async (data: any) => {
+  const onClickSubmit = async (data: data) => {
     try {
       await createRoom({
         variables: {
@@ -110,7 +120,7 @@ export default function AdminWrite(props: IAdminWrite) {
 
   console.log("이미지", imgMainUrls);
 
-  const onClickEdit = async (data: any) => {
+  const onClickEdit = async (data: data) => {
     try {
       const currentFiles = JSON.stringify(imgMainUrls);
       const defaultFiles = JSON.stringify(props.roomdata.fetchRoom.images);
