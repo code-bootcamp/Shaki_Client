@@ -12,11 +12,11 @@ declare const window: typeof globalThis & {
   IMP: any;
 };
 
-interface timeTable {
+type timeTable = {
   start_time: string;
   end_time: string;
   reserved: boolean;
-}
+};
 
 const hour: Array<timeTable> = [
   { start_time: "09:00", end_time: "10:00", reserved: false },
@@ -37,6 +37,7 @@ const hour: Array<timeTable> = [
 
 export default function DetailSidebarContainer() {
   const router = useRouter();
+  const client = useApolloClient();
 
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
@@ -50,10 +51,8 @@ export default function DetailSidebarContainer() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [startTime, setStartTime] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("");
-  const [timeToggle, setTimeToggle] = useState<boolean>(false);
-  const [reserved, setReserved] = useRecoilState(reservedState);
-  const client = useApolloClient();
-  const [clicked, setClicked] = useState([]);
+  const [reserved, setReserved] = useRecoilState<any>(reservedState);
+  const [clicked, setClicked] = useState<string[]>([]);
 
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
@@ -65,20 +64,22 @@ export default function DetailSidebarContainer() {
       newClicked.push((event.target as HTMLButtonElement).value);
       setClicked(newClicked);
       setStartTime(clicked[0].slice(0, 2));
-      setEndTime(clicked.at(-1).slice(6));
+      setEndTime(String(clicked.at(-1)?.slice(6)));
       setPrice(20000 * clicked.length);
     } else {
       const newClicked = [...clicked];
       if (newClicked.includes((event.target as HTMLButtonElement).value)) {
         hour[Number(event.currentTarget.id)].reserved = false;
-        setClicked(newClicked.filter((el) => el !== event.target.value));
+        setClicked(
+          newClicked.filter(
+            (el) => el !== (event.target as HTMLButtonElement).value
+          )
+        );
       } else {
         newClicked.push((event.target as HTMLButtonElement).value);
         setClicked(newClicked);
         setStartTime(clicked[0]?.slice(0, 5));
-        setEndTime(clicked.at(-1)?.slice(6));
-
-        // console.log(clicked, event.target);
+        setEndTime(String(clicked.at(-1)?.slice(6)));
       }
     }
   };
@@ -89,13 +90,14 @@ export default function DetailSidebarContainer() {
 
   useEffect(() => {
     setPrice(clicked.length * 20000);
-    clicked.sort(function (a, b) {
-      return a.slice(0, 2) - b.slice(0, 2);
+    clicked.sort(function (a: string, b: string) {
+      return Number(a.slice(0, 2)) - Number(b.slice(0, 2));
     });
     setStartTime(clicked.length === 0 ? "" : clicked[0].slice(0, 5));
     setEndTime(
       clicked.length === 0 ? "" : clicked[clicked.length - 1].slice(6)
     );
+    console.log(clicked);
   }, [clicked]);
 
   // 게스트 초기값
@@ -240,7 +242,6 @@ export default function DetailSidebarContainer() {
         requestPay={requestPay}
         onClickCancel={onClickCancel}
         clicked={clicked}
-        reserved={reserved}
         reservedArr={reservedArr}
         onClickCartOpen={onClickCartOpen}
         isModalVisible={isModalVisible}

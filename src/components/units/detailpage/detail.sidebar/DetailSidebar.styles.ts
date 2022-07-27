@@ -157,7 +157,8 @@ export const TimeBox = styled.button`
   font-size: 14px;
   font-weight: 500;
   /* background-color: #f6f7fb; */
-  background-color: ${(props) => (props.reserved ? "#849cf0" : "#f6f7fb")};
+  background-color: ${(props: { reserved: boolean }) =>
+    props.reserved ? "#849cf0" : "#f6f7fb"};
   padding: 3px;
   border-radius: 3px;
   border: none;

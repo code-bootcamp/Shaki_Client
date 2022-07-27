@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { getAccessToken } from "../commons/library/getAccessToken";
 import { accessTokenState } from "../commons/store";
 
-export const useAuth = (Component) => (props) => {
+export const useAuth = (Component: any) => (props: any) => {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   useEffect(() => {
