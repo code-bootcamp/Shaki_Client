@@ -47,16 +47,15 @@ interface IDetailSide {
   onClickCancel: () => any;
   clicked: string[];
   setSidePrice: any;
+  reservedArr: string[];
+  onClickCartOpen: () => void;
+  isModalVisible: boolean;
+  handleOk: () => void;
+  handleCancel: () => void;
+  sidePrice: number;
+  option: number;
+  setOption: any;
 }
-
-// const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
-//   "& .MuiBadge-badge": {
-//     right: -3,
-//     top: 13,
-//     border: 2px solid ${theme.palette.background.paper},
-//     padding: "0 4px",
-//   },
-// }));
 
 export default function DetailSidebarUI(props: IDetailSide) {
   return (
@@ -94,16 +93,10 @@ export default function DetailSidebarUI(props: IDetailSide) {
                       `${el.start_time} ~ ${el.end_time}`
                     ) && true
                   }
-                  // disabled
                   reserved={el.reserved}
                   value={el.start_time + "~" + el.end_time}
                   id={String(i)}
-                  onClick={
-                    props.onClickToggleTime
-                    // props.choiceEndPoint
-                    //   ? props.onClickSetEndTime
-                    //   : props.onClickSetStartTime
-                  }
+                  onClick={props.onClickToggleTime}
                   key={uuidv4()}
                 >
                   {el.start_time} ~ {el.end_time}
