@@ -6,6 +6,16 @@ import { v4 as uuidv4 } from "uuid";
 import UploadsMain from "../../../commons/Uploads/uploadsMainImg/UploadsMain.container";
 import TagPage from "../../../../commons/tags";
 
+type data = {
+  branch: string;
+  name: string;
+  price: number;
+  remarks: string;
+  contents: string;
+  maxPeople: number;
+  conaddressDetail: string;
+};
+
 interface IAdminWriteUI {
   register: any;
   handleSubmit: any;
@@ -14,7 +24,7 @@ interface IAdminWriteUI {
   address: string;
   zipcode: string | number;
   imgMainUrls: string[];
-  tags: any;
+  tags: string[];
   setTags: any;
   isEdit?: boolean;
   roomdata?: any;
@@ -24,8 +34,8 @@ interface IAdminWriteUI {
   onChangeContents: (value: string) => void;
   onChangeImgMainUrls: (imgUrls: string, index: number) => void;
   onClickRemoveFile: () => void;
-  onClickSubmit: (data: any) => void;
-  onClickEdit: (data: any) => void;
+  onClickSubmit: (data: data) => void;
+  onClickEdit: (data: data) => void;
 }
 
 export default function AdminWriteUI(props: IAdminWriteUI) {

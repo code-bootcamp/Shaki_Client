@@ -24,9 +24,9 @@ interface IAdminHomeUI {
       length?: number;
     };
   };
-  onClickMoveReservation: () => void;
-  onClickMoveQuestion: () => void;
-  onClickMoveList: () => void;
+  onClickMoveReservation: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onClickMoveQuestion: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onClickMoveList: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export default function AdminHomeUI(props: IAdminHomeUI) {

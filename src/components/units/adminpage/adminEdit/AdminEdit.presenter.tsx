@@ -3,10 +3,45 @@ import AdminWrite from "../adminwrite/AdminWrite.container";
 import * as Ae from "./AdminEdit.style";
 import { v4 as uuidv4 } from "uuid";
 
+type fetchRoom = {
+  __typename: string;
+  address: string;
+  branch: {
+    __typename: string;
+    branch: string;
+  };
+  conaddressDetail: string;
+  contents: string;
+  id: string;
+  images: {
+    __typename: string;
+    url: string;
+  }[];
+  maxPeople: string;
+  name: string;
+  price: number;
+  remarks: string;
+  tag: {
+    __typename: string;
+    tag: string;
+  }[];
+  zipcode: string;
+};
+
+type fetchRooms = {
+  branch: {
+    __typename: string;
+    branch: string;
+  };
+  id: string;
+  name: string;
+  __typename: string;
+}[];
+
 interface IAdminEditPresenter {
   isEdit?: boolean;
-  roomsdata?: any;
-  roomdata?: any;
+  roomsdata?: { fetchRooms: fetchRooms };
+  roomdata?: fetchRoom;
   onClickOpenEdit: (event: MouseEvent<HTMLDivElement>) => void;
 }
 

@@ -62,8 +62,7 @@ let DumDum = [
 export default function DragPage(props) {
   let dragged: HTMLDivElement;
 
-  const [cart, setCart] = useState([]);
-  const [price, setPrice] = useState(0);
+  // const [props.cart, setCart] = useState([]);
 
   const DragItem = (e: any) => {
     console.log("드레그아이템", e.target);
@@ -83,34 +82,33 @@ export default function DragPage(props) {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
       e.target.appendChild(dragged);
       console.log("ddd", e.target.appendChild(dragged).innerText);
-      const newCart = cart.filter(
+      const newCart = props.cart.filter(
         (el) => el !== e.target.appendChild(dragged).innerText
       );
-      setCart(newCart);
+      props.setCart(newCart);
     }
   };
 
   const AfterDropZone = (e: any) => {
-    const newCart = [...cart];
+    const newCart = [...props.cart];
     console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();
     if (e.target.id === "AfterDropzone") {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
       e.target.appendChild(dragged);
       newCart.push(e.target.appendChild(dragged).innerText);
-      setCart(newCart);
-      console.log(newCart, "newCart");
+      props.setCart(newCart);
     }
   };
 
   let sum = 0;
 
-  for (let i = 0; i < cart.length; i++) {
-    sum += Number(cart[i].slice(-5, -1));
+  for (let i = 0; i < props.cart.length; i++) {
+    sum += Number(props.cart[i].slice(-5, -1));
   }
 
   props.setSidePrice(sum);
-  props.setOption(cart?.length);
+  props.setOption(props.cart?.length);
 
   return (
     <D.Wrapper>
@@ -137,7 +135,11 @@ export default function DragPage(props) {
         ))}
       </DragList>
       <DragZone id="AfterDropzone" onDragOver={DragOver} onDrop={AfterDropZone}>
-        <D.Introduction>여기로 드롭해주세요</D.Introduction>
+        {/* <D.Introduction>여기로 드롭해주세요</D.Introduction> */}
+        {props.cart.map((el) =>
+          // <div>{el}</div>
+          console.log(el, typeof el)
+        )}
       </DragZone>
     </D.Wrapper>
   );

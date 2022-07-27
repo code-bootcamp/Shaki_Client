@@ -53,6 +53,7 @@ export default function DetailSidebarContainer() {
   const [endTime, setEndTime] = useState<string>("");
   const [reserved, setReserved] = useRecoilState<any>(reservedState);
   const [clicked, setClicked] = useState<string[]>([]);
+  const [cart, setCart] = useState<string[]>([]);
 
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
@@ -251,6 +252,8 @@ export default function DetailSidebarContainer() {
         setSidePrice={setSidePrice}
         option={option}
         setOption={setOption}
+        cart={cart}
+        setCart={setCart}
       />
     </>
   );

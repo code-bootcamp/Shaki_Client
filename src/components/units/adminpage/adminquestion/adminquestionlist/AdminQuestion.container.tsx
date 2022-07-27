@@ -1,6 +1,8 @@
 import { useQuery } from "@apollo/client";
+import { GridEventListener } from "@mui/x-data-grid";
 import { useRouter } from "next/router";
-import { MouseEvent } from "react";
+import React, { MouseEvent } from "react";
+import { GridRowProps } from "semantic-ui-react";
 import AdminQuestionUI from "./AdminQuestion.presenter";
 import { FETCH_QUESTIONS } from "./AdminQuestion.queries";
 
@@ -9,8 +11,10 @@ export default function AdminQuestion() {
 
   const { data } = useQuery(FETCH_QUESTIONS);
 
-  const onClickMoveQuestionDetail = (event: any) => {
-    router.push(`/adminpage/adminquestion/${event.id}`);
+  console.log(data);
+
+  const onClickMoveQuestionDetail = (event: GridEventListener<"cellClick">) => {
+    router.push(`/adminpage/adminquestion/${(event as GridRowProps).id}`);
   };
 
   return (
