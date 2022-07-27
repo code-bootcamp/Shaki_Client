@@ -3,7 +3,6 @@ import * as Ad from "./AdminReservation.styles";
 interface IAdminReservationUI {
   data?: any;
 }
-
 export default function AdminReservationUI(props: IAdminReservationUI) {
   return (
     <Ad.WrapperRoot>

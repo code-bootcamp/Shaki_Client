@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, MouseEvent } from "react";
 import AdminWrite from "../adminwrite/AdminWrite.container";
 import * as Ae from "./AdminEdit.style";
 import { v4 as uuidv4 } from "uuid";
@@ -7,7 +7,7 @@ interface IAdminEditPresenter {
   isEdit?: boolean;
   roomsdata?: any;
   roomdata?: any;
-  onClickOpenEdit: (event) => void;
+  onClickOpenEdit: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function AdminEditPresenter(props: IAdminEditPresenter) {
@@ -15,7 +15,7 @@ export default function AdminEditPresenter(props: IAdminEditPresenter) {
     <Ae.Wrapper>
       <Ae.TebWrapper>
         <Ae.HeadWrapper>
-          {props.roomsdata?.fetchRooms?.map((el) => (
+          {props.roomsdata?.fetchRooms?.map((el: any) => (
             <Ae.Header key={uuidv4()}>
               <Ae.HeaderItem id={el.id} onClick={props.onClickOpenEdit}>
                 {el.branch.branch}

@@ -1,7 +1,7 @@
 import { PlusOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 import { Input, Tag, Tooltip } from "antd";
-import React, { useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
 const Wrapper = styled.div`
   width: 300px;
@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 `;
 
 const TagPage = (props: any) => {
-  // const [tags, setTags] = useState(["Unremovable", "Tag 2", "Tag 3"]);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -28,7 +27,7 @@ const TagPage = (props: any) => {
   }, [inputValue]);
 
   const handleClose = (removedTag: any) => {
-    const newTags = props.tags.filter((tag) => tag !== removedTag);
+    const newTags = props.tags.filter((tag: any) => tag !== removedTag);
     console.log(newTags);
     props.setTags(newTags);
   };
@@ -50,7 +49,7 @@ const TagPage = (props: any) => {
     setInputValue("");
   };
 
-  const handleEditInputChange = (e) => {
+  const handleEditInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEditInputValue(e.target.value);
   };
 
@@ -64,7 +63,7 @@ const TagPage = (props: any) => {
 
   return (
     <Wrapper>
-      {props.tags.map((tag, index) => {
+      {props.tags.map((tag: any, index: any) => {
         if (editInputIndex === index) {
           return (
             <Input

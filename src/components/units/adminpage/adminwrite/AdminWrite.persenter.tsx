@@ -14,8 +14,8 @@ interface IAdminWriteUI {
   address: string;
   zipcode: string | number;
   imgMainUrls: string[];
-  tags: string[];
-  setTags: string;
+  tags: any;
+  setTags: any;
   isEdit?: boolean;
   roomdata?: any;
 

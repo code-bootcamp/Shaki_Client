@@ -28,8 +28,6 @@ export default function AdminHome() {
   const { data: usernumdata } = useQuery(FETCH_USERNUM);
   const { data: roomnumdata } = useQuery(FETCH_ROOMS);
 
-  console.log("data", paymentdata, questiondata, usernumdata);
-
   return (
     <AdminHomeUI
       paymentsumdata={paymentsumdata}
