@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import AdminQuestionAnswerUI from "./AdminQuestionAnswer.presenter";
 import { FETCH_QUESTION, REPLY_QUESTION } from "./AdminQuestionAnswer.queries";
 
@@ -9,7 +9,7 @@ export default function AdminQuestionAnswer() {
   const [replyContent, setReplyContent] = useState("");
   const [error, setError] = useState("");
 
-  const onChangeReplyContent = (event) => {
+  const onChangeReplyContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setReplyContent(event.target.value);
   };
 

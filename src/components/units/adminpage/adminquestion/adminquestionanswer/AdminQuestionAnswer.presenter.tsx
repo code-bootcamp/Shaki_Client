@@ -1,9 +1,18 @@
+import { ChangeEvent } from "react";
 import * as Ad from "./AdminQuestionAnswer.styles";
 
 interface IAdminQuestionAnswerUI {
   error: string;
-  data?: any;
-  onChangeReplyContent: (event: any) => void;
+  data?: {
+    fetchQuestion: {
+      name: string;
+      email: string;
+      title: string;
+      category: string;
+      content: string;
+    };
+  };
+  onChangeReplyContent: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onClickAnswer: (data: any) => void;
 }
 

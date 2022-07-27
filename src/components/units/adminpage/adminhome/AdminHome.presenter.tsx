@@ -3,11 +3,27 @@ import { Message } from "semantic-ui-react";
 import * as AD from "./AdminHome.styles";
 
 interface IAdminHomeUI {
-  paymentsumdata?: any;
-  paymentdata?: any;
-  questiondata?: any;
-  usernumdata?: any;
-  roomnumdata?: any;
+  paymentsumdata?: {
+    fetchPaymentSum?: number;
+  };
+  paymentdata?: {
+    fetchPayments: {
+      length?: number;
+    };
+  };
+  questiondata?: {
+    fetchQuestions: {
+      length: number;
+    };
+  };
+  usernumdata?: {
+    fetchUserNum: number;
+  };
+  roomnumdata?: {
+    fetchRooms: {
+      length?: number;
+    };
+  };
   onClickMoveReservation: () => void;
   onClickMoveQuestion: () => void;
   onClickMoveList: () => void;
