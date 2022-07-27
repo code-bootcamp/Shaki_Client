@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import React from "react";
 import AdminHeaderPage from "../../../../src/components/commons/adminlayout/adminheader/AdminHeader.presenter";
 import AdminSideBarUI from "../../../../src/components/commons/adminlayout/adminsidebar/AdminSideBar.presenter";
 import AdminEditPresenter from "../../../../src/components/units/adminpage/adminEdit/AdminEdit.presenter";
@@ -47,6 +48,31 @@ const SideBar = styled.div`
   justify-content: space-between;
 `;
 
+type fetchRoom = {
+  __typename: string;
+  address: string;
+  branch: {
+    __typename: string;
+    branch: string;
+  };
+  conaddressDetail: string;
+  contents: string;
+  id: string;
+  images: {
+    __typename: string;
+    url: string;
+  }[];
+  maxPeople: string;
+  name: string;
+  price: number;
+  remarks: string;
+  tag: {
+    __typename: string;
+    tag: string;
+  }[];
+  zipcode: string;
+};
+
 export default function AdminEditPage() {
   const router = useRouter();
 
@@ -55,7 +81,7 @@ export default function AdminEditPage() {
       id: router.query.id,
     },
   });
-  const onClickOpenEdit = (event) => {
+  const onClickOpenEdit = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push(`/adminpage/${event.currentTarget.id}/adminedit`);
   };
 
@@ -64,6 +90,8 @@ export default function AdminEditPage() {
       id: router.query.id,
     },
   });
+
+  console.log("data", data, "roomsData", roomsdata);
 
   return loading ? (
     <></>

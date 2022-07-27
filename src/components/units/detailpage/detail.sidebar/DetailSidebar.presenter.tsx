@@ -105,17 +105,12 @@ export default function DetailSidebarUI(props: IDetailSide) {
               <div onClick={props.onClickCancel} style={{ width: "100%" }}>
                 닫기
               </div>
-              {/* <DS.BoxWrapper>
-                  <DS.blueBox type="checkbox" /> 시작시간
-                  <DS.redBox type="checkbox" /> 종료시간
-                </DS.BoxWrapper> */}
             </DS.TimesWrapper>
           )}
         </DS.CheckInWrapper>
         <DS.CheckInWrapper>
           <DS.Label>게스트</DS.Label>
           <DS.CheckGuest>
-            {/* 게스트 총 max 값 fetch해서 받아오기 */}
             <DS.GuestBtn onClick={props.onDecrease}>-</DS.GuestBtn>
             {props.guest}
             <DS.GuestBtn onClick={props.onIncrease}>+</DS.GuestBtn>
@@ -145,6 +140,8 @@ export default function DetailSidebarUI(props: IDetailSide) {
               <DragPage
                 setOption={props.setOption}
                 setSidePrice={props.setSidePrice}
+                setCart={props.setCart}
+                cart={props.cart}
               />
             </Modal>
           )}

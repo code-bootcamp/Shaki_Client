@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import DetailBodyUI from "./DetailBody.presenter";
 import { CREATE_REVIEW, FETCH_REVIEWS } from "./DetailBody.queries";
@@ -55,7 +55,7 @@ export default function DetailBodyContainer(props: IBody) {
   };
 
   // 후기내용 onChange
-  const onChangeComment = (e: any) => {
+  const onChangeComment = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
   // 후기등록 Modal
