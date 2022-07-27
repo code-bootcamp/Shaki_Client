@@ -1,6 +1,6 @@
 import { PlusOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
-import { Input, Tag, Tooltip } from "antd";
+import { Input, InputRef, Tag, Tooltip } from "antd";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
 const Wrapper = styled.div`
@@ -14,8 +14,8 @@ const TagPage = (props: any) => {
   const [inputValue, setInputValue] = useState("");
   const [editInputIndex, setEditInputIndex] = useState(-1);
   const [editInputValue, setEditInputValue] = useState("");
-  const inputRef = useRef(null);
-  const editInputRef = useRef(null);
+  const inputRef = useRef<InputRef>(null);
+  const editInputRef = useRef<InputRef>(null);
 
   useEffect(() => {
     if (inputVisible) {

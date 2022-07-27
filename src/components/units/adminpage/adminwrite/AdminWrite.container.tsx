@@ -35,7 +35,7 @@ export default function AdminWrite(props: IAdminWrite) {
 
   const [isModalView, setIsModalView] = useState(false);
   const [imgMainUrls, setImgMainUrls] = useState(["", "", "", "", ""]);
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<any>([]);
 
   const [address, setAddress] = useState("");
   const [zipcode, setZipcode] = useState("");
