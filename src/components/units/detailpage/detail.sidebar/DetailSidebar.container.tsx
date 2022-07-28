@@ -55,18 +55,21 @@ export default function DetailSidebarContainer() {
   const [clicked, setClicked] = useState<string[]>([]);
   const [cart, setCart] = useState<string[]>([]);
 
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0);
+
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
   const onClickToggleTime = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // console.log(hour);
     hour[Number(event.currentTarget.id)].reserved = true;
     if (clicked === []) {
       const newClicked = [];
       newClicked.push((event.target as HTMLButtonElement).value);
-      setClicked(newClicked);
       setStartTime(clicked[0].slice(0, 2));
-      setEndTime(String(clicked.at(-1)?.slice(6)));
-      setPrice(20000 * clicked.length);
+      setEndTime(clicked[0].slice(-5));
+      setClicked(newClicked);
+
+      // return;
     } else {
       const newClicked = [...clicked];
       if (newClicked.includes((event.target as HTMLButtonElement).value)) {
@@ -78,10 +81,13 @@ export default function DetailSidebarContainer() {
         );
       } else {
         newClicked.push((event.target as HTMLButtonElement).value);
+        setEnd(Number((event.target as HTMLButtonElement).value.slice(0, 2)));
         setClicked(newClicked);
-        setStartTime(clicked[0]?.slice(0, 5));
+        setStartTime(String(clicked[0]?.slice(0, 5)));
         setEndTime(String(clicked.at(-1)?.slice(6)));
       }
+
+      return;
     }
   };
 
@@ -90,15 +96,30 @@ export default function DetailSidebarContainer() {
   };
 
   useEffect(() => {
-    setPrice(clicked.length * 20000);
-    clicked.sort(function (a: string, b: string) {
-      return Number(a.slice(0, 2)) - Number(b.slice(0, 2));
-    });
     setStartTime(clicked.length === 0 ? "" : clicked[0].slice(0, 5));
     setEndTime(
       clicked.length === 0 ? "" : clicked[clicked.length - 1].slice(6)
     );
-    console.log(clicked);
+    setStart(Number(clicked[0]?.slice(0, 2)));
+    clicked.sort(function (a: string, b: string) {
+      return Number(a.slice(0, 2)) - Number(b.slice(0, 2));
+    });
+
+    console.log(startTime, endTime);
+
+    for (let i = 0; i < hour.length; i++) {
+      if (
+        Number(hour[i].start_time.slice(0, 2)) > start &&
+        Number(hour[i].start_time.slice(0, 2)) < end
+      ) {
+        hour[i].reserved = true;
+      }
+    }
+    if (isNaN(start)) {
+      setPrice(20000);
+    } else {
+      setPrice((end - start + 1) * 20000);
+    }
   }, [clicked]);
 
   // 게스트 초기값
@@ -114,7 +135,12 @@ export default function DetailSidebarContainer() {
   };
 
   const onClickTime = () => {
-    setToggleGuest((prev) => !prev);
+    if (!date) {
+      alert("날짜를 선택해주세요.");
+    } else {
+      setToggleGuest((prev) => !prev);
+    }
+    return;
   };
 
   // 다음날짜 구하기
@@ -148,6 +174,7 @@ export default function DetailSidebarContainer() {
   }
 
   const onClickCartOpen = () => {
+    setCart([]);
     setIsModalVisible(true);
   };
 
