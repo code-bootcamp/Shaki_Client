@@ -46,9 +46,9 @@ export const WrapperImg = styled.div`
 
   background-size: cover;
   background-repeat: no-repeat;
-  @media screen and (max-width: 1500px) {
+  /* @media screen and (max-width: 1500px) {
     display: none;
-  }
+  } */
 `;
 
 export const Wrapper = styled.div`
