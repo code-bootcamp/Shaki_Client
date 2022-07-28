@@ -92,10 +92,6 @@ export const panel = styled.div`
   flex-direction: row;
 `;
 
-export const LogInImg = styled.img`
-  width: 30em;
-`;
-
 export const MiddleWrapper = styled.div`
   width: 25em;
   display: flex;
@@ -109,6 +105,9 @@ export const MiddleWrapper = styled.div`
   @media ${breakPoints.mobile} {
     width: 60vw;
     margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -121,6 +120,9 @@ export const Head = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  @media ${breakPoints.mobile} {
+    font-size: 20px;
+  }
 `;
 
 export const AdminOnOffBox = styled.div`
@@ -160,7 +162,10 @@ export const UpperBody = styled.div`
   flex-direction: column;
   border-bottom: 3px solid #4e75ff;
   padding: 0 20px 30px 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  @media ${breakPoints.mobile} {
+    width: 90%;
+  }
 `;
 
 export const Email = styled.input`
@@ -169,21 +174,26 @@ export const Email = styled.input`
   border-bottom: 1px solid gray;
   margin-bottom: 10px;
   outline: none;
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Password = styled.input`
   height: 40px;
   border: none;
   border-bottom: 1px solid gray;
-
   outline: none;
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const LowerBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0 20px 30px 20px;
 `;
 
@@ -211,6 +221,10 @@ export const Social = styled.img`
   height: 30px;
   border-radius: 5px;
   margin-bottom: 5px;
+  @media ${breakPoints.mobile} {
+    width: 20px;
+    height: 80px;
+  }
 `;
 
 export const SocialTitle = styled.div``;
@@ -232,6 +246,10 @@ export const LogIn = styled.button`
   color: white;
   margin-bottom: 10px;
   cursor: pointer;
+  @media ${breakPoints.mobile} {
+    width: 80px;
+    height: 35px;
+  }
 `;
 
 export const FindEmail = styled.div`
@@ -248,6 +266,10 @@ export const FindEmail = styled.div`
   color: white;
   margin-bottom: 10px;
   cursor: pointer;
+  @media ${breakPoints.mobile} {
+    width: 80px;
+    height: 35px;
+  }
 `;
 
 export const SignUp = styled.div`
@@ -289,6 +311,6 @@ export const CommentBox = styled.div`
     border-bottom: 2px solid #4e75ff;
   }
   @media ${breakPoints.mobile} {
-    margin-top: 1em;
+    margin-top: 40px;
   }
 `;
