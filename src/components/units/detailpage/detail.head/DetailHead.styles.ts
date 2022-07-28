@@ -58,6 +58,12 @@ export const HeadInfo = styled.div`
   align-items: center;
 `;
 
+export const HeadStar = styled.div`
+  margin-top: 5px;
+  padding-left: 8px;
+  text-align: center;
+`;
+
 // 이미지
 export const ExImgBox = styled.div`
   display: flex;

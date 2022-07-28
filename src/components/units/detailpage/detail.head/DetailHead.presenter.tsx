@@ -17,8 +17,9 @@ export default function DetailHeaderUI(props: IDetailHeaderUI) {
         <DH.HeadInfo>
           {/* 별점 Fetch 받아온값 연결해야함. value*/}
           <Rate disabled value={props.data?.fetchRoom.star} />
-          {props.data?.fetchRoom.star}.0 / 5.0
+          <DH.HeadStar>{props.data?.fetchRoom.star}</DH.HeadStar>
         </DH.HeadInfo>
+
         <DH.PickWrapper>
           <DH.PickImg src="/mypage/pick_detail.png" />
           <DH.QuestionBtn onClick={props.onClickPick}>찜하기</DH.QuestionBtn>

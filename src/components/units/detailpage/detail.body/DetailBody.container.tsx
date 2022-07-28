@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { Modal } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -22,7 +23,11 @@ export default function DetailBodyContainer(props: IBody) {
   const [content, setContent] = useState("");
   // 리뷰등록
   const [createReview] = useMutation(CREATE_REVIEW);
-  const { data: reviewData, fetchMore } = useQuery(FETCH_REVIEWS, {
+  const {
+    data: reviewData,
+    fetchMore,
+    loading,
+  } = useQuery(FETCH_REVIEWS, {
     variables: {
       pageNum: 1,
       roomId: router.query.detailid,
@@ -81,7 +86,10 @@ export default function DetailBodyContainer(props: IBody) {
       });
       setIsModalVisible(false);
     } catch (error) {
-      alert(error);
+      Modal.error({
+        title: "후기 등록에 실패했습니다",
+        content: "로그인을 해주세요!",
+      });
     }
   };
 
@@ -91,17 +99,21 @@ export default function DetailBodyContainer(props: IBody) {
 
   return (
     <>
-      <DetailBodyUI
-        isModalVisible={isModalVisible}
-        showModal={showModal}
-        handleOk={handleOk}
-        handleCancel={handleCancel}
-        setStar={setStar}
-        data={props.data}
-        reviewData={reviewData}
-        onChangeComment={onChangeComment}
-        loadFunc={loadFunc}
-      />
+      {loading ? (
+        <></>
+      ) : (
+        <DetailBodyUI
+          isModalVisible={isModalVisible}
+          showModal={showModal}
+          handleOk={handleOk}
+          handleCancel={handleCancel}
+          setStar={setStar}
+          data={props.data}
+          reviewData={reviewData}
+          onChangeComment={onChangeComment}
+          loadFunc={loadFunc}
+        />
+      )}
     </>
   );
 }
