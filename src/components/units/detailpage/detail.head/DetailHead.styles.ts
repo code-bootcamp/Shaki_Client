@@ -24,10 +24,10 @@ export const HeadInfoWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
   @media ${breakPoints.tablet} {
-    width: 850px;
+    width: 100%;
   }
   @media ${breakPoints.mobile} {
-    width: 475px;
+    width: 100%;
   }
 `;
 export const PickWrapper = styled.div``;

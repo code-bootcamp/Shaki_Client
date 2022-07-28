@@ -9,8 +9,14 @@ interface ThemeProps {
 
 export const Wrapper = styled.div`
   width: 814px;
+  @media ${breakPoints.tablet} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   @media ${breakPoints.mobile} {
-    width: 570px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,9 +27,6 @@ export const Divedline = styled.div`
   width: 100%;
   margin-bottom: 40px;
   border-bottom: 1px solid #4167ee;
-  @media ${breakPoints.mobile} {
-    width: 100%;
-  }
 `;
 
 export const Title = styled.div`
@@ -56,8 +59,19 @@ export const SubTitle = styled.div`
   font-size: 16px;
   color: #9ca0ac;
   margin-bottom: 20px;
+  @media ${breakPoints.tablet} {
+    width: 100%;
+
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   @media ${breakPoints.mobile} {
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -100,8 +114,12 @@ export const CommentWrapper = styled.div<ThemeProps>`
   background: ${({ theme }) => theme.SUBBACKGROUND};
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
+  @media ${breakPoints.tablet} {
+    width: 100%;
+    padding: 15px;
+  }
   @media ${breakPoints.mobile} {
-    width: 80%;
+    width: 100%;
     padding: 10px;
   }
 `;
@@ -111,6 +129,11 @@ export const CommentBox = styled(InfiniteScroll)`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 10px;
+  @media ${breakPoints.mobile} {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 `;
 
 export const CommentHead = styled.div`
@@ -147,7 +170,7 @@ export const CommentInput = styled.textarea`
 export const Comment = styled.div`
   border: 1px solid black;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
 `;
 
 export const CommentTitle = styled.div`
@@ -155,6 +178,18 @@ export const CommentTitle = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  @media ${breakPoints.tablet} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @media ${breakPoints.mobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 // 카카오맵
@@ -170,6 +205,9 @@ export const PrecautionsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
   @media ${breakPoints.mobile} {
     display: flex;
     flex-direction: column;
@@ -182,12 +220,34 @@ export const ExampleWrapper = styled.div`
   border-radius: 15px;
   padding: 5px;
   border: 1px solid lightgray;
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
   @media ${breakPoints.mobile} {
     margin-bottom: 20px;
   }
 `;
 
 export const Example = styled.div`
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 14px;
+  color: #9ca0ac;
+  @media ${breakPoints.tablet} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @media ${breakPoints.mobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const SubExample = styled.div`
   width: 100%;
   word-wrap: break-word;
   font-size: 14px;

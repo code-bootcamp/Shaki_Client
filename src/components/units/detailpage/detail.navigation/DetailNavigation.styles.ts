@@ -30,10 +30,10 @@ export const MenuWrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   @media ${breakPoints.tablet} {
-    width: 890px;
+    width: 100%;
   }
   @media ${breakPoints.mobile} {
-    width: 475px;
+    width: 100%;
   }
 `;
 
@@ -51,5 +51,11 @@ export const MenuName = styled.div`
   &:hover {
     color: #4167ee;
     border-bottom: 2px solid #4167ee;
+  }
+  @media ${breakPoints.tablet} {
+    font-size: 15px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
   }
 `;

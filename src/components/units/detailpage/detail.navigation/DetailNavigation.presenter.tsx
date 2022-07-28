@@ -33,7 +33,6 @@ export default function DetailNavUI(props: IDetailNavUI) {
   const { theme } = useContext(ThemeContext);
 
   let Rooms: any[string];
-  // console.log(props.data.fetchBranches, props.router.query.detailid);
   Rooms = RoomArray(props.data.fetchBranches, props.router.query.detailid);
 
   return (
