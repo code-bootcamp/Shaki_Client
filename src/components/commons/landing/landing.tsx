@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { useRef } from "react";
 import LogInContainer from "../../units/login/LogIn.Container";
 import { breakPoints } from "../../../commons/styles/media";
+import LandingMobile from "./landingmobile/LandingMobile.presenter";
 
 const Root = styled.div`
   width: 100vw;
@@ -62,10 +63,11 @@ const SocialLoginBox = styled.div`
   top: 4500px;
   left: 90px;
   margin-bottom: 100px;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
   @media ${breakPoints.mobile} {
-    position: relative;
-    top: 0;
-    left: 0px;
+    display: none;
   }
 `;
 
@@ -90,6 +92,7 @@ export default function LandingPage() {
         <Landing2UI />
         <UpButton onClick={onClickMoveToUp} />
       </Root>
+      <LandingMobile />
       <SocialLoginBox ref={downRef}>
         <LogInContainer />
       </SocialLoginBox>
