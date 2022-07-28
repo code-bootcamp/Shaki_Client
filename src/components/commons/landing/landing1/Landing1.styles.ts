@@ -82,6 +82,5 @@ export const Title = styled(Typical)`
   @media ${breakPoints.tablet} {
   }
   @media ${breakPoints.mobile} {
-    width: 10vw;
   }
 `;
