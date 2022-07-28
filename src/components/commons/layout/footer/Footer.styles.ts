@@ -2,118 +2,53 @@ import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 import { Theme } from "../../../../commons/styles/theme";
 
-interface ThemeProps {
+interface ToggleProps {
   theme: Theme;
 }
 
-export const FooterWrapper = styled.div<ThemeProps>`
+export const FooterWrapper = styled.div<ToggleProps>`
   position: sticky;
-  background-color: white;
+  background: ${({ theme }) => theme.FOOTERBACKGROUND};
   width: 100%;
-  height: 200px;
+  height: 240px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 3em;
   z-index: 4;
-  background: ${({ theme }) => theme.LAYOUT};
-  color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
   @media ${breakPoints.tablet} {
     padding: 2em;
-    height: 230px;
   }
-
   @media ${breakPoints.mobile} {
-    display: none;
+    padding: 1em;
   }
 `;
 
-export const FooterInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 40%;
-  height: 100%;
-  z-index: 4;
-`;
-// 아이콘
-export const TitleIcon = styled.img`
+export const LogoImg = styled.img`
   width: 90px;
-  height: auto;
-  @media ${breakPoints.tablet} {
-    width: 58px;
-    height: auto;
+  height: 80px;
+  margin-bottom: 20px;
+  @media ${breakPoints.mobile} {
+    width: 80px;
+    height: 70px;
   }
 `;
 
-export const SNSIcon = styled.img`
-  width: 2.5em;
-  height: auto;
-  @media ${breakPoints.tablet} {
-    width: 1.8em;
-    height: auto;
-  }
-`;
-
-export const FooterAddressWrapper = styled.div`
-  width: 60%;
-  height: 100%;
+export const TextInfo = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-export const FooterInfoTitle = styled.div`
-  font-size: 1rem;
-  @media ${breakPoints.tablet} {
-    font-size: 0.7rem;
-  }
-`;
-
-export const FooterInfoLink = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const InfoLinkTitle = styled.div`
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-  @media ${breakPoints.tablet} {
-    font-size: 1rem;
-    margin-bottom: 5px;
-  }
-`;
-
-export const ImgDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 35%;
-`;
-
-export const AddressTitle = styled.div`
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding-bottom: 10px;
-  @media ${breakPoints.tablet} {
-    font-size: 1rem;
-  }
-`;
-
-export const AddressSub = styled.div`
-  font-size: 1em;
+  color: #4f7ab5;
   font-weight: 500;
-  @media ${breakPoints.tablet} {
-    font-size: 0.7em;
+  font-size: 14px;
+  @media ${breakPoints.mobile} {
+    font-weight: 500;
+    font-size: 12px;
   }
 `;
 
-export const InfoSub = styled.div`
-  font-size: 1em;
-  font-weight: 500;
-  @media ${breakPoints.tablet} {
-    font-size: 1em;
-  }
+export const HeightLine = styled.p`
+  font-size: 13px;
+  margin: 0px 10px;
 `;

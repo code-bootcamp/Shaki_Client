@@ -40,7 +40,7 @@ export default function HeaderUI(props: IHeaderType) {
             isPosition={props.router.asPath.split("/")[1]}
             onClick={props.onClickMovePage}
           >
-            쉐이키 소개
+            쉐이키소개
           </THS.NavText>
           <THS.Dropdown>
             <THS.NavText
@@ -48,7 +48,7 @@ export default function HeaderUI(props: IHeaderType) {
               onClick={props.onClickMovePage}
               isPosition={props.router.asPath.split("/")[1]}
             >
-              지점 소개
+              지점소개
             </THS.NavText>
             {/* 메뉴 map 으로 뿌려주기 */}
             <THS.DropdownContent className="dropdown-content">
@@ -77,12 +77,17 @@ export default function HeaderUI(props: IHeaderType) {
       {/* 회원가입 / 로그인  */}
       <THS.BtnWrapper>
         {props.accessToken ? (
-          <div style={{ display: "flex" }}>
-            <p>{props.data?.fetchLoginUser.name}님 환영합니다!</p>
+          <THS.IsLogedin>
+            <THS.UserText>
+              <THS.UserName>
+                {props.data?.fetchLoginUser.name.slice(0, 5)}님
+              </THS.UserName>
+              &nbsp;환영합니다!
+            </THS.UserText>
             <THS.Button id="logOut" onClick={props.onClickLogOut}>
               로그아웃
             </THS.Button>
-          </div>
+          </THS.IsLogedin>
         ) : (
           <div>
             <THS.Button id="login" onClick={props.onClickMovePage}>
