@@ -26,7 +26,7 @@ const ToggleButton = styled("button")<ToggleProps>`
   background: ${({ theme }) => theme.BACKGROUND};
   color: ${({ theme }) => theme.MAIN};
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10000;
+  z-index: 1;
   &:hover {
     filter: brightness(
       ${({ theme }) => (theme === lightTheme ? "0.9" : "1.13")}

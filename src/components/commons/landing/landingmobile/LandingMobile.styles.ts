@@ -113,7 +113,7 @@ export const Button = styled.button`
     padding-top: 3px;
     border-radius: 5px;
     margin: auto;
-    margin-bottom: 19px;
+    margin-bottom: 19xspx;
     margin-top: 15px;
     :hover {
       background-color: white;
