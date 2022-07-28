@@ -8,6 +8,12 @@ export const WrapperRoot = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -22,11 +28,10 @@ export const Wrapper = styled.div`
   /* filter: blur(1px); */
   /* -webkit-filter: blur(1px); */
   @media ${breakPoints.tablet} {
+    display: none;
   }
   @media ${breakPoints.mobile} {
-    display: flex;
-    background-size: contain;
-    background-repeat: no-repeat;
+    display: none;
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const HTML = styled.div`
   display: flex;
@@ -10,6 +11,12 @@ export const HTML = styled.div`
 export const WrapperRoot = styled.div`
   width: 100vw;
   position: relative;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -20,6 +27,12 @@ export const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const Rectangle = styled.div`
@@ -61,6 +74,12 @@ export const MapWrapper = styled.div`
   top: 1500px;
   background-color: #ffffff;
   z-index: 3;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const MapBody = styled.div`
