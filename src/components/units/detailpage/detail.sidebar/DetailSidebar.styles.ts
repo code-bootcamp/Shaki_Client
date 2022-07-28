@@ -132,20 +132,13 @@ export const CheckInTime = styled.div`
 export const TimesWrapper = styled.div`
   position: absolute;
   top: 80px;
-  background-color: #d9dbe3;
+  background-color: #b8bac8;
   border-radius: 10px;
   padding: 10px;
-  /* 중앙정렬 포지션 */
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   z-index: 1;
-  /* display: grid; */
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  /* grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr; */
 `;
 
 export const TimeHead = styled.div`
@@ -174,6 +167,26 @@ export const TimeBox = styled.button`
       color: black;
       cursor: initial;
     }
+  }
+`;
+
+export const ModalFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
+export const SidePrice = styled.div``;
+
+export const TimeToggleCancel = styled.div`
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: 10px;
+  cursor: pointer;
+  :hover {
+    color: #4167ee;
   }
 `;
 

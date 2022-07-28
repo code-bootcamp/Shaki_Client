@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as D from "./style";
 
 const DragList = styled.div`
-  width: 400px;
+  width: 100%;
   padding: 10px 10px;
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
 `;
 const DragZone = styled.div`
+  width: 100%;
   height: 500px;
-  width: 400px;
   padding: 20px 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -21,41 +21,49 @@ let DumDum = [
     id: 1,
     name: "기본세팅",
     price: "3000",
+    status: false,
   },
   {
     id: 2,
     name: "카놀라유",
     price: "3000",
+    status: false,
   },
   {
     id: 3,
     name: "에어프라이",
     price: "3000",
+    status: false,
   },
   {
     id: 4,
     name: "가스레인지",
     price: "3000",
+    status: false,
   },
   {
     id: 5,
     name: "나이프",
     price: "3000",
+    status: false,
   },
   {
     id: 6,
     name: "사용 후 애프터서비스",
     price: "3000",
+    status: false,
   },
   {
     id: 7,
     name: "후라이팬",
     price: "3000",
+    status: false,
   },
   {
     id: 8,
     name: "마체태",
     price: "3000",
+    status: false,
   },
 ];
 
@@ -64,11 +72,15 @@ export default function DragPage(props) {
 
   // const [props.cart, setCart] = useState([]);
 
+  const dragRef = useRef(null);
+
+  const [inCart, setInCart] = useState(false);
+
   const DragItem = (e: any) => {
     console.log("드레그아이템", e.target);
     e.dataTransfer.setData("data", e.currentTarget.innerHTML);
     dragged = e.target;
-    console.log("dragged", dragged);
+    // console.log("dragged", dragged);
   };
 
   const DragOver = (e: any) => {
@@ -76,12 +88,12 @@ export default function DragPage(props) {
   };
 
   const BeforeDropZone = (e: any) => {
-    console.log("드롭존", typeof e.dataTransfer.getData("data"));
+    // console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();
     if (e.target.id === "BeforeDropzone") {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
       e.target.appendChild(dragged);
-      console.log("ddd", e.target.appendChild(dragged).innerText);
+      // console.log("ddd", e.target.appendChild(dragged).innerText);
       const newCart = props.cart.filter(
         (el) => el !== e.target.appendChild(dragged).innerText
       );
@@ -91,13 +103,14 @@ export default function DragPage(props) {
 
   const AfterDropZone = (e: any) => {
     const newCart = [...props.cart];
-    console.log("드롭존", typeof e.dataTransfer.getData("data"));
+    // console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();
     if (e.target.id === "AfterDropzone") {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
       e.target.appendChild(dragged);
       newCart.push(e.target.appendChild(dragged).innerText);
       props.setCart(newCart);
+      console.log(props.cart);
     }
   };
 
@@ -129,17 +142,25 @@ export default function DragPage(props) {
             onDragStart={DragItem}
             key={el.id}
             index={i + 1}
+            status={el.status}
           >
             {el.name}({el.price})
           </D.DraggableItem>
         ))}
       </DragList>
-      <DragZone id="AfterDropzone" onDragOver={DragOver} onDrop={AfterDropZone}>
+      <DragZone
+        ref={dragRef}
+        id="AfterDropzone"
+        onDragOver={DragOver}
+        onDrop={AfterDropZone}
+      >
         {/* <D.Introduction>여기로 드롭해주세요</D.Introduction> */}
-        {props.cart.map((el) =>
-          // <div>{el}</div>
+        {/* {props.cart.map(
+          (el) => (
+            <div>{el}</div>
+          )
           console.log(el, typeof el)
-        )}
+        )} */}
       </DragZone>
     </D.Wrapper>
   );

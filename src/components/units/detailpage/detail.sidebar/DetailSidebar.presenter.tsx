@@ -102,9 +102,12 @@ export default function DetailSidebarUI(props: IDetailSide) {
                   {el.start_time} ~ {el.end_time}
                 </DS.TimeBox>
               ))}
-              <div onClick={props.onClickCancel} style={{ width: "100%" }}>
+              <DS.TimeToggleCancel
+                onClick={props.onClickCancel}
+                style={{ width: "100%" }}
+              >
                 닫기
-              </div>
+              </DS.TimeToggleCancel>
             </DS.TimesWrapper>
           )}
         </DS.CheckInWrapper>
@@ -131,10 +134,12 @@ export default function DetailSidebarUI(props: IDetailSide) {
               visible={true}
               onCancel={props.handleCancel}
               footer={[
-                <div>
-                  <div onClick={props.handleOk}>확인</div>
-                  <div style={{ fontWeight: "700" }}>${props.sidePrice}</div>
-                </div>,
+                <DS.ModalFooter>
+                  <DS.SidePrice>${props.sidePrice}</DS.SidePrice>
+                  <DS.TimeToggleCancel onClick={props.handleOk}>
+                    확인
+                  </DS.TimeToggleCancel>
+                </DS.ModalFooter>,
               ]}
             >
               <DragPage
@@ -157,6 +162,9 @@ export default function DetailSidebarUI(props: IDetailSide) {
             <ShoppingCartIcon />
           </StyledBadge>
         </IconButton>
+        {props.cart.map((el) => (
+          <div>{el}</div>
+        ))}
         <DS.SubmitBtn onClick={props.requestPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
     </DS.Wrapper>
