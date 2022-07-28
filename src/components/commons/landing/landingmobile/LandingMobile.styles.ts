@@ -11,7 +11,7 @@ export const Root = styled.div`
     background-repeat: no-repeat;
   }
   @media ${breakPoints.mobile} {
-    width: 110vw;
+    width: 120vw;
     height: 320px;
     background-image: url("/landing/BackEdit.gif");
     background-size: cover;
@@ -42,7 +42,7 @@ export const Title = styled.h1`
 export const Body = styled.div`
   display: block;
   @media ${breakPoints.tablet} {
-    width: 105vw;
+    width: 110vw;
     height: 250px;
     background-image: url("/landing/4.png");
     background-size: 310px;
@@ -51,7 +51,7 @@ export const Body = styled.div`
     background-position: center;
   }
   @media ${breakPoints.mobile} {
-    width: 105vw;
+    width: 120vw;
     height: 250px;
     background-image: url("/landing/4.png");
     background-size: 300px;
@@ -74,7 +74,7 @@ export const Footer = styled.div`
     margin-top: 10px;
   }
   @media ${breakPoints.mobile} {
-    width: 120vw;
+    width: 110vw;
     height: 390px;
     background-image: url("/landing/5.png");
     background-size: contain;
