@@ -20,6 +20,12 @@ export const Wrapper = styled.div<ThemeProps>`
   background: ${({ theme }) => theme.LAYOUT};
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
+  @media ${breakPoints.tablet} {
+    height: 80px;
+  }
+  @media ${breakPoints.mobile} {
+    height: 50px;
+  }
 `;
 
 export const LeftHeadWrapper = styled.nav`
@@ -28,7 +34,7 @@ export const LeftHeadWrapper = styled.nav`
   align-items: center;
   width: 40%;
   @media ${breakPoints.tablet} {
-    width: 50%;
+    width: 60%;
   }
   @media ${breakPoints.mobile} {
     width: 70%;
@@ -39,7 +45,7 @@ export const LogoImg = styled.img`
   width: 100px;
   height: auto;
   @media ${breakPoints.mobile} {
-    width: 80px;
+    width: 50px;
   }
 `;
 // 메뉴선택 & 메뉴 드롭다운 구현
@@ -58,7 +64,7 @@ export const NavText = styled.div`
   color: black;
   font-weight: 500;
   font-size: ${(props: IPage) =>
-    props.id === props.isPosition ? "20px" : "15px"};
+    props.id === props.isPosition ? "18px" : "14px"};
   color: ${(props: IPage) =>
     props.id === props.isPosition ? " #4167ee" : "#808080"};
   border-bottom: ${(props: IPage) =>
@@ -70,16 +76,18 @@ export const NavText = styled.div`
   &:hover {
     color: #4167ee;
     border-bottom: 3px solid #4167ee;
-    font-size: 18px;
+    font-size: 16px;
   }
   :focus {
     font-size: 18px;
   }
   @media ${breakPoints.tablet} {
-    font-size: 13px;
+    font-size: ${(props: IPage) =>
+      props.id === props.isPosition ? "15px" : "13px"};
   }
   @media ${breakPoints.mobile} {
-    font-size: 10px;
+    font-size: ${(props: IPage) =>
+      props.id === props.isPosition ? "13px" : "10px"};
   }
 `;
 
@@ -95,7 +103,8 @@ export const DropdownContent = styled.div`
   display: none;
   position: absolute;
   z-index: 1;
-  width: 100px;
+  width: 95px;
+  text-align: center;
 `;
 
 export const DropdownMenuWrapper = styled.div`
@@ -119,10 +128,11 @@ export const Menu2Text = styled.div`
   font-size: 14px;
   cursor: pointer;
   transition: 0.2s;
-  color: white;
-  background-color: lightgray;
-  padding: 5px;
+  color: #333333;
+  background-color: #f6f7fb;
+  padding: 3px;
   margin-top: 1px;
+
   /* 마우스를 올렸을때 */
   &:hover {
     color: #4167ee;
@@ -147,13 +157,40 @@ export const BtnWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 23%;
-  @media ${breakPoints.tablet} {
-    width: 32%;
-  }
+  justify-content: center;
+  width: 25%;
   @media ${breakPoints.mobile} {
     width: 35%;
   }
+`;
+
+export const IsLogedin = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const UserText = styled.div`
+  padding: 5px;
+  display: flex;
+  color: gray;
+  flex-direction: row;
+
+  @media ${breakPoints.tablet} {
+    align-items: center;
+    flex-direction: column;
+  }
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    padding: 0px;
+  }
+`;
+
+export const UserName = styled.p`
+  color: black;
+  font-weight: 500;
 `;
 
 export const Button = styled.button`
@@ -164,6 +201,7 @@ export const Button = styled.button`
   color: white;
   border-radius: 5px;
   margin: 0px 10px;
+  transition: 0.2s;
   :hover {
     background-color: white;
     border: 1px solid #4167ee;
@@ -174,9 +212,9 @@ export const Button = styled.button`
     height: 28px;
   }
   @media ${breakPoints.mobile} {
-    width: 60px;
+    width: 50px;
     height: 20px;
     font-size: 10px;
-    margin: 0px 5px;
+    margin: 3px;
   }
 `;

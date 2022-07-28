@@ -4,6 +4,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { lightTheme, Theme } from "../../../../../commons/styles/theme";
 import { ThemeContext } from "../../../../../../pages/_app";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 interface ToggleProps {
   theme: Theme;
@@ -25,11 +26,23 @@ const ToggleButton = styled("button")<ToggleProps>`
   background: ${({ theme }) => theme.BACKGROUND};
   color: ${({ theme }) => theme.MAIN};
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10000;
+  z-index: 1;
   &:hover {
     filter: brightness(
       ${({ theme }) => (theme === lightTheme ? "0.9" : "1.13")}
     );
+  }
+  @media ${breakPoints.tablet} {
+    width: 50px;
+    height: 25px;
+    right: 1rem;
+    top: 4rem;
+  }
+  @media ${breakPoints.mobile} {
+    width: 50px;
+    height: 25px;
+    right: 1rem;
+    top: 4rem;
   }
 `;
 
@@ -41,11 +54,23 @@ const Emoji = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media ${breakPoints.tablet} {
+    font-size: 0.7rem;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 0.7rem;
+  }
 `;
 
 const ModeContent = styled.p`
   font-size: 0.8rem;
   margin-left: 5px;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export default function DarkModeToggle(): ReactElement {

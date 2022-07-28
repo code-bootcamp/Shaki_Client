@@ -24,10 +24,10 @@ export const HeadInfoWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
   @media ${breakPoints.tablet} {
-    width: 850px;
+    width: 100%;
   }
   @media ${breakPoints.mobile} {
-    width: 475px;
+    width: 100%;
   }
 `;
 export const PickWrapper = styled.div``;
@@ -56,6 +56,12 @@ export const HeadInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+`;
+
+export const HeadStar = styled.div`
+  margin-top: 5px;
+  padding-left: 8px;
+  text-align: center;
 `;
 
 // 이미지

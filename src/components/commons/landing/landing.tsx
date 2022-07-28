@@ -3,19 +3,38 @@ import Landing2UI from "./landing2/Landing2.presenter";
 import styled from "@emotion/styled";
 import { useRef } from "react";
 import LogInContainer from "../../units/login/LogIn.Container";
+import { breakPoints } from "../../../commons/styles/media";
+import LandingMobile from "./landingmobile/LandingMobile.presenter";
+
+const Root = styled.div`
+  width: 100vw;
+  height: 100vh;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
 
 const DownButton = styled.div`
   position: absolute;
   width: 55px;
   height: 55px;
-  bottom: -100px;
-  left: 1250px;
+  bottom: 400px;
+  left: 1450px;
   z-index: 5;
   /* background-color: white; */
   background-image: url("/landing/scrollArrow.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 const UpButton = styled.div`
@@ -30,14 +49,26 @@ const UpButton = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 const SocialLoginBox = styled.div`
   position: relative;
   width: 90vw;
-  top: 2000px;
+  top: 4500px;
   left: 90px;
   margin-bottom: 100px;
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export default function LandingPage() {
@@ -53,15 +84,18 @@ export default function LandingPage() {
   };
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <div ref={upRef}></div>
-      <Landing1UI />
-      <DownButton onClick={onClickMoveToDown} />
-      <Landing2UI />
-      <UpButton onClick={onClickMoveToUp} />
+    <>
+      <Root>
+        <div ref={upRef}></div>
+        <Landing1UI />
+        <DownButton onClick={onClickMoveToDown} />
+        <Landing2UI />
+        <UpButton onClick={onClickMoveToUp} />
+      </Root>
+      <LandingMobile />
       <SocialLoginBox ref={downRef}>
         <LogInContainer />
       </SocialLoginBox>
-    </div>
+    </>
   );
 }

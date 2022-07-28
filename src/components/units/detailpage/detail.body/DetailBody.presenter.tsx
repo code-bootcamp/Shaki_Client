@@ -94,7 +94,7 @@ export default function DetailBodyUI(props: Iprops) {
       <DB.PrecautionsWrapper>
         <DB.ExampleWrapper>
           <DB.SmallLabel>이용규칙</DB.SmallLabel>
-          <DB.Example>
+          <DB.SubExample>
             당일 예약 금지
             <br />
             30일이내 예약
@@ -104,22 +104,22 @@ export default function DetailBodyUI(props: Iprops) {
             흡연 금지
             <br />
             반려동물 동반 불가
-          </DB.Example>
+          </DB.SubExample>
         </DB.ExampleWrapper>
         <DB.ExampleWrapper>
           <DB.SmallLabel>안전</DB.SmallLabel>
-          <DB.Example>
+          <DB.SubExample>
             코로나19 방역 수칙을 준수하셔야 합니다. <br />
             화재경보기
-          </DB.Example>
+          </DB.SubExample>
         </DB.ExampleWrapper>
         <DB.ExampleWrapper>
           <DB.SmallLabel>환불</DB.SmallLabel>
-          <DB.Example>
+          <DB.SubExample>
             부분 환불: 체크인, 첫 1박을 제외한 나머지 숙박일에 대한 요금을
             환불받으실 수 있습니다. 첫 1박 요금과 서비스 수수료는 환불되지
             않습니다.
-          </DB.Example>
+          </DB.SubExample>
         </DB.ExampleWrapper>
       </DB.PrecautionsWrapper>
     </DB.Wrapper>
