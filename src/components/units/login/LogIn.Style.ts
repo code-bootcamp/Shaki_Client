@@ -46,7 +46,7 @@ export const WrapperImg = styled.div`
 
   background-size: cover;
   background-repeat: no-repeat;
-  /* @media screen and (max-width: 1500px) {
+  /* @media screen and (max-width: 1500px) {x
     display: none;
   } */
 `;
@@ -82,7 +82,6 @@ export const LogInWrapper = styled.div`
   }
   @media ${breakPoints.mobile} {
     align-items: center;
-
     width: 100%;
   }
 `;

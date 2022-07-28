@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Typical from "react-typical";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const WrapperRoot = styled.div`
   width: 100vw;
@@ -20,6 +21,13 @@ export const Wrapper = styled.div`
   background-position: center;
   /* filter: blur(1px); */
   /* -webkit-filter: blur(1px); */
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `;
 
 export const Icon = styled.img`
@@ -51,6 +59,10 @@ export const TitleHead = styled.div`
   font-weight: 900;
   font-size: 60px;
   z-index: 2;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+  }
 `;
 
 export const Title = styled(Typical)`
@@ -62,4 +74,9 @@ export const Title = styled(Typical)`
   font-weight: 900;
   font-size: 60px;
   z-index: 2;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    width: 10vw;
+  }
 `;
