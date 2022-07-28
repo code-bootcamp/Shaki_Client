@@ -20,6 +20,12 @@ export const Wrapper = styled.div<ThemeProps>`
   background: ${({ theme }) => theme.LAYOUT};
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
+  @media ${breakPoints.tablet} {
+    height: 80px;
+  }
+  @media ${breakPoints.mobile} {
+    height: 50px;
+  }
 `;
 
 export const LeftHeadWrapper = styled.nav`
@@ -39,7 +45,7 @@ export const LogoImg = styled.img`
   width: 100px;
   height: auto;
   @media ${breakPoints.mobile} {
-    width: 80px;
+    width: 50px;
   }
 `;
 // 메뉴선택 & 메뉴 드롭다운 구현
@@ -97,7 +103,8 @@ export const DropdownContent = styled.div`
   display: none;
   position: absolute;
   z-index: 1;
-  width: 100px;
+  width: 95px;
+  text-align: center;
 `;
 
 export const DropdownMenuWrapper = styled.div`
@@ -121,10 +128,11 @@ export const Menu2Text = styled.div`
   font-size: 14px;
   cursor: pointer;
   transition: 0.2s;
-  color: white;
-  background-color: lightgray;
-  padding: 5px;
+  color: #333333;
+  background-color: #f6f7fb;
+  padding: 3px;
   margin-top: 1px;
+
   /* 마우스를 올렸을때 */
   &:hover {
     color: #4167ee;
@@ -149,13 +157,40 @@ export const BtnWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 23%;
+  justify-content: center;
+  width: 25%;
+  @media ${breakPoints.mobile} {
+    width: 35%;
+  }
+`;
+
+export const IsLogedin = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const UserText = styled.div`
+  padding: 5px;
+  display: flex;
+  color: gray;
+  flex-direction: row;
+
   @media ${breakPoints.tablet} {
-    width: 25%;
+    align-items: center;
+    flex-direction: column;
   }
   @media ${breakPoints.mobile} {
-    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    padding: 0px;
   }
+`;
+
+export const UserName = styled.p`
+  color: black;
+  font-weight: 500;
 `;
 
 export const Button = styled.button`
