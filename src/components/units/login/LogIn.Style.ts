@@ -32,23 +32,16 @@ export const WrapperRoot = styled.form`
   /* color: #4e75ff; */
 `;
 
-export const WrapperImg = styled.div`
-  /* border-radius: 20px; */
+export const WrapperImg = styled.img`
+  width: 50%;
   display: flex;
-  width: 150em;
-  height: 580px;
-  margin-top: 58px;
-  margin-left: 250px;
-  box-shadow: 0 0 10px black;
-
-  /* background-image: url("/landing/foodlogin5.jpeg"); */
-  background-image: url("/foodlogin2.webp");
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* @media screen and (max-width: 1500px) {x
+  height: 565.82px;
+  @media ${breakPoints.tablet} {
     display: none;
-  } */
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -58,25 +51,33 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+
+  @media ${breakPoints.tablet} {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   @media ${breakPoints.mobile} {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin-top: 2em;
     margin-bottom: 1em;
+  }
+  @media ${breakPoints.fold} {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
   }
 `;
 
 export const LogInWrapper = styled.div`
-  width: 100%;
+  /* width: 100%; */
   height: 600px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  margin-left: 2px;
-  justify-content: center;
-  padding-top: 80px;
-  @media screen and (max-width: 1500px) {
-    align-items: center;
-  }
+  align-items: center;
 
   @media ${breakPoints.tablet} {
   }
@@ -99,6 +100,7 @@ export const MiddleWrapper = styled.div`
   justify-content: center;
   /* border-radius: 20px; */
   padding: 20px 0;
+  margin-top: 20px;
   box-shadow: 0 0 10px black;
   font-weight: 500;
   @media ${breakPoints.mobile} {
@@ -107,6 +109,10 @@ export const MiddleWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  @media ${breakPoints.fold} {
+    box-shadow: none;
+    width: 100%;
   }
 `;
 
@@ -122,6 +128,11 @@ export const Head = styled.div`
   @media ${breakPoints.mobile} {
     font-size: 20px;
   }
+  @media ${breakPoints.fold} {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const AdminOnOffBox = styled.div`
@@ -130,6 +141,12 @@ export const AdminOnOffBox = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 10px;
+  @media ${breakPoints.fold} {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const AdminToggle = styled.div`
@@ -213,6 +230,7 @@ export const ImgBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const Social = styled.img`
@@ -311,5 +329,11 @@ export const CommentBox = styled.div`
   }
   @media ${breakPoints.mobile} {
     margin-top: 40px;
+  }
+  @media ${breakPoints.fold} {
+    color: black;
+    font-weight: 400;
+    font-size: 10px;
+    margin-top: 50px;
   }
 `;

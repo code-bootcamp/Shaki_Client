@@ -6,7 +6,7 @@ export default function LogInPresenter(props: any) {
     <Li.WrapperRoot onSubmit={props.handleSubmit(props.onClickLogIn)}>
       {/* <div onClick={props.onClick}>asdasdsad</div> */}
       <Li.Wrapper>
-        <Li.WrapperImg />
+        <Li.WrapperImg src="/foodlogin2.webp" />
         <Li.LogInWrapper>
           <Li.panel>
             <Li.MiddleWrapper>

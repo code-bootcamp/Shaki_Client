@@ -58,15 +58,15 @@ export default function LogInContainer() {
   };
 
   const onClickKakaoLogIn = () => {
-    router.push("https://shakiback.shop/login/kakao");
+    router.push("https://shaki-server.shop/login/kakao");
   };
 
   const onClickGoogleLogIn = () => {
-    router.push("https://shakiback.shop/login/google");
+    router.push("https://shaki-server.shop/login/google");
   };
 
   const onClickNaverLogIn = () => {
-    router.push("https://shakiback.shop/login/naver");
+    router.push("https://shaki-server.shop/login/naver");
   };
 
   const router = useRouter();
