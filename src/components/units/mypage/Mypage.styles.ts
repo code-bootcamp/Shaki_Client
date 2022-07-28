@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-left: 200px;
   padding-right: 200px;
-  padding-top: 100px;
+  padding-top: 50px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -101,11 +101,11 @@ export const TopBreakPoint = styled.div`
   display: flex;
   justify-content: space-around;
 
-  @media ${breakPoints.mobile} {
-    width: calc(100% - 300px);
-  }
   @media ${breakPoints.tablet} {
     width: calc(100% - 300px);
+  }
+  @media ${breakPoints.mobile} {
+    width: 100%;
   }
 `;
 
