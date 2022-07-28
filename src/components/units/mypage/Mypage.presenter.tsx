@@ -28,7 +28,7 @@ type room = {
 };
 
 interface IMypageprops {
-  data: {
+  data?: {
     fetchLoginUser: {
       __typename?: "User";
       name: string;
@@ -115,11 +115,11 @@ export default function MypageUI(props: IMypageprops) {
           {props.data ? (
             <My.ReservationInfoWrapper>
               <My.InfoWrapper>
-                <My.Image src={props.data.fetchLoginUser.room.images?.url} />
+                <My.Image src={props.data?.fetchLoginUser.room?.images?.url} />
                 <My.Info>
                   <My.InfoDetailWrite>
                     <My.NameWrapper>
-                      <My.Name>{props.data.fetchLoginUser.room.name}</My.Name>
+                      <My.Name>{props.data.fetchLoginUser.room?.name}</My.Name>
                     </My.NameWrapper>
                     <My.ContentsWrapper>
                       <My.Contents>
@@ -136,14 +136,14 @@ export default function MypageUI(props: IMypageprops) {
                     <My.DateWrapper>
                       <My.DateImg src="/mypage/calendar_detail.png" />
                       <My.Date>
-                        예약 날짜: {props.data.fetchLoginUser.payment[0].date}
+                        예약 날짜: {props.data.fetchLoginUser.payment[0]?.date}
                       </My.Date>
                     </My.DateWrapper>
                     <My.TimeWrapper>
                       <My.TimeImg src="/mypage/clock.png" />
                       <My.Time>
                         예약 시간:{" "}
-                        {props.data.fetchLoginUser.payment[0].start_time}
+                        {props.data.fetchLoginUser.payment[0]?.start_time}
                       </My.Time>
                     </My.TimeWrapper>
                     <My.MapWrapper>
