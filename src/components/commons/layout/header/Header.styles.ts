@@ -166,6 +166,7 @@ export const Button = styled.button`
   color: white;
   border-radius: 5px;
   margin: 0px 10px;
+  transition: 0.2s;
   :hover {
     background-color: white;
     border: 1px solid #4167ee;

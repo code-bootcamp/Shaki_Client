@@ -1,6 +1,6 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-
+import { breakPoints } from "../../../commons/styles/media";
 const flip = keyframes`
     from {
       transform: rotateY(0deg);
@@ -47,15 +47,16 @@ export const WrapperRoot = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  /* background-color: blue; */
 `;
 
 export const WrapperImg = styled.div`
   border-radius: 10px;
   display: flex;
-  width: 150em;
-  height: 600px;
-  margin-top: 45px;
-  margin-left: 150px;
+  width: 140em;
+  height: 550px;
+  margin-top: 200px;
+  margin-left: 160px;
   background-image: url("/landing/register.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -70,12 +71,22 @@ export const Wrapper = styled.form`
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
+  padding-right: 100px;
+  /* background-color: coral; */
   perspective: 600px;
   transform-style: preserve-3d;
   justify-content: center;
-  /* background-image: url("/landing/target3.jpeg"); */
   background-size: cover;
   background-repeat: no-repeat;
+  @media screen and (max-width: 1500px) {
+    padding-right: 0px;
+  }
+  @media ${breakPoints.mobile} {
+    padding-right: 0px;
+  }
+  @media ${breakPoints.tablet} {
+    padding-right: 0px;
+  }
 `;
 
 export const SecondWrapper = styled.div`
