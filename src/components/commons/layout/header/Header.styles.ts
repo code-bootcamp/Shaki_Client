@@ -28,7 +28,7 @@ export const LeftHeadWrapper = styled.nav`
   align-items: center;
   width: 40%;
   @media ${breakPoints.tablet} {
-    width: 50%;
+    width: 60%;
   }
   @media ${breakPoints.mobile} {
     width: 70%;
@@ -58,7 +58,7 @@ export const NavText = styled.div`
   color: black;
   font-weight: 500;
   font-size: ${(props: IPage) =>
-    props.id === props.isPosition ? "20px" : "15px"};
+    props.id === props.isPosition ? "18px" : "14px"};
   color: ${(props: IPage) =>
     props.id === props.isPosition ? " #4167ee" : "#808080"};
   border-bottom: ${(props: IPage) =>
@@ -70,16 +70,18 @@ export const NavText = styled.div`
   &:hover {
     color: #4167ee;
     border-bottom: 3px solid #4167ee;
-    font-size: 18px;
+    font-size: 16px;
   }
   :focus {
     font-size: 18px;
   }
   @media ${breakPoints.tablet} {
-    font-size: 13px;
+    font-size: ${(props: IPage) =>
+      props.id === props.isPosition ? "15px" : "13px"};
   }
   @media ${breakPoints.mobile} {
-    font-size: 10px;
+    font-size: ${(props: IPage) =>
+      props.id === props.isPosition ? "13px" : "10px"};
   }
 `;
 
@@ -149,10 +151,10 @@ export const BtnWrapper = styled.div`
   align-items: center;
   width: 23%;
   @media ${breakPoints.tablet} {
-    width: 32%;
+    width: 25%;
   }
   @media ${breakPoints.mobile} {
-    width: 35%;
+    width: 30%;
   }
 `;
 
@@ -174,9 +176,9 @@ export const Button = styled.button`
     height: 28px;
   }
   @media ${breakPoints.mobile} {
-    width: 60px;
+    width: 50px;
     height: 20px;
     font-size: 10px;
-    margin: 0px 5px;
+    margin: 3px;
   }
 `;
