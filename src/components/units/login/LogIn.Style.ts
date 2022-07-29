@@ -29,13 +29,14 @@ export const WrapperRoot = styled.form`
   justify-content: center;
   align-items: center;
   font-weight: 600;
+  margin: 50px 0;
   /* color: #4e75ff; */
 `;
 
 export const WrapperImg = styled.img`
   width: 50%;
+  height: 544.79px;
   display: flex;
-  height: 565.82px;
   @media ${breakPoints.tablet} {
     display: none;
   }
@@ -50,7 +51,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   @media ${breakPoints.tablet} {
     display: flex;
@@ -74,12 +75,14 @@ export const Wrapper = styled.div`
 
 export const LogInWrapper = styled.div`
   /* width: 100%; */
-  height: 600px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media ${breakPoints.tablet} {
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
   @media ${breakPoints.mobile} {
     align-items: center;
@@ -99,11 +102,15 @@ export const MiddleWrapper = styled.div`
   align-items: center;
   justify-content: center;
   /* border-radius: 20px; */
-  padding: 20px 0;
-  margin-top: 20px;
-  box-shadow: 0 0 10px black;
+  /* padding: 20px 0; */
+  /* margin-top: 20px; */
+  /* box-shadow: 0 0 10px black; */
   font-weight: 500;
+  @media ${breakPoints.tablet} {
+    box-shadow: none;
+  }
   @media ${breakPoints.mobile} {
+    box-shadow: none;
     width: 60vw;
     margin-bottom: 1em;
     display: flex;
@@ -289,25 +296,37 @@ export const FindEmail = styled.div`
   }
 `;
 
-export const SignUp = styled.div`
-  margin-top: 10px;
-  font-weight: 600;
-  color: #4e75ff;
-  border-bottom: 1px solid #4e75ff;
-  cursor: pointer;
-`;
-
-export const Footer = styled.div`
-  width: 7em;
+export const SignUpBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  color: #4e75ff;
+  @media ${breakPoints.tablet} {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  @media ${breakPoints.mobile} {
+    flex-direction: row;
+    margin-left: 10px;
+  }
+`;
+
+export const SignUp = styled.div`
+  width: fit-content;
+  margin-top: 10px;
   font-weight: 600;
+  color: #4e75ff;
   cursor: pointer;
   :hover {
     border-bottom: 2px solid #4e75ff;
+  }
+  @media ${breakPoints.tablet} {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  @media ${breakPoints.mobile} {
+    margin-top: 0;
+    margin-left: 10px;
   }
 `;
 
@@ -327,13 +346,13 @@ export const CommentBox = styled.div`
   :hover {
     border-bottom: 2px solid #4e75ff;
   }
+  @media ${breakPoints.tablet} {
+    margin-bottom: 30px;
+  }
   @media ${breakPoints.mobile} {
-    margin-top: 40px;
+    margin-bottom: 20px;
   }
   @media ${breakPoints.fold} {
-    color: black;
-    font-weight: 400;
-    font-size: 10px;
-    margin-top: 50px;
+    margin-bottom: 20px;
   }
 `;

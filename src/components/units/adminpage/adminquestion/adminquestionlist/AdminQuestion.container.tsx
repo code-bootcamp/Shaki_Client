@@ -3,10 +3,11 @@ import { GridEventListener } from "@mui/x-data-grid";
 import { useRouter } from "next/router";
 import React, { MouseEvent } from "react";
 import { GridRowProps } from "semantic-ui-react";
+import { useAdminAuth } from "../../../../../hooks/useAdminAuth";
 import AdminQuestionUI from "./AdminQuestion.presenter";
 import { FETCH_QUESTIONS } from "./AdminQuestion.queries";
 
-export default function AdminQuestion() {
+function AdminQuestion() {
   const router = useRouter();
 
   const { data } = useQuery(FETCH_QUESTIONS);
@@ -24,3 +25,5 @@ export default function AdminQuestion() {
     />
   );
 }
+
+export default useAdminAuth(AdminQuestion);

@@ -7,6 +7,7 @@ import { CREATE_ROOM, UPDATE_ROOM } from "./AdminWrite.queries";
 import * as yup from "yup";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { useAdminAuth } from "../../../../hooks/useAdminAuth";
 
 interface IAdminWrite {
   isEdit?: boolean;
@@ -40,7 +41,7 @@ const schema = yup.object({
   contents: yup.string().required("필수입력사항 입니다."),
 });
 
-export default function AdminWrite(props: IAdminWrite) {
+function AdminWrite(props: IAdminWrite) {
   const router = useRouter();
 
   const [isModalView, setIsModalView] = useState(false);
@@ -175,3 +176,5 @@ export default function AdminWrite(props: IAdminWrite) {
     />
   );
 }
+
+export default useAdminAuth(AdminWrite);

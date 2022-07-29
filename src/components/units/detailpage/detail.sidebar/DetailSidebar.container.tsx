@@ -47,7 +47,7 @@ export default function DetailSidebarContainer() {
   const [sidePrice, setSidePrice] = useState<number>(0);
   const [option, setOption] = useState<number>(0);
   const [choiceEndPoint, setChoiceEndPoint] = useState<boolean>(false);
-  const [ToggleGuest, setToggleGuest] = useState<boolean>(false);
+  const [timeTable, setTimeTable] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [startTime, setStartTime] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("");
@@ -68,8 +68,7 @@ export default function DetailSidebarContainer() {
       setStartTime(clicked[0].slice(0, 2));
       setEndTime(clicked[0].slice(-5));
       setClicked(newClicked);
-
-      // return;
+      return;
     } else {
       const newClicked = [...clicked];
       if (newClicked.includes((event.target as HTMLButtonElement).value)) {
@@ -92,7 +91,7 @@ export default function DetailSidebarContainer() {
   };
 
   const onClickCancel = () => {
-    setToggleGuest((prev) => !prev);
+    setTimeTable((prev) => !prev);
   };
 
   useEffect(() => {
@@ -105,7 +104,7 @@ export default function DetailSidebarContainer() {
       return Number(a.slice(0, 2)) - Number(b.slice(0, 2));
     });
 
-    console.log(startTime, endTime);
+    // console.log(startTime, endTime);
 
     for (let i = 0; i < hour.length; i++) {
       if (
@@ -138,7 +137,12 @@ export default function DetailSidebarContainer() {
     if (!date) {
       alert("날짜를 선택해주세요.");
     } else {
-      setToggleGuest((prev) => !prev);
+      setTimeTable((prev) => !prev);
+      // setEnd(0);
+      // setStart(0);
+      // setCart([]);
+      // setStartTime("");
+      // setEndTime("");
     }
     return;
   };
@@ -221,13 +225,15 @@ export default function DetailSidebarContainer() {
                     amount: price + sidePrice,
                     guest: guest,
                     point: (price + sidePrice) / 10,
+                    impUid: "imp49910675",
                   },
                 },
               });
+              console.log(result);
             } catch (error) {
               alert("결제에 실패하였습니다.");
             }
-            router.push("/main");
+            // router.push("/main");
           } else {
             // ...,
             // 결제 실패 시 로직,
@@ -262,7 +268,7 @@ export default function DetailSidebarContainer() {
         onIncrease={onIncrease}
         onDecrease={onDecrease}
         onClickTime={onClickTime}
-        ToggleGuest={ToggleGuest}
+        timeTable={timeTable}
         startTime={startTime}
         endTime={endTime}
         onClickToggleTime={onClickToggleTime}

@@ -62,13 +62,14 @@ export default function LogInPresenter(props: any) {
                 <Li.LogIn>로그인</Li.LogIn>
                 <Li.FindEmail>계정찾기</Li.FindEmail>
               </Li.LogInBox>
-              아직 회원이 아니신가요?
-              <Li.SignUp onClick={props.onClickMoveToSignUp}>
-                회원가입
-              </Li.SignUp>
+              <Li.SignUpBox>
+                아직 회원이 아니신가요?
+                <Li.SignUp onClick={props.onClickMoveToSignUp}>
+                  회원가입
+                </Li.SignUp>
+              </Li.SignUpBox>
             </Li.MiddleWrapper>
           </Li.panel>
-          <Li.Footer onClick={props.onClickMoveToMain}></Li.Footer>
         </Li.LogInWrapper>
       </Li.Wrapper>
       <Li.CommentBox>비회원 둘러보기</Li.CommentBox>

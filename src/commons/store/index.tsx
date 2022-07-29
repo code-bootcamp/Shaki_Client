@@ -17,3 +17,8 @@ export const reservedState = atom({
   key: `reservedState/${v1()}`,
   default: [],
 });
+
+export const adminAuthState = atom({
+  key: `adminAuthState/${v1()}`,
+  default: false,
+});
