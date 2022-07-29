@@ -33,7 +33,14 @@ interface IMypageprops {
       __typename?: "User";
       name: string;
       point: number;
-      payment: payment;
+      payment: {
+        id: string;
+        date: string;
+        start_time: string;
+        end_time: string;
+        amount: number;
+        room: room;
+      }[];
       room: {
         id: string;
         remarks: string;
@@ -44,8 +51,8 @@ interface IMypageprops {
           id: string;
           url: string;
           room: room;
-        };
-      };
+        }[];
+      }[];
     };
   };
 }
@@ -94,7 +101,7 @@ export default function MypageUI(props: IMypageprops) {
               <My.PickedNumberWrapper>
                 <My.PickedNumber>
                   {props.data?.fetchLoginUser.room
-                    ? props.data?.fetchLoginUser.room
+                    ? props.data?.fetchLoginUser.room.length
                     : 0}
                 </My.PickedNumber>
               </My.PickedNumberWrapper>
@@ -122,50 +129,42 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
-          {props.data?.fetchLoginUser.payment ? (
-            <My.ReservationInfoWrapper>
-              <My.InfoWrapper>
-                <My.Image src={props.data?.fetchLoginUser.room?.images?.url} />
-                <My.Info>
-                  <My.InfoDetailWrite>
-                    <My.NameWrapper>
-                      <My.Name>{props.data.fetchLoginUser.room?.name}</My.Name>
-                    </My.NameWrapper>
-                    <My.ContentsWrapper>
-                      <My.Contents>
-                        깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은
-                        분들을 위한 룸입니다.
-                      </My.Contents>
-                    </My.ContentsWrapper>
-                    <My.PriceWrapper>
-                      <My.Price>결제 금액: 200,000원</My.Price>
-                    </My.PriceWrapper>
-                  </My.InfoDetailWrite>
+          {props.data?.fetchLoginUser.payment[0] ? (
+            props.data.fetchLoginUser.payment.map((el) => (
+              <My.ReservationInfoWrapper>
+                <My.InfoWrapper>
+                  <My.Image src={el.room?.images.url} />
+                  <My.Info>
+                    <My.InfoDetailWrite>
+                      <My.NameWrapper>
+                        <My.Name>{el.room?.name}</My.Name>
+                      </My.NameWrapper>
+                      <My.ContentsWrapper>
+                        <My.Contents>{el.room.remarks}</My.Contents>
+                      </My.ContentsWrapper>
+                      <My.PriceWrapper>
+                        <My.Price>결제 금액: {el.amount}</My.Price>
+                      </My.PriceWrapper>
+                    </My.InfoDetailWrite>
 
-                  <My.InfoDay>
-                    <My.DateWrapper>
-                      <My.DateImg src="/mypage/calendar_detail.png" />
-                      <My.Date>
-                        예약 날짜: {props.data.fetchLoginUser.payment[0]?.date}
-                      </My.Date>
-                    </My.DateWrapper>
-                    <My.TimeWrapper>
-                      <My.TimeImg src="/mypage/clock.png" />
-                      <My.Time>
-                        예약 시간:{" "}
-                        {props.data.fetchLoginUser.payment[0]?.start_time}
-                      </My.Time>
-                    </My.TimeWrapper>
-                    <My.MapWrapper>
-                      <My.MapImg src="/mypage/map.png" />
-                      <My.Map>
-                        서울특별시 구로구 디지털로 300 패스트파이브 구로점
-                      </My.Map>
-                    </My.MapWrapper>
-                  </My.InfoDay>
-                </My.Info>
-              </My.InfoWrapper>
-            </My.ReservationInfoWrapper>
+                    <My.InfoDay>
+                      <My.DateWrapper>
+                        <My.DateImg src="/mypage/calendar_detail.png" />
+                        <My.Date>예약 날짜: {el.date}</My.Date>
+                      </My.DateWrapper>
+                      <My.TimeWrapper>
+                        <My.TimeImg src="/mypage/clock.png" />
+                        <My.Time>예약 시간: {el.start_time}</My.Time>
+                      </My.TimeWrapper>
+                      <My.MapWrapper>
+                        <My.MapImg src="/mypage/map.png" />
+                        <My.Map>{el.room.address}</My.Map>
+                      </My.MapWrapper>
+                    </My.InfoDay>
+                  </My.Info>
+                </My.InfoWrapper>
+              </My.ReservationInfoWrapper>
+            ))
           ) : (
             <My.NodataWrapper>
               <My.Nodata>예약 정보가 없습니다.</My.Nodata>
@@ -175,7 +174,7 @@ export default function MypageUI(props: IMypageprops) {
           {/* 후기 작성 부분  */}
           <My.BodyTitleWrapper>
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
-            <My.BodyTitle>이용내역</My.BodyTitle>
+            <My.BodyTitle>최근본 Shaki</My.BodyTitle>
           </My.BodyTitleWrapper>
           {props.data ? (
             <My.ReservationInfoWrapper>

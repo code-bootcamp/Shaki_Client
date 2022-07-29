@@ -76,32 +76,33 @@ export default function DragPage(props) {
 
   const [inCart, setInCart] = useState(false);
 
-  const DragItem = (e: any) => {
+  const DragItem = (e: React.DragEvent<HTMLDivElement>) => {
     console.log("드레그아이템", e.target);
     e.dataTransfer.setData("data", e.currentTarget.innerHTML);
     dragged = e.target;
     // console.log("dragged", dragged);
   };
 
-  const DragOver = (e: any) => {
+  const DragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
 
-  const BeforeDropZone = (e: any) => {
+  const BeforeDropZone = (e: React.DragEvent<HTMLDivElement>) => {
     // console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();
-    if (e.target.id === "BeforeDropzone") {
+    if ((e.target as HTMLDivElement).id === "BeforeDropzone") {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
-      e.target.appendChild(dragged);
+      (e.target as HTMLDivElement).appendChild(dragged);
       // console.log("ddd", e.target.appendChild(dragged).innerText);
       const newCart = props.cart.filter(
-        (el) => el !== e.target.appendChild(dragged).innerText
+        (el) =>
+          el !== (e.target as HTMLDivElement).appendChild(dragged).innerText
       );
       props.setCart(newCart);
     }
   };
 
-  const AfterDropZone = (e: any) => {
+  const AfterDropZone = (e: React.DragEvent<HTMLDivElement>) => {
     const newCart = [...props.cart];
     // console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();

@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { LOG_IN } from "./LogIn.Mutation";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/store";
+import { accessTokenState, adminAuthState } from "../../../commons/store";
 
 const schema = yup.object({
   email: yup.string().required(),
@@ -36,6 +36,7 @@ export default function LogInContainer() {
   const [logInUser] = useMutation(LOG_IN);
   const [adminOn, setAdminOn] = useState(false);
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [adminAuth, setAdminAuth] = useRecoilState(adminAuthState);
 
   const onClickAdmin = (event: React.MouseEvent<HTMLDivElement>) => {
     setAdminOn((prev) => !prev);
@@ -51,7 +52,12 @@ export default function LogInContainer() {
       });
       const accessToken = result.data.login;
       setAccessToken(accessToken);
-      router.push("/mypage");
+      if (data.email === "admin@admin.com") {
+        sessionStorage.setItem("admin", "true");
+        router.push("adminpage");
+      } else {
+        router.push("/mypage");
+      }
     } catch (error: any) {
       alert(error.message);
     }

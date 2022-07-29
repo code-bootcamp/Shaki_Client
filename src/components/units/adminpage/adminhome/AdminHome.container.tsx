@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useAdminAuth } from "../../../../hooks/useAdminAuth";
 import AdminHomeUI from "./AdminHome.presenter";
 import {
   FETCH_PAYMENTS,
@@ -9,7 +10,7 @@ import {
   FETCH_USERNUM,
 } from "./AdminHome.queries";
 
-export default function AdminHome() {
+function AdminHome() {
   const router = useRouter();
 
   const onClickMoveReservation = (
@@ -43,3 +44,5 @@ export default function AdminHome() {
     />
   );
 }
+
+export default useAdminAuth(AdminHome);

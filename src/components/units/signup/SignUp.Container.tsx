@@ -57,7 +57,6 @@ export default function SignUpContainer() {
 
   const onChangeEmailAuth = (event: ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.value);
-    console.log(auth);
   };
 
   const [fliped, setFliped] = useState<boolean>();
@@ -72,19 +71,19 @@ export default function SignUpContainer() {
       alert("이메일을 입력해주세요");
       return;
     } else {
-      alert("인증번호가 발송되었습니다.");
       try {
         const authNumber = await checkEmail({
           variables: {
             email: email,
           },
         });
-        console.log(authNumber.data.checkEmail);
+        alert("인증번호가 발송되었습니다.");
+        setSendAuth(true);
         setReceived(authNumber.data.checkEmail);
+        console.log(authNumber.data.checkEmail);
       } catch (error: any) {
         alert(error.message);
       }
-      setSendAuth(true);
     }
   };
 

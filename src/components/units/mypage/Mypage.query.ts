@@ -3,8 +3,20 @@ import { gql } from "@apollo/client";
 export const USER_INFO = gql`
   query fetchLoginUser {
     fetchLoginUser {
+      email
       name
       point
+      room {
+        id
+        remarks
+        name
+        zipcode
+        address
+        images {
+          id
+          url
+        }
+      }
       payment {
         id
         date
@@ -20,9 +32,6 @@ export const USER_INFO = gql`
           images {
             id
             url
-            room {
-              id
-            }
           }
         }
       }

@@ -1,10 +1,11 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
+import { useAdminAuth } from "../../../../../hooks/useAdminAuth";
 import AdminQuestionAnswerUI from "./AdminQuestionAnswer.presenter";
 import { FETCH_QUESTION, REPLY_QUESTION } from "./AdminQuestionAnswer.queries";
 
-export default function AdminQuestionAnswer() {
+function AdminQuestionAnswer() {
   const router = useRouter();
   const [replyContent, setReplyContent] = useState("");
   const [error, setError] = useState("");
@@ -55,3 +56,5 @@ export default function AdminQuestionAnswer() {
     />
   );
 }
+
+export default useAdminAuth(AdminQuestionAnswer);

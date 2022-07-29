@@ -35,14 +35,12 @@ interface IDetailSide {
   Nextday: any;
   MaxDay: any;
   onClickTime: () => void;
-  ToggleGuest: boolean;
+  timeTable: boolean;
   startTime: string;
   endTime: string;
   choiceEndPoint: boolean;
   hour: { start_time: string; end_time: string; reserved: boolean }[];
   onClickToggleTime: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  // onClickSetEndTime: (event: React.MouseEvent<HTMLDivElement>) => void;
-  // onClickSetStartTime: (event: React.MouseEvent<HTMLDivElement>) => void;
   requestPay: () => any;
   onClickCancel: () => any;
   clicked: string[];
@@ -81,7 +79,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.CheckInWrapper>
           <DS.Label>시간</DS.Label>
           <DS.CheckInTime onClick={props.onClickTime}>시간선택</DS.CheckInTime>
-          {props.ToggleGuest && (
+          {props.timeTable && (
             <DS.TimesWrapper>
               <DS.TimeHead style={{ width: "100%" }}>
                 이용시간을 확인해주세요

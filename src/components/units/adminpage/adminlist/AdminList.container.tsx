@@ -1,10 +1,11 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
+import { useAdminAuth } from "../../../../hooks/useAdminAuth";
 import AdminListUI from "./AdminList.presenter";
 import { DELETE_ROOM, FETCH_ROOMS } from "./AdminList.queries";
 
-export default function AdminList() {
+function AdminList() {
   const router = useRouter();
 
   const { data } = useQuery(FETCH_ROOMS);
@@ -40,3 +41,5 @@ export default function AdminList() {
     />
   );
 }
+
+export default useAdminAuth(AdminList);
