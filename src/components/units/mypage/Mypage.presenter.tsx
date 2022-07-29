@@ -78,7 +78,7 @@ export default function MypageUI(props: IMypageprops) {
               </My.PointImgWrapper>
               <My.PointNumberWrapper>
                 <My.PointNumber>
-                  {props.data ? props.data.fetchLoginUser.point : 0}
+                  {props.data ? props.data?.fetchLoginUser.point : 0}
                 </My.PointNumber>
               </My.PointNumberWrapper>
             </My.PointWrapper>
@@ -90,7 +90,9 @@ export default function MypageUI(props: IMypageprops) {
                 <My.PickedLabel>찜한 갯수</My.PickedLabel>
               </My.PickedImgWrapper>
               <My.PickedNumberWrapper>
-                <My.PickedNumber>0</My.PickedNumber>
+                <My.PickedNumber>
+                  {props.data ? props.data?.fetchLoginUser.room : 0}
+                </My.PickedNumber>
               </My.PickedNumberWrapper>
             </My.PickedWrapper>
 
@@ -161,7 +163,9 @@ export default function MypageUI(props: IMypageprops) {
               </My.KakaoMapWrapper>
             </My.ReservationInfoWrapper>
           ) : (
-            <></>
+            <My.NodataWrapper>
+              <My.Nodata>예약 정보가 없습니다.</My.Nodata>
+            </My.NodataWrapper>
           )}
 
           {/* 후기 작성 부분  */}
@@ -169,43 +173,44 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
             <My.BodyTitle>이용내역</My.BodyTitle>
           </My.BodyTitleWrapper>
-          <My.ReservationInfoWrapper>
-            <My.InfoWrapper>
-              <My.Image src="/mypage/example.png" />
+          {props.data ? (
+            <My.ReservationInfoWrapper>
+              <My.InfoWrapper>
+                <My.Image src="/mypage/example.png" />
+                <My.Info>
+                  <My.InfoDetailWrite>
+                    <My.NameWrapper>
+                      <My.Name>구로점 쉐이키 2</My.Name>
+                    </My.NameWrapper>
+                    <My.PriceWrapper>
+                      <My.Price>결제 금액: 200,000원</My.Price>
+                    </My.PriceWrapper>
+                  </My.InfoDetailWrite>
 
-              <My.Info>
-                <My.InfoDetailWrite>
-                  <My.NameWrapper>
-                    <My.Name>구로점 쉐이키 2</My.Name>
-                  </My.NameWrapper>
-                  <My.PriceWrapper>
-                    <My.Price>결제 금액: 200,000원</My.Price>
-                  </My.PriceWrapper>
-                </My.InfoDetailWrite>
-
-                <My.InfoDay>
-                  <My.DateWrapper>
-                    <My.DateImg src="/mypage/calendar_detail.png" />
-                    <My.Date>예약 날짜: 2022.07.12</My.Date>
-                  </My.DateWrapper>
-                  <My.TimeWrapper>
-                    <My.TimeImg src="/mypage/clock.png" />
-                    <My.Time>예약 시간: 12:00</My.Time>
-                  </My.TimeWrapper>
-                  <My.MapWrapper>
-                    <My.MapImg src="/mypage/map.png" />
-                    <My.Map>
-                      서울특별시 구로구 디지털로 300 패스트파이브 구로점
-                    </My.Map>
-                  </My.MapWrapper>
-                </My.InfoDay>
-              </My.Info>
-            </My.InfoWrapper>
-            {/* <My.CommentWrapper>
-            <My.CommentMarker src="/icon/CCMarker.svg" />
-            <My.CommentInput />
-          </My.CommentWrapper> */}
-          </My.ReservationInfoWrapper>
+                  <My.InfoDay>
+                    <My.DateWrapper>
+                      <My.DateImg src="/mypage/calendar_detail.png" />
+                      <My.Date>예약 날짜: 2022.07.12</My.Date>
+                    </My.DateWrapper>
+                    <My.TimeWrapper>
+                      <My.TimeImg src="/mypage/clock.png" />
+                      <My.Time>예약 시간: 12:00</My.Time>
+                    </My.TimeWrapper>
+                    <My.MapWrapper>
+                      <My.MapImg src="/mypage/map.png" />
+                      <My.Map>
+                        서울특별시 구로구 디지털로 300 패스트파이브 구로점
+                      </My.Map>
+                    </My.MapWrapper>
+                  </My.InfoDay>
+                </My.Info>
+              </My.InfoWrapper>
+            </My.ReservationInfoWrapper>
+          ) : (
+            <My.NodataWrapper>
+              <My.Nodata>이용내역이 없습니다.</My.Nodata>
+            </My.NodataWrapper>
+          )}
 
           {/* 찜한 정보 */}
           <My.PickDetailWrapper>
@@ -214,8 +219,6 @@ export default function MypageUI(props: IMypageprops) {
               <My.PickTitle>찜한정보</My.PickTitle>
             </My.PickTitleWrapper>
 
-            {/* <InfiniteScroll pageStart={0} hasMore={true} useWindow={false}> */}
-            {/* <My.InfiniteScroll> */}
             <My.PickListWrapper>
               <My.PickListCardWrapper>
                 <My.ListCardImg src="/mypage/example.png" />
@@ -255,65 +258,7 @@ export default function MypageUI(props: IMypageprops) {
                   </My.NoPcickListWrapper>
                 </My.PickListCardWrapper>
               </My.PickListCardWrapper>
-
-              <My.PickListCardWrapper>
-                <My.PickListCardWrapper>
-                  <My.NoPcickListWrapper>
-                    <My.NoPickListCardImg src="/mypage/pick.png" />
-                    <My.NoPickListCardContents>
-                      찜한 내용이 없습니다.
-                    </My.NoPickListCardContents>
-                    <My.NoPickListCardContents>
-                      마음에 드시면 하트를 눌러주세요!!
-                    </My.NoPickListCardContents>
-                  </My.NoPcickListWrapper>
-                </My.PickListCardWrapper>
-              </My.PickListCardWrapper>
-
-              <My.PickListCardWrapper>
-                <My.PickListCardWrapper>
-                  <My.NoPcickListWrapper>
-                    <My.NoPickListCardImg src="/mypage/pick.png" />
-                    <My.NoPickListCardContents>
-                      찜한 내용이 없습니다.
-                    </My.NoPickListCardContents>
-                    <My.NoPickListCardContents>
-                      마음에 드시면 하트를 눌러주세요!!
-                    </My.NoPickListCardContents>
-                  </My.NoPcickListWrapper>
-                </My.PickListCardWrapper>
-              </My.PickListCardWrapper>
-
-              <My.PickListCardWrapper>
-                <My.PickListCardWrapper>
-                  <My.NoPcickListWrapper>
-                    <My.NoPickListCardImg src="/mypage/pick.png" />
-                    <My.NoPickListCardContents>
-                      찜한 내용이 없습니다.
-                    </My.NoPickListCardContents>
-                    <My.NoPickListCardContents>
-                      마음에 드시면 하트를 눌러주세요!!
-                    </My.NoPickListCardContents>
-                  </My.NoPcickListWrapper>
-                </My.PickListCardWrapper>
-              </My.PickListCardWrapper>
-
-              <My.PickListCardWrapper>
-                <My.PickListCardWrapper>
-                  <My.NoPcickListWrapper>
-                    <My.NoPickListCardImg src="/mypage/pick.png" />
-                    <My.NoPickListCardContents>
-                      찜한 내용이 없습니다.
-                    </My.NoPickListCardContents>
-                    <My.NoPickListCardContents>
-                      마음에 드시면 하트를 눌러주세요!!
-                    </My.NoPickListCardContents>
-                  </My.NoPcickListWrapper>
-                </My.PickListCardWrapper>
-              </My.PickListCardWrapper>
             </My.PickListWrapper>
-            {/* </My.InfiniteScroll> */}
-            {/* </InfiniteScroll> */}
           </My.PickDetailWrapper>
         </My.BodyWrapper>
       </My.Wrapper>
