@@ -24,12 +24,12 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
-    padding: 0;
+    padding: 20px;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
-    padding: 0;
+    padding: 20px;
   }
 `;
 export const TopWrapper = styled.div<ThemeProps>`
@@ -217,7 +217,7 @@ export const BodyTitleWrapper = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -250,7 +250,6 @@ export const BodyTitle = styled.div`
 
 export const ReservationInfoWrapper = styled.div`
   width: 100%;
-  /* height: 800px; */
   margin-bottom: 50px;
   padding: 20px;
   border: 1px solid #d9dbe3;
@@ -259,12 +258,10 @@ export const ReservationInfoWrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
-    height: 1000px;
     margin-bottom: 10px;
   }
   @media ${breakPoints.mobile} {
     width: 100%;
-    height: 800px;
     margin-bottom: 20px;
   }
 `;
@@ -344,7 +341,7 @@ export const NameWrapper = styled.div`
 `;
 export const Name = styled.div`
   height: 20px;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   margin-bottom: 30px;
 
@@ -543,13 +540,23 @@ export const PickListWrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
-    padding-left: 20px;
-    overflow-x: scroll;
+    height: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
   @media ${breakPoints.mobile} {
     width: 100%;
-    padding-left: 20px;
-    overflow-x: scroll;
+    margin-left: 10px;
+    height: 500px;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 export const PickListCardWrapper = styled.div`
@@ -562,12 +569,12 @@ export const PickListCardWrapper = styled.div`
   border-radius: 10px;
   background-color: #d9dbe3;
   margin-right: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   @media ${breakPoints.mobile} {
-    width: 200px;
+    width: 100%;
     height: 250px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
   }
 `;
 export const ListCardImg = styled.img`
@@ -614,4 +621,21 @@ export const NoPickListCardContents = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #9ca0ac;
+`;
+
+export const NodataWrapper = styled.div`
+  width: 100%;
+  height: 100px;
+  border: 1px solid #d9dbe3;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const Nodata = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
