@@ -1,10 +1,16 @@
 import styled from "@emotion/styled";
+import { Theme } from "../../../../commons/styles/theme";
+interface ThemeProps {
+  theme: Theme;
+}
 
-export const WrapperRoot = styled.div`
+export const WrapperRoot = styled.div<ThemeProps>`
   width: calc(100% - 250px);
-  background-color: #f9f9f9;
   padding: 20px;
   overflow: scroll;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const Wrapper = styled.div`

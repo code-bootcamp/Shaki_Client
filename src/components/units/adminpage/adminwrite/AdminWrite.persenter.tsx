@@ -5,6 +5,8 @@ import { Modal } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import UploadsMain from "../../../commons/Uploads/uploadsMainImg/UploadsMain.container";
 import TagPage from "../../../../commons/tags";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 
 type data = {
   branch: string;
@@ -40,6 +42,8 @@ interface IAdminWriteUI {
 
 export default function AdminWriteUI(props: IAdminWriteUI) {
   console.log("roomdata", props.roomdata);
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
       {props.isModalView && (
@@ -56,7 +60,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
           props.isEdit ? props.onClickEdit : props.onClickSubmit
         )}
       >
-        <Ad.Wrapper>
+        <Ad.Wrapper theme={theme}>
           <Ad.HeadWrapper>
             <Ad.LogoWrapper>
               <Ad.Logo src="/logo.png" />

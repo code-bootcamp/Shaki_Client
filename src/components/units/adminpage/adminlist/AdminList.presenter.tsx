@@ -1,4 +1,5 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 import * as Ad from "./AdminList.styles";
 
 interface IAdminListUI {
@@ -8,8 +9,10 @@ interface IAdminListUI {
 }
 
 export default function AdminListUI(props: IAdminListUI) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <Ad.WrapperRoot>
+    <Ad.WrapperRoot theme={theme}>
       <Ad.Wrapper>
         <Ad.TopWrapper>
           <Ad.TopLogo src="/logo.png" />

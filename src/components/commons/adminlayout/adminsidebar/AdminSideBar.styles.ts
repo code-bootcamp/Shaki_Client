@@ -3,15 +3,21 @@ import HomeIcon from "@mui/icons-material/Home";
 import AllInboxIcon from "@mui/icons-material/AllInbox";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import CommentIcon from "@mui/icons-material/Comment";
+import { Theme } from "../../../../commons/styles/theme";
+interface ThemeProps {
+  theme: Theme;
+}
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<ThemeProps>`
   width: 250px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  background-color: #ffffff;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 export const WrapperWrapper = styled.div`
   width: 250px;
@@ -57,14 +63,16 @@ export const HomeWraaper = styled.div`
     transition-duration: 1s;
   }
 `;
-export const AdminHomeBack = styled.div`
+export const AdminHomeBack = styled.div<ThemeProps>`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: #f9f9f9;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const AdminHomeBackFalse = styled.div`

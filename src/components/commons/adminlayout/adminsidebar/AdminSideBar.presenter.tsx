@@ -3,6 +3,8 @@ import Divider from "@mui/material/Divider";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../pages/_app";
 
 const ADMIN_HOME = [`/adminpage`];
 const ADMIN_RESERVATION = [`/adminpage/adminreservation`];
@@ -12,6 +14,7 @@ const ADMIN_WRITE = [`/adminpage/adminwrite`];
 
 export default function AdminSideBarUI() {
   const router = useRouter();
+  const { theme } = useContext(ThemeContext);
 
   const adminHome = ADMIN_HOME.includes(router.asPath);
   const adminReservation = ADMIN_RESERVATION.includes(router.asPath);
@@ -40,7 +43,7 @@ export default function AdminSideBarUI() {
   };
 
   return (
-    <AD.Wrapper>
+    <AD.Wrapper theme={theme}>
       <AD.WrapperWrapper>
         {/* 사이드바 메뉴 헤더부분 */}
         <AD.HeadWrapper>
