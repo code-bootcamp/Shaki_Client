@@ -5,7 +5,7 @@ const ImgWrapper = styled.div`
   top: 200px;
   left: 20px;
   z-index: 3;
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 1550px) {
     display: none;
   }
 `;
@@ -22,7 +22,7 @@ const Img = styled.img`
 export default function SideLeftPage() {
   return (
     <ImgWrapper>
-      <Img src="./sideImg/shakiLeft.png" />
+      <Img src="https://storage.googleapis.com/front_image/shakiLeft.png" />
     </ImgWrapper>
   );
 }

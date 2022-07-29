@@ -47,7 +47,7 @@ export const WrapperRoot = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* background-color: blue; */
+  margin-bottom: 100px;
 `;
 
 export const WrapperImg = styled.div`
