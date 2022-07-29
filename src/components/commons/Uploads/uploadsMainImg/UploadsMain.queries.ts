@@ -5,8 +5,3 @@ export const UPLOAD_FILE = gql`
     uploadFile(file: $file)
   }
 `;
-export const REMOVE_FILE = gql`
-  mutation removeFile($imageUrl: String!) {
-    removeFile(imageUrl: $imageUrl)
-  }
-`;

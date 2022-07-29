@@ -195,7 +195,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
               </Ad.ImageText>
               <Ad.Img>
                 {props.imgMainUrls.map((el, index) => (
-                  <Ad.ImageMapWrapper>
+                  <Ad.ImageMapWrapper key={uuidv4()}>
                     <UploadsMain
                       key={uuidv4()}
                       index={index}
