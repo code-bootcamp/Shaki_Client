@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+import { Theme } from "../../../../commons/styles/theme";
 
 interface IProps {
   isActive: boolean;
+}
+interface ThemeProps {
+  theme: Theme;
 }
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -13,14 +17,15 @@ export const WrapperRoot = styled.form`
   background-color: #f9f9f9;
   padding: 20px;
 `;
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<ThemeProps>`
   width: 1200px;
   padding-top: 10px;
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 50px;
-  background-color: #ffffff;
-  /* overflow: scroll; */
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out; /* overflow: scroll; */
 `;
 export const HeadWrapper = styled.div`
   width: 100%;
