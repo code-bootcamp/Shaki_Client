@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   position: absolute;
   display: flex;
   z-index: 1;
-  background-image: url("/landing/BackEdit.gif");
+  background-image: url("https://storage.googleapis.com/front_image/BackEdit.gif");
   background-size: cover;
   background-position: center;
   /* filter: blur(1px); */
