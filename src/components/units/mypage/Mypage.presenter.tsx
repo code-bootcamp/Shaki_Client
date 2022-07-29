@@ -78,7 +78,9 @@ export default function MypageUI(props: IMypageprops) {
               </My.PointImgWrapper>
               <My.PointNumberWrapper>
                 <My.PointNumber>
-                  {props.data ? props.data?.fetchLoginUser.point : 0}
+                  {props.data?.fetchLoginUser.point
+                    ? props.data?.fetchLoginUser.point
+                    : 0}
                 </My.PointNumber>
               </My.PointNumberWrapper>
             </My.PointWrapper>
@@ -91,7 +93,9 @@ export default function MypageUI(props: IMypageprops) {
               </My.PickedImgWrapper>
               <My.PickedNumberWrapper>
                 <My.PickedNumber>
-                  {props.data ? props.data?.fetchLoginUser.room : 0}
+                  {props.data?.fetchLoginUser.room
+                    ? props.data?.fetchLoginUser.room
+                    : 0}
                 </My.PickedNumber>
               </My.PickedNumberWrapper>
             </My.PickedWrapper>
@@ -103,7 +107,11 @@ export default function MypageUI(props: IMypageprops) {
                 <My.ReservationLabel>예약 갯수</My.ReservationLabel>
               </My.ReservationImgWrapper>
               <My.ReservationNumberWrapper>
-                <My.ReservationNumber>0</My.ReservationNumber>
+                <My.ReservationNumber>
+                  {props.data?.fetchLoginUser.payment.length
+                    ? props.data?.fetchLoginUser.payment.length
+                    : 0}
+                </My.ReservationNumber>
               </My.ReservationNumberWrapper>
             </My.ReservationWrapper>
           </My.TopBreakPoint>
@@ -114,7 +122,7 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
-          {props.data ? (
+          {props.data?.fetchLoginUser.payment ? (
             <My.ReservationInfoWrapper>
               <My.InfoWrapper>
                 <My.Image src={props.data?.fetchLoginUser.room?.images?.url} />
@@ -157,10 +165,6 @@ export default function MypageUI(props: IMypageprops) {
                   </My.InfoDay>
                 </My.Info>
               </My.InfoWrapper>
-
-              <My.KakaoMapWrapper>
-                <KakaoMap />
-              </My.KakaoMapWrapper>
             </My.ReservationInfoWrapper>
           ) : (
             <My.NodataWrapper>
