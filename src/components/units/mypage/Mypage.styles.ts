@@ -221,13 +221,10 @@ export const BodyTitleWrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
-    margin: 0px;
-    margin-left: 25px;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
-    margin: 0px;
   }
 `;
 export const BodyTitleImg = styled.img`
@@ -486,14 +483,12 @@ export const PickTitleWrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
-    padding: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
-    padding: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 `;
 export const PickTitleImg = styled.img`
@@ -543,7 +538,6 @@ export const PickListWrapper = styled.div`
     height: 800px;
     display: flex;
     justify-content: space-between;
-    margin-left: 10px;
     overflow-y: scroll;
     ::-webkit-scrollbar {
       display: none;
@@ -551,7 +545,6 @@ export const PickListWrapper = styled.div`
   }
   @media ${breakPoints.mobile} {
     width: 100%;
-    margin-left: 10px;
     height: 500px;
     overflow-y: scroll;
     ::-webkit-scrollbar {
@@ -575,6 +568,7 @@ export const PickListCardWrapper = styled.div`
     width: 100%;
     height: 250px;
     margin-bottom: 20px;
+    margin-right: 0px;
   }
 `;
 export const ListCardImg = styled.img`
