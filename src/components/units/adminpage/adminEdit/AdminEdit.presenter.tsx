@@ -46,6 +46,7 @@ interface IAdminEditPresenter {
 }
 
 export default function AdminEditPresenter(props: IAdminEditPresenter) {
+  console.log("111", props.roomsdata);
   return (
     <Ae.Wrapper>
       <Ae.TebWrapper>

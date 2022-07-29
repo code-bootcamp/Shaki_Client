@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
 import UploadsMainImgUI from "./UploadsMain.presenter";
-import { REMOVE_FILE, UPLOAD_FILE } from "./UploadsMain.queries";
+import { UPLOAD_FILE } from "./UploadsMain.queries";
 import { checkValidationImage } from "./UploadsMain.validation";
 
 interface IUploads {
@@ -14,7 +14,6 @@ interface IUploads {
 export default function UploadsMain(props: IUploads) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation(UPLOAD_FILE);
-  const [removeFile] = useMutation(REMOVE_FILE);
 
   const onClickUpload = () => {
     fileRef.current?.click();
@@ -31,25 +30,6 @@ export default function UploadsMain(props: IUploads) {
     });
     props.onChangeImgMainUrls(result.data.uploadFile, props.index);
   };
-
-  // const onClickDelete = async () => {
-  //   try {
-  //     await removeFile({
-  //       variables: {
-  //         imageUrl: "",
-  //       },
-  //       // refetchQueries: [
-  //       //   {
-  //       //     query: UPLOAD_FILE
-  //       //   }
-  //       // ]
-  //     });
-  //     alert(props.fileUrl);
-  //     window.location.reload();
-  //   } catch (error) {
-  //     alert("사진 삭제 실패");
-  //   }
-  // };
 
   return (
     <UploadsMainImgUI
