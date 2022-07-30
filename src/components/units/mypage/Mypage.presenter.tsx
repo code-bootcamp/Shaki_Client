@@ -133,7 +133,7 @@ export default function MypageUI(props: IMypageprops) {
             props.data.fetchLoginUser.payment.map((el) => (
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
-                  <My.Image src={el.room?.images.url} />
+                  <My.Image src={el.room?.images[0].url} />
                   <My.Info>
                     <My.InfoDetailWrite>
                       <My.NameWrapper>
@@ -154,7 +154,9 @@ export default function MypageUI(props: IMypageprops) {
                       </My.DateWrapper>
                       <My.TimeWrapper>
                         <My.TimeImg src="/mypage/clock.png" />
-                        <My.Time>예약 시간: {el.start_time}</My.Time>
+                        <My.Time>
+                          예약 시간: {el.start_time} 부터 ~ {el.end_time} 까지
+                        </My.Time>
                       </My.TimeWrapper>
                       <My.MapWrapper>
                         <My.MapImg src="/mypage/map.png" />
@@ -226,7 +228,7 @@ export default function MypageUI(props: IMypageprops) {
               <My.PickListCardWrapper>
                 <My.ListCardImg src="/mypage/example.png" />
                 <My.ListCardDetailWrapper>
-                  <My.ListCardName>구로점 쉐이키 1</My.ListCardName>
+                  <My.ListCardName>쉐이키 1</My.ListCardName>
                   <My.ListCardContents>
                     깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은 분들을
                     위한 룸 입니다.
