@@ -46,6 +46,7 @@ const DetailBodyWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 40px;
+  padding-bottom: 100px;
   @media ${breakPoints.tablet} {
     width: 100%;
     justify-content: center;
@@ -63,18 +64,24 @@ const DetailBodyWrapper = styled.div`
 export default function DetailPage() {
   const router = useRouter();
 
-  const { data } = useQuery(FETCH_ROOM, {
+  const { data, loading } = useQuery(FETCH_ROOM, {
     variables: { id: router.query.detailid },
   });
 
   return (
     <DetailBox>
-      <DetailNavContainer />
-      <DetailHeadContainer data={data} />
-      <DetailBodyWrapper>
-        <DetailBodyContainer data={data} />
-        <DetailSidebarContainer />
-      </DetailBodyWrapper>
+      {loading ? (
+        <></>
+      ) : (
+        <>
+          <DetailNavContainer />
+          <DetailHeadContainer data={data} />
+          <DetailBodyWrapper>
+            <DetailBodyContainer data={data} />
+            <DetailSidebarContainer />
+          </DetailBodyWrapper>
+        </>
+      )}
     </DetailBox>
   );
 }
