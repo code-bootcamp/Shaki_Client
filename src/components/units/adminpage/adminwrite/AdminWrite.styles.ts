@@ -13,7 +13,7 @@ interface ThemeProps {
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const WrapperRoot = styled.form`
-  /* width: 1200px; */
+  width: calc(100% - 300px);
   background-color: #f9f9f9;
   padding: 20px;
 `;
