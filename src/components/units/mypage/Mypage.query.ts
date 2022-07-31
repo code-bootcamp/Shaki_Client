@@ -10,12 +10,6 @@ export const USER_INFO = gql`
         id
         remarks
         name
-        zipcode
-        address
-        images {
-          id
-          url
-        }
       }
       payment {
         id

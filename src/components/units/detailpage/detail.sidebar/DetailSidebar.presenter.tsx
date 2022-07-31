@@ -57,9 +57,9 @@ interface IDetailSide {
 
 export default function DetailSidebarUI(props: IDetailSide) {
   console.log(props.cart);
-  console.log(
-    props.DumDum.filter((el) => console.log(el.name + " " + "$" + el.price))
-  );
+  // console.log(
+  //   props.DumDum.filter((el) => console.log(el.name + " " + "$" + el.price))
+  // );
   return (
     <DS.Wrapper>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
@@ -151,6 +151,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
                 setCart={props.setCart}
                 cart={props.cart}
                 DumDum={props.DumDum}
+                onClickCartOpen={props.onClickCartOpen}
               />
             </DS.CartBox>
             // </Modal>

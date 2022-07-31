@@ -12,8 +12,6 @@ type aaa = {
   amount: number;
 };
 
-type payment = Array<aaa>;
-
 type room = {
   id: string;
   remarks: string;

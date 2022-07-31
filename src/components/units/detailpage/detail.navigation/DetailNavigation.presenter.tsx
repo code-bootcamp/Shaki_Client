@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../../../../../pages/_app";
 import * as DN from "./DetailNavigation.styles";
 
 interface IDetailNavUI {
-  onClickRoomMove: (e: any) => void;
+  onClickRoomMove: (
+    el: any
+  ) => (event: React.MouseEvent<HTMLDivElement>) => void;
   router: any;
   data: any;
 }
@@ -40,7 +42,7 @@ export default function DetailNavUI(props: IDetailNavUI) {
       <DN.MenuWrapper>
         {Rooms[0].map((el: any, i: number) => (
           <DN.MenuName
-            onClick={props.onClickRoomMove}
+            onClick={props.onClickRoomMove(el)}
             isPosition={props.router.asPath.split("/")[2].replace("?", "")}
             id={el}
             key={i}

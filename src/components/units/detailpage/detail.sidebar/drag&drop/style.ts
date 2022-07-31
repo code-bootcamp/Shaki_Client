@@ -50,16 +50,45 @@ export const DragList = styled.div`
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #4167ee;
+  }
 `;
 
 export const DragZone = styled.div`
   width: 30%;
-  background-color: #4167ee;
+  background-color: #b9c7fa;
   padding: 20px 10px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-left: 10px;
+  border-radius: 20px;
+`;
+
+export const CancelButton = styled.div`
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  bottom: 3%;
+  right: 50px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #b9c7fa;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    background-color: #4167ee;
+    color: white;
+  }
 `;

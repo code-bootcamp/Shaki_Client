@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import * as D from "./style";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function DragPage(props) {
   let dragged: HTMLDivElement;
@@ -58,6 +59,7 @@ export default function DragPage(props) {
 
   props.setSidePrice(sum);
   props.setOption(props.cart?.length);
+  console.log(props.DumDum);
 
   return (
     <D.Wrapper>
@@ -83,16 +85,18 @@ export default function DragPage(props) {
             </D.DraggableItem>
           ))}
         </D.DragList>
+
         <D.DragZone
           id="AfterDropzone"
           onDragOver={DragOver}
           onDrop={AfterDropZone}
           ref={dragRef}
-        >
-          <ShoppingCartIcon />
-        </D.DragZone>
+        ></D.DragZone>
+        <ShoppingCartIcon
+          style={{ position: "absolute", top: "30%", right: "15%" }}
+        />
       </D.DragBox>
-      {/* {props.DumDum.filter((el) =>
+      {props.DumDum.filter((el) =>
         props.cart.includes(el.name + " " + "$" + el.price)
       ).map((el) => (
         <D.optionList>
@@ -103,12 +107,13 @@ export default function DragPage(props) {
           </D.optionItem>
           <button>취소</button>
         </D.optionList>
-      ))} */}
-      {props.cart.map((el) => (
+      ))}
+      {/* {props.cart.map((el) => (
         <>
           <div>{el}</div>
         </>
-      ))}
+      ))} */}
+      <D.CancelButton onClick={props.onClickCartOpen}>닫기</D.CancelButton>
     </D.Wrapper>
   );
 }

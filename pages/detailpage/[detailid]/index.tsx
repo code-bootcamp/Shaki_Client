@@ -46,6 +46,7 @@ const DetailBodyWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 40px;
+  z-index: 2;
   @media ${breakPoints.tablet} {
     width: 100%;
     justify-content: center;
