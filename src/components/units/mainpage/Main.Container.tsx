@@ -11,8 +11,22 @@ export default function MainContainer() {
 
   console.log(data);
 
-  const onClickRoom = (event: React.MouseEvent<HTMLDivElement>) => {
-    router.push(`/detailpage/${event.currentTarget.id}`);
-  };
+  const onClickRoom =
+    (el: any) => (event: React.MouseEvent<HTMLDivElement>) => {
+      const today = JSON.parse(sessionStorage.getItem("today") || "[]");
+      const temp = today.filter((todayEl: any) => todayEl.id === el.id);
+      console.log(today, temp);
+
+      if (temp.length > 0) {
+        router.push(`/detailpage/${event.currentTarget.id}`);
+      } else {
+        const { __typename, ...newEL } = el;
+        today.unshift(newEL);
+        sessionStorage.setItem("today", JSON.stringify(today));
+        router.push(`/detailpage/${event.currentTarget.id}`);
+      }
+
+      // router.push(`/detailpage/${event.currentTarget.id}`);
+    };
   return <MainPresenter data={data} onClickRoom={onClickRoom} />;
 }

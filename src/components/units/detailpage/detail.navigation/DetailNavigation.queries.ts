@@ -12,3 +12,21 @@ export const FETCH_BRANCHES = gql`
     }
   }
 `;
+
+export const FETCH_ROOM = gql`
+  query fetchRoom($id: String!) {
+    fetchRoom(id: $id) {
+      id
+      branch {
+        id
+        branch
+      }
+      images {
+        url
+      }
+      name
+      star
+      remarks
+    }
+  }
+`;

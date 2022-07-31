@@ -26,7 +26,7 @@ type fetchBranches = {
 
 interface IMainProps {
   data: { fetchBranches: fetchBranches[] };
-  onClickRoom: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickRoom: (el: any) => (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function MainPresenter(props: IMainProps) {
@@ -43,7 +43,7 @@ export default function MainPresenter(props: IMainProps) {
                 <Ma.ImageHeaderIcon />
               </Ma.ImageHeader>
               {/* 이미지 */}
-              <Ma.MainContents onClick={props.onClickRoom} id={el.id}>
+              <Ma.MainContents onClick={props.onClickRoom(el)} id={el.id}>
                 <Ma.MainImg src={`${el.images[0].url}`} />
                 <Ma.ImageUnderBar>
                   {el.remarks}
