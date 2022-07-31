@@ -528,6 +528,7 @@ export const PickTitle = styled.div`
 
 export const Pick = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   @media ${breakPoints.mobile} {
     flex-direction: column;
@@ -545,19 +546,23 @@ export const Today = styled.div`
 
 export const TodayWrapper = styled.div`
   width: 30%;
+
+  @media ${breakPoints.tablet} {
+    width: 50%;
+  }
 `;
 
 // 찜한 정보 무한 스크롤
 export const InfiniteScroll = styled.div``;
 
 export const PickListWrapper = styled.div`
-  /* width: 100%; */
+  width: 50%;
   display: flex;
   /* flex-wrap: wrap; */
 
   @media ${breakPoints.tablet} {
-    width: 100%;
-    height: 800px;
+    width: 50%;
+    /* height: 800px; */
     display: flex;
     justify-content: space-between;
     ::-webkit-scrollbar {

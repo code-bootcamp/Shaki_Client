@@ -1,16 +1,9 @@
-import KakaoMap from "../../../commons/kakaomap";
 import * as My from "./Mypage.styles";
-import InfiniteScroll from "react-infinite-scroller";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../pages/_app";
-
-type aaa = {
-  id: string;
-  date: string;
-  start_time: string;
-  end_time: string;
-  amount: number;
-};
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type room = {
   id: string;
@@ -52,12 +45,24 @@ interface IMypageprops {
         }[];
       }[];
     };
-    onClickMoveDetail: () => void;
   };
+  onClickMoveDetail: () => void;
+  today: any;
 }
 
 export default function MypageUI(props: IMypageprops) {
   const { theme } = useContext(ThemeContext);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 200,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+
+  console.log(props.data?.fetchLoginUser.payment[0].room.images);
 
   return (
     <My.HTML theme={theme}>
@@ -129,10 +134,16 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
           {props.data?.fetchLoginUser.payment ? (
-            props.data.fetchLoginUser.payment.map((el) => (
+            props.data.fetchLoginUser.payment.map((el: any) => (
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
-                  <My.Image src={el.room?.images[0].url} />
+                  <Slider {...settings}>
+                    <My.Image src={el.room?.images[0].url} />
+                    <My.Image src={el.room?.images[1].url} />
+                    <My.Image src={el.room?.images[2].url} />
+                    <My.Image src={el.room?.images[3].url} />
+                    <My.Image src={el.room?.images[4].url} />
+                  </Slider>
                   <My.Info>
                     <My.InfoDetailWrite>
                       <My.NameWrapper>
@@ -178,8 +189,8 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitle>최근본 Shaki</My.BodyTitle>
           </My.BodyTitleWrapper>
           <My.Today>
-            {props.today ? (
-              props.today.map((el) => (
+            {props.today.length !== 0 ? (
+              props.today.map((el: any) => (
                 <My.TodayWrapper id={el.id} onClick={props.onClickMoveDetail}>
                   <My.TodayCardWrapper>
                     <My.ListCardImg src={el.images[0].url} />
