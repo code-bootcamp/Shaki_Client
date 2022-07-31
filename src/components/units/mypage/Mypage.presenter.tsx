@@ -52,6 +52,7 @@ interface IMypageprops {
         }[];
       }[];
     };
+    onClickMoveDetail: () => void;
   };
 }
 
@@ -127,7 +128,7 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
-          {props.data?.fetchLoginUser.payment[0] ? (
+          {props.data?.fetchLoginUser.payment ? (
             props.data.fetchLoginUser.payment.map((el) => (
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
@@ -176,44 +177,25 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="/mypage/calendar_title.png" />
             <My.BodyTitle>최근본 Shaki</My.BodyTitle>
           </My.BodyTitleWrapper>
-          {props.data ? (
-            <My.ReservationInfoWrapper>
-              <My.InfoWrapper>
-                <My.Image src="/mypage/example.png" />
-                <My.Info>
-                  <My.InfoDetailWrite>
-                    <My.NameWrapper>
-                      <My.Name>구로점 쉐이키 2</My.Name>
-                    </My.NameWrapper>
-                    <My.PriceWrapper>
-                      <My.Price>결제 금액: 200,000원</My.Price>
-                    </My.PriceWrapper>
-                  </My.InfoDetailWrite>
-
-                  <My.InfoDay>
-                    <My.DateWrapper>
-                      <My.DateImg src="/mypage/calendar_detail.png" />
-                      <My.Date>예약 날짜: 2022.07.12</My.Date>
-                    </My.DateWrapper>
-                    <My.TimeWrapper>
-                      <My.TimeImg src="/mypage/clock.png" />
-                      <My.Time>예약 시간: 12:00</My.Time>
-                    </My.TimeWrapper>
-                    <My.MapWrapper>
-                      <My.MapImg src="/mypage/map.png" />
-                      <My.Map>
-                        서울특별시 구로구 디지털로 300 패스트파이브 구로점
-                      </My.Map>
-                    </My.MapWrapper>
-                  </My.InfoDay>
-                </My.Info>
-              </My.InfoWrapper>
-            </My.ReservationInfoWrapper>
-          ) : (
-            <My.NodataWrapper>
-              <My.Nodata>이용내역이 없습니다.</My.Nodata>
-            </My.NodataWrapper>
-          )}
+          <My.Today>
+            {props.today ? (
+              props.today.map((el) => (
+                <My.TodayWrapper id={el.id} onClick={props.onClickMoveDetail}>
+                  <My.TodayCardWrapper>
+                    <My.ListCardImg src={el.images[0].url} />
+                    <My.ListCardDetailWrapper>
+                      <My.ListCardName>{el.name}</My.ListCardName>
+                      <My.ListCardContents>{el.remarks}</My.ListCardContents>
+                    </My.ListCardDetailWrapper>
+                  </My.TodayCardWrapper>
+                </My.TodayWrapper>
+              ))
+            ) : (
+              <My.NodataWrapper>
+                <My.Nodata>최근 본 Shaki가 없습니다.</My.Nodata>
+              </My.NodataWrapper>
+            )}
+          </My.Today>
 
           {/* 찜한 정보 */}
           <My.PickDetailWrapper>
@@ -221,47 +203,38 @@ export default function MypageUI(props: IMypageprops) {
               <My.PickTitleImg src="/mypage/pick_detail.png" />
               <My.PickTitle>찜한정보</My.PickTitle>
             </My.PickTitleWrapper>
-
-            <My.PickListWrapper>
-              <My.PickListCardWrapper>
-                <My.ListCardImg src="/mypage/example.png" />
-                <My.ListCardDetailWrapper>
-                  <My.ListCardName>쉐이키 1</My.ListCardName>
-                  <My.ListCardContents>
-                    깔끔하고 모던한 느낌으로 품격있는 식사를 하고 싶은 분들을
-                    위한 룸 입니다.
-                  </My.ListCardContents>
-                </My.ListCardDetailWrapper>
-              </My.PickListCardWrapper>
-
-              <My.PickListCardWrapper>
+            <My.Pick>
+              {props.data?.fetchLoginUser.room ? (
+                props.data.fetchLoginUser.room.map((el) => (
+                  <My.PickListWrapper
+                    id={el.id}
+                    onClick={props.onClickMoveDetail}
+                  >
+                    <My.PickListCardWrapper>
+                      <My.ListCardImg src={el.images[0].url} />
+                      <My.ListCardDetailWrapper>
+                        <My.ListCardName>{el.name}</My.ListCardName>
+                        <My.ListCardContents>{el.remarks}</My.ListCardContents>
+                      </My.ListCardDetailWrapper>
+                    </My.PickListCardWrapper>
+                  </My.PickListWrapper>
+                ))
+              ) : (
                 <My.PickListCardWrapper>
-                  <My.NoPcickListWrapper>
-                    <My.NoPickListCardImg src="/mypage/pick.png" />
-                    <My.NoPickListCardContents>
-                      찜한 내용이 없습니다.
-                    </My.NoPickListCardContents>
-                    <My.NoPickListCardContents>
-                      마음에 드시면 하트를 눌러주세요!!
-                    </My.NoPickListCardContents>
-                  </My.NoPcickListWrapper>
+                  <My.PickListCardWrapper>
+                    <My.NoPcickListWrapper>
+                      <My.NoPickListCardImg src="/mypage/pick.png" />
+                      <My.NoPickListCardContents>
+                        찜한 내용이 없습니다.
+                      </My.NoPickListCardContents>
+                      <My.NoPickListCardContents>
+                        마음에 드시면 하트를 눌러주세요!!
+                      </My.NoPickListCardContents>
+                    </My.NoPcickListWrapper>
+                  </My.PickListCardWrapper>
                 </My.PickListCardWrapper>
-              </My.PickListCardWrapper>
-
-              <My.PickListCardWrapper>
-                <My.PickListCardWrapper>
-                  <My.NoPcickListWrapper>
-                    <My.NoPickListCardImg src="/mypage/pick.png" />
-                    <My.NoPickListCardContents>
-                      찜한 내용이 없습니다.
-                    </My.NoPickListCardContents>
-                    <My.NoPickListCardContents>
-                      마음에 드시면 하트를 눌러주세요!!
-                    </My.NoPickListCardContents>
-                  </My.NoPcickListWrapper>
-                </My.PickListCardWrapper>
-              </My.PickListCardWrapper>
-            </My.PickListWrapper>
+              )}
+            </My.Pick>
           </My.PickDetailWrapper>
         </My.BodyWrapper>
       </My.Wrapper>
