@@ -31,23 +31,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const ImageWrapper1 = styled.div`
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-  margin-left: -300px;
-
-  @media ${breakPoints.mobile} {
-    width: 100%;
-    margin-left: 0;
-  }
-  @media ${breakPoints.tablet} {
-    width: 100%;
-    margin-left: 0;
-  }
-`;
-
 export const ImageWrapper2 = styled.div`
   width: 1000px;
   display: flex;
@@ -61,23 +44,6 @@ export const ImageWrapper2 = styled.div`
   }
   @media ${breakPoints.tablet} {
     width: 100%;
-  }
-`;
-
-export const ImageWrapper3 = styled.div`
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-  margin-right: -300px;
-  @media ${breakPoints.mobile} {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 50px;
-  }
-  @media ${breakPoints.tablet} {
-    width: 100%;
-    margin-right: 0;
   }
 `;
 
@@ -167,12 +133,17 @@ export const ImageUnderBar = styled.div`
     height: 10%;
     font-size: 10px;
     border-radius: 0 0 20px 0;
+    display: flex;
+    flex-direction: column-reverse;
+    line-height: 14px;
   }
   @media ${breakPoints.tablet} {
     width: 100%;
     height: 60px;
     font-size: 14px;
     border-radius: 0 0 20px 0;
+    display: flex;
+    flex-direction: column-reverse;
   }
 `;
 

@@ -217,4 +217,10 @@ export const Button = styled.button`
     font-size: 10px;
     margin: 3px;
   }
+  @media ${breakPoints.fold} {
+    width: 47px;
+    height: 18px;
+    font-size: 5px;
+    margin: 0;
+  }
 `;
