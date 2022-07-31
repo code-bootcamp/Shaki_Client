@@ -115,11 +115,11 @@ export const CommentWrapper = styled.div<ThemeProps>`
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
   @media ${breakPoints.tablet} {
-    width: 100%;
+    width: 90%;
     padding: 15px;
   }
   @media ${breakPoints.mobile} {
-    width: 100%;
+    width: 90%;
     padding: 10px;
   }
 `;
@@ -141,8 +141,12 @@ export const CommentHead = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media ${breakPoints.tablet} {
+    width: 90%;
+  }
   @media ${breakPoints.mobile} {
     justify-content: space-around;
+    width: 90%;
   }
 `;
 
@@ -196,8 +200,11 @@ export const CommentTitle = styled.div`
 export const KakaoMapWrapper = styled.div`
   width: 814px;
   height: 450px;
+  @media ${breakPoints.tablet} {
+    width: 90%;
+  }
   @media ${breakPoints.mobile} {
-    width: 80%;
+    width: 90%;
   }
 `;
 // 알아두어야할사항

@@ -32,7 +32,16 @@ export const HeadInfoWrapper = styled.div`
 `;
 export const PickWrapper = styled.div``;
 
-export const PickImg = styled.img``;
+export const PickImg = styled.img`
+  @media ${breakPoints.tablet} {
+    width: 25%;
+    height: auto;
+  }
+  @media ${breakPoints.mobile} {
+    width: 25%;
+    height: auto;
+  }
+`;
 
 export const QuestionBtn = styled.button`
   width: 112px;
@@ -49,6 +58,16 @@ export const QuestionBtn = styled.button`
     background-color: #4e75ff;
     color: white;
     transition-duration: 2s;
+  }
+  @media ${breakPoints.tablet} {
+    width: 80px;
+    height: 32px;
+    font-size: 13px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 50px;
+    height: 32px;
+    font-size: 10px;
   }
 `;
 
