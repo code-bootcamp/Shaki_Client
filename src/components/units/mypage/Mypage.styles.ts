@@ -474,6 +474,7 @@ export const KakaoMapWrapper = styled.div`
 //  찜한 정보
 export const PickDetailWrapper = styled.div`
   width: 100%;
+  margin-top: 10px;
 `;
 export const PickTitleWrapper = styled.div`
   width: 100%;
@@ -525,40 +526,56 @@ export const PickTitle = styled.div`
   }
 `;
 
+export const Pick = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
+`;
+
+export const Today = styled.div`
+  width: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const TodayWrapper = styled.div`
+  width: 30%;
+`;
+
 // 찜한 정보 무한 스크롤
 export const InfiniteScroll = styled.div``;
 
 export const PickListWrapper = styled.div`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 
   @media ${breakPoints.tablet} {
     width: 100%;
     height: 800px;
     display: flex;
     justify-content: space-between;
-    overflow-y: scroll;
     ::-webkit-scrollbar {
       display: none;
     }
   }
   @media ${breakPoints.mobile} {
     width: 100%;
-    height: 500px;
-    overflow-y: scroll;
-    ::-webkit-scrollbar {
-      display: none;
-    }
   }
 `;
-export const PickListCardWrapper = styled.div`
-  width: 300px;
-  height: 350px;
+
+export const TodayCardWrapper = styled.div`
+  width: 100%;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #d9dbe3;
+  justify-content: flex-start;
+  border: 2px solid #d9dbe3;
   border-radius: 10px;
   background-color: #d9dbe3;
   margin-right: 20px;
@@ -566,14 +583,46 @@ export const PickListCardWrapper = styled.div`
 
   @media ${breakPoints.mobile} {
     width: 100%;
-    height: 250px;
+    /* height: 250px; */
+    min-height: 200px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+  }
+`;
+
+export const PickListCardWrapper = styled.div`
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 2px solid #d9dbe3;
+  border-radius: 10px;
+  background-color: #d9dbe3;
+  margin-right: 20px;
+  margin-bottom: 10px;
+
+  @media ${breakPoints.tablet} {
+    height: fit-content;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    /* height: 250px; */
+    min-height: 200px;
     margin-bottom: 20px;
     margin-right: 0px;
   }
 `;
 export const ListCardImg = styled.img`
   width: 100%;
-  height: 250px;
+  height: 245px;
+  border-radius: 10px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+    height: 250px;
+  }
 
   @media ${breakPoints.mobile} {
     width: 100%;
@@ -582,7 +631,7 @@ export const ListCardImg = styled.img`
 `;
 export const ListCardDetailWrapper = styled.div`
   width: 100%;
-  height: 100px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -590,14 +639,29 @@ export const ListCardDetailWrapper = styled.div`
   padding: 10px;
   border-radius: 0px 0px 10px 10px;
   background-color: #ffffff;
+  @media ${breakPoints.mobile} {
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 export const ListCardName = styled.div`
   font-size: 20px;
   font-weight: 700;
+
+  @media ${breakPoints.mobile} {
+    font-size: 15px;
+  }
 `;
 export const ListCardContents = styled.div`
   font-size: 14px;
+  height: fit-content;
   color: #75777e;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 export const NoPcickListWrapper = styled.div`
   width: 100%;
