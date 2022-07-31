@@ -14,6 +14,7 @@ function Mypage() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [today, setToday] = useState([]);
   console.log(accessToken);
+  console.log(data);
   const onClickMoveDetail = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push(`/detailpage/${(event.currentTarget as HTMLDivElement).id}`);
   };
