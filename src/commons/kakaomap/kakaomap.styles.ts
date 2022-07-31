@@ -6,20 +6,20 @@ export const KakaoWrapper = styled.div`
 `;
 
 export const KakaoBtn = styled.button`
-  z-index: 11;
+  z-index: 1;
   position: absolute;
 `;
 
 export const KakaoMapDiv = styled.div`
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: -1;
   display: ${(props: any) => (props.isToggle === true ? "none" : "block")};
 `;
 
 export const KakaoRoadView = styled.div`
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: -1;
   display: ${(props: any) => (props.isToggle === true ? "block" : "none")};
 `;
