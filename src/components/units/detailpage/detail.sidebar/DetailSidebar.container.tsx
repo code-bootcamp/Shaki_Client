@@ -35,6 +35,57 @@ const hour: Array<timeTable> = [
   { start_time: "22:00", end_time: "23:00", reserved: false },
 ];
 
+const DumDum = [
+  {
+    id: 1,
+    name: "🍞 식전빵",
+    price: "5000",
+    countable: true,
+  },
+  {
+    id: 2,
+    name: "🍷 웰컴쥬스 (1pet)",
+    price: "4000",
+    countable: true,
+  },
+  {
+    id: 3,
+    name: "🍽️ 식기 기본세팅(예약한 인원수)",
+    price: "10000",
+    countable: true,
+  },
+  {
+    id: 4,
+    name: "🍺 생맥주 10000cc",
+    price: "12000",
+    countable: true,
+  },
+  {
+    id: 5,
+    name: "🧂 소금,후추 각종 향신료",
+    price: "3000",
+    countable: false,
+  },
+  {
+    id: 6,
+    name: "사용 후 애프터서비스",
+    price: "3000",
+    countable: false,
+  },
+  {
+    id: 7,
+    name: "🧹 애프터 청소서비스",
+    price: "10000",
+    countable: false,
+  },
+  {
+    id: 8,
+    name: "🔉 블루투스 스피커",
+    price: "8000",
+    countable: false,
+  },
+];
+
 export default function DetailSidebarContainer() {
   const router = useRouter();
   const client = useApolloClient();
@@ -179,7 +230,7 @@ export default function DetailSidebarContainer() {
 
   const onClickCartOpen = () => {
     setCart([]);
-    setIsModalVisible(true);
+    setIsModalVisible((prev) => !prev);
   };
 
   const handleOk = () => {
@@ -229,11 +280,11 @@ export default function DetailSidebarContainer() {
                   },
                 },
               });
-              console.log(result);
+              alert("결제 되었습니다. 마이페이지로 이동합니다.");
+              router.push("/mypage");
             } catch (error) {
               alert("결제에 실패하였습니다.");
             }
-            // router.push("/main");
           } else {
             // ...,
             // 결제 실패 시 로직,
@@ -258,6 +309,7 @@ export default function DetailSidebarContainer() {
         ></script>
       </Head>
       <DetailSidebarUI
+        DumDum={DumDum}
         hour={hour}
         price={price}
         date={date}

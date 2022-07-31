@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     margin-top: 40px;
-    width: 100%;
+    width: 70%;
   }
 `;
 
@@ -89,7 +89,7 @@ export const CalendarWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   @media ${breakPoints.tablet} {
-    width: 50%;
+    width: 100%;
   }
 `;
 
@@ -114,6 +114,8 @@ export const CheckInWrapper = styled.div`
   padding: 10px 0;
 `;
 
+export const Option = styled.div``;
+
 export const CheckInTime = styled.div`
   width: 121px;
   height: 42px;
@@ -126,6 +128,30 @@ export const CheckInTime = styled.div`
   cursor: pointer;
   :hover {
     color: black;
+  }
+`;
+
+export const CartBox = styled.div`
+  width: 900px;
+  height: 600px;
+  position: fixed;
+  top: 200px;
+  right: 150px;
+  border: 3px solid black;
+
+  z-index: 1;
+  background-color: white;
+  @media ${breakPoints.tablet} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  @media ${breakPoints.mobile} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
   }
 `;
 // 시간선택시 나오는 Div
@@ -251,21 +277,13 @@ export const Cart = styled.div`
   }
 `;
 
-let DumDum = [
-  {
-    id: 1,
-    name: "기본세팅",
-  },
-  {
-    id: 2,
-    name: "카놀라유",
-  },
-  {
-    id: 3,
-    name: "에어프라이",
-  },
-  {
-    id: 4,
-    name: "가스레인지",
-  },
-];
+export const OptionList = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const OptionItem = styled.div`
+  display: flex;
+  flex-direction: row;
+`;

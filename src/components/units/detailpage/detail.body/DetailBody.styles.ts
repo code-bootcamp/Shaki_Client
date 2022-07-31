@@ -196,6 +196,7 @@ export const CommentTitle = styled.div`
 export const KakaoMapWrapper = styled.div`
   width: 814px;
   height: 450px;
+  z-index: -10;
   @media ${breakPoints.mobile} {
     width: 80%;
   }

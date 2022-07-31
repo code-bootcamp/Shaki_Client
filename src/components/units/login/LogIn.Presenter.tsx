@@ -72,7 +72,9 @@ export default function LogInPresenter(props: any) {
           </Li.panel>
         </Li.LogInWrapper>
       </Li.Wrapper>
-      <Li.CommentBox>비회원 둘러보기</Li.CommentBox>
+      <Li.CommentBox onClick={props.onClickMoveToMain}>
+        비회원 둘러보기
+      </Li.CommentBox>
     </Li.WrapperRoot>
   );
 }

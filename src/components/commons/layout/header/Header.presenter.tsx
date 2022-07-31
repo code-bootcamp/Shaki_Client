@@ -59,7 +59,10 @@ export default function HeaderUI(props: IHeaderType) {
               <THS.DropdownMenuWrapper>
                 {props.dataFetchBranches?.fetchBranches.map((el: any) => (
                   <THS.DropdownTwo key={el.branch.id}>
-                    <THS.Menu2Text id={el.id} onClick={props.onClickMoveDetail}>
+                    <THS.Menu2Text
+                      id={el.id}
+                      onClick={props.onClickMoveDetail(el)}
+                    >
                       {el.branch.branch}
                     </THS.Menu2Text>
                     <THS.DropdownContentTwo className="dropdown-content2"></THS.DropdownContentTwo>

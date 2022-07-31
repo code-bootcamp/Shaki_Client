@@ -56,6 +56,10 @@ interface IDetailSide {
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
+  console.log(props.cart);
+  // console.log(
+  //   props.DumDum.filter((el) => console.log(el.name + " " + "$" + el.price))
+  // );
   return (
     <DS.Wrapper>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
@@ -128,25 +132,29 @@ export default function DetailSidebarUI(props: IDetailSide) {
         </DS.TimeWrapper>
         <DS.CheckInWrapper>
           {props.isModalVisible && (
-            <Modal
-              visible={true}
-              onCancel={props.handleCancel}
-              footer={[
-                <DS.ModalFooter>
-                  <DS.SidePrice>${props.sidePrice}</DS.SidePrice>
-                  <DS.TimeToggleCancel onClick={props.handleOk}>
-                    확인
-                  </DS.TimeToggleCancel>
-                </DS.ModalFooter>,
-              ]}
-            >
+            // <Modal
+            //   visible={true}
+            //   onCancel={props.handleCancel}
+            //   footer={[
+            //     <DS.ModalFooter>
+            //       <DS.SidePrice>${props.sidePrice}</DS.SidePrice>
+            //       <DS.TimeToggleCancel onClick={props.handleOk}>
+            //         확인
+            //       </DS.TimeToggleCancel>
+            //     </DS.ModalFooter>,
+            //   ]}
+            // >
+            <DS.CartBox>
               <DragPage
                 setOption={props.setOption}
                 setSidePrice={props.setSidePrice}
                 setCart={props.setCart}
                 cart={props.cart}
+                DumDum={props.DumDum}
+                onClickCartOpen={props.onClickCartOpen}
               />
-            </Modal>
+            </DS.CartBox>
+            // </Modal>
           )}
 
           <DS.Label>가격</DS.Label>
@@ -154,15 +162,23 @@ export default function DetailSidebarUI(props: IDetailSide) {
             <DS.PriceText>{props.price + props.sidePrice}</DS.PriceText>원
           </DS.PriceWrapper>
         </DS.CheckInWrapper>
-        <IconButton aria-label="cart">
-          <DS.Cart onClick={props.onClickCartOpen}>추가옵션 예약하기</DS.Cart>
-          <StyledBadge badgeContent={props.option} color="secondary">
-            <ShoppingCartIcon />
-          </StyledBadge>
-        </IconButton>
-        {props.cart.map((el) => (
-          <div>{el}</div>
-        ))}
+        <DS.Option>
+          <IconButton aria-label="cart">
+            <DS.Cart onClick={props.onClickCartOpen}>추가옵션 예약하기</DS.Cart>
+            <StyledBadge badgeContent={props.option} color="secondary">
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </IconButton>
+        </DS.Option>
+        {/* {props.DumDum.filter((el) =>
+          props.cart.includes(el.name + " " + "$" + el.price)
+        ).map((el) => (
+          <DS.OptionList>
+            <DS.OptionItem>{el.name}</DS.OptionItem>
+            <DS.OptionItem>${el.price}</DS.OptionItem>
+            {el.countable ? <div>countable</div> : <div>nonCountable</div>}
+          </DS.OptionList>
+        ))} */}
         <DS.SubmitBtn onClick={props.requestPay}>예약하기</DS.SubmitBtn>
       </DS.CheckWrapper>
     </DS.Wrapper>

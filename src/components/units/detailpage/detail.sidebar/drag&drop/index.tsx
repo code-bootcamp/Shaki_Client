@@ -1,86 +1,18 @@
 import styled from "@emotion/styled";
-import React, { useRef, useState } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import * as D from "./style";
-
-const DragList = styled.div`
-  width: 100%;
-  padding: 10px 10px;
-  border: 1px solid black;
-  display: flex;
-  flex-wrap: wrap;
-`;
-const DragZone = styled.div`
-  width: 100%;
-  height: 500px;
-  padding: 20px 10px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-`;
-let DumDum = [
-  {
-    id: 1,
-    name: "🍞 식전빵 ",
-    price: "5000",
-    status: false,
-  },
-  {
-    id: 2,
-    name: "🍷 웰컴쥬스 (1pet)",
-    price: "4000",
-    status: false,
-  },
-  {
-    id: 3,
-    name: "🍽️ 식기 기본세팅(예약한 인원수)",
-    price: "10000",
-    status: false,
-  },
-  {
-    id: 4,
-    name: "🍺 생맥주 10000cc",
-    price: "12000",
-    status: false,
-  },
-  {
-    id: 5,
-    name: "🧂 소금,후추 각종 향신료",
-    price: "3000",
-    status: false,
-  },
-  {
-    id: 6,
-    name: "사용 후 애프터서비스",
-    price: "3000",
-    status: false,
-  },
-  {
-    id: 7,
-    name: "🧹 애프터 청소서비스",
-    price: "10000",
-    status: false,
-  },
-  {
-    id: 8,
-    name: "🔉 블루투스 스피커",
-    price: "8000",
-    status: false,
-  },
-];
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function DragPage(props) {
   let dragged: HTMLDivElement;
 
-  // const [props.cart, setCart] = useState([]);
-
   const dragRef = useRef(null);
-
-  const [inCart, setInCart] = useState(false);
 
   const DragItem = (e: React.DragEvent<HTMLDivElement>) => {
     console.log("드레그아이템", e.target);
     e.dataTransfer.setData("data", e.currentTarget.innerHTML);
-    dragged = e.target;
-    // console.log("dragged", dragged);
+    dragged = e.target as HTMLDivElement;
   };
 
   const DragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -95,7 +27,7 @@ export default function DragPage(props) {
       (e.target as HTMLDivElement).appendChild(dragged);
       // console.log("ddd", e.target.appendChild(dragged).innerText);
       const newCart = props.cart.filter(
-        (el) =>
+        (el: string) =>
           el !== (e.target as HTMLDivElement).appendChild(dragged).innerText
       );
       props.setCart(newCart);
@@ -106,23 +38,28 @@ export default function DragPage(props) {
     const newCart = [...props.cart];
     // console.log("드롭존", typeof e.dataTransfer.getData("data"));
     e.preventDefault();
-    if (e.target.id === "AfterDropzone") {
+    if ((e.target as HTMLDivElement).id === "AfterDropzone") {
       (dragged.parentNode as HTMLDivElement).removeChild(dragged);
-      e.target.appendChild(dragged);
-      newCart.push(e.target.appendChild(dragged).innerText);
+      (e.target as HTMLDivElement).appendChild(dragged);
+      newCart.push((e.target as HTMLDivElement).appendChild(dragged).innerText);
       props.setCart(newCart);
-      console.log(props.cart);
+      dragRef.current.innerText = "";
     }
+  };
+
+  const onClickCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // if((event.target as HTMLButtonElement).id == )
   };
 
   let sum = 0;
 
   for (let i = 0; i < props.cart.length; i++) {
-    sum += Number(props.cart[i].slice(-5, -1));
+    sum += Number(props.cart[i].split("$")[1]);
   }
 
   props.setSidePrice(sum);
   props.setOption(props.cart?.length);
+  console.log(props.DumDum);
 
   return (
     <D.Wrapper>
@@ -131,38 +68,52 @@ export default function DragPage(props) {
         placeholder="키워드를 입력해주세요."
         onChange={onChangekeyWord}
       /> */}
-      <DragList
-        id="BeforeDropzone"
-        onDrop={BeforeDropZone}
-        onDragOver={DragOver}
-      >
-        {DumDum.map((el, i) => (
-          <D.DraggableItem
-            id="draggable"
-            draggable={true}
-            onDragStart={DragItem}
-            key={el.id}
-            index={i + 1}
-            status={el.status}
-          >
-            {el.name}({el.price})
-          </D.DraggableItem>
-        ))}
-      </DragList>
-      <DragZone
-        ref={dragRef}
-        id="AfterDropzone"
-        onDragOver={DragOver}
-        onDrop={AfterDropZone}
-      >
-        {/* <D.Introduction>여기로 드롭해주세요</D.Introduction> */}
-        {/* {props.cart.map(
-          (el) => (
-            <div>{el}</div>
-          )
-          console.log(el, typeof el)
-        )} */}
-      </DragZone>
+      <D.DragBox>
+        <D.DragList
+          id="BeforeDropzone"
+          onDrop={BeforeDropZone}
+          onDragOver={DragOver}
+        >
+          {props.DumDum.map((el) => (
+            <D.DraggableItem
+              id="draggable"
+              draggable={true}
+              onDragStart={DragItem}
+              key={el.id}
+            >
+              {el.name} ${el.price}
+            </D.DraggableItem>
+          ))}
+        </D.DragList>
+
+        <D.DragZone
+          id="AfterDropzone"
+          onDragOver={DragOver}
+          onDrop={AfterDropZone}
+          ref={dragRef}
+        ></D.DragZone>
+        <ShoppingCartIcon
+          style={{ position: "absolute", top: "30%", right: "15%" }}
+        />
+      </D.DragBox>
+      {props.DumDum.filter((el) =>
+        props.cart.includes(el.name + " " + "$" + el.price)
+      ).map((el) => (
+        <D.optionList>
+          <D.optionItem>{el.name}</D.optionItem>
+          <D.optionItem>{el.price}</D.optionItem>
+          <D.optionItem>
+            {el.countable === true ? <input /> : <div>1</div>}
+          </D.optionItem>
+          <button>취소</button>
+        </D.optionList>
+      ))}
+      {/* {props.cart.map((el) => (
+        <>
+          <div>{el}</div>
+        </>
+      ))} */}
+      <D.CancelButton onClick={props.onClickCartOpen}>닫기</D.CancelButton>
     </D.Wrapper>
   );
 }
