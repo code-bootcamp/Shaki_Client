@@ -19,8 +19,9 @@ function Mypage() {
   };
 
   useEffect(() => {
-    const today = JSON.parse(sessionStorage.getItem("today") || "");
+    const today = JSON.parse(sessionStorage.getItem("today") || "[]");
     setToday(today);
+    console.log("today", today);
   }, []);
 
   return (

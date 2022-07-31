@@ -178,7 +178,7 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitle>최근본 Shaki</My.BodyTitle>
           </My.BodyTitleWrapper>
           <My.Today>
-            {props.today ? (
+            {props.today.length !== 0 ? (
               props.today.map((el) => (
                 <My.TodayWrapper id={el.id} onClick={props.onClickMoveDetail}>
                   <My.TodayCardWrapper>
