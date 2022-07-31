@@ -4,7 +4,7 @@ import { Input, InputRef, Tag, Tooltip } from "antd";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
 const Wrapper = styled.div`
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-wrap: wrap;
 `;
