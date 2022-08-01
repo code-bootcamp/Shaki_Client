@@ -70,6 +70,7 @@ export const TimeRange = styled.div`
 export const StartTime = styled.input`
   width: 60px;
   padding-left: 8px;
+  margin-left: 10px;
   margin-right: 10px;
 `;
 
@@ -77,6 +78,7 @@ export const EndTime = styled.input`
   width: 60px;
   padding-left: 8px;
   margin-left: 10px;
+  margin-right: 10px;
 `;
 
 export const Label = styled.label`

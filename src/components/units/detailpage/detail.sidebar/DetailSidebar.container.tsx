@@ -108,6 +108,7 @@ export default function DetailSidebarContainer() {
 
   const onClickToggleTime = (event: React.MouseEvent<HTMLButtonElement>) => {
     hour[Number(event.currentTarget.id)].reserved = true;
+    console.log(clicked);
     if (clicked === []) {
       const newClicked = [];
       newClicked.push((event.target as HTMLButtonElement).value);
@@ -152,13 +153,24 @@ export default function DetailSidebarContainer() {
     });
 
     for (let i = 0; i < hour.length; i++) {
-      if (
-        Number(hour[i].start_time.slice(0, 2)) >= start &&
-        Number(hour[i].start_time.slice(0, 2)) <= end
-      ) {
-        hour[i].reserved = true;
+      if (start < end) {
+        if (
+          Number(hour[i].start_time.slice(0, 2)) >= start &&
+          Number(hour[i].start_time.slice(0, 2)) <= end
+        ) {
+          hour[i].reserved = true;
+        } else {
+          hour[i].reserved = false;
+        }
       } else {
-        hour[i].reserved = false;
+        if (
+          Number(hour[i].start_time.slice(0, 2)) <= start &&
+          Number(hour[i].start_time.slice(0, 2)) >= end
+        ) {
+          hour[i].reserved = true;
+        } else {
+          hour[i].reserved = false;
+        }
       }
     }
     if (isNaN(start) || isNaN(end)) {
@@ -167,7 +179,11 @@ export default function DetailSidebarContainer() {
         hour[i].reserved = false;
       }
     } else {
-      setPrice((end - start + 1) * 20000);
+      if (end < start) {
+        setPrice((start - end + 1) * 20000);
+      } else {
+        setPrice((end - start + 1) * 20000);
+      }
     }
   }, [clicked]);
 

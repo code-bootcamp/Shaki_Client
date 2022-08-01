@@ -63,10 +63,10 @@ interface IDetailSide {
   };
   setIsModalVisible: any;
   cartRef: any;
+  disabled: boolean;
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
-  console.log(props.cart);
   const { theme } = useContext(ThemeContext);
 
   // console.log(
@@ -148,9 +148,19 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.TimeWrapper>
           <DS.Label>이용시간</DS.Label>
           <DS.TimeRange>
-            <DS.StartTime readOnly value={props.startTime} />
-            ~
-            <DS.EndTime readOnly value={props.endTime} />
+            {props.startTime < props.endTime ? (
+              <>
+                <DS.StartTime readOnly value={props.startTime} />
+                ~
+                <DS.EndTime readOnly value={props.endTime} />
+              </>
+            ) : (
+              <>
+                <DS.EndTime readOnly value={props.endTime} />
+                ~
+                <DS.StartTime readOnly value={props.startTime} />
+              </>
+            )}
           </DS.TimeRange>
         </DS.TimeWrapper>
         <DS.CheckInWrapper>
