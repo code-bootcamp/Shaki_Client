@@ -86,7 +86,7 @@ export default function HeaderUI(props: IHeaderType) {
         {props.accessToken ? (
           <THS.IsLogedin>
             <THS.UserText>
-              <THS.UserName>
+              <THS.UserName theme={theme}>
                 {props.data?.fetchLoginUser.name.slice(0, 5)}님
               </THS.UserName>
               &nbsp;환영합니다!

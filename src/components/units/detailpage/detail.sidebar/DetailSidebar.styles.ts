@@ -1,11 +1,18 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { Theme } from "../../../../commons/styles/theme";
+interface ThemeProps {
+  theme: Theme;
+}
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<ThemeProps>`
   width: 346px;
   height: 100%;
   border: 1px solid #4167ee;
   border-radius: 15px 0px 15px 0px;
+  background: ${({ theme }) => theme.DETAILSIDEBAR};
+  color: ${({ theme }) => theme.SIDEBARTEXT};
+  transition: all 0.9s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,10 +162,14 @@ export const CartBox = styled.div`
   }
 `;
 // 시간선택시 나오는 Div
-export const TimesWrapper = styled.div`
+export const TimesWrapper = styled.div<ThemeProps>`
   position: absolute;
   top: 80px;
-  background-color: #b8bac8;
+  /* background-color: #b8bac8; */
+  background: ${({ theme }) => theme.DETAILSIDEBAR};
+  color: ${({ theme }) => theme.SIDEBARTEXT};
+  transition: all 0.9s ease-in-out;
+  transition: all 0.9s ease-in-out;
   border-radius: 10px;
   padding: 10px;
   z-index: 1;
