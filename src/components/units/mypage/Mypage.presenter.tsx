@@ -62,7 +62,7 @@ export default function MypageUI(props: IMypageprops) {
     autoplay: true,
   };
 
-  console.log(props.data?.fetchLoginUser.payment[0].room.images);
+  // console.log(props.data?.fetchLoginUser.payment[0].room.images);
 
   return (
     <My.HTML theme={theme}>

@@ -44,6 +44,7 @@ export const LeftHeadWrapper = styled.nav`
 export const LogoImg = styled.img`
   width: 100px;
   height: auto;
+  cursor: pointer;
   @media ${breakPoints.mobile} {
     width: 50px;
   }

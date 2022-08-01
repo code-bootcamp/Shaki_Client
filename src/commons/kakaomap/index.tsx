@@ -21,7 +21,7 @@ export default function KakaoMap(props: any) {
         const mapOption = {
           center: new window.kakao.maps.LatLng(37.5557, 127.0055), // 지도의 중심좌표
           level: 3, // 지도의 확대 레벨
-          draggable: false,
+          // draggable: false,
         };
         const rvContainer = document.getElementById("roadview"); // 로드뷰를 표시할 div 입니다
 

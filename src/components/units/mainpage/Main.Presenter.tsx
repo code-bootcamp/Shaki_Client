@@ -37,7 +37,7 @@ export default function MainPresenter(props: IMainProps) {
       <Ma.Wrapper>
         <Ma.ImageWrapper2>
           {props.data?.fetchBranches.map((el: any) => (
-            <div key={v1()}>
+            <Ma.MainContextWrapper key={v1()}>
               <Ma.ImageHeader>
                 {el.branch.branch}
                 <Ma.ImageHeaderIcon />
@@ -51,7 +51,7 @@ export default function MainPresenter(props: IMainProps) {
                   <Rate value={el.star} disabled />
                 </Ma.ImageUnderBar>
               </Ma.MainContents>
-            </div>
+            </Ma.MainContextWrapper>
           ))}
         </Ma.ImageWrapper2>
       </Ma.Wrapper>

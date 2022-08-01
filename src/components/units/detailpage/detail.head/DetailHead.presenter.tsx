@@ -21,7 +21,7 @@ export default function DetailHeaderUI(props: IDetailHeaderUI) {
         </DH.HeadInfo>
 
         <DH.PickWrapper>
-          <DH.PickImg src="/mypage/pick_detail.png" />
+          {/* <DH.PickImg src="/mypage/pick_detail.png" /> */}
           <DH.QuestionBtn onClick={props.onClickPick}>찜하기</DH.QuestionBtn>
         </DH.PickWrapper>
       </DH.HeadInfoWrapper>
