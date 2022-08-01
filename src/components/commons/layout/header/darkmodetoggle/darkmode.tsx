@@ -45,20 +45,6 @@ const ToggleButton = styled("button")<ToggleProps>`
   }
 `;
 
-// const Emoji = styled.figure`
-//   width: 33px;
-//   height: 33px;
-//   border-radius: 100%;
-//   font-size: 1.5rem;
-
-//   @media ${breakPoints.tablet} {
-//     font-size: 0.7rem;
-//   }
-//   @media ${breakPoints.mobile} {
-//     font-size: 0.7rem;
-//   }
-// `;
-
 const ModeContent = styled.p`
   font-size: 0.8rem;
   margin-left: 5px;

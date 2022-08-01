@@ -527,9 +527,11 @@ export const PickTitle = styled.div`
 `;
 
 export const Pick = styled.div`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  overflow-x: scroll;
   @media ${breakPoints.mobile} {
     flex-direction: column;
   }
@@ -541,11 +543,11 @@ export const Today = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 export const TodayWrapper = styled.div`
-  width: 30%;
+  width: 310px;
 
   @media ${breakPoints.tablet} {
     width: 50%;
@@ -558,7 +560,7 @@ export const InfiniteScroll = styled.div``;
 export const PickListWrapper = styled.div`
   width: 50%;
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 
   @media ${breakPoints.tablet} {
     width: 50%;
@@ -596,7 +598,7 @@ export const TodayCardWrapper = styled.div`
 `;
 
 export const PickListCardWrapper = styled.div`
-  width: 100%;
+  width: 320px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -612,7 +614,7 @@ export const PickListCardWrapper = styled.div`
   }
 
   @media ${breakPoints.mobile} {
-    width: 100%;
+    width: 320px;
     /* height: 250px; */
     min-height: 200px;
     margin-bottom: 20px;

@@ -7,9 +7,7 @@ import React, { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Modal } from "antd";
 import DragPage from "./drag&drop";
 import { ThemeContext } from "../../../../../pages/_app";
 
@@ -24,6 +22,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     border: "2px solid ${theme.palette.background.paper}",
     padding: "0 4px",
   },
+  zIndex: -1,
 }));
 
 interface IDetailSide {
@@ -54,6 +53,16 @@ interface IDetailSide {
   sidePrice: number;
   option: number;
   setOption: any;
+  setCart: any;
+  cart: string[];
+  DumDum: {
+    id: string;
+    name: string;
+    price: string;
+    countable: boolean;
+  };
+  setIsModalVisible: any;
+  cartRef: any;
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
@@ -67,7 +76,7 @@ export default function DetailSidebarUI(props: IDetailSide) {
     <DS.Wrapper theme={theme}>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
       <DS.CalendarWrapper>
-        <DS.Label>날짜 선택</DS.Label>
+        <DS.Label>날짜</DS.Label>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DatePicker
             label="날짜를 선택해주세요"
@@ -120,9 +129,19 @@ export default function DetailSidebarUI(props: IDetailSide) {
         <DS.CheckInWrapper>
           <DS.Label>게스트</DS.Label>
           <DS.CheckGuest>
-            <DS.GuestBtn onClick={props.onDecrease}>-</DS.GuestBtn>
+            <DS.GuestBtn
+              disabled={props.disabled ? true : false}
+              onClick={props.onDecrease}
+            >
+              -
+            </DS.GuestBtn>
             {props.guest}
-            <DS.GuestBtn onClick={props.onIncrease}>+</DS.GuestBtn>
+            <DS.GuestBtn
+              disabled={props.disabled ? true : false}
+              onClick={props.onIncrease}
+            >
+              +
+            </DS.GuestBtn>
           </DS.CheckGuest>
         </DS.CheckInWrapper>
 
@@ -136,18 +155,6 @@ export default function DetailSidebarUI(props: IDetailSide) {
         </DS.TimeWrapper>
         <DS.CheckInWrapper>
           {props.isModalVisible && (
-            // <Modal
-            //   visible={true}
-            //   onCancel={props.handleCancel}
-            //   footer={[
-            //     <DS.ModalFooter>
-            //       <DS.SidePrice>${props.sidePrice}</DS.SidePrice>
-            //       <DS.TimeToggleCancel onClick={props.handleOk}>
-            //         확인
-            //       </DS.TimeToggleCancel>
-            //     </DS.ModalFooter>,
-            //   ]}
-            // >
             <DS.CartBox>
               <DragPage
                 setOption={props.setOption}
@@ -156,34 +163,46 @@ export default function DetailSidebarUI(props: IDetailSide) {
                 cart={props.cart}
                 DumDum={props.DumDum}
                 onClickCartOpen={props.onClickCartOpen}
+                handleOk={props.handleOk}
+                guest={props.guest}
+                setIsModalVisible={props.setIsModalVisible}
+                cartRef={props.cartRef}
+                add={props.add}
+                setAdd={props.setAdd}
               />
             </DS.CartBox>
-            // </Modal>
           )}
-
-          <DS.Label>가격</DS.Label>
-          <DS.PriceWrapper>
-            <DS.PriceText>{props.price + props.sidePrice}</DS.PriceText>원
-          </DS.PriceWrapper>
         </DS.CheckInWrapper>
         <DS.Option>
-          <IconButton aria-label="cart">
-            <DS.Cart onClick={props.onClickCartOpen}>추가옵션 예약하기</DS.Cart>
-            <StyledBadge badgeContent={props.option} color="secondary">
-              <ShoppingCartIcon />
-            </StyledBadge>
-          </IconButton>
+          <DS.Cart ref={props.cartRef} onClick={props.onClickCartOpen}>
+            추가옵션 예약하기
+          </DS.Cart>
+          <StyledBadge badgeContent={props.option} color="secondary">
+            <ShoppingCartIcon />
+          </StyledBadge>
         </DS.Option>
-        {/* {props.DumDum.filter((el) =>
-          props.cart.includes(el.name + " " + "$" + el.price)
-        ).map((el) => (
-          <DS.OptionList>
-            <DS.OptionItem>{el.name}</DS.OptionItem>
-            <DS.OptionItem>${el.price}</DS.OptionItem>
-            {el.countable ? <div>countable</div> : <div>nonCountable</div>}
-          </DS.OptionList>
-        ))} */}
+        <DS.OptionList>
+          {props.DumDum.filter((el) =>
+            props.cart?.includes(el.name + " $" + el.price)
+          ).map((el) => (
+            <DS.OptionWrapper>
+              <DS.OptionItem>
+                {el.countable ? el.name + " x " + props.guest : el.name}
+              </DS.OptionItem>
+              <DS.OptionItem>
+                {el.countable ? props.guest * el.price : el.price}
+              </DS.OptionItem>
+            </DS.OptionWrapper>
+          ))}
+        </DS.OptionList>
+        <DS.PriceWrapper>
+          <DS.Label>가격</DS.Label>
+          <DS.PriceText>{props.price + props.sidePrice}원</DS.PriceText>
+        </DS.PriceWrapper>
         <DS.SubmitBtn onClick={props.requestPay}>예약하기</DS.SubmitBtn>
+        <DS.Introduction>
+          **예약내역을 재설정 하려면 날짜를 재설정 해주세요.**
+        </DS.Introduction>
       </DS.CheckWrapper>
     </DS.Wrapper>
   );
