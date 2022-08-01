@@ -1,10 +1,8 @@
 FROM node:16
 
-WORKDIR /myfolder/
-COPY ./package.json /myfolder/
-COPY ./yarn.lock /myfolder/
+WORKDIR /f7b3_team04_client/
+COPY . /shaki/
 RUN yarn install
 
-COPY . /myfolder/
 RUN yarn build
 CMD yarn start
