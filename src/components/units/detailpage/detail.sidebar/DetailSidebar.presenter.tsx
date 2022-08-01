@@ -66,7 +66,12 @@ interface IDetailSide {
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
+  console.log(props.cart);
   const { theme } = useContext(ThemeContext);
+
+  // console.log(
+  //   props.DumDum.filter((el) => console.log(el.name + " " + "$" + el.price))
+  // );
   return (
     <DS.Wrapper theme={theme}>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
