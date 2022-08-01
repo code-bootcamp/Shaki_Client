@@ -23,7 +23,9 @@ export const Wrapper = styled.div`
   position: relative;
   width: 100vw;
   height: 1500px;
-  background-image: url("/landing/header 1.png");
+  /* background-image: url("/landing/header 1.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/header 1.png");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,7 +43,9 @@ export const Rectangle = styled.div`
   height: 40px;
   left: 420px;
   top: 95px;
-  background-image: url("/landing/landingdivider.png");
+  /* background-image: url("/landing/landingdivider.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/landingdivider.png");
+
   transform: rotate(90deg);
 `;
 
@@ -51,7 +55,9 @@ export const Header = styled.div`
   height: 160px;
   top: 150px;
   left: 400px;
-  background-image: url("/landing/landing2header.png");
+  /* background-image: url("/landing/landing2header.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/landing2header.png");
+
   background-repeat: no-repeat;
 `;
 
@@ -62,7 +68,8 @@ export const Contents = styled.div`
   top: 300px;
   left: 400px;
   background-repeat: no-repeat;
-  background-image: url("/landing/landing2text.png");
+  /* background-image: url("/landing/landing2text.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/landing2text.png");
 `;
 
 export const MapWrapper = styled.div`
@@ -118,7 +125,8 @@ export const Footer = styled.div`
   height: 848px;
   left: 320px;
   top: 1800px;
-  background-image: url("/landing/5.png");
+  /* background-image: url("/landing/5.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/5.png");
 `;
 
 export const SocialLoginBox = styled.div`
