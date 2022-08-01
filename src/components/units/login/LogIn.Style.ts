@@ -1,6 +1,10 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
+import { Theme } from "../../../commons/styles/theme";
+interface ThemeProps {
+  theme: Theme;
+}
 
 const On = keyframes`
   from {
@@ -186,27 +190,34 @@ export const UpperBody = styled.div`
   border-bottom: 3px solid #4e75ff;
   padding: 0 20px 30px 20px;
   margin-bottom: 20px;
+
   @media ${breakPoints.mobile} {
     width: 90%;
   }
 `;
 
-export const Email = styled.input`
+export const Email = styled.input<ThemeProps>`
   height: 40px;
   border: none;
   border-bottom: 1px solid gray;
   margin-bottom: 10px;
   outline: none;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
   @media ${breakPoints.mobile} {
     width: 100%;
   }
 `;
 
-export const Password = styled.input`
+export const Password = styled.input<ThemeProps>`
   height: 40px;
   border: none;
   border-bottom: 1px solid gray;
   outline: none;
+  background: ${({ theme }) => theme.BACKGROUND};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
   @media ${breakPoints.mobile} {
     width: 100%;
   }

@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../../../pages/_app";
 import LogInMobileButtonStyle from "./LogIn.MobileButton";
 import * as Li from "./LogIn.Style";
 
 export default function LogInPresenter(props: any) {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Li.WrapperRoot onSubmit={props.handleSubmit(props.onClickLogIn)}>
       {/* <div onClick={props.onClick}>asdasdsad</div> */}
@@ -22,13 +26,15 @@ export default function LogInPresenter(props: any) {
               <Li.UpperBody>
                 이메일
                 <Li.Email
-                  defaultValue={props.adminOn ? "admin@adim1234.com" : ""}
+                  theme={theme}
+                  defaultValue={props.adminOn ? "admin@admin.com" : ""}
                   type="text"
                   {...props.register("email")}
                 />
                 비밀번호
                 <Li.Password
-                  defaultValue={props.adminOn ? "rhksflwk1234" : ""}
+                  theme={theme}
+                  defaultValue={props.adminOn ? "rhksflwk123" : ""}
                   type="password"
                   {...props.register("pwd")}
                 />
