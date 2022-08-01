@@ -145,7 +145,7 @@ export const CommentHead = styled.div`
     width: 90%;
   }
   @media ${breakPoints.mobile} {
-    justify-content: space-around;
+    justify-content: space-between;
     width: 90%;
   }
 `;

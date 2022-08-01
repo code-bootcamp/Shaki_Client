@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   @media ${breakPoints.mobile} {
     width: 90%;
   }
@@ -35,15 +35,20 @@ export const ImageWrapper2 = styled.div`
   width: 1000px;
   display: flex;
   flex-direction: column;
+  /* vertical-align: text-top; */
   @media ${breakPoints.mobile} {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 30px;
   }
   @media ${breakPoints.tablet} {
     width: 100%;
   }
+`;
+
+export const MainContextWrapper = styled.div`
+  /* vertical-align: text-top; */
 `;
 
 export const ImageHeader = styled.div`
@@ -59,10 +64,12 @@ export const ImageHeader = styled.div`
     height: auto;
     font-size: 20px;
     padding-left: 20px;
+    margin-top: 30px;
   }
   @media ${breakPoints.tablet} {
     font-size: 30px;
     padding-left: 15px;
+    margin-top: 30px;
   }
 `;
 
@@ -89,6 +96,7 @@ export const ImageHeaderIcon = styled.div`
 
 export const MainContents = styled.div`
   cursor: pointer;
+  /* vertical-align: text-top; */
   img:hover {
     opacity: 0.5;
   }

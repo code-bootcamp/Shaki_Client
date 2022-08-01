@@ -20,8 +20,7 @@ const ToggleButton = styled("button")<ToggleProps>`
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  padding-top: 10px;
+  justify-content: center;
   align-items: center;
   background: ${({ theme }) => theme.BACKGROUND};
   color: ${({ theme }) => theme.MAIN};
@@ -46,25 +45,6 @@ const ToggleButton = styled("button")<ToggleProps>`
   }
 `;
 
-const Emoji = styled.figure`
-  width: 33px;
-  height: 33px;
-  border-radius: 100%;
-  font-size: 1.5rem;
-  padding-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media ${breakPoints.tablet} {
-    font-size: 0.7rem;
-    padding-bottom: 11px;
-  }
-  @media ${breakPoints.mobile} {
-    font-size: 0.7rem;
-    padding-bottom: 11px;
-  }
-`;
-
 const ModeContent = styled.p`
   font-size: 0.8rem;
   margin-left: 5px;
@@ -83,16 +63,16 @@ export default function DarkModeToggle(): ReactElement {
     <ToggleButton onClick={toggleTheme} theme={theme}>
       {theme === lightTheme ? (
         <>
-          <Emoji>
-            <DarkModeIcon aria-label="darkMoon" />
-          </Emoji>
+          {/* <Emoji> */}
+          <DarkModeIcon aria-label="darkMoon" />
+          {/* </Emoji> */}
           <ModeContent>다크 모드</ModeContent>
         </>
       ) : (
         <>
-          <Emoji>
-            <LightModeIcon aria-label="lightSun" />
-          </Emoji>
+          {/* <Emoji> */}
+          <LightModeIcon aria-label="lightSun" />
+          {/* </Emoji> */}
           <ModeContent>라이트 모드</ModeContent>
         </>
       )}
