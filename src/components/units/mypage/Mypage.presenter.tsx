@@ -62,7 +62,7 @@ export default function MypageUI(props: IMypageprops) {
     autoplay: true,
   };
 
-  console.log(props.data?.fetchLoginUser.payment[0].room.images);
+  // console.log(props.data?.fetchLoginUser.payment[0].room.images);
 
   return (
     <My.HTML theme={theme}>
@@ -135,15 +135,10 @@ export default function MypageUI(props: IMypageprops) {
           </My.BodyTitleWrapper>
           {props.data?.fetchLoginUser.payment ? (
             props.data.fetchLoginUser.payment.map((el: any) => (
+              // console.log(el.room.images[0].url)
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
-                  <Slider {...settings}>
-                    <My.Image src={el.room?.images[0].url} />
-                    <My.Image src={el.room?.images[1].url} />
-                    <My.Image src={el.room?.images[2].url} />
-                    <My.Image src={el.room?.images[3].url} />
-                    <My.Image src={el.room?.images[4].url} />
-                  </Slider>
+                  <My.Image src={el.room?.images[0]?.url} />
                   <My.Info>
                     <My.InfoDetailWrite>
                       <My.NameWrapper>
@@ -159,7 +154,7 @@ export default function MypageUI(props: IMypageprops) {
 
                     <My.InfoDay>
                       <My.DateWrapper>
-                        <My.DateImg src="/mypage/calendar_detail.png" />
+                        <My.DateImg src="mypage/calendar_detail.png" />
                         <My.Date>예약 날짜: {el.date}</My.Date>
                       </My.DateWrapper>
                       <My.TimeWrapper>

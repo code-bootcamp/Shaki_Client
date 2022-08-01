@@ -39,11 +39,14 @@ export const SubmitBtn = styled.button`
   background: lightgray;
   color: black;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   :hover {
     cursor: pointer;
     background-color: #4167ee;
     color: white;
+  }
+  @media ${breakPoints.tablet} {
+    width: 100%;
   }
 `;
 
@@ -72,6 +75,8 @@ export const EndTime = styled.input`
 export const Label = styled.label`
   font-weight: 500;
   font-size: 16px;
+  align-content: flex-end;
+  padding-top: 5px;
 `;
 
 export const CheckWrapper = styled.div`
@@ -114,7 +119,13 @@ export const CheckInWrapper = styled.div`
   padding: 10px 0;
 `;
 
-export const Option = styled.div``;
+export const Option = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 15px;
+`;
 
 export const CheckInTime = styled.div`
   width: 121px;
@@ -136,8 +147,7 @@ export const CartBox = styled.div`
   height: 600px;
   position: fixed;
   top: 200px;
-  right: 150px;
-  border: 3px solid black;
+  right: 15%;
 
   z-index: 1;
   background-color: white;
@@ -177,7 +187,7 @@ export const TimeBox = styled.button`
   font-weight: 500;
   /* background-color: #f6f7fb; */
   background-color: ${(props: { reserved: boolean }) =>
-    props.reserved ? "#849cf0" : "#f6f7fb"};
+    props.reserved && "#849cf0"};
   padding: 3px;
   border-radius: 3px;
   border: none;
@@ -225,14 +235,15 @@ export const BoxWrapper = styled.div`
 export const CheckGuest = styled.div`
   width: 121px;
   height: 42px;
-  border: 1px solid #d9dbe3;
+  border-top: 1px solid #d9dbe3;
+  border-bottom: 1px solid #d9dbe3;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
 
-export const GuestBtn = styled.div`
+export const GuestBtn = styled.button`
   height: 100%;
   width: 20px;
   display: flex;
@@ -240,22 +251,32 @@ export const GuestBtn = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: none;
+  background-color: white;
   cursor: pointer;
   :active {
     background-color: gray;
+  }
+  :disabled {
+    color: white;
+    background-color: gray;
+    opacity: 0.4;
+    cursor: initial;
   }
 `;
 // 가격
 export const PriceWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
 `;
 
 export const PriceText = styled.div`
   font-weight: 700;
   font-size: 20px;
   color: #4167ee;
+  align-content: flex-end;
 `;
 
 export const DragList = styled.div`
@@ -271,19 +292,39 @@ export const DragZone = styled.div`
 `;
 
 export const Cart = styled.div`
-  cursor: initial;
+  margin-right: 10px;
+  cursor: pointer;
   :hover {
-    background-color: white;
+    color: #4167ee;
   }
 `;
 
 export const OptionList = styled.div`
   display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  border-top: 2px solid #4167ee;
+`;
+
+export const OptionWrapper = styled.div`
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 5px 0;
 `;
 
 export const OptionItem = styled.div`
   display: flex;
   flex-direction: row;
+  font-weight: 500;
+`;
+
+export const Introduction = styled.div`
+  color: red;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
 `;
