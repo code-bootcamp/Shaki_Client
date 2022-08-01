@@ -21,11 +21,11 @@ const DownButton = styled.div`
   position: absolute;
   width: 55px;
   height: 55px;
-  bottom: 400px;
+  bottom: 700px;
   left: 1450px;
   z-index: 5;
-  /* background-color: white; */
-  background-image: url("/landing/scrollArrow.png");
+  background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
+
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -44,8 +44,7 @@ const UpButton = styled.div`
   bottom: -2050px;
   left: 1230px;
   z-index: 5;
-  /* background-color: white; */
-  background-image: url("/landing/scrollArrow.png");
+  background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -60,7 +59,7 @@ const UpButton = styled.div`
 const SocialLoginBox = styled.div`
   position: relative;
   width: 90vw;
-  top: 4500px;
+  top: 4450px;
   left: 90px;
   margin-bottom: 100px;
   @media ${breakPoints.tablet} {

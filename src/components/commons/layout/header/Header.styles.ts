@@ -171,11 +171,9 @@ export const IsLogedin = styled.div`
 `;
 
 export const UserText = styled.div`
-  padding: 5px;
   display: flex;
   color: gray;
   flex-direction: row;
-
   @media ${breakPoints.tablet} {
     align-items: center;
     flex-direction: column;
@@ -188,9 +186,22 @@ export const UserText = styled.div`
   }
 `;
 
-export const UserName = styled.p`
+export const UserName = styled.p<ThemeProps>`
   color: black;
   font-weight: 500;
+  font-size: 15px;
+  @media ${breakPoints.tablet} {
+    font-size: 13px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 13px;
+  }
+  @media ${breakPoints.fold} {
+    font-size: 8px;
+  }
+  background: ${({ theme }) => theme.LAYOUT};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const Button = styled.button`

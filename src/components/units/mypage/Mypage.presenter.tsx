@@ -62,8 +62,6 @@ export default function MypageUI(props: IMypageprops) {
     autoplay: true,
   };
 
-  // console.log(props.data?.fetchLoginUser.payment[0].room.images);
-
   return (
     <My.HTML theme={theme}>
       <My.Wrapper>
@@ -71,7 +69,7 @@ export default function MypageUI(props: IMypageprops) {
           {/* 프로필 사진, 이름 */}
           <My.UserWrapper>
             <My.UserPictureWrapper>
-              <My.UserPicture src="/mypage/profile.png" />
+              <My.UserPicture src="https://storage.googleapis.com/front_image/profile.png" />
             </My.UserPictureWrapper>
             <My.UserNameWrapper>
               <My.UserName>
@@ -84,7 +82,7 @@ export default function MypageUI(props: IMypageprops) {
           <My.TopBreakPoint>
             <My.PointWrapper>
               <My.PointImgWrapper>
-                <My.PointImg src="/mypage/point.png" />
+                <My.PointImg src="https://storage.googleapis.com/front_image/point.png" />
                 <My.PointLabel>적립금</My.PointLabel>
               </My.PointImgWrapper>
               <My.PointNumberWrapper>
@@ -99,7 +97,7 @@ export default function MypageUI(props: IMypageprops) {
             {/* 찜한 갯수 */}
             <My.PickedWrapper>
               <My.PickedImgWrapper>
-                <My.PickedImg src="/mypage/pick.png" />
+                <My.PickedImg src="https://storage.googleapis.com/front_image/pick.png" />
                 <My.PickedLabel>찜한 갯수</My.PickedLabel>
               </My.PickedImgWrapper>
               <My.PickedNumberWrapper>
@@ -114,7 +112,7 @@ export default function MypageUI(props: IMypageprops) {
             {/* 예약 갯수 */}
             <My.ReservationWrapper>
               <My.ReservationImgWrapper>
-                <My.ReservationImg src="/mypage/calendar.png" />
+                <My.ReservationImg src="https://storage.googleapis.com/front_image/calendar.png" />
                 <My.ReservationLabel>예약 갯수</My.ReservationLabel>
               </My.ReservationImgWrapper>
               <My.ReservationNumberWrapper>
@@ -130,12 +128,11 @@ export default function MypageUI(props: IMypageprops) {
 
         <My.BodyWrapper>
           <My.BodyTitleWrapper>
-            <My.BodyTitleImg src="/mypage/calendar_title.png" />
+            <My.BodyTitleImg src="https://storage.googleapis.com/front_image/calendar_title.png" />
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
           {props.data?.fetchLoginUser.payment ? (
             props.data.fetchLoginUser.payment.map((el: any) => (
-              // console.log(el.room.images[0].url)
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
                   <My.Image src={el.room?.images[0]?.url} />
@@ -154,7 +151,7 @@ export default function MypageUI(props: IMypageprops) {
 
                     <My.InfoDay>
                       <My.DateWrapper>
-                        <My.DateImg src="mypage/calendar_detail.png" />
+                        <My.DateImg src="https://storage.googleapis.com/front_image/calendar_detail.png" />
                         <My.Date>예약 날짜: {el.date}</My.Date>
                       </My.DateWrapper>
                       <My.TimeWrapper>
@@ -164,7 +161,7 @@ export default function MypageUI(props: IMypageprops) {
                         </My.Time>
                       </My.TimeWrapper>
                       <My.MapWrapper>
-                        <My.MapImg src="/mypage/map.png" />
+                        <My.MapImg src="https://storage.googleapis.com/front_image/map.png" />
                         <My.Map>{el.room.address}</My.Map>
                       </My.MapWrapper>
                     </My.InfoDay>
@@ -180,7 +177,7 @@ export default function MypageUI(props: IMypageprops) {
 
           {/* 후기 작성 부분  */}
           <My.BodyTitleWrapper>
-            <My.BodyTitleImg src="/mypage/calendar_title.png" />
+            <My.BodyTitleImg src="https://storage.googleapis.com/front_image/calendar_title.png" />
             <My.BodyTitle>최근본 Shaki</My.BodyTitle>
           </My.BodyTitleWrapper>
           <My.Today>
@@ -206,7 +203,7 @@ export default function MypageUI(props: IMypageprops) {
           {/* 찜한 정보 */}
           <My.PickDetailWrapper>
             <My.PickTitleWrapper>
-              <My.PickTitleImg src="/mypage/pick_detail.png" />
+              <My.PickTitleImg src="https://storage.googleapis.com/front_image/pick_detail.png" />
               <My.PickTitle>찜한정보</My.PickTitle>
             </My.PickTitleWrapper>
             <My.Pick>
@@ -229,7 +226,7 @@ export default function MypageUI(props: IMypageprops) {
                 <My.PickListCardWrapper>
                   <My.PickListCardWrapper>
                     <My.NoPcickListWrapper>
-                      <My.NoPickListCardImg src="/mypage/pick.png" />
+                      <My.NoPickListCardImg src="https://storage.googleapis.com/front_image/pick.png" />
                       <My.NoPickListCardContents>
                         찜한 내용이 없습니다.
                       </My.NoPickListCardContents>

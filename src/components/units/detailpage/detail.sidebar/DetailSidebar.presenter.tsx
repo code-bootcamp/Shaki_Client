@@ -3,12 +3,13 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DragPage from "./drag&drop";
+import { ThemeContext } from "../../../../../pages/_app";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -65,8 +66,9 @@ interface IDetailSide {
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
+  const { theme } = useContext(ThemeContext);
   return (
-    <DS.Wrapper>
+    <DS.Wrapper theme={theme}>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
       <DS.CalendarWrapper>
         <DS.Label>날짜</DS.Label>
@@ -89,12 +91,13 @@ export default function DetailSidebarUI(props: IDetailSide) {
           <DS.Label>시간</DS.Label>
           <DS.CheckInTime onClick={props.onClickTime}>시간선택</DS.CheckInTime>
           {props.timeTable && (
-            <DS.TimesWrapper>
+            <DS.TimesWrapper theme={theme}>
               <DS.TimeHead style={{ width: "100%" }}>
                 이용시간을 확인해주세요
               </DS.TimeHead>
               {props.hour.map((el, i: number) => (
                 <DS.TimeBox
+                  theme={theme}
                   disabled={
                     props.reservedArr.includes(
                       `${el.start_time} ~ ${el.end_time}`

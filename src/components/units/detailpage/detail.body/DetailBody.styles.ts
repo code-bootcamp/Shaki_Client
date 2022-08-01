@@ -161,8 +161,8 @@ export const CommentBtn = styled.button`
   color: #838385;
   cursor: pointer;
   :hover {
-    background-color: #4167ee;
-    color: white;
+    background-color: lightgray;
+    color: black;
   }
 `;
 
@@ -225,7 +225,7 @@ export const ExampleWrapper = styled.div`
   width: 260px;
   height: auto;
   border-radius: 15px;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
   border: 1px solid lightgray;
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -233,6 +233,14 @@ export const ExampleWrapper = styled.div`
   @media ${breakPoints.mobile} {
     margin-bottom: 20px;
   }
+`;
+
+export const SubExample = styled.div`
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 12px;
+  color: #9ca0ac;
+  margin-top: 5px;
 `;
 
 export const Example = styled.div`
@@ -252,11 +260,4 @@ export const Example = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
-
-export const SubExample = styled.div`
-  width: 100%;
-  word-wrap: break-word;
-  font-size: 14px;
-  color: #9ca0ac;
 `;

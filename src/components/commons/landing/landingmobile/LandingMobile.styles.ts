@@ -6,14 +6,14 @@ export const Root = styled.div`
   @media ${breakPoints.tablet} {
     width: 110vw;
     height: 550px;
-    background-image: url("/landing/BackEdit.gif");
+    background-image: url("https://storage.googleapis.com/front_image/BackEdit.gif");
     background-size: cover;
     background-repeat: no-repeat;
   }
   @media ${breakPoints.mobile} {
     width: 120vw;
     height: 320px;
-    background-image: url("/landing/BackEdit.gif");
+    background-image: url("https://storage.googleapis.com/front_image/BackEdit.gif");
     background-size: cover;
     /* background-position: center; */
     background-repeat: no-repeat;
@@ -44,7 +44,9 @@ export const Body = styled.div`
   @media ${breakPoints.tablet} {
     width: 110vw;
     height: 250px;
-    background-image: url("/landing/4.png");
+    /* background-image: url("/landing/4.png"); */
+    background-image: url("https://storage.googleapis.com/front_image/4.png");
+
     background-size: 310px;
     background-repeat: no-repeat;
     background-color: black;
@@ -53,7 +55,7 @@ export const Body = styled.div`
   @media ${breakPoints.mobile} {
     width: 120vw;
     height: 250px;
-    background-image: url("/landing/4.png");
+    background-image: url("https://storage.googleapis.com/front_image/4.png");
     background-size: 300px;
     background-repeat: no-repeat;
     background-color: black;
@@ -67,7 +69,7 @@ export const Footer = styled.div`
   @media ${breakPoints.tablet} {
     width: 100vw;
     height: 500px;
-    background-image: url("/landing/5.png");
+    background-image: url("https://storage.googleapis.com/front_image/5.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,7 +78,7 @@ export const Footer = styled.div`
   @media ${breakPoints.mobile} {
     width: 110vw;
     height: 390px;
-    background-image: url("/landing/5.png");
+    background-image: url("https://storage.googleapis.com/front_image/5.png");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -95,7 +97,7 @@ export const Button = styled.button`
     padding-top: 3px;
     border-radius: 5px;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 30px;
     :hover {
       background-color: white;
@@ -111,10 +113,10 @@ export const Button = styled.button`
     color: white;
     text-align: center;
     padding-top: 3px;
+    margin-left: 173px;
     border-radius: 5px;
-    margin: auto;
-    margin-bottom: 19xspx;
     margin-top: 15px;
+    margin-bottom: 20px;
     :hover {
       background-color: white;
       border: 1px solid #4167ee;

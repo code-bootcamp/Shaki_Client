@@ -51,14 +51,17 @@ const Emoji = styled.figure`
   height: 33px;
   border-radius: 100%;
   font-size: 1.5rem;
+  padding-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   @media ${breakPoints.tablet} {
     font-size: 0.7rem;
+    padding-bottom: 11px;
   }
   @media ${breakPoints.mobile} {
     font-size: 0.7rem;
+    padding-bottom: 11px;
   }
 `;
 
