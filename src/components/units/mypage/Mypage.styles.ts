@@ -214,10 +214,11 @@ export const BodyWrapper = styled.div`
   width: 100%;
 `;
 export const BodyTitleWrapper = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -266,6 +267,10 @@ export const InfoWrapper = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 30px;
+
+  .slick-list {
+    width: 350px;
+  }
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -481,6 +486,7 @@ export const PickTitleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+  padding-bottom: 20px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -526,12 +532,26 @@ export const PickTitle = styled.div`
   }
 `;
 
+export const TodayDetailWrapper = styled.div`
+  width: 100%;
+  margin-top: 10px;
+`;
+
 export const Pick = styled.div`
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   overflow-x: scroll;
+  ::-webkit-scrollbar {
+    /* display: none; */
+  }
+  &::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4167ee;
+  }
+
   @media ${breakPoints.mobile} {
     flex-direction: column;
   }
@@ -541,16 +561,24 @@ export const Today = styled.div`
   width: 100%;
   padding-bottom: 10px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-start;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+    /* display: none; */
+  }
+  &::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4167ee;
+  }
 `;
 
 export const TodayWrapper = styled.div`
-  width: 310px;
-
+  width: 100%;
+  flex: column;
   @media ${breakPoints.tablet} {
-    width: 50%;
+    width: 100%;
   }
 `;
 
@@ -567,9 +595,6 @@ export const PickListWrapper = styled.div`
     /* height: 800px; */
     display: flex;
     justify-content: space-between;
-    ::-webkit-scrollbar {
-      display: none;
-    }
   }
   @media ${breakPoints.mobile} {
     width: 100%;
@@ -577,7 +602,7 @@ export const PickListWrapper = styled.div`
 `;
 
 export const TodayCardWrapper = styled.div`
-  width: 100%;
+  width: 320px;
   min-height: 400px;
   display: flex;
   flex-direction: column;

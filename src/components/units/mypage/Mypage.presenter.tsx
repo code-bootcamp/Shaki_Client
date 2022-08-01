@@ -135,7 +135,12 @@ export default function MypageUI(props: IMypageprops) {
             props.data.fetchLoginUser.payment.map((el: any) => (
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
-                  <My.Image src={el.room?.images[0]?.url} />
+                  <Slider {...settings}>
+                    {/* <My.Image src={el.room?.images[0]?.url} /> */}
+                    {el.room?.images.map((el: { url: string; id?: string }) => (
+                      <My.Image src={`${el.url}`} />
+                    ))}
+                  </Slider>
                   <My.Info>
                     <My.InfoDetailWrite>
                       <My.NameWrapper>
@@ -176,29 +181,34 @@ export default function MypageUI(props: IMypageprops) {
           )}
 
           {/* 후기 작성 부분  */}
-          <My.BodyTitleWrapper>
-            <My.BodyTitleImg src="https://storage.googleapis.com/front_image/calendar_title.png" />
-            <My.BodyTitle>최근본 Shaki</My.BodyTitle>
-          </My.BodyTitleWrapper>
-          <My.Today>
-            {props.today.length !== 0 ? (
-              props.today.map((el: any) => (
-                <My.TodayWrapper id={el.id} onClick={props.onClickMoveDetail}>
-                  <My.TodayCardWrapper>
-                    <My.ListCardImg src={el.images[0].url} />
-                    <My.ListCardDetailWrapper>
-                      <My.ListCardName>{el.name}</My.ListCardName>
-                      <My.ListCardContents>{el.remarks}</My.ListCardContents>
-                    </My.ListCardDetailWrapper>
-                  </My.TodayCardWrapper>
-                </My.TodayWrapper>
-              ))
-            ) : (
-              <My.NodataWrapper>
-                <My.Nodata>최근 본 Shaki가 없습니다.</My.Nodata>
-              </My.NodataWrapper>
-            )}
-          </My.Today>
+          <My.TodayWrapper>
+            <My.BodyTitleWrapper>
+              <My.BodyTitleImg src="https://storage.googleapis.com/front_image/calendar_title.png" />
+              <My.BodyTitle>최근본 Shaki</My.BodyTitle>
+            </My.BodyTitleWrapper>
+            <My.Today>
+              {props.today.length !== 0 ? (
+                props.today.map((el: any) => (
+                  <My.TodayDetailWrapper
+                    id={el.id}
+                    onClick={props.onClickMoveDetail}
+                  >
+                    <My.TodayCardWrapper>
+                      <My.ListCardImg src={el.images[0].url} />
+                      <My.ListCardDetailWrapper>
+                        <My.ListCardName>{el.name}</My.ListCardName>
+                        <My.ListCardContents>{el.remarks}</My.ListCardContents>
+                      </My.ListCardDetailWrapper>
+                    </My.TodayCardWrapper>
+                  </My.TodayDetailWrapper>
+                ))
+              ) : (
+                <My.NodataWrapper>
+                  <My.Nodata>최근 본 Shaki가 없습니다.</My.Nodata>
+                </My.NodataWrapper>
+              )}
+            </My.Today>
+          </My.TodayWrapper>
 
           {/* 찜한 정보 */}
           <My.PickDetailWrapper>
