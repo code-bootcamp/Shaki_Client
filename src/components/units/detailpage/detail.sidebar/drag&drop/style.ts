@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { breakPoints } from "../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
-  border-top: 10px solid #b9c7fa;
+  /* border: 10px solid #b9c7fa; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,9 +12,14 @@ export const Wrapper = styled.div`
 export const Head = styled.div`
   font-size: 30px;
   margin-bottom: 30px;
+  font-weight: 550;
+  font-family: monospace;
 
   @media ${breakPoints.tablet} {
-    margin-bottom: 60px;
+    margin-bottom: 180px;
+  }
+  @media ${breakPoints.mobile} {
+    margin-bottom: 150px;
   }
 `;
 
@@ -34,27 +39,18 @@ export const DragBox = styled.div`
   }
 `;
 
-export const optionList = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const optionItem = styled.div`
-  width: 30%;
-`;
-
 export const DraggableItem = styled.div`
-  /* width: 100%; */
+  width: 100%;
   height: 30px;
   display: flex;
   align-items: center;
+  /* border-radius: 20px; */
+  border: 2px solid #b9c7fa;
   border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
   padding: 5px 10px;
-  margin-left: 10px;
+  margin-bottom: 5px;
   :hover {
     background-color: #4167ee;
     color: white;
@@ -73,8 +69,9 @@ export const DraggableItem = styled.div`
 export const DragList = styled.div`
   width: 40%;
   height: 400px;
-  padding: 10px 10px;
-  border: 1px solid black;
+  padding-top: 20px;
+  padding-right: 10px;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -95,6 +92,8 @@ export const DragList = styled.div`
 
   @media ${breakPoints.mobile} {
     width: 100%;
+    min-height: 200px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -104,10 +103,23 @@ export const DragZone = styled.div`
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-left: 10px;
   border: 1px solid black;
-  border-radius: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @media ${breakPoints.tablet} {
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    min-height: 200px;
+    margin-left: 0;
+  }
 `;
 
 export const OkButton = styled.div`

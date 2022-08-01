@@ -1,5 +1,11 @@
 import * as Li from "./MobileButton.Style";
-export default function LogInMobileButtonStyle() {
+
+interface IMobileButtonProps {
+  onClickNaverLogIn: () => void;
+  onClickGoogleLogIn: () => void;
+  onClickKakoLogIn: () => void;
+}
+export default function LogInMobileButtonStyle(props: IMobileButtonProps) {
   return (
     <Li.Wrapper>
       <Li.KaKaoBox>
