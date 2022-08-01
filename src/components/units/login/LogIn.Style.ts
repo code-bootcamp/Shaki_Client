@@ -202,8 +202,8 @@ export const Email = styled.input<ThemeProps>`
   border-bottom: 1px solid gray;
   margin-bottom: 10px;
   outline: none;
-  background: ${({ theme }) => theme.BACKGROUND};
-  color: ${({ theme }) => theme.MAIN};
+  background: ${({ theme }) => theme.LAYOUT};
+  color: ${({ theme }) => theme.SUB};
   transition: all 0.9s ease-in-out;
   @media ${breakPoints.mobile} {
     width: 100%;
@@ -215,8 +215,8 @@ export const Password = styled.input<ThemeProps>`
   border: none;
   border-bottom: 1px solid gray;
   outline: none;
-  background: ${({ theme }) => theme.BACKGROUND};
-  color: ${({ theme }) => theme.MAIN};
+  background: ${({ theme }) => theme.LAYOUT};
+  color: ${({ theme }) => theme.SUB};
   transition: all 0.9s ease-in-out;
   @media ${breakPoints.mobile} {
     width: 100%;
