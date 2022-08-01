@@ -97,7 +97,7 @@ export const Button = styled.button`
     padding-top: 3px;
     border-radius: 5px;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 30px;
     :hover {
       background-color: white;
@@ -113,10 +113,10 @@ export const Button = styled.button`
     color: white;
     text-align: center;
     padding-top: 3px;
+    margin-left: 173px;
     border-radius: 5px;
-    margin: auto;
-    margin-bottom: 19xspx;
     margin-top: 15px;
+    margin-bottom: 20px;
     :hover {
       background-color: white;
       border: 1px solid #4167ee;
