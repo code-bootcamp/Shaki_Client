@@ -9,7 +9,9 @@ const WrapperRoot = styled.div`
 `;
 
 const Wrapper = styled.div`
-  background-image: url("/landing/locationlogo.png");
+  /* background-image: url("/landing/locationlogo.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/locationlogo.png");
+
   background-size: contain;
   background-repeat: no-repeat;
   width: 150px;

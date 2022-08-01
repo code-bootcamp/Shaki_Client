@@ -25,7 +25,9 @@ const DownButton = styled.div`
   left: 1450px;
   z-index: 5;
   /* background-color: white; */
-  background-image: url("/landing/scrollArrow.png");
+  /* background-image: url("/landing/scrollArrow.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
+
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -45,7 +47,7 @@ const UpButton = styled.div`
   left: 1230px;
   z-index: 5;
   /* background-color: white; */
-  background-image: url("/landing/scrollArrow.png");
+  background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
