@@ -7,7 +7,10 @@ export default function LogInPresenter(props: any) {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <Li.WrapperRoot onSubmit={props.handleSubmit(props.onClickLogIn)}>
+    <Li.WrapperRoot
+      ref={props.inputRef}
+      onSubmit={props.handleSubmit(props.onClickLogIn)}
+    >
       {/* <div onClick={props.onClick}>asdasdsad</div> */}
       <Li.Wrapper>
         <Li.WrapperImg src="/foodlogin2.webp" />
@@ -23,26 +26,51 @@ export default function LogInPresenter(props: any) {
                   </Li.AdminToggle>
                 </Li.AdminOnOffBox>
               </Li.Head>
-              <Li.UpperBody>
-                이메일
-                <Li.Email
-                  theme={theme}
-                  defaultValue={props.adminOn ? "admin@admin.com" : ""}
-                  type="text"
-                  {...props.register("email")}
-                />
-                비밀번호
-                <Li.Password
-                  theme={theme}
-                  defaultValue={props.adminOn ? "rhksflwk123" : ""}
-                  type="password"
-                  {...props.register("pwd")}
-                />
-              </Li.UpperBody>
+              {!props.adminOn ? (
+                <Li.UpperBody>
+                  이메일
+                  <Li.Email
+                    theme={theme}
+                    type="text"
+                    defaultValue=""
+                    // ref={props.inputRef}
+                    {...props.register("email")}
+                  />
+                  비밀번호
+                  <Li.Password
+                    theme={theme}
+                    type="password"
+                    defaultValue=""
+                    // ref={props.inputRef}
+                    {...props.register("pwd")}
+                  />
+                </Li.UpperBody>
+              ) : (
+                <Li.UpperBody>
+                  이메일
+                  <Li.Email
+                    theme={theme}
+                    type="text"
+                    value="admin@admin.com"
+                    {...props.register("email")}
+                  />
+                  비밀번호
+                  <Li.Password
+                    theme={theme}
+                    type="password"
+                    value="rhksflwk123"
+                    {...props.register("pwd")}
+                  />
+                </Li.UpperBody>
+              )}
               <Li.LowerBody>
                 다음 소셜계정으로 로그인하기
                 <Li.MobileBox>
-                  <LogInMobileButtonStyle />
+                  <LogInMobileButtonStyle
+                    onClickKakoLogIn={props.onClickKakoLogIn}
+                    onClickGoogleLogIn={props.onClickGoogleLogIn}
+                    onClickNaverLogIn={props.onClickNaverLogIn}
+                  />
                 </Li.MobileBox>
                 <Li.ImgWrapper>
                   <Li.ImgBox>

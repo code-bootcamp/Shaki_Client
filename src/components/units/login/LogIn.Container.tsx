@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { LOG_IN } from "./LogIn.Mutation";
 import { useRecoilState } from "recoil";
@@ -38,9 +38,13 @@ export default function LogInContainer() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [adminAuth, setAdminAuth] = useRecoilState(adminAuthState);
 
+  const inputRef = useRef(null);
   const onClickAdmin = (event: React.MouseEvent<HTMLDivElement>) => {
     setAdminOn((prev) => !prev);
   };
+  useEffect(() => {
+    (inputRef.current as any).reset();
+  }, [adminOn]);
 
   const onClickLogIn = async (data: any) => {
     try {
@@ -101,6 +105,7 @@ export default function LogInContainer() {
         onClickNaverLogIn={onClickNaverLogIn}
         onClickGoogleLogIn={onClickGoogleLogIn}
         onClickMoveToFindAccount={onClickMoveToFindAccount}
+        inputRef={inputRef}
         onClick={onClick}
       />
     </>
