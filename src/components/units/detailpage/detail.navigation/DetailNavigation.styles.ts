@@ -23,7 +23,7 @@ export const Wrapper = styled.div<ThemeProps>`
 `;
 
 export const MenuWrapper = styled.div`
-  margin-top: 20px;
+  margin-top: 21px;
   margin-bottom: 60px;
   width: 1200px;
   display: flex;
