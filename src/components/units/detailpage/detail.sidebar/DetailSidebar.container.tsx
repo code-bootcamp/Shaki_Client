@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getTime } from "../../../commons/getDate";
 import DetailSidebarUI from "./DetailSidebar.presenter";
 import { CREATE_PAYMENT, FETCH_RESERVATION } from "./DetailSibebar.queries";
@@ -37,49 +37,41 @@ const hour: Array<timeTable> = [
 
 const DumDum = [
   {
-    id: 1,
     name: "🍞 식전빵",
     price: "5000",
     countable: true,
   },
   {
-    id: 2,
     name: "🍷 웰컴쥬스 (1pet)",
     price: "4000",
     countable: true,
   },
   {
-    id: 3,
     name: "🍽️ 식기 기본세팅(예약한 인원수)",
     price: "10000",
+    countable: false,
+  },
+  {
+    name: "🍺 생맥주",
+    price: "3000",
     countable: true,
   },
   {
-    id: 4,
-    name: "🍺 생맥주 10000cc",
-    price: "12000",
-    countable: true,
-  },
-  {
-    id: 5,
     name: "🧂 소금,후추 각종 향신료",
     price: "3000",
     countable: false,
   },
   {
-    id: 6,
     name: "사용 후 애프터서비스",
     price: "3000",
     countable: false,
   },
   {
-    id: 7,
     name: "🧹 애프터 청소서비스",
     price: "10000",
     countable: false,
   },
   {
-    id: 8,
     name: "🔉 블루투스 스피커",
     price: "8000",
     countable: false,
@@ -92,8 +84,10 @@ export default function DetailSidebarContainer() {
 
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
+  const cartRef = useRef(null);
+
   const [date, setDate] = useState<string>("");
-  const [guest, setGuest] = useState<number>(1);
+  const [guest, setGuest] = useState<number>(0);
   const [price, setPrice] = useState<number>(0);
   const [sidePrice, setSidePrice] = useState<number>(0);
   const [option, setOption] = useState<number>(0);
@@ -105,9 +99,10 @@ export default function DetailSidebarContainer() {
   const [reserved, setReserved] = useRecoilState<any>(reservedState);
   const [clicked, setClicked] = useState<string[]>([]);
   const [cart, setCart] = useState<string[]>([]);
-
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
+  const [add, setAdd] = useState([]);
+  const [disabled, setDisabled] = useState(false);
 
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
@@ -143,6 +138,7 @@ export default function DetailSidebarContainer() {
 
   const onClickCancel = () => {
     setTimeTable((prev) => !prev);
+    setStart(NaN);
   };
 
   useEffect(() => {
@@ -155,18 +151,21 @@ export default function DetailSidebarContainer() {
       return Number(a.slice(0, 2)) - Number(b.slice(0, 2));
     });
 
-    // console.log(startTime, endTime);
-
     for (let i = 0; i < hour.length; i++) {
       if (
-        Number(hour[i].start_time.slice(0, 2)) > start &&
-        Number(hour[i].start_time.slice(0, 2)) < end
+        Number(hour[i].start_time.slice(0, 2)) >= start &&
+        Number(hour[i].start_time.slice(0, 2)) <= end
       ) {
         hour[i].reserved = true;
+      } else {
+        hour[i].reserved = false;
       }
     }
-    if (isNaN(start)) {
+    if (isNaN(start) || isNaN(end)) {
       setPrice(20000);
+      for (let i = 0; i < hour.length; i++) {
+        hour[i].reserved = false;
+      }
     } else {
       setPrice((end - start + 1) * 20000);
     }
@@ -189,11 +188,6 @@ export default function DetailSidebarContainer() {
       alert("날짜를 선택해주세요.");
     } else {
       setTimeTable((prev) => !prev);
-      // setEnd(0);
-      // setStart(0);
-      // setCart([]);
-      // setStartTime("");
-      // setEndTime("");
     }
     return;
   };
@@ -207,6 +201,7 @@ export default function DetailSidebarContainer() {
 
   const onChangeDate = async (newValue: string) => {
     const date = getTime(newValue);
+    setDisabled(false);
     setDate(date);
 
     const reserved = await client.query({
@@ -230,10 +225,16 @@ export default function DetailSidebarContainer() {
 
   const onClickCartOpen = () => {
     setCart([]);
-    setIsModalVisible((prev) => !prev);
+    setAdd([]);
+    if (guest === 0) {
+      alert("예약 인원을 설정해주세요.");
+    } else {
+      setIsModalVisible((prev) => !prev);
+    }
   };
 
   const handleOk = () => {
+    setDisabled(true);
     setIsModalVisible((prev) => !prev);
   };
 
@@ -331,6 +332,7 @@ export default function DetailSidebarContainer() {
         reservedArr={reservedArr}
         onClickCartOpen={onClickCartOpen}
         isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
         handleOk={handleOk}
         handleCancel={handleCancel}
         sidePrice={sidePrice}
@@ -339,6 +341,10 @@ export default function DetailSidebarContainer() {
         setOption={setOption}
         cart={cart}
         setCart={setCart}
+        cartRef={cartRef}
+        add={add}
+        setAdd={setAdd}
+        disabled={disabled}
       />
     </>
   );

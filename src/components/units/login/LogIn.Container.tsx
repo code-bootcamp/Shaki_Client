@@ -82,6 +82,9 @@ export default function LogInContainer() {
   const onClickMoveToMain = () => {
     router.push("/main");
   };
+  const onClickMoveToFindAccount = () => {
+    router.push("/findaccount");
+  };
 
   return (
     <>
@@ -97,6 +100,7 @@ export default function LogInContainer() {
         onClickKakaoLogIn={onClickKakaoLogIn}
         onClickNaverLogIn={onClickNaverLogIn}
         onClickGoogleLogIn={onClickGoogleLogIn}
+        onClickMoveToFindAccount={onClickMoveToFindAccount}
         onClick={onClick}
       />
     </>
