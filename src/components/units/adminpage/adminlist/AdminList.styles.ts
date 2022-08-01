@@ -4,19 +4,18 @@ interface ThemeProps {
   theme: Theme;
 }
 
-export const WrapperRoot = styled.div<ThemeProps>`
+export const WrapperRoot = styled.div`
   width: calc(100% - 250px);
   padding: 20px;
   overflow: scroll;
+`;
+
+export const Wrapper = styled.div<ThemeProps>`
+  width: 1200px;
+  padding: 50px;
   background: ${({ theme }) => theme.BACKGROUND};
   color: ${({ theme }) => theme.MAIN};
   transition: all 0.9s ease-in-out;
-`;
-
-export const Wrapper = styled.div`
-  width: 1200px;
-  padding: 50px;
-  background-color: #ffffff;
 `;
 
 export const TopWrapper = styled.div`

@@ -186,7 +186,7 @@ export const UserText = styled.div`
   }
 `;
 
-export const UserName = styled.p`
+export const UserName = styled.p<ThemeProps>`
   color: black;
   font-weight: 500;
   font-size: 15px;
@@ -199,6 +199,9 @@ export const UserName = styled.p`
   @media ${breakPoints.fold} {
     font-size: 8px;
   }
+  background: ${({ theme }) => theme.LAYOUT};
+  color: ${({ theme }) => theme.MAIN};
+  transition: all 0.9s ease-in-out;
 `;
 
 export const Button = styled.button`
