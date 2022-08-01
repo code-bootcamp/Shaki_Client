@@ -203,8 +203,8 @@ export const Email = styled.input<ThemeProps>`
   margin-bottom: 10px;
   outline: none;
   background: ${({ theme }) => theme.LAYOUT};
-  color: ${({ theme }) => theme.SUB};
-  transition: all 0.9s ease-in-out;
+  /* color: ${({ theme }) => theme.SUB}; */
+  /* transition: all 0.7s ease-in-out; */
   @media ${breakPoints.mobile} {
     width: 100%;
   }
@@ -216,8 +216,8 @@ export const Password = styled.input<ThemeProps>`
   border-bottom: 1px solid gray;
   outline: none;
   background: ${({ theme }) => theme.LAYOUT};
-  color: ${({ theme }) => theme.SUB};
-  transition: all 0.9s ease-in-out;
+  /* color: ${({ theme }) => theme.SUB}; */
+  /* transition: all 0.7s ease-in-out; */
   @media ${breakPoints.mobile} {
     width: 100%;
   }
