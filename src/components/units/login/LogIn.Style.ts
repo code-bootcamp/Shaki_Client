@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 100px;
 
   @media ${breakPoints.tablet} {
     display: flex;
@@ -311,7 +311,7 @@ export const SignUpBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media ${breakPoints.tablet} {
+  /* @media ${breakPoints.tablet} {
     flex-direction: row;
     margin-top: 0;
     margin-left: 10px;
@@ -319,12 +319,16 @@ export const SignUpBox = styled.div`
   @media ${breakPoints.mobile} {
     flex-direction: row;
     margin-left: 10px;
-  }
+  } */
+`;
+
+export const SignUpContextBox = styled.div`
+  display: flex;
 `;
 
 export const SignUp = styled.div`
   width: fit-content;
-  margin-top: 10px;
+  margin-right: 10px;
   font-weight: 600;
   color: #4e75ff;
   cursor: pointer;
@@ -351,7 +355,7 @@ export const MobileBox = styled.div`
 `;
 
 export const CommentBox = styled.div`
-  color: #4e75ff;
+  color: gray;
   font-weight: 600;
   cursor: pointer;
   :hover {

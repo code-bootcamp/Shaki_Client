@@ -72,17 +72,19 @@ export default function LogInPresenter(props: any) {
               </Li.LogInBox>
               <Li.SignUpBox>
                 아직 회원이 아니신가요?
-                <Li.SignUp onClick={props.onClickMoveToSignUp}>
-                  회원가입
-                </Li.SignUp>
+                <Li.SignUpContextBox>
+                  <Li.SignUp onClick={props.onClickMoveToSignUp}>
+                    회원가입
+                  </Li.SignUp>
+                  <Li.CommentBox onClick={props.onClickMoveToMain}>
+                    비회원 둘러보기
+                  </Li.CommentBox>
+                </Li.SignUpContextBox>
               </Li.SignUpBox>
             </Li.MiddleWrapper>
           </Li.panel>
         </Li.LogInWrapper>
       </Li.Wrapper>
-      <Li.CommentBox onClick={props.onClickMoveToMain}>
-        비회원 둘러보기
-      </Li.CommentBox>
     </Li.WrapperRoot>
   );
 }
