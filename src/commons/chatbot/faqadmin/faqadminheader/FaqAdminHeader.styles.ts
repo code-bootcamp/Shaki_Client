@@ -15,7 +15,9 @@ export const Icon = styled.div`
   width: 60px;
   height: 50px;
   margin-top: 15px;
-  background-image: url("/landing/locationLogo.png");
+  /* background-image: url("/landing/locationLogo.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/locationLogo.png");
+
   background-size: contain;
   background-repeat: no-repeat;
 `;
