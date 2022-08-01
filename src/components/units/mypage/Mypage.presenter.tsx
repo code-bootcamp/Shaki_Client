@@ -62,8 +62,6 @@ export default function MypageUI(props: IMypageprops) {
     autoplay: true,
   };
 
-  // console.log(props.data?.fetchLoginUser.payment[0].room.images);
-
   return (
     <My.HTML theme={theme}>
       <My.Wrapper>
@@ -135,7 +133,6 @@ export default function MypageUI(props: IMypageprops) {
           </My.BodyTitleWrapper>
           {props.data?.fetchLoginUser.payment ? (
             props.data.fetchLoginUser.payment.map((el: any) => (
-              // console.log(el.room.images[0].url)
               <My.ReservationInfoWrapper>
                 <My.InfoWrapper>
                   <My.Image src={el.room?.images[0]?.url} />

@@ -529,6 +529,7 @@ export const PickTitle = styled.div`
 export const Pick = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   overflow-x: scroll;
   @media ${breakPoints.mobile} {

@@ -1,10 +1,10 @@
 FROM node:16
 
-WORKDIR /myfolder/
-COPY ./package.json /myfolder/
-COPY ./yarn.lock /myfolder/
-RUN yarn install
+WORKDIR /f7b3_team04_client/
+COPY . /f7b3_team04_client/
+COPY ./package.json /f7b3_team04_client/
+COPY ./yarn.lock /f7b3_team04_client/
 
-COPY . /myfolder/
+RUN yarn install
 RUN yarn build
 CMD yarn start

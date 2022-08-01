@@ -3,11 +3,7 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-<<<<<<< HEAD
-import React from "react";
-=======
 import React, { useContext, useState } from "react";
->>>>>>> bd3f25ba17976ca40e847221f9798aee42b6d830
 import { v4 as uuidv4 } from "uuid";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
@@ -70,15 +66,12 @@ interface IDetailSide {
 }
 
 export default function DetailSidebarUI(props: IDetailSide) {
-<<<<<<< HEAD
-=======
   console.log(props.cart);
   const { theme } = useContext(ThemeContext);
 
   // console.log(
   //   props.DumDum.filter((el) => console.log(el.name + " " + "$" + el.price))
   // );
->>>>>>> bd3f25ba17976ca40e847221f9798aee42b6d830
   return (
     <DS.Wrapper theme={theme}>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
