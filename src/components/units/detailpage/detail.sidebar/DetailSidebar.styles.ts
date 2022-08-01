@@ -151,10 +151,12 @@ export const CheckInTime = styled.div`
 
 export const CartBox = styled.div`
   width: 900px;
-  height: 600px;
-  position: fixed;
-  top: 200px;
+  height: 650px;
+  position: absolute;
+  top: 150px;
   right: 15%;
+  border: 10px solid #b9c7fa;
+  border-radius: 20px;
 
   z-index: 1;
   background-color: white;

@@ -133,16 +133,3 @@ export default function DragPage(props) {
     </D.Wrapper>
   );
 }
-
-// {props.DumDum.filter((el) =>
-//   props.cart.includes(el.name + " " + "$" + el.price)
-// ).map((el) => (
-//   <D.optionList>
-//     <D.optionItem>{el.name}</D.optionItem>
-//     <D.optionItem>{el.price}</D.optionItem>
-//     <D.optionItem>
-//       {el.countable === true ? <input /> : <div>1</div>}
-//     </D.optionItem>
-//     <button>취소</button>
-//   </D.optionList>
-// ))}
