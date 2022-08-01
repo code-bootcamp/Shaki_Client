@@ -24,10 +24,10 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding-bottom: 200px;
   @media ${breakPoints.mobile} {
-    width: 100%;
+    width: 90%;
   }
   @media ${breakPoints.tablet} {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -35,7 +35,6 @@ export const ImageWrapper2 = styled.div`
   width: 1000px;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
   @media ${breakPoints.mobile} {
     width: 100%;
     display: flex;
@@ -54,6 +53,7 @@ export const ImageHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 80px;
   @media ${breakPoints.mobile} {
     width: 100%;
     height: auto;
@@ -98,7 +98,7 @@ export const MainImg = styled.img`
   width: 100%;
   height: 570px;
   border-radius: 50px 50px 0 0;
-  margin-top: 50px;
+  margin-top: 20px;
 
   @media ${breakPoints.mobile} {
     width: 100%;
