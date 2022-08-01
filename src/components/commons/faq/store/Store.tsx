@@ -8,7 +8,9 @@ const WrapperRoot = styled.div`
 `;
 
 const Wrapper = styled.div`
-  background-image: url("/faq/store.png");
+  /* background-image: url("/faq/store.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/store.png");
+
   background-size: contain;
   background-repeat: no-repeat;
   width: 1200px;
@@ -17,7 +19,8 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
-  background-image: url("/landing/5.png");
+  /* background-image: url("/landing/5.png"); */
+  background-image: url("https://storage.googleapis.com/front_image/5.png");
 
   background-size: contain;
   background-repeat: no-repeat;
