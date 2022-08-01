@@ -117,8 +117,8 @@ export default function DetailBodyUI(props: Iprops) {
           <DB.SmallLabel>환불</DB.SmallLabel>
           <DB.SubExample>
             부분 환불: 체크인, 첫 1박을 제외한 나머지 숙박일에 대한 요금을
-            환불받으실 수 있습니다. 첫 1박 요금과 서비스 수수료는 환불되지
-            않습니다.
+            환불받으실 수 있습니다. <br /> 첫 1박 요금과 서비스 수수료는
+            환불되지 않습니다.
           </DB.SubExample>
         </DB.ExampleWrapper>
       </DB.PrecautionsWrapper>
