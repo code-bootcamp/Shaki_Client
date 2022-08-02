@@ -18,6 +18,7 @@ export const KaKaoBox = styled.div`
   font-weight: 600;
   font-size: 15px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 export const KaKaoButton = styled.img`
@@ -39,6 +40,7 @@ export const NaverBox = styled.div`
   font-weight: 600;
   font-size: 15px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 export const NaverButton = styled.img`
@@ -47,4 +49,6 @@ export const NaverButton = styled.img`
   margin-right: 15px;
 `;
 
-export const GoogleBox = styled.img``;
+export const GoogleBox = styled.img`
+  cursor: pointer;
+`;
