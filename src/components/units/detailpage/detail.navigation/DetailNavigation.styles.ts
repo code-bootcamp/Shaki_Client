@@ -45,7 +45,7 @@ export const MenuName = styled.div`
   text-align: center;
   padding: 10px;
   color: ${(props: IPage) =>
-    props.id === props.isPosition ? "#4167ee" : "black"};
+    props.id === props.isPosition ? "#4167ee" : "gray"};
   border-bottom: ${(props: IPage) =>
     props.id === props.isPosition ? "2px solid #4167ee" : "none"};
   &:hover {

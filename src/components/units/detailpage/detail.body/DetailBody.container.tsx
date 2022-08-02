@@ -68,7 +68,7 @@ export default function DetailBodyContainer(props: IBody) {
     try {
       await createReview({
         variables: {
-          createReview: {
+          createReviewInput: {
             roomId: router.query.detailid,
             content,
             star,
@@ -85,6 +85,7 @@ export default function DetailBodyContainer(props: IBody) {
         ],
       });
       setIsModalVisible(false);
+      // location.reload();
     } catch (error) {
       Modal.error({
         title: "후기 등록에 실패했습니다",

@@ -81,7 +81,7 @@ export default function KakaoMap(props: any) {
               // 인포윈도우로 장소에 대한 설명을 표시합니다
               const infowindow = new window.kakao.maps.InfoWindow({
                 content:
-                  '<div style="width:150px;text-align:center;padding:6px 0;">지점위치</div>',
+                  '<div style="width:150px;text-align:center;padding:6px 0; color:black;">지점위치</div>',
               });
               infowindow.open(map, marker, roadview);
 
