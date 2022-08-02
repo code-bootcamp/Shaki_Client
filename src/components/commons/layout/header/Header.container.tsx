@@ -38,7 +38,7 @@ export default function HeaderContainer() {
   const onClickMoveDetail =
     (el: any) => async (event: React.MouseEvent<HTMLDivElement>) => {
       // router.push(`/detailpage/${(event.target as HTMLDivElement).id}`);
-      console.log(el);
+      // console.log(el);
       const detail = await client.query({
         query: FETCH_ROOM,
         variables: {
