@@ -29,7 +29,7 @@ function AdminQuestionAnswer() {
       try {
         await replyQuestion({
           variables: {
-            createQuestionInput: {
+            replyQuestionInput: {
               name: data?.fetchQuestion.name,
               email: data?.fetchQuestion.email,
               title: data?.fetchQuestion.title,
@@ -39,6 +39,7 @@ function AdminQuestionAnswer() {
             },
           },
         });
+        console.log(data);
         alert("답변이 이메일로 전송 되었습니다.");
         router.push(`/adminpage/adminquestion`);
       } catch (error) {

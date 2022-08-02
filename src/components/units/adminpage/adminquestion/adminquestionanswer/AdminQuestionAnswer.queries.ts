@@ -14,7 +14,7 @@ export const FETCH_QUESTION = gql`
 `;
 
 export const REPLY_QUESTION = gql`
-  mutation replyQuestion($createQuestionInput: ReplyQuestionInput!) {
-    replyQuestion(createQuestionInput: $createQuestionInput)
+  mutation replyQuestion($replyQuestionInput: ReplyQuestionInput!) {
+    replyQuestion(replyQuestionInput: $replyQuestionInput)
   }
 `;
