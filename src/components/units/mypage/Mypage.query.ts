@@ -20,6 +20,7 @@ export const USER_INFO = gql`
         start_time
         end_time
         amount
+        point
         room {
           id
           remarks

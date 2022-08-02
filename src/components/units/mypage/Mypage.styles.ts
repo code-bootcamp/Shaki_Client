@@ -177,6 +177,19 @@ export const PickedNumber = styled.div`
   color: #4167ee;
 `;
 
+export const Reservation = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4167ee;
+  }
+`;
+
 export const ReservationWrapper = styled.div`
   width: 200px;
   height: 150px;
@@ -246,8 +259,22 @@ export const BodyTitle = styled.div`
   }
 `;
 
+export const ReservationBox = styled.div`
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  &::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4167ee;
+  }
+`;
 export const ReservationInfoWrapper = styled.div`
   width: 100%;
+  height: 400px;
   margin-bottom: 50px;
   padding: 20px;
   border: 1px solid #d9dbe3;
@@ -602,7 +629,7 @@ export const PickListWrapper = styled.div`
 `;
 
 export const TodayCardWrapper = styled.div`
-  width: 320px;
+  width: 400px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
