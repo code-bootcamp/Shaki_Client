@@ -8,13 +8,14 @@ import { gql, useMutation } from "@apollo/client";
 import { LOG_IN } from "./LogIn.Mutation";
 import { useRecoilState } from "recoil";
 import { accessTokenState, adminAuthState } from "../../../commons/store";
+import { useLogInAuth } from "../../../hooks/useLoginAuth";
 
 const schema = yup.object({
   email: yup.string().required(),
   pwd: yup.string().required(),
 });
 
-export default function LogInContainer() {
+function LogInContainer() {
   const { handleSubmit, formState, register } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -56,6 +57,7 @@ export default function LogInContainer() {
       });
       const accessToken = result.data.login;
       setAccessToken(accessToken);
+      // sessionStorage.setItem("token")
       if (data.email === "admin@admin.com") {
         sessionStorage.setItem("admin", "true");
         router.push("adminpage");
@@ -111,3 +113,5 @@ export default function LogInContainer() {
     </>
   );
 }
+
+export default useLogInAuth(LogInContainer);

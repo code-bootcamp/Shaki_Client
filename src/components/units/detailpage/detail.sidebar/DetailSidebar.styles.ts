@@ -70,6 +70,7 @@ export const TimeRange = styled.div`
 export const StartTime = styled.input`
   width: 60px;
   padding-left: 8px;
+  margin-left: 10px;
   margin-right: 10px;
 `;
 
@@ -77,6 +78,7 @@ export const EndTime = styled.input`
   width: 60px;
   padding-left: 8px;
   margin-left: 10px;
+  margin-right: 10px;
 `;
 
 export const Label = styled.label`
@@ -182,7 +184,6 @@ export const TimesWrapper = styled.div<ThemeProps>`
   color: ${({ theme }) => theme.SIDEBARTEXT};
   transition: all 0.9s ease-in-out;
   transition: all 0.9s ease-in-out;
-  border-radius: 10px;
   padding: 10px;
   z-index: 1;
   display: flex;
@@ -232,7 +233,7 @@ export const TimeToggleCancel = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-left: 10px;
+  padding-right: 20px;
   cursor: pointer;
   :hover {
     color: #4167ee;
