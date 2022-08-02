@@ -67,7 +67,7 @@ export default function LogInPresenter(props: any) {
                 다음 소셜계정으로 로그인하기
                 <Li.MobileBox>
                   <LogInMobileButtonStyle
-                    onClickKakoLogIn={props.onClickKakoLogIn}
+                    onClickKakaoLogIn={props.onClickKakaoLogIn}
                     onClickGoogleLogIn={props.onClickGoogleLogIn}
                     onClickNaverLogIn={props.onClickNaverLogIn}
                   />
