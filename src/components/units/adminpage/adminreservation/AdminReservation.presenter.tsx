@@ -18,8 +18,8 @@ export default function AdminReservationUI(props: IAdminReservationUI) {
           <Ad.StartTime>시작 시간</Ad.StartTime>
           <Ad.EndTime>끝 시간</Ad.EndTime>
           <Ad.Amount>가격</Ad.Amount>
-          <Ad.RoomBranch>지점 명</Ad.RoomBranch>
-          <Ad.RoomName>룸 이름</Ad.RoomName>
+          {/* <Ad.RoomBranch>지점 명</Ad.RoomBranch>
+          <Ad.RoomName>룸 이름</Ad.RoomName> */}
           <Ad.Guest>게스트 수</Ad.Guest>
         </Ad.Row>
 
@@ -30,8 +30,8 @@ export default function AdminReservationUI(props: IAdminReservationUI) {
             <Ad.ListStartTimeEl>{el.start_time}</Ad.ListStartTimeEl>
             <Ad.ListEndTimeEl>{el.end_time}</Ad.ListEndTimeEl>
             <Ad.ListAmountEl>{el.amount}</Ad.ListAmountEl>
-            <Ad.ListRoomBranchEl>{el.room.branch.branch}</Ad.ListRoomBranchEl>
-            <Ad.ListRoomNameEl>{el.room.name}</Ad.ListRoomNameEl>
+            {/* <Ad.ListRoomBranchEl>{el.room.branch.branch}</Ad.ListRoomBranchEl> */}
+            {/* <Ad.ListRoomNameEl>{el.room.name}</Ad.ListRoomNameEl> */}
             <Ad.GuestEl>{el.guest}</Ad.GuestEl>
           </Ad.Row>
         ))}

@@ -30,7 +30,6 @@ interface IAdminHomeUI {
 }
 
 export default function AdminHomeUI(props: IAdminHomeUI) {
-  console.log("data", props.paymentsumdata);
   return (
     <AD.Wrapper>
       <AD.BodyWrapper>
