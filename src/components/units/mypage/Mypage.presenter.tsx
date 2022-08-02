@@ -87,9 +87,7 @@ export default function MypageUI(props: IMypageprops) {
               </My.PointImgWrapper>
               <My.PointNumberWrapper>
                 <My.PointNumber>
-                  {props.data?.fetchLoginUser.point
-                    ? props.data?.fetchLoginUser.point
-                    : 0}
+                  {props.data?.fetchLoginUser.point ? props.point : 0}
                 </My.PointNumber>
               </My.PointNumberWrapper>
             </My.PointWrapper>
@@ -131,54 +129,58 @@ export default function MypageUI(props: IMypageprops) {
             <My.BodyTitleImg src="https://storage.googleapis.com/front_image/calendar_title.png" />
             <My.BodyTitle>예약정보</My.BodyTitle>
           </My.BodyTitleWrapper>
-          {props.data?.fetchLoginUser.payment ? (
-            props.data.fetchLoginUser.payment.map((el: any) => (
-              <My.ReservationInfoWrapper>
-                <My.InfoWrapper>
-                  <Slider {...settings}>
-                    {/* <My.Image src={el.room?.images[0]?.url} /> */}
-                    {el.room?.images.map((el: { url: string; id?: string }) => (
-                      <My.Image src={`${el.url}`} />
-                    ))}
-                  </Slider>
-                  <My.Info>
-                    <My.InfoDetailWrite>
-                      <My.NameWrapper>
-                        <My.Name>{el.room?.name}</My.Name>
-                      </My.NameWrapper>
-                      <My.ContentsWrapper>
-                        <My.Contents>{el.room.remarks}</My.Contents>
-                      </My.ContentsWrapper>
-                      <My.PriceWrapper>
-                        <My.Price>결제 금액: {el.amount}</My.Price>
-                      </My.PriceWrapper>
-                    </My.InfoDetailWrite>
+          <My.Reservation>
+            {props.data?.fetchLoginUser.payment ? (
+              props.data.fetchLoginUser.payment.map((el: any) => (
+                <My.ReservationInfoWrapper>
+                  <My.InfoWrapper>
+                    <Slider {...settings}>
+                      {/* <My.Image src={el.room?.images[0]?.url} /> */}
+                      {el.room?.images.map(
+                        (el: { url: string; id?: string }) => (
+                          <My.Image src={`${el.url}`} />
+                        )
+                      )}
+                    </Slider>
+                    <My.Info>
+                      <My.InfoDetailWrite>
+                        <My.NameWrapper>
+                          <My.Name>{el.room?.name}</My.Name>
+                        </My.NameWrapper>
+                        <My.ContentsWrapper>
+                          <My.Contents>{el.room.remarks}</My.Contents>
+                        </My.ContentsWrapper>
+                        <My.PriceWrapper>
+                          <My.Price>결제 금액: {el.amount}</My.Price>
+                        </My.PriceWrapper>
+                      </My.InfoDetailWrite>
 
-                    <My.InfoDay>
-                      <My.DateWrapper>
-                        <My.DateImg src="https://storage.googleapis.com/front_image/calendar_detail.png" />
-                        <My.Date>예약 날짜: {el.date}</My.Date>
-                      </My.DateWrapper>
-                      <My.TimeWrapper>
-                        <My.TimeImg src="/mypage/clock.png" />
-                        <My.Time>
-                          예약 시간: {el.start_time} 부터 ~ {el.end_time} 까지
-                        </My.Time>
-                      </My.TimeWrapper>
-                      <My.MapWrapper>
-                        <My.MapImg src="https://storage.googleapis.com/front_image/map.png" />
-                        <My.Map>{el.room.address}</My.Map>
-                      </My.MapWrapper>
-                    </My.InfoDay>
-                  </My.Info>
-                </My.InfoWrapper>
-              </My.ReservationInfoWrapper>
-            ))
-          ) : (
-            <My.NodataWrapper>
-              <My.Nodata>예약 정보가 없습니다.</My.Nodata>
-            </My.NodataWrapper>
-          )}
+                      <My.InfoDay>
+                        <My.DateWrapper>
+                          <My.DateImg src="https://storage.googleapis.com/front_image/calendar_detail.png" />
+                          <My.Date>예약 날짜: {el.date}</My.Date>
+                        </My.DateWrapper>
+                        <My.TimeWrapper>
+                          <My.TimeImg src="/mypage/clock.png" />
+                          <My.Time>
+                            예약 시간: {el.start_time} 부터 ~ {el.end_time} 까지
+                          </My.Time>
+                        </My.TimeWrapper>
+                        <My.MapWrapper>
+                          <My.MapImg src="https://storage.googleapis.com/front_image/map.png" />
+                          <My.Map>{el.room.address}</My.Map>
+                        </My.MapWrapper>
+                      </My.InfoDay>
+                    </My.Info>
+                  </My.InfoWrapper>
+                </My.ReservationInfoWrapper>
+              ))
+            ) : (
+              <My.NodataWrapper>
+                <My.Nodata>예약 정보가 없습니다.</My.Nodata>
+              </My.NodataWrapper>
+            )}
+          </My.Reservation>
 
           {/* 후기 작성 부분  */}
           <My.TodayWrapper>

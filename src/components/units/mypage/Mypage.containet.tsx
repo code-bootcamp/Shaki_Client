@@ -13,18 +13,29 @@ function Mypage() {
 
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [today, setToday] = useState([]);
+  const [point, setPoint] = useState(0);
   const onClickMoveDetail = (event: React.MouseEvent<HTMLDivElement>) => {
     router.push(`/detailpage/${(event.currentTarget as HTMLDivElement).id}`);
   };
 
   useEffect(() => {
+    let sum = 0;
+    for (let i = 0; i < data?.fetchLoginUser.payment.length; i++) {
+      sum += data.fetchLoginUser.payment[i].point;
+    }
+    setPoint(sum);
     const today = JSON.parse(sessionStorage.getItem("today") || "[]");
     setToday(today);
-    console.log("today", today);
-  }, []);
+  }, [data]);
+  console.log(data);
 
   return (
-    <MypageUI data={data} today={today} onClickMoveDetail={onClickMoveDetail} />
+    <MypageUI
+      point={point}
+      data={data}
+      today={today}
+      onClickMoveDetail={onClickMoveDetail}
+    />
   );
 }
 
