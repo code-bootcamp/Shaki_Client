@@ -7,7 +7,7 @@ export default function LandingMobile() {
     router.push("/login");
   };
   return (
-    <Lm.HTML>
+    <>
       <Lm.Root>
         <Lm.Title>
           신개념 공유주방 <br></br> Sha⌜re⌟ Ki⌜tchen⌟
@@ -15,7 +15,7 @@ export default function LandingMobile() {
       </Lm.Root>
       <Lm.Body />
       <Lm.Footer />
-      <Lm.Button onClick={onClickLogin}>로그인 페이지 이동</Lm.Button>
-    </Lm.HTML>
+      <Lm.Button onClick={onClickLogin}>로그인</Lm.Button>
+    </>
   );
 }

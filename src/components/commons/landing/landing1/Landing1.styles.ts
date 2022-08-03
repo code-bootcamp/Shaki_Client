@@ -3,17 +3,17 @@ import Typical from "react-typical";
 import { breakPoints } from "../../../../commons/styles/media";
 
 export const WrapperRoot = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  /* @media ${breakPoints.tablet} {
+  @media ${breakPoints.tablet} {
     display: none;
-  } */
-  /* @media ${breakPoints.mobile} {
+  }
+  @media ${breakPoints.mobile} {
     display: none;
-  } */
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -27,13 +27,12 @@ export const Wrapper = styled.div`
   background-position: center;
   /* filter: blur(1px); */
   /* -webkit-filter: blur(1px); */
-  /* @media ${breakPoints.tablet} {
+  @media ${breakPoints.tablet} {
     display: none;
-  } */
-  /* display: none; */
-  /* @media ${breakPoints.mobile} {
+  }
+  @media ${breakPoints.mobile} {
     display: none;
-  } */
+  }
 `;
 
 export const Icon = styled.img`
@@ -54,9 +53,9 @@ export const TitleWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  /* margin-left: 20px; */
 `;
 export const TitleHead = styled.div`
+  width: 500px;
   position: absolute;
   bottom: 100px;
   left: 100px;
@@ -66,19 +65,13 @@ export const TitleHead = styled.div`
   font-size: 60px;
   z-index: 2;
   @media ${breakPoints.tablet} {
-    left: 0;
-    margin-left: 20px;
   }
   @media ${breakPoints.mobile} {
-    font-size: 40px;
-    left: 0;
-    margin-left: 10px;
-    bottom: 60px;
   }
 `;
 
 export const Title = styled(Typical)`
-  /* width: 800px; */
+  width: 800px;
   position: absolute;
   left: 140px;
   font-family: Arial;
@@ -86,12 +79,8 @@ export const Title = styled(Typical)`
   font-weight: 900;
   font-size: 60px;
   z-index: 2;
-  margin-left: 20px;
   @media ${breakPoints.tablet} {
-    left: 0;
   }
   @media ${breakPoints.mobile} {
-    font-size: 30px;
-    left: 0;
   }
 `;

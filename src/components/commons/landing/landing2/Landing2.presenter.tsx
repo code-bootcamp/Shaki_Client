@@ -28,7 +28,6 @@ export default function Landing2UI() {
       <div {...animatedItem[3]}>
         <Ld.Footer></Ld.Footer>
       </div>
-      <Ld.FooterImg src="https://storage.googleapis.com/front_image/5.png" />
     </Ld.WrapperRoot>
   );
 }
