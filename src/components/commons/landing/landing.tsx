@@ -5,13 +5,10 @@ import { useRef } from "react";
 import LogInContainer from "../../units/login/LogIn.Container";
 import { breakPoints } from "../../../commons/styles/media";
 import LandingMobile from "./landingmobile/LandingMobile.presenter";
-import { useQuery } from "@apollo/client";
-import { USER_INFO } from "./landing.query";
 
 const Root = styled.div`
   width: 100vw;
   height: 100vh;
-
   @media ${breakPoints.tablet} {
     display: none;
   }
@@ -73,61 +70,9 @@ const SocialLoginBox = styled.div`
   }
 `;
 
-export const Box = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 5000px;
-  @media ${breakPoints.tablet} {
-    top: 0;
-  }
-  @media ${breakPoints.mobile} {
-    top: 0;
-  }
-`;
-
-export const WebLoginBox = styled.div`
-  @media ${breakPoints.tablet} {
-    display: none;
-  }
-  @media ${breakPoints.mobile} {
-    display: none;
-  }
-`;
-
-export const MoveToMain = styled.div`
-  width: 150px;
-  height: 34px;
-  border: none;
-  background: #4167ee;
-  color: white;
-  text-align: center;
-  padding-top: 3px;
-  border-radius: 5px;
-  margin: auto;
-  margin-bottom: 20px;
-  margin-top: 30px;
-  font-weight: 500;
-  :hover {
-    background-color: white;
-    border: 1px solid #4167ee;
-    color: #4167ee;
-  }
-  @media ${breakPoints.tablet} {
-    display: none;
-  }
-  @media ${breakPoints.mobile} {
-    display: none;
-  }
-`;
-
 export default function LandingPage() {
   const downRef = useRef<any>();
   const upRef = useRef<any>();
-
-  const { data } = useQuery(USER_INFO);
-  console.log(data);
 
   const onClickMoveToDown = () => {
     downRef.current.scrollIntoView({ behavior: "smooth" });
@@ -146,19 +91,10 @@ export default function LandingPage() {
         <Landing2UI />
         <UpButton onClick={onClickMoveToUp} />
       </Root>
-      {!data ? (
-        <Box>
-          <WebLoginBox>
-            <LogInContainer />
-          </WebLoginBox>
-        </Box>
-      ) : (
-        <Box>
-          <LandingMobile />
-          <SocialLoginBox ref={downRef}></SocialLoginBox>
-          <MoveToMain>메인으로</MoveToMain>
-        </Box>
-      )}
+      <LandingMobile />
+      <SocialLoginBox ref={downRef}>
+        <LogInContainer />
+      </SocialLoginBox>
     </>
   );
 }
