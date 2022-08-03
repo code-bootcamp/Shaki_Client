@@ -118,14 +118,15 @@ export default function LandingPage() {
       </Root>
       {!data ? (
         <Box>
-          <LandingMobile />
           <WebLoginBox>
             <LogInContainer />
           </WebLoginBox>
-          <SocialLoginBox ref={downRef}></SocialLoginBox>
         </Box>
       ) : (
-        <LogInContainer />
+        <Box>
+          <LandingMobile />
+          <SocialLoginBox ref={downRef}></SocialLoginBox>
+        </Box>
       )}
     </>
   );
