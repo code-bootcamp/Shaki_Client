@@ -15,7 +15,7 @@ export const WrapperRoot = styled.div`
     display: none;
   }
   @media ${breakPoints.mobile} {
-    display: none;
+    display: flex;
   }
 `;
 
@@ -123,9 +123,21 @@ export const Footer = styled.div`
   position: relative;
   width: 1168px;
   height: 848px;
-  left: 320px;
-  top: 1800px;
+  left: 0;
+  top: 1750px;
   background-image: url("https://storage.googleapis.com/front_image/5.png");
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
+
+export const FooterImg = styled.img`
+  display: none;
+  /* @media ${breakPoints.mobile} {
+    display: block;
+    width: 100%;
+    height: 300px;
+  } */
 `;
 
 export const SocialLoginBox = styled.div`
@@ -136,4 +148,9 @@ export const SocialLoginBox = styled.div`
   top: 1900px;
   left: 600px;
   margin-bottom: 100px;
+`;
+
+export const box = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

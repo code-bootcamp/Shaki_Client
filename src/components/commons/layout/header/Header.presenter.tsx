@@ -34,7 +34,7 @@ export default function HeaderUI(props: IHeaderType) {
       <THS.LeftHeadWrapper>
         <THS.LogoImg
           src="https://storage.googleapis.com/front_image/logo.png"
-          id="/"
+          id="/main"
           onClick={props.onClickMovePage}
         />
         {/* 네비 메뉴 */}

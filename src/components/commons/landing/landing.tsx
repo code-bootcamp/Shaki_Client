@@ -9,23 +9,23 @@ import { useQuery } from "@apollo/client";
 import { USER_INFO } from "./landing.query";
 
 const Root = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 
-  @media ${breakPoints.tablet} {
+  /* @media ${breakPoints.tablet} {
     display: none;
-  }
-  @media ${breakPoints.mobile} {
+  } */
+  /* @media ${breakPoints.mobile} {
     display: none;
-  }
+  } */
 `;
 
 const DownButton = styled.div`
   position: absolute;
+  top: 15%;
+  right: 15%;
   width: 55px;
   height: 55px;
-  bottom: 700px;
-  left: 1450px;
   z-index: 5;
   background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
 
@@ -33,7 +33,8 @@ const DownButton = styled.div`
   background-size: cover;
   cursor: pointer;
   @media ${breakPoints.tablet} {
-    display: none;
+    top: 15%;
+    left: 85%;
   }
   @media ${breakPoints.mobile} {
     display: none;
@@ -45,7 +46,7 @@ const UpButton = styled.div`
   width: 55px;
   height: 55px;
   bottom: -2050px;
-  left: 1230px;
+  left: 85%;
   z-index: 5;
   background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
   background-repeat: no-repeat;
@@ -66,19 +67,22 @@ const SocialLoginBox = styled.div`
   left: 90px;
   margin-bottom: 100px;
   @media ${breakPoints.tablet} {
-    display: none;
+    /* display: none; */
   }
   @media ${breakPoints.mobile} {
-    display: none;
+    display: block;
   }
 `;
 
 export const Box = styled.div`
   position: absolute;
   display: flex;
+  width: 90%;
   flex-direction: column;
   align-items: center;
-  top: 5000px;
+  top: 4900px;
+  /* right: 150px; */
+  bottom: 10%;
   @media ${breakPoints.tablet} {
     top: 0;
   }
@@ -92,7 +96,7 @@ export const WebLoginBox = styled.div`
     display: none;
   }
   @media ${breakPoints.mobile} {
-    display: none;
+    display: block;
   }
 `;
 
@@ -148,7 +152,7 @@ export default function LandingPage() {
       </Root>
       {!data ? (
         <Box>
-          <WebLoginBox>
+          <WebLoginBox ref={downRef}>
             <LogInContainer />
           </WebLoginBox>
         </Box>
