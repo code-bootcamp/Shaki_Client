@@ -75,7 +75,7 @@ export default function LogInPresenter(props: any) {
                 <Li.ImgWrapper>
                   <Li.ImgBox>
                     <Li.Social src="/icon/sociallogin/kakaotalk_sharing_btn_small_ov.png" />
-                    <Li.SocialTitle onClick={props.onClickKakoLogIn}>
+                    <Li.SocialTitle onClick={props.onClickKakaoLogIn}>
                       카카오
                     </Li.SocialTitle>
                   </Li.ImgBox>
