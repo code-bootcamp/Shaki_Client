@@ -35,6 +35,7 @@ const DownButton = styled.div`
   @media ${breakPoints.tablet} {
     top: 15%;
     left: 85%;
+    display: none;
   }
   @media ${breakPoints.mobile} {
     display: none;
