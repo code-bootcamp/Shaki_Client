@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { table } from "console";
 import { breakPoints } from "../../../commons/styles/media";
 import { Theme } from "../../../commons/styles/theme";
 
@@ -182,6 +183,7 @@ export const Reservation = styled.div`
   flex-direction: column;
   height: 400px;
   overflow-y: scroll;
+  overflow-x: hidden;
   &::-webkit-scrollbar-track {
     background-color: white;
   }
@@ -283,10 +285,12 @@ export const ReservationInfoWrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
+    height: 650px;
     margin-bottom: 10px;
   }
   @media ${breakPoints.mobile} {
     width: 100%;
+    height: 520px;
     margin-bottom: 20px;
   }
 `;
@@ -303,11 +307,17 @@ export const InfoWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    .slick-list {
+      width: 100%;
+    }
   }
   @media ${breakPoints.mobile} {
     width: 100%;
     display: flex;
     flex-direction: column;
+    .slick-list {
+      width: 100%;
+    }
   }
 `;
 export const Info = styled.div`
@@ -332,6 +342,7 @@ export const InfoDetailWrite = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 10px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -375,7 +386,7 @@ export const Name = styled.div`
   margin-bottom: 30px;
 
   @media ${breakPoints.mobile} {
-    font-size: 30px;
+    font-size: 25px;
   }
 `;
 export const ContentsWrapper = styled.div`
@@ -389,6 +400,10 @@ export const ContentsWrapper = styled.div`
 export const Contents = styled.div`
   font-size: 18px;
   color: #9ca0ac;
+
+  @media ${breakPoints.mobile} {
+    font-size: 15px;
+  }
 `;
 export const PriceWrapper = styled.div`
   width: 100%;
@@ -432,8 +447,8 @@ export const DateImg = styled.img`
   margin-right: 10px;
 
   @media ${breakPoints.mobile} {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
 `;
 export const Date = styled.div`
@@ -442,6 +457,7 @@ export const Date = styled.div`
 
   @media ${breakPoints.mobile} {
     font-weight: 500;
+    font-size: 15px;
   }
 `;
 export const TimeWrapper = styled.div`
@@ -454,8 +470,8 @@ export const TimeImg = styled.img`
   margin-right: 10px;
 
   @media ${breakPoints.mobile} {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
 `;
 export const Time = styled.div`
@@ -464,6 +480,7 @@ export const Time = styled.div`
 
   @media ${breakPoints.mobile} {
     font-weight: 500;
+    font-size: 15px;
   }
 `;
 export const MapWrapper = styled.div`
@@ -476,8 +493,8 @@ export const MapImg = styled.img`
   margin-right: 10px;
 
   @media ${breakPoints.mobile} {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
 `;
 export const Map = styled.div`
@@ -486,6 +503,7 @@ export const Map = styled.div`
 
   @media ${breakPoints.mobile} {
     font-weight: 500;
+    font-size: 15px;
   }
 `;
 export const KakaoMapWrapper = styled.div`
