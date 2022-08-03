@@ -15,7 +15,7 @@ const schema = yup.object({
   pwd: yup.string().required(),
 });
 
-function LogInContainer() {
+export default function LogInContainer() {
   const { handleSubmit, formState, register } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -113,5 +113,3 @@ function LogInContainer() {
     </>
   );
 }
-
-export default useLogInAuth(LogInContainer);
