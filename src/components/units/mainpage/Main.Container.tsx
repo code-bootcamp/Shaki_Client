@@ -9,8 +9,6 @@ export default function MainContainer() {
 
   const { data } = useQuery(FETCH_BRANCHES);
 
-  console.log(data);
-
   const onClickRoom =
     (el: any) => (event: React.MouseEvent<HTMLDivElement>) => {
       const today = JSON.parse(sessionStorage.getItem("today") || "[]");
