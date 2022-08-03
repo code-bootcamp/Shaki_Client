@@ -584,6 +584,7 @@ export const TodayDetailWrapper = styled.div`
 
 export const Pick = styled.div`
   width: 100%;
+  height: 220px;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -724,8 +725,12 @@ export const ListCardDetailWrapper = styled.div`
   }
 `;
 export const ListCardName = styled.div`
+  width: 100%;
   font-size: 20px;
   font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 
   @media ${breakPoints.mobile} {
     font-size: 15px;
