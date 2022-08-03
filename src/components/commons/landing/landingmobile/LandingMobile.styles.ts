@@ -1,6 +1,16 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
+export const HTML = styled.div`
+  display: none;
+  @media ${breakPoints.tablet} {
+    display: block;
+  }
+  @media ${breakPoints.mobile} {
+    display: block;
+  }
+`;
+
 export const Root = styled.div`
   display: block;
   @media ${breakPoints.tablet} {
@@ -88,7 +98,7 @@ export const Button = styled.button`
   display: block;
 
   @media ${breakPoints.tablet} {
-    width: 91px;
+    width: 150px;
     height: 34px;
     border: none;
     background: #4167ee;
@@ -106,7 +116,7 @@ export const Button = styled.button`
     }
   }
   @media ${breakPoints.mobile} {
-    width: 89px;
+    width: 150px;
     height: 34px;
     border: none;
     background: #4167ee;

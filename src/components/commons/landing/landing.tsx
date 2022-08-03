@@ -5,6 +5,8 @@ import { useRef } from "react";
 import LogInContainer from "../../units/login/LogIn.Container";
 import { breakPoints } from "../../../commons/styles/media";
 import LandingMobile from "./landingmobile/LandingMobile.presenter";
+import { useQuery } from "@apollo/client";
+import { USER_INFO } from "./landing.query";
 
 const Root = styled.div`
   width: 100vw;
@@ -70,9 +72,32 @@ const SocialLoginBox = styled.div`
   }
 `;
 
+export const Box = styled.div`
+  position: absolute;
+  top: 5000px;
+  @media ${breakPoints.tablet} {
+    top: 0;
+  }
+  @media ${breakPoints.mobile} {
+    top: 0;
+  }
+`;
+
+export const WebLoginBox = styled.div`
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
+
 export default function LandingPage() {
   const downRef = useRef<any>();
   const upRef = useRef<any>();
+
+  const { data } = useQuery(USER_INFO);
+  console.log(data);
 
   const onClickMoveToDown = () => {
     downRef.current.scrollIntoView({ behavior: "smooth" });
@@ -91,10 +116,17 @@ export default function LandingPage() {
         <Landing2UI />
         <UpButton onClick={onClickMoveToUp} />
       </Root>
-      <LandingMobile />
-      <SocialLoginBox ref={downRef}>
+      {!data ? (
+        <Box>
+          <LandingMobile />
+          <WebLoginBox>
+            <LogInContainer />
+          </WebLoginBox>
+          <SocialLoginBox ref={downRef}></SocialLoginBox>
+        </Box>
+      ) : (
         <LogInContainer />
-      </SocialLoginBox>
+      )}
     </>
   );
 }
