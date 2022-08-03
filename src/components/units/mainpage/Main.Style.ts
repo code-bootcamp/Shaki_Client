@@ -110,13 +110,13 @@ export const MainImg = styled.img`
 
   @media ${breakPoints.mobile} {
     width: 100%;
-    height: auto;
+    height: 250px;
     border-radius: 20px 20px 0 0;
     margin-top: 20px;
   }
   @media ${breakPoints.tablet} {
     width: 100%;
-    height: auto;
+    height: 450px;
     margin-top: 25px;
   }
 `;
@@ -138,7 +138,8 @@ export const ImageUnderBar = styled.div`
   line-height: 25px;
   @media ${breakPoints.mobile} {
     width: 100%;
-    height: 10%;
+    height: 70px;
+    padding: 8px 10px;
     font-size: 10px;
     border-radius: 0 0 20px 0;
     display: flex;
@@ -147,11 +148,12 @@ export const ImageUnderBar = styled.div`
   }
   @media ${breakPoints.tablet} {
     width: 100%;
-    height: 60px;
+    height: 80px;
     font-size: 14px;
     border-radius: 0 0 20px 0;
     display: flex;
     flex-direction: column-reverse;
+    padding: 10px 0;
   }
 `;
 
