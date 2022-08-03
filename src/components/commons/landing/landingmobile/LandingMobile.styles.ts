@@ -96,6 +96,7 @@ export const Footer = styled.div`
 
 export const Button = styled.button`
   display: block;
+  font-weight: 500;
 
   @media ${breakPoints.tablet} {
     width: 150px;

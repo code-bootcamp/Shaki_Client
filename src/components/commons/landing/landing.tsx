@@ -11,6 +11,7 @@ import { USER_INFO } from "./landing.query";
 const Root = styled.div`
   width: 100vw;
   height: 100vh;
+
   @media ${breakPoints.tablet} {
     display: none;
   }
@@ -74,6 +75,9 @@ const SocialLoginBox = styled.div`
 
 export const Box = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   top: 5000px;
   @media ${breakPoints.tablet} {
     top: 0;
@@ -84,6 +88,32 @@ export const Box = styled.div`
 `;
 
 export const WebLoginBox = styled.div`
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
+
+export const MoveToMain = styled.div`
+  width: 150px;
+  height: 34px;
+  border: none;
+  background: #4167ee;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 500;
+  :hover {
+    background-color: white;
+    border: 1px solid #4167ee;
+    color: #4167ee;
+  }
   @media ${breakPoints.tablet} {
     display: none;
   }
@@ -126,6 +156,7 @@ export default function LandingPage() {
         <Box>
           <LandingMobile />
           <SocialLoginBox ref={downRef}></SocialLoginBox>
+          <MoveToMain>메인으로</MoveToMain>
         </Box>
       )}
     </>

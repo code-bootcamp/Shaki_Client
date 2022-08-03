@@ -125,7 +125,6 @@ export const Footer = styled.div`
   height: 848px;
   left: 320px;
   top: 1800px;
-  /* background-image: url("/landing/5.png"); */
   background-image: url("https://storage.googleapis.com/front_image/5.png");
 `;
 
