@@ -6,7 +6,6 @@ import AdminList from "../../../src/components/units/adminpage/adminlist/AdminLi
 const SideBar = styled.div`
   display: flex;
   width: 100%;
-  /* justify-content: space-between; */
 `;
 
 export default function AdminListPage() {
