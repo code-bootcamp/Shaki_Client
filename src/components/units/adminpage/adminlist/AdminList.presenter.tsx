@@ -1,5 +1,7 @@
 import { MouseEvent, useContext } from "react";
+import { useRecoilState } from "recoil";
 import { ThemeContext } from "../../../../../pages/_app";
+import { BackImgUrl } from "../../../../commons/store";
 import * as Ad from "./AdminList.styles";
 
 interface IAdminListUI {
@@ -10,12 +12,12 @@ interface IAdminListUI {
 
 export default function AdminListUI(props: IAdminListUI) {
   const { theme } = useContext(ThemeContext);
-
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <Ad.WrapperRoot theme={theme}>
       <Ad.Wrapper>
         <Ad.TopWrapper>
-          <Ad.TopLogo src="/logo.png" />
+          <Ad.TopLogo src={`${ImgUrl}/logo.png`} />
           <Ad.TopTitle>가맹점 목록</Ad.TopTitle>
         </Ad.TopWrapper>
 
