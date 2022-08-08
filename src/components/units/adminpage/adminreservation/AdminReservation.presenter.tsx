@@ -1,14 +1,17 @@
+import { useRecoilState } from "recoil";
+import { BackImgUrl } from "../../../../commons/store";
 import * as Ad from "./AdminReservation.styles";
 
 interface IAdminReservationUI {
   data?: any;
 }
 export default function AdminReservationUI(props: IAdminReservationUI) {
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
         <Ad.TopWrapper>
-          <Ad.TopLogo src="/logo.png" />
+          <Ad.TopLogo src={`${ImgUrl}/logo.png`} />
           <Ad.TopTitle>예약 목록</Ad.TopTitle>
         </Ad.TopWrapper>
 

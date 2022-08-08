@@ -22,3 +22,8 @@ export const adminAuthState = atom({
   key: `adminAuthState/${v1()}`,
   default: false,
 });
+
+export const BackImgUrl = atom({
+  key: `BackImgUrl/${v1()}`,
+  default: "https://storage.googleapis.com/shaki-front",
+});

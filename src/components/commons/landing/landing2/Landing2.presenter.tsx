@@ -1,4 +1,6 @@
+import { useRecoilState } from "recoil";
 import KakaoMapLanding from "../../../../commons/kakaomap.landing";
+import { BackImgUrl } from "../../../../commons/store";
 import useScrollFadeIn from "../../../../hooks/useScrollFadeIn";
 import * as Ld from "./Landing2.styles";
 
@@ -9,6 +11,8 @@ export default function Landing2UI() {
     2: useScrollFadeIn("up", 1, 0.3),
     3: useScrollFadeIn("up", 1, 0.4),
   };
+
+  const [ImgUrl] = useRecoilState(BackImgUrl);
 
   return (
     <Ld.WrapperRoot>
@@ -22,7 +26,7 @@ export default function Landing2UI() {
           </Ld.MapBody>
         </Ld.MapWrapper>
         <Ld.Box>
-          <Ld.BoxImage {...animatedItem[2]} src="/landing/landingMent.svg" />
+          <Ld.BoxImage {...animatedItem[2]} src={`${ImgUrl}/landingMent.svg`} />
         </Ld.Box>
       </Ld.Wrapper>
       <div {...animatedItem[3]}>

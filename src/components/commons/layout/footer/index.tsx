@@ -1,12 +1,15 @@
 import { useContext } from "react";
+import { useRecoilState } from "recoil";
 import { ThemeContext } from "../../../../../pages/_app";
+import { BackImgUrl } from "../../../../commons/store";
 import * as FT from "./Footer.styles";
 
 export default function FooterPage() {
   const { theme } = useContext(ThemeContext);
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <FT.FooterWrapper theme={theme}>
-      <FT.LogoImg src="https://storage.googleapis.com/front_image/logo.png" />
+      <FT.LogoImg src={`${ImgUrl}/logo.png`} />
       <FT.TextInfo>
         주식회사 쉐이키
         <FT.HeightLine>|</FT.HeightLine>

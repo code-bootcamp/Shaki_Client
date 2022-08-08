@@ -22,11 +22,9 @@ export const Wrapper = styled.div`
   position: absolute;
   display: flex;
   z-index: 1;
-  background-image: url("https://storage.googleapis.com/front_image/BackEdit.gif");
+  background-image: url("https://storage.googleapis.com/shaki-front/BackEdit.gif");
   background-size: cover;
   background-position: center;
-  /* filter: blur(1px); */
-  /* -webkit-filter: blur(1px); */
   @media ${breakPoints.tablet} {
     display: none;
   }
