@@ -88,7 +88,7 @@ function AdminWrite(props: IAdminWrite) {
     try {
       await createRoom({
         variables: {
-          createRoom: {
+          createRoomInput: {
             ...data,
             zipcode,
             address,
