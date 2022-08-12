@@ -70,7 +70,6 @@ interface IDetailSide {
 export default function DetailSidebarUI(props: IDetailSide) {
   const { theme } = useContext(ThemeContext);
 
-  console.log("add", props.add);
   return (
     <DS.Wrapper theme={theme}>
       <DS.SibeHead>요금을 확인하세요.</DS.SibeHead>
