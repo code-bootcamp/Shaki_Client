@@ -1,5 +1,7 @@
 import * as Ad from "./AdminQuestion.styles";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { useRecoilState } from "recoil";
+import { BackImgUrl } from "../../../../../commons/store";
 
 const columns: GridColDef[] = [
   { field: "name", headerName: "회원 이름", width: 150 },
@@ -15,11 +17,12 @@ interface IAdminQuestionUI {
 }
 
 export default function AdminQuestionUI(props: IAdminQuestionUI) {
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
         <Ad.TopWrapper>
-          <Ad.TopLogo src="/logo.png" />
+          <Ad.TopLogo src={`${ImgUrl}/logo.png`} />
           <Ad.TopTitle>문의 내역</Ad.TopTitle>
         </Ad.TopWrapper>
         <div style={{ height: "500px", width: "100%", padding: "20px" }}>

@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { useRecoilState } from "recoil";
+import { BackImgUrl } from "../../../../commons/store";
 
 const ImgWrapper = styled.div`
   position: fixed;
@@ -20,9 +22,10 @@ const Img = styled.img`
 `;
 
 export default function SideLeftPage() {
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <ImgWrapper>
-      <Img src="https://storage.googleapis.com/front_image/shakiLeft.png" />
+      <Img src={`${ImgUrl}/shakiLeft.png`} />
     </ImgWrapper>
   );
 }

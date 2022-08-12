@@ -240,7 +240,6 @@ export default function MypageUI(props: IMypageprops) {
                   </My.PickListWrapper>
                 ))
               ) : (
-                // <My.PickListCardWrapper>
                 <My.NoPcickListWrapper>
                   <My.NoPickListCardImg src={`${ImgUrl}/pick.png`} />
                   <My.NoPickListCardContents>
@@ -250,7 +249,6 @@ export default function MypageUI(props: IMypageprops) {
                     마음에 드시면 하트를 눌러주세요!!
                   </My.NoPickListCardContents>
                 </My.NoPcickListWrapper>
-                // </My.PickListCardWrapper>
               )}
             </My.Pick>
           </My.PickDetailWrapper>

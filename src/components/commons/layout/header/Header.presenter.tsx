@@ -1,5 +1,7 @@
 import { useContext } from "react";
+import { useRecoilState } from "recoil";
 import { ThemeContext } from "../../../../../pages/_app";
+import { BackImgUrl } from "../../../../commons/store";
 import DarkModeToggle from "./darkmodetoggle/darkmode";
 import * as THS from "./Header.styles";
 
@@ -28,12 +30,14 @@ interface IHeaderType {
 
 export default function HeaderUI(props: IHeaderType) {
   const { theme } = useContext(ThemeContext);
+  const [ImgUrl] = useRecoilState(BackImgUrl);
+
   return (
     <THS.Wrapper theme={theme}>
       {/* 로고이미지 */}
       <THS.LeftHeadWrapper>
         <THS.LogoImg
-          src="https://storage.googleapis.com/front_image/logo.png"
+          src={`${ImgUrl}/logo.png`}
           id="/main"
           onClick={props.onClickMovePage}
         />
