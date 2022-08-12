@@ -19,20 +19,8 @@ type timeTable = {
 };
 
 const hour: Array<timeTable> = [
-  { start_time: "09:00", end_time: "10:00", reserved: false },
-  { start_time: "10:00", end_time: "11:00", reserved: false },
-  { start_time: "11:00", end_time: "12:00", reserved: false },
-  { start_time: "12:00", end_time: "13:00", reserved: false },
-  { start_time: "13:00", end_time: "14:00", reserved: false },
-  { start_time: "14:00", end_time: "15:00", reserved: false },
-  { start_time: "15:00", end_time: "16:00", reserved: false },
-  { start_time: "16:00", end_time: "17:00", reserved: false },
-  { start_time: "17:00", end_time: "18:00", reserved: false },
-  { start_time: "18:00", end_time: "19:00", reserved: false },
-  { start_time: "19:00", end_time: "20:00", reserved: false },
-  { start_time: "20:00", end_time: "21:00", reserved: false },
-  { start_time: "21:00", end_time: "22:00", reserved: false },
-  { start_time: "22:00", end_time: "23:00", reserved: false },
+  { start_time: "12:00", end_time: "18:00", reserved: false },
+  { start_time: "19:00", end_time: "12:00", reserved: false },
 ];
 
 const DumDum = [
@@ -67,11 +55,6 @@ const DumDum = [
     countable: false,
   },
   {
-    name: "🧹 애프터 청소서비스",
-    price: "10000",
-    countable: false,
-  },
-  {
     name: "🔉 블루투스 스피커",
     price: "8000",
     countable: false,
@@ -99,93 +82,40 @@ export default function DetailSidebarContainer() {
   const [reserved, setReserved] = useRecoilState<any>(reservedState);
   const [clicked, setClicked] = useState<string[]>([]);
   const [cart, setCart] = useState<string[]>([]);
-  const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
   const [add, setAdd] = useState([]);
   const [disabled, setDisabled] = useState(false);
 
   const [createPayment] = useMutation(CREATE_PAYMENT);
 
-  const onClickToggleTime = (event: React.MouseEvent<HTMLButtonElement>) => {
-    hour[Number(event.currentTarget.id)].reserved = true;
-    console.log(clicked);
-    if (clicked === []) {
-      const newClicked = [];
-      newClicked.push((event.target as HTMLButtonElement).value);
-      setStartTime(clicked[0].slice(0, 2));
-      setEndTime(clicked[0].slice(-5));
-      setClicked(newClicked);
-      return;
+  const onClickSetTime = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const newClicked = [];
+    newClicked.push((event.target as HTMLButtonElement).value);
+    setClicked(newClicked);
+    if (Number(startTime.slice(0, 2)) > Number(endTime.slice(0, 2))) {
+      setPrice(100000);
     } else {
-      const newClicked = [...clicked];
-      if (newClicked.includes((event.target as HTMLButtonElement).value)) {
-        hour[Number(event.currentTarget.id)].reserved = false;
-        setClicked(
-          newClicked.filter(
-            (el) => el !== (event.target as HTMLButtonElement).value
-          )
-        );
-      } else {
-        newClicked.push((event.target as HTMLButtonElement).value);
-        setEnd(Number((event.target as HTMLButtonElement).value.slice(0, 2)));
-        setClicked(newClicked);
-        setStartTime(String(clicked[0]?.slice(0, 5)));
-        setEndTime(String(clicked.at(-1)?.slice(6)));
-      }
-
-      return;
+      setPrice(60000);
     }
+    console.log(price, clicked);
+    setTimeTable(false);
   };
 
   const onClickCancel = () => {
     setTimeTable((prev) => !prev);
-    setStart(NaN);
   };
 
   useEffect(() => {
     setStartTime(clicked.length === 0 ? "" : clicked[0].slice(0, 5));
-    setEndTime(
-      clicked.length === 0 ? "" : clicked[clicked.length - 1].slice(6)
-    );
-    setStart(Number(clicked[0]?.slice(0, 2)));
-    clicked.sort(function (a: string, b: string) {
-      return Number(a.slice(0, 2)) - Number(b.slice(0, 2));
-    });
-
-    for (let i = 0; i < hour.length; i++) {
-      if (start < end) {
-        if (
-          Number(hour[i].start_time.slice(0, 2)) >= start &&
-          Number(hour[i].start_time.slice(0, 2)) <= end
-        ) {
-          hour[i].reserved = true;
-        } else {
-          hour[i].reserved = false;
-        }
-      } else {
-        if (
-          Number(hour[i].start_time.slice(0, 2)) <= start &&
-          Number(hour[i].start_time.slice(0, 2)) >= end
-        ) {
-          hour[i].reserved = true;
-        } else {
-          hour[i].reserved = false;
-        }
-      }
-    }
-    if (isNaN(start) || isNaN(end)) {
-      setPrice(20000);
-      for (let i = 0; i < hour.length; i++) {
-        hour[i].reserved = false;
-      }
+    setEndTime(clicked.length === 0 ? "" : clicked[0].slice(6));
+    if (Number(startTime.slice(0, 2)) > Number(endTime.slice(0, 2))) {
+      setPrice(100000);
+    } else if (Number(startTime.slice(0, 2)) < Number(endTime.slice(0, 2))) {
+      setPrice(60000);
     } else {
-      if (end < start) {
-        setPrice((start - end + 1) * 20000);
-      } else {
-        setPrice((end - start + 1) * 20000);
-      }
+      setPrice(0);
     }
-  }, [clicked]);
+  }, [clicked, startTime]);
 
   // 게스트 초기값
   const onIncrease = () => {
@@ -229,15 +159,7 @@ export default function DetailSidebarContainer() {
     });
     const reservedTime = reserved.data.fetchReservation;
     setReserved(reservedTime);
-    // console.log(reserved);
   };
-  const reservedStart = reserved[0]?.slice(0, 2);
-  const reservedEnd = reserved[0]?.slice(7, 10);
-  const reservedArr = [];
-
-  for (let i = Number(reservedStart); i <= Number(reservedEnd); i++) {
-    reservedArr.push(`${i}:00 ~ ${i + 1}:00`);
-  }
 
   const onClickCartOpen = () => {
     setCart([]);
@@ -340,12 +262,11 @@ export default function DetailSidebarContainer() {
         timeTable={timeTable}
         startTime={startTime}
         endTime={endTime}
-        onClickToggleTime={onClickToggleTime}
         choiceEndPoint={choiceEndPoint}
         requestPay={requestPay}
         onClickCancel={onClickCancel}
         clicked={clicked}
-        reservedArr={reservedArr}
+        reserved={reserved}
         onClickCartOpen={onClickCartOpen}
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
@@ -361,6 +282,7 @@ export default function DetailSidebarContainer() {
         add={add}
         setAdd={setAdd}
         disabled={disabled}
+        onClickSetTime={onClickSetTime}
       />
     </>
   );

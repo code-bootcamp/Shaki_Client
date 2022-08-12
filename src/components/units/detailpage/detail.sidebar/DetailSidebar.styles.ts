@@ -68,14 +68,14 @@ export const TimeRange = styled.div`
 `;
 
 export const StartTime = styled.input`
-  width: 60px;
+  width: 100px;
   padding-left: 8px;
   margin-left: 10px;
   margin-right: 10px;
 `;
 
 export const EndTime = styled.input`
-  width: 60px;
+  width: 100px;
   padding-left: 8px;
   margin-left: 10px;
   margin-right: 10px;
@@ -197,6 +197,7 @@ export const TimeHead = styled.div`
 `;
 
 export const TimeBox = styled.button`
+  width: 100%;
   font-size: 14px;
   font-weight: 500;
   /* background-color: #f6f7fb; */

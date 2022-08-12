@@ -18,25 +18,3 @@ export const FETCH_REVIEWS = gql`
     }
   }
 `;
-
-// export const FETCH_ROOM = gql`
-//   query fetchRoom($id: String!) {
-//     fetchRoom(id: $id) {
-//       tags {
-//         tag
-//       }
-//       name
-//       remarks
-//       contents
-//       address
-//       reviews {
-//         id
-//         star
-//         user {
-//           name
-//         }
-//         content
-//       }
-//     }
-//   }
-// `;

@@ -7,6 +7,8 @@ import UploadsMain from "../../../commons/Uploads/uploadsMainImg/UploadsMain.con
 import TagPage from "../../../../commons/tags";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../../pages/_app";
+import { useRecoilState } from "recoil";
+import { BackImgUrl } from "../../../../commons/store";
 
 type data = {
   branch: string;
@@ -41,9 +43,8 @@ interface IAdminWriteUI {
 }
 
 export default function AdminWriteUI(props: IAdminWriteUI) {
-  console.log("roomdata", props.roomdata);
   const { theme } = useContext(ThemeContext);
-
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <>
       {props.isModalView && (
@@ -63,7 +64,7 @@ export default function AdminWriteUI(props: IAdminWriteUI) {
         <Ad.Wrapper theme={theme}>
           <Ad.HeadWrapper>
             <Ad.LogoWrapper>
-              <Ad.Logo src="/logo.png" />
+              <Ad.Logo src={`${ImgUrl}/logo.png`} />
             </Ad.LogoWrapper>
             <Ad.OptionWrapper>
               <Ad.OptionNew>

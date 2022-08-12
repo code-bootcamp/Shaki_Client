@@ -1,8 +1,26 @@
 import React, { useEffect } from "react";
-import { Cart } from "../DetailSidebar.styles";
 import * as D from "./style";
 
-export default function DragPage(props) {
+interface IDragProps {
+  onClickCartOpen: () => void;
+  handleOk: () => void;
+  setIsModalVisible: () => void;
+  setOption: any;
+  setSidePrice: any;
+  setCart: any;
+  guest: number;
+  cartRef: any;
+  setAdd: any;
+  cart: string[];
+  DumDum: {
+    name: string;
+    price: string;
+    countable: boolean;
+  }[];
+  add: { name: string; price: string; countable: boolean }[];
+}
+
+export default function DragPage(props: IDragProps) {
   let dragged: HTMLDivElement;
 
   // const itemRef = useRef(null);
@@ -45,14 +63,20 @@ export default function DragPage(props) {
     console.log(props.cart);
   };
 
-  const onClickCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (props.cart.includes(event.target.innerText)) {
+  const onClickCancel = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (props.cart.includes((event.target as HTMLDivElement).innerText)) {
       (event.target as HTMLDivElement).remove();
-      props.setCart(props.cart.filter((el) => el !== event.target.innerText));
+      props.setCart(
+        props.cart.filter(
+          (el: string) => el !== (event.target as HTMLDivElement).innerText
+        )
+      );
 
       for (let i = 0; i < props.DumDum.length; i++) {
         if (
-          event.target.innerText.split("$")[0].includes(props.DumDum[i].name)
+          (event.target as HTMLDivElement).innerText
+            .split("$")[0]
+            .includes(props.DumDum[i].name)
         ) {
           const item = props.DumDum[i];
           props.add.push(item);
@@ -125,7 +149,7 @@ export default function DragPage(props) {
           id="AfterDropzone"
           onDragOver={DragOver}
           onDrop={AfterDropZone}
-          onClickCancel={onClickCancel}
+          onClick={onClickCancel}
         ></D.DragZone>
       </D.DragBox>
       <D.CancelButton onClick={props.onClickCartOpen}>닫기</D.CancelButton>

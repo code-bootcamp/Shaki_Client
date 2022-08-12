@@ -24,7 +24,7 @@ const DownButton = styled.div`
   bottom: 700px;
   left: 1450px;
   z-index: 5;
-  background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
+  background-image: url("https://storage.googleapis.com/shaki-front/scrollArrow.png");
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,7 +44,7 @@ const UpButton = styled.div`
   bottom: -2050px;
   left: 1230px;
   z-index: 5;
-  background-image: url("https://storage.googleapis.com/front_image/scrollArrow.png");
+  background-image: url("https://storage.googleapis.com/shaki-front/scrollArrow.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;

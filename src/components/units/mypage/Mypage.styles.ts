@@ -584,7 +584,7 @@ export const TodayDetailWrapper = styled.div`
 
 export const Pick = styled.div`
   width: 100%;
-  height: 220px;
+  height: 420px;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;

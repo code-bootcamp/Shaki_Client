@@ -1,4 +1,6 @@
 import { ChangeEvent } from "react";
+import { useRecoilState } from "recoil";
+import { BackImgUrl } from "../../../../../commons/store";
 import * as Ad from "./AdminQuestionAnswer.styles";
 
 interface IAdminQuestionAnswerUI {
@@ -17,18 +19,19 @@ interface IAdminQuestionAnswerUI {
 }
 
 export default function AdminQuestionAnswerUI(props: IAdminQuestionAnswerUI) {
+  const [ImgUrl] = useRecoilState(BackImgUrl);
   return (
     <Ad.WrapperRoot>
       <Ad.Wrapper>
         <Ad.TopWrapper>
-          <Ad.TopLogo src="/logo.png" />
+          <Ad.TopLogo src={`${ImgUrl}/logo.png`} />
           <Ad.TopTitle>문의 답변하기</Ad.TopTitle>
         </Ad.TopWrapper>
         <Ad.DivedLine />
 
         <Ad.OptionNew>
           <Ad.ProfileWrapper>
-            <Ad.ProfileImg src="/profile.png" />
+            <Ad.ProfileImg src={`${ImgUrl}/profile.png`} />
             <Ad.TitleLabel
               type="text"
               defaultValue={props.data?.fetchQuestion.name}
