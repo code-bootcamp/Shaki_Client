@@ -26,8 +26,8 @@ function Mypage() {
     setPoint(sum);
     const today = JSON.parse(sessionStorage.getItem("today") || "[]");
     setToday(today);
+    console.log(point);
   }, [data]);
-  console.log(data);
 
   return (
     <MypageUI
